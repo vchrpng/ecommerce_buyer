@@ -1,8 +1,7 @@
-import shoppingbag from './shoppingbag'
-import shop from './shop'
+import products from './products'
 import { combineReducers } from 'redux'
 
 
 
 
-export default combineReducers({ shop })
+export default combineReducers({products})

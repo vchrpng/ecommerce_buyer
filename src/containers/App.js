@@ -13,28 +13,33 @@ import Shop from './Shop'
 
 
 
+
+
 class App extends Component {
   render() {
-    return (
-      <Router>
-      <div>
-     
-        <Nav/>
-     
-        <Route exact path="/" component={Home}/>
-        <Route path="/about" component={About}/>
-        <Route path="/contact" component={Contact}/>
-        <Route path="/shoppingbag" component={ShoppingBag}/>
-        <Route path="/shop" component={Shop}/>
-    
-        <hr/>
+      return (
+        <Router>
+          <div>
+            <Nav/>
       
-
-        <Footer/>
-      </div>
-      </Router>
-    );
+            <Route exact path="/" component={Home}/>
+            <Route path="/about" component={About}/>
+            <Route path="/contact" component={Contact}/>
+            <Route path="/shoppingbag" component={ShoppingBag}/>
+            <Route path="/shop" component={Shop}/>
+      
+            <hr/>
+            <Footer/>
+          </div>
+        </Router>
+      );
   }
 }
+
+
+
+
+
+
 
 export default App;
