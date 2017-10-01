@@ -9,7 +9,7 @@ import CategoryList from '../components/CategoryList/CategoryList'
 const Shop = ({products}) => {
         console.log(products)
         return(
-            <Container height={800}>
+            <Container >
                 <Row>
                     <Column md={3}>
                     <CategoryList/>

@@ -28,7 +28,7 @@ class App extends Component {
             <Route path="/shoppingbag" component={ShoppingBag}/>
             <Route path="/shop" component={Shop}/>
       
-            <hr/>
+            
             <Footer/>
           </div>
         </Router>

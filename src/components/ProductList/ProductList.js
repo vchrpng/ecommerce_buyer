@@ -1,6 +1,8 @@
 import React from 'react'
 import Image from '../Etc/Image'
 import {Thumbnail} from './ProductList.style'
+import { Row , Column } from '../../theme/Grid'
+
 
 const ProductList = ({product}) => {
 
@@ -10,11 +12,17 @@ const ProductList = ({product}) => {
               
             <Image 
                 height={'291px'} 
-                width={'235px'}
+                width={'237px'}
                 image={product.img}
             />
-            <label>{product.title}</label><br/>
-            <label>{product.price} $</label>
+            <Row>
+                <Column style={{marginTop:'10px'}}>
+                    {product.title}
+                </Column>
+                <Column>
+                    {product.price} $
+                </Column>
+            </Row>
         
         </Thumbnail>
       
