@@ -17,7 +17,7 @@ function getWidth(span) {
 
 
 export const Column = styled.div`
-    padding:40px;
+  
     width:100%;
     float:left;
     
@@ -48,4 +48,16 @@ export const Flex = styled.div`
     `}
 `
 
+export const Grid = styled.div`
+     display:grid;
+
+     ${({ column }) => column && css`
+        grid-template-columns:repeat(${column});
+     `}
+
+     ${({ gap }) => gap && css`
+        grid-gap:${gap}px;
+     `}
+
+`
 
