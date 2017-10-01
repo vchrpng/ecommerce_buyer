@@ -1,11 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Container from '../components/Etc/Container'
 import { Row , Column } from '../theme/Grid'
+import { connect } from 'react-redux'
+import { showProducts } from '../reducers/products'
+import ProductList from '../components/ProductList/ProductList'
 
-class Shop extends React.Component {
-    render(){
-     
+const Shop = ({products}) => {
+        console.log(products)
         return(
             <Container height={800}>
                 <Row>
@@ -14,7 +15,12 @@ class Shop extends React.Component {
                         </Column>
                     <Column md={4}>
                         <Row>
-                            yes
+                     {products.map(product => 
+                        <ProductList 
+                            key={product.id}
+                            product={product}
+                        />
+                     )}
                         </Row>
                     </Column>
                     <Column md={1}>
@@ -24,18 +30,11 @@ class Shop extends React.Component {
             </Container>
         )
     }
-}
 
-Shop.PropTypes = {
-    products : PropTypes.shape({
-        id : PropTypes.number.isRequired,
-        img : PropTypes.string.isRequired,
-        brand : PropTypes.string.isRequired,
-        title : PropTypes.string.isRequired,
-        price : PropTypes.number.isRequired,
-        description : PropTypes.string.isRequired
-    }).isRequired
-}
+const mapStateToProps = state => ({
+    products : showProducts(state.products)
+})
 
-export default Shop
+
+export default connect(mapStateToProps)(Shop)
 

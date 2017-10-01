@@ -19,7 +19,8 @@ const store = createStore(
     applyMiddleware(...middleware)
   )
 
-store.dispatch(getAllProducts())
+  store.dispatch(getAllProducts())
+
 
 ReactDOM.render(
     <Provider store={store}>
