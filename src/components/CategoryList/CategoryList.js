@@ -1,15 +1,16 @@
 import React from 'react'
+import { List , Item } from './CategoryList.style'
 import category from '../../constants/Category'
 
 const CategoryList = () => {
     
 
     return (
-        <ul>
+        <List>
             {category.map(i => 
-                <li key={i}>{i}</li>
+                <Item key={i}>{i}</Item>
             )}
-        </ul>
+        </List>
     )
 }
 

@@ -4,8 +4,8 @@ import styled from 'styled-components'
 
 const Img = styled.div`
     background-image: url('${(props) => props.image}');
-    width: ${(props) => props.width}px;
-    height: ${(props) => props.height}px;
+    width: ${(props) => props.width};
+    height: ${(props) => props.height};
     background-size:cover;
 `
 

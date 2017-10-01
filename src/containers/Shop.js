@@ -14,8 +14,8 @@ const Shop = ({products}) => {
                     <Column md={3}>
                     <CategoryList/>
                         </Column>
-                    <Column md={8}>
-                      <Grid column={'4,1fr'} gap={20}>
+                    <Column md={6}>
+                      <Grid column={'3,1fr'} gap={20}>
                      {products.map(product => 
                         <ProductList 
                             key={product.id}
@@ -24,7 +24,7 @@ const Shop = ({products}) => {
                      )}
                        </Grid>
                     </Column>
-                    <Column md={1}>
+                    <Column md={3}>
                         
                     </Column>
                 </Row>

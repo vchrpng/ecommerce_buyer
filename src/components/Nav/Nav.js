@@ -1,16 +1,16 @@
 import React from 'react'
 import { Flex } from '../../theme/Grid'
-import { List , ListItem , CustomLink } from './Nav.style'
+import { List , Item , CustomLink } from './Nav.style'
 
 const Nav = () => {
     return(
         <Flex justify={'center'} align={'center'}>
         <List>
-                <ListItem><CustomLink to="/shop">Shop</CustomLink></ListItem>
-                <ListItem><CustomLink to="/shoppingbag">shopping bag</CustomLink></ListItem>  
-                <ListItem><CustomLink to="/">Home</CustomLink></ListItem>
-                <ListItem><CustomLink to="/contact">Contact</CustomLink></ListItem>
-                <ListItem><CustomLink to="/about">About</CustomLink></ListItem>
+                <Item><CustomLink to="/shop">Shop</CustomLink></Item>
+                <Item><CustomLink to="/shoppingbag">shopping bag</CustomLink></Item>  
+                <Item><CustomLink to="/">Home</CustomLink></Item>
+                <Item><CustomLink to="/contact">Contact</CustomLink></Item>
+                <Item><CustomLink to="/about">About</CustomLink></Item>
         </List>
         </Flex>
     )
