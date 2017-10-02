@@ -12,7 +12,7 @@ const Shop = ({products}) => {
             <Container >
                 <Row>
                     <Column md={3}>
-                    <CategoryList/>
+                    <CategoryList products={products}/>
                         </Column>
                     <Column md={6}>
                       <Grid column={'3,1fr'} gap={20}>

@@ -17,8 +17,3 @@ export const Item = styled.li`
     padding:30px;
 `
 
-export const CustomLink = styled(Link)`
-    color:black;
-    text-decoration: none;
-
-`

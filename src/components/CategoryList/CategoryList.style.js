@@ -9,4 +9,7 @@ export const List = styled.ul`
 export const Item = styled.li`
     padding:10px;
     font-size:0.5em;
+    color:black;
+    text-decoration:none;
+    text-transform:uppercase;
 `

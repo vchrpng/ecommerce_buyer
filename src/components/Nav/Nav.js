@@ -1,6 +1,7 @@
 import React from 'react'
 import { Flex } from '../../theme/Grid'
-import { List , Item , CustomLink } from './Nav.style'
+import { List , Item  } from './Nav.style'
+import { CustomLink } from '../Etc/CustomLink'
 
 const Nav = () => {
     return(
