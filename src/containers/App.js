@@ -27,7 +27,6 @@ class App extends Component {
             <Route path="/contact" component={Contact}/>
             <Route path="/shoppingbag" component={ShoppingBag}/>
             <Route path="/shop" component={Shop}/>
-            {/* <Route path={`${this.props.match.url}view/:postId`} component={Product}/> */}
             <Route path="/products/:category/:id" component={Product}/>
             
             <Footer/>

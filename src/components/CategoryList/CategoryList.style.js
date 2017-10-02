@@ -13,3 +13,11 @@ export const Item = styled.li`
     text-decoration:none;
     text-transform:uppercase;
 `
+
+export const NewaArrival = styled.li`
+padding:10px 10px 20px 10px;
+font-size:0.7em;
+color:black;
+text-decoration:none;
+text-transform:uppercase;
+`

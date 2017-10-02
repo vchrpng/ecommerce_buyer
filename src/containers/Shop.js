@@ -1,5 +1,4 @@
 import React from 'react'
-import Container from '../components/Etc/Container'
 import { Row , Column , Grid } from '../theme/Grid'
 import { connect } from 'react-redux'
 import { showProducts } from '../reducers/products'
@@ -9,7 +8,7 @@ import CategoryList from '../components/CategoryList/CategoryList'
 const Shop = ({products}) => {
         console.log(products)
         return(
-            <Container >
+            
                 <Row>
                     <Column md={2}>
                     <CategoryList products={products}/>
@@ -28,7 +27,7 @@ const Shop = ({products}) => {
                         
                     </Column>
                 </Row>
-            </Container>
+      
         )
     }
 

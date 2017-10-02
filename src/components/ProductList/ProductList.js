@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from '../Etc/Image'
-import {Thumbnail} from './ProductList.style'
+import { Thumbnail } from './ProductList.style'
 import { Row , Column } from '../../theme/Grid'
 import { Link } from 'react-router-dom'
 

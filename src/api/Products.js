@@ -5,8 +5,8 @@ const products = [
         "brand":"ZARA",
         "title":"Denim Jacket",
         "category":"jackets",
-        "price":3500,
-        "description":"description ..."
+        "price":350,
+        "description":"Lorem ipsum dolor sit amet, ea nec reque consectetuer, malis recteque nam no. Ne nam omnis iuvaret. Vel inimicus petentium no. Admodum phaedrum ea cum, ut nam velit maluisset complectitur. Sea ad reque populo facilisis, exerci patrioque conceptam mea ne. Pro eu numquam voluptua, ea eam nusquam officiis sententiae.Et modo expetenda vulputate sed, te vis congue omittam periculis, ad mei sonet oratio phaedrum. An suas efficiendi sea, explicari consulatu an sit. Ea mei duis dolores singulis. Eu posse facer feugiat vis. Vulputate interesset ad quo. Harum affert vis no, labore verear quo eu."
     },
     {
         "id":2,
@@ -14,8 +14,8 @@ const products = [
         "brand":"ZARA",
         "title":"White T-Shirt",
         "category":"t-shirts",
-        "price":1500,
-        "description":"description ..."
+        "price":150,
+        "description":"Lorem ipsum dolor sit amet, ea nec reque consectetuer, malis recteque nam no. Ne nam omnis iuvaret. Vel inimicus petentium no. Admodum phaedrum ea cum, ut nam velit maluisset complectitur. Sea ad reque populo facilisis, exerci patrioque conceptam mea ne. Pro eu numquam voluptua, ea eam nusquam officiis sententiae.Et modo expetenda vulputate sed, te vis congue omittam periculis, ad mei sonet oratio phaedrum. An suas efficiendi sea, explicari consulatu an sit. Ea mei duis dolores singulis. Eu posse facer feugiat vis. Vulputate interesset ad quo. Harum affert vis no, labore verear quo eu."
     },
     {
         "id":3,
@@ -23,8 +23,8 @@ const products = [
         "brand":"ZARA",
         "title":"Shirt",
         "category":"shirts",
-        "price":2500,
-        "description":"description ..."
+        "price":250,
+        "description":"Lorem ipsum dolor sit amet, ea nec reque consectetuer, malis recteque nam no. Ne nam omnis iuvaret. Vel inimicus petentium no. Admodum phaedrum ea cum, ut nam velit maluisset complectitur. Sea ad reque populo facilisis, exerci patrioque conceptam mea ne. Pro eu numquam voluptua, ea eam nusquam officiis sententiae.Et modo expetenda vulputate sed, te vis congue omittam periculis, ad mei sonet oratio phaedrum. An suas efficiendi sea, explicari consulatu an sit. Ea mei duis dolores singulis. Eu posse facer feugiat vis. Vulputate interesset ad quo. Harum affert vis no, labore verear quo eu."
     },
     {
         "id":4,
@@ -32,8 +32,8 @@ const products = [
         "brand":"ZARA",
         "title":"Hoodie",
         "category":"sweatshirts",
-        "price":1500,
-        "description":"description ..."
+        "price":150,
+        "description":"Lorem ipsum dolor sit amet, ea nec reque consectetuer, malis recteque nam no. Ne nam omnis iuvaret. Vel inimicus petentium no. Admodum phaedrum ea cum, ut nam velit maluisset complectitur. Sea ad reque populo facilisis, exerci patrioque conceptam mea ne. Pro eu numquam voluptua, ea eam nusquam officiis sententiae.Et modo expetenda vulputate sed, te vis congue omittam periculis, ad mei sonet oratio phaedrum. An suas efficiendi sea, explicari consulatu an sit. Ea mei duis dolores singulis. Eu posse facer feugiat vis. Vulputate interesset ad quo. Harum affert vis no, labore verear quo eu."
     },
     {
         "id":5,
@@ -41,8 +41,8 @@ const products = [
         "brand":"ZARA",
         "title":"Denim Jacket",
         "category":"jackets",
-        "price":3500,
-        "description":"description ..."
+        "price":350,
+        "description":"Lorem ipsum dolor sit amet, ea nec reque consectetuer, malis recteque nam no. Ne nam omnis iuvaret. Vel inimicus petentium no. Admodum phaedrum ea cum, ut nam velit maluisset complectitur. Sea ad reque populo facilisis, exerci patrioque conceptam mea ne. Pro eu numquam voluptua, ea eam nusquam officiis sententiae.Et modo expetenda vulputate sed, te vis congue omittam periculis, ad mei sonet oratio phaedrum. An suas efficiendi sea, explicari consulatu an sit. Ea mei duis dolores singulis. Eu posse facer feugiat vis. Vulputate interesset ad quo. Harum affert vis no, labore verear quo eu."
     },
     {
         "id":6,
@@ -50,8 +50,8 @@ const products = [
         "brand":"ZARA",
         "title":"White T-Shirt",
         "category":"t-shirts",
-        "price":1500,
-        "description":"description ..."
+        "price":150,
+        "description":"Lorem ipsum dolor sit amet, ea nec reque consectetuer, malis recteque nam no. Ne nam omnis iuvaret. Vel inimicus petentium no. Admodum phaedrum ea cum, ut nam velit maluisset complectitur. Sea ad reque populo facilisis, exerci patrioque conceptam mea ne. Pro eu numquam voluptua, ea eam nusquam officiis sententiae.Et modo expetenda vulputate sed, te vis congue omittam periculis, ad mei sonet oratio phaedrum. An suas efficiendi sea, explicari consulatu an sit. Ea mei duis dolores singulis. Eu posse facer feugiat vis. Vulputate interesset ad quo. Harum affert vis no, labore verear quo eu."
     },
     {
         "id":7,
@@ -59,8 +59,8 @@ const products = [
         "brand":"ZARA",
         "title":"Shirt",
         "category":"shirts",
-        "price":2500,
-        "description":"description ..."
+        "price":250,
+        "description":"Lorem ipsum dolor sit amet, ea nec reque consectetuer, malis recteque nam no. Ne nam omnis iuvaret. Vel inimicus petentium no. Admodum phaedrum ea cum, ut nam velit maluisset complectitur. Sea ad reque populo facilisis, exerci patrioque conceptam mea ne. Pro eu numquam voluptua, ea eam nusquam officiis sententiae.Et modo expetenda vulputate sed, te vis congue omittam periculis, ad mei sonet oratio phaedrum. An suas efficiendi sea, explicari consulatu an sit. Ea mei duis dolores singulis. Eu posse facer feugiat vis. Vulputate interesset ad quo. Harum affert vis no, labore verear quo eu."
     },
     {
         "id":8,
@@ -68,8 +68,8 @@ const products = [
         "brand":"ZARA",
         "title":"Hoodie",
         "category":"sweatshirts",
-        "price":1500,
-        "description":"description ..."
+        "price":150,
+        "description":"Lorem ipsum dolor sit amet, ea nec reque consectetuer, malis recteque nam no. Ne nam omnis iuvaret. Vel inimicus petentium no. Admodum phaedrum ea cum, ut nam velit maluisset complectitur. Sea ad reque populo facilisis, exerci patrioque conceptam mea ne. Pro eu numquam voluptua, ea eam nusquam officiis sententiae.Et modo expetenda vulputate sed, te vis congue omittam periculis, ad mei sonet oratio phaedrum. An suas efficiendi sea, explicari consulatu an sit. Ea mei duis dolores singulis. Eu posse facer feugiat vis. Vulputate interesset ad quo. Harum affert vis no, labore verear quo eu."
     }
 ]
 
