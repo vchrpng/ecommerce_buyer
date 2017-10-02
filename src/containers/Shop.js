@@ -11,11 +11,11 @@ const Shop = ({products}) => {
         return(
             <Container >
                 <Row>
-                    <Column md={3}>
+                    <Column md={2}>
                     <CategoryList products={products}/>
                         </Column>
-                    <Column md={6}>
-                      <Grid column={'3,1fr'} gap={20}>
+                    <Column md={9} sm={12}>
+                      <Grid column={'repeat(auto-fill,19em)'} colGap={10} rowGap={50}>
                      {products.map(product => 
                         <ProductList 
                             key={product.id}
@@ -24,7 +24,7 @@ const Shop = ({products}) => {
                      )}
                        </Grid>
                     </Column>
-                    <Column md={3}>
+                    <Column md={1}>
                         
                     </Column>
                 </Row>

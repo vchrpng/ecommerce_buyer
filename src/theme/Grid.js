@@ -52,12 +52,20 @@ export const Grid = styled.div`
      display:grid;
 
      ${({ column }) => column && css`
-        grid-template-columns:repeat(${column});
+        grid-template-columns:${column};
      `}
 
      ${({ gap }) => gap && css`
         grid-gap:${gap}px;
      `}
+
+     ${({ rowGap }) => rowGap && css`
+        grid-row-gap:${rowGap}px;
+     `}
+
+     ${({ colGap }) => colGap && css`
+     grid-column-gap:${colGap}px;
+  `}
 
 `
 

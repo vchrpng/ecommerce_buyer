@@ -9,8 +9,8 @@ const CategoryList = () => {
        
         <List>
             {category.map(i => 
-                <CustomLink to={`/products/${i}`}>
-                <Item key={i}>{i}</Item>
+                <CustomLink key={i} to={`/products/${i}`}>
+                <Item >{i}</Item>
                 </CustomLink>
             )}
         </List>

@@ -5,15 +5,15 @@ import { Row , Column } from '../../theme/Grid'
 import { Link } from 'react-router-dom'
 
 
-const ProductList = ({product}) => {
+const ProductList = ({ product }) => {
 
     return(
       
         <Thumbnail>
             <Link to={`/products/${product.category}/${product.id}`}>
             <Image 
-                height={'291px'} 
-                width={'237px'}
+                height={'100%'} 
+                width={'100%'}
                 image={product.img}
             />
             </Link>
