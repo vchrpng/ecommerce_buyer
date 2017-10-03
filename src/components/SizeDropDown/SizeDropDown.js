@@ -3,7 +3,11 @@ import React from 'react'
 const SizeDropDown = () => {
     return (
         <div>
-            Product SizeDropDown
+            <select>
+                <option>
+                    SELECT YOUR SIZE
+                </option>
+            </select>
         </div>
     )
 }

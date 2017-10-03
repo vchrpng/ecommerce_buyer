@@ -11,4 +11,22 @@ export const getAllProducts = () => dispatch => {
     dispatch(receiveProducts(products))
 }
 
+const selectProduct = (productId) => ({
+    type : types.ADD_TO_SHOPPINGBAG,
+    productId
+})
+
+export const addToBag = productId => (dispatch,getState) => {
+    const { size } = getState()
+    dispatch(selectProduct(productId))
+}
+
+
+
+
+
+
+
+
+
 

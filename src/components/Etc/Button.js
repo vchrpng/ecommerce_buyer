@@ -1,9 +1,13 @@
 import React from 'react'
 
-const Button = () => {
+const Button = ({ children , addProductToBag }) => {
     return (
         <div>
-            Product Button
+            <button
+                onClick={addProductToBag}
+            >
+                {children}
+            </button>
         </div>
     )
 }
