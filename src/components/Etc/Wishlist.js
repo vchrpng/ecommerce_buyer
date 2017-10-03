@@ -1,12 +1,11 @@
 import React from 'react'
 
-const SizePickup = () => {
+const Wishlist = () => {
     return (
-
         <div>
-            SizePickup
+            Product Wishlist
         </div>
     )
 }
 
-export default SizePickup
+export default Wishlist

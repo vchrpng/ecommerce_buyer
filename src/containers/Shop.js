@@ -13,7 +13,7 @@ const Shop = ({products}) => {
                     <Column md={2}>
                     <CategoryList products={products}/>
                         </Column>
-                    <Column md={9} sm={12}>
+                    <Column md={8} sm={12}>
                       <Grid column={'repeat(auto-fill,19em)'} colGap={10} rowGap={50}>
                      {products.map(product => 
                         <ProductList 

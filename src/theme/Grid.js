@@ -44,7 +44,7 @@ export const Flex = styled.div`
     justify-content: ${justify};
     `}
     ${({ align }) => align && css`
-    align-content: ${align};
+    align-items: ${align};
     `}
 `
 

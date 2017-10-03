@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { showProducts } from '../reducers/products'
 import Container from '../components/Etc/Container'
-import { Row , Column } from '../theme/Grid'
+import { Row , Column , Flex } from '../theme/Grid'
 import Image from '../components/Etc/Image'
-import SizePickup from '../components/SizePickup/SizePickup'
+import ShippingDetail from '../components/ShippingDetail/ShippingDetail'
 
 const Product = ({ match , products }) => {
     const { id } = match.params
@@ -14,23 +14,23 @@ const Product = ({ match , products }) => {
     return(
         <Row>
             <Column lg={3}>
-                <Container padding={40}>
-                    {currentProduct.title}
+                <Flex align={'center'} style={{padding:'40px',height:'70vh'}}>
+                   <p> {currentProduct.title}
                     <br/>
-                    {currentProduct.description}
-                </Container>
+                    {currentProduct.description} </p>
+                </Flex>
             </Column>
             <Column lg={4}>
-                <Container padding={40}>
+                <Container height={'70vh'} padding={40}>
                     <Image height={'61vh'} width={'auto'} image={currentProduct.img}/>
                 </Container>
             </Column>
             <Column lg={3}>
-                <Container padding={40}>
-                    <SizePickup>
+                <Flex align={'center'} style={{padding:'40px',height:'70vh'}}>
+                    <ShippingDetail>
                         {currentProduct.price} $
-                    </SizePickup>   
-                </Container>
+                    </ShippingDetail>   
+                </Flex>
             </Column>
         </Row>
 

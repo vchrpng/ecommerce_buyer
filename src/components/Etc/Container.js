@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const ContainerStyle = styled.div`
-    height: ${(props) => props.height}px;
+    height: ${(props) => props.height};
     padding: ${(props) => props.padding}px;
 `
 

@@ -1,12 +1,11 @@
 import React from 'react'
 
-const SizePickup = () => {
+const Button = () => {
     return (
-
         <div>
-            SizePickup
+            Product Button
         </div>
     )
 }
 
-export default SizePickup
+export default Button
