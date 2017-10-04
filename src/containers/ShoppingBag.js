@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import Container from '../components/Etc/Container'
+import { connect } from 'react-redux'
 import { Row , Column } from '../theme/Grid'
+import { getBagProducts } from '../reducers'
 
-export default class ShoppingBag extends Component {
+class ShoppingBag extends Component {
     render() {
         return (
             <Container height={500}>
@@ -15,3 +17,11 @@ export default class ShoppingBag extends Component {
         )
     }
 }
+
+
+const mapStateToProps = state => ({
+    products : getBagProducts(state)
+})
+
+
+export default connect(mapStateToProps)(ShoppingBag)

@@ -5,6 +5,7 @@ import { showProducts } from '../reducers/products'
 import ProductList from '../components/ProductList/ProductList'
 import CategoryList from '../components/CategoryList/CategoryList'
 
+
 const Shop = ({products}) => {
         console.log(products)
         return(

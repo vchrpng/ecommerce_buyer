@@ -2,7 +2,7 @@ import React from 'react';
 import SizePickup from '../SizePickup/SizePickup'
 
 
-const ShippingDetail = ({children}) => {
+const ShippingDetail = ({children , addToBagClicked}) => {
     return (
         <div style={{textAlign:'center'}}>
             <div>
@@ -10,7 +10,7 @@ const ShippingDetail = ({children}) => {
                 <p>Taxes and duties included.<br/>
                 Free shipping on orders over $500</p>
             </div>
-                <SizePickup/>
+                <SizePickup addToBagClicked={addToBagClicked}/>
         </div>
 
     )

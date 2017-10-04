@@ -4,15 +4,18 @@ import SizeDropDown from '../SizeDropDown/SizeDropDown'
 import Button from '../Etc/Button'
 
 
-const SizePickup = () => {
+
+const SizePickup = ({ addToBagClicked }) => {
     return (
         <div>
-           <Field name="sizeSelector" component={SizeDropDown}/>
-            <Button>
+           <Field
+            name="sizePickup" 
+            component={SizeDropDown}/>
+            <Button onClick={addToBagClicked}>
                 ADD TO BAG
             </Button>
         </div>
     )
 }
 
-export default reduxForm({ form : 'sizeSelector' })(SizePickup)
+export default reduxForm({ form : 'sizePickup' })(SizePickup)

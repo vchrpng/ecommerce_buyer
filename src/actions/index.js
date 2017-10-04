@@ -16,8 +16,7 @@ const selectProduct = (productId) => ({
     productId
 })
 
-export const addToBag = productId => (dispatch,getState) => {
-    const { size } = getState()
+export const addToBag = productId => dispatch => {
     dispatch(selectProduct(productId))
 }
 
