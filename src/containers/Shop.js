@@ -9,26 +9,23 @@ import CategoryList from '../components/CategoryList/CategoryList'
 const Shop = ({products}) => {
         console.log(products)
         return(
-            
                 <Row>
                     <Column md={2}>
-                    <CategoryList products={products}/>
-                        </Column>
+                        <CategoryList products={products}/>
+                    </Column>
                     <Column md={8} sm={12}>
-                      <Grid column={'repeat(auto-fill,19em)'} colGap={10} rowGap={50}>
-                     {products.map(product => 
+                        <Grid column={'repeat(auto-fill,19em)'} colGap={10} rowGap={50}>
+                            {products.map(product => 
                         <ProductList 
                             key={product.id}
-                            product={product}
-                        />
-                     )}
+                            product={product}/>
+                        )}
                        </Grid>
                     </Column>
                     <Column md={1}>
                         
                     </Column>
                 </Row>
-      
         )
     }
 

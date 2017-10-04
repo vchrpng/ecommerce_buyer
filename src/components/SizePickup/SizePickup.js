@@ -1,21 +1,26 @@
 import React from 'react'
 import { Field , reduxForm} from 'redux-form'
 import SizeDropDown from '../SizeDropDown/SizeDropDown'
-import Button from '../Etc/Button'
+import { connect } from 'react-redux'
+import { addToBag } from '../../actions'
 
 
 
-const SizePickup = ({ addToBagClicked }) => {
+const SizePickup = ({ currentProduct }) => {
     return (
         <div>
            <Field
             name="sizePickup" 
             component={SizeDropDown}/>
-            <Button onClick={addToBagClicked}>
+            <button onClick={()=>addToBag(currentProduct.id)}>
                 ADD TO BAG
-            </Button>
+            </button>
         </div>
     )
 }
+const mapStateToProps = state => ({
+   
+})
+const reduxFormConfig = reduxForm({ form : 'sizePickup'})(SizePickup)
 
-export default reduxForm({ form : 'sizePickup' })(SizePickup)
+export default connect(mapStateToProps)(reduxFormConfig)

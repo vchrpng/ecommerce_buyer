@@ -1,14 +1,15 @@
 import products , * as productReducer from './products'
-import * as shoppingbagReducer from './shoppingbag'
+import shoppingbag , * as shoppingbagReducer from './shoppingbag'
 import { combineReducers } from 'redux'
 import { reducer as form } from 'redux-form';
 
-export default combineReducers({ products,form})
+export default combineReducers({ products,form,shoppingbag})
 
 
-const getProduct = (state,id) => productReducer.byId(state,id)
+const getProducts = (state,id) => productReducer.getProducts(state.products,id)
+const getBagProductsById = (state,id) => shoppingbagReducer.getBagProductsById(state.shoppingbag,id)
 
 export const getBagProducts = state => 
-    ({
-        ...getProduct
-    })
+    getBagProductsById(state).map(id => ({
+            ...getProducts(state,id)
+        }))
