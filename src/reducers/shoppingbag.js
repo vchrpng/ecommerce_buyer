@@ -8,7 +8,7 @@ const addToBagById = (state = initialState.id , action) => {
     switch(action.type){
         case ADD_TO_SHOPPINGBAG :
             console.log("ADD TO BAG BY ID !!")
-            return [...state,action.id]
+            return [...state,action]
         default : 
             return state
     }

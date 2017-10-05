@@ -1,4 +1,4 @@
-const Lorem = "Lorem ipsum dolor sit amet, ea nec reque consectetuer, malis recteque nam no. Ne nam omnis iuvaret. Vel inimicus petentium no. Admodum phaedrum ea cum, ut nam velit maluisset complectitur. Sea ad reque populo facilisis, exerci patrioque conceptam mea ne. Pro eu numquam voluptua, ea eam nusquam officiis sententiae.Et modo expetenda vulputate sed, te vis congue omittam periculis, ad mei sonet oratio phaedrum. An suas efficiendi sea, explicari consulatu an sit. Ea mei duis dolores singulis. Eu posse facer feugiat vis. Vulputate interesset ad quo. Harum affert vis no, labore verear quo eu."
+const Lorem = "Lorem ipsum dolor sit amet, ea nec reque consectetuer, malis recteque nam no. Ne nam omnis iuvaret. Vel inimicus petentium no. Admodum phaedrum ea cum, ut nam velit maluisset complectitur. Sea ad reque populo facilisis, exerci patrioque conceptam mea ne. Pro eu numquam voluptua, ea eam nusquam officiis sententiae.Et modo expetenda vulputate sed, te vis congue omittam periculis, ad mei sonet oratio phaedrum."
 
 const products = [
     {

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import SizePickup from '../SizePickup/SizePickup'
-import { Button , Icon , Header , Grid } from 'semantic-ui-react'
+import { Header , Grid } from 'semantic-ui-react'
+import { ButtonStyled } from '../Etc/ButtonStyled'
 
 
 const ShippingDetail = ({ children , onAddToBag }) => {
@@ -15,9 +16,9 @@ const ShippingDetail = ({ children , onAddToBag }) => {
                 <SizePickup/>
             </Grid.Row>
             <Grid.Row>
-                <Button onClick={onAddToBag}>
-                    <Button.Content>ADD TO BAG</Button.Content>
-                </Button>
+                <ButtonStyled onClick={onAddToBag}>
+                    ADD TO BAG
+                </ButtonStyled>
             </Grid.Row>
         </Grid>
 

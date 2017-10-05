@@ -11,7 +11,7 @@ import About from './About'
 import Contact from './Contact'
 import Shop from './Shop'
 import Product from './Product'
-import Container from '../components/Etc/Container'
+
 
 
 
@@ -20,7 +20,7 @@ class App extends Component {
   render() {
       return (
         <Router>
-          <Container padding={40}>
+        <div style={{padding:'40px'}}>
             <Nav/>
       
             <Route exact path="/" component={Home}/>
@@ -31,7 +31,7 @@ class App extends Component {
             <Route path="/products/:category/:id" component={Product}/>
             
             <Footer/>
-          </Container>
+        </div>
         </Router>
       );
   }
