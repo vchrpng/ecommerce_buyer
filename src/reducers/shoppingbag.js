@@ -19,6 +19,7 @@ export const getBagProductsById = state => state.addToBagById
 const shoppingbag = (state = initialState,action) => {
     switch(action.type){
         default : 
+            console.log("shoppingbag !!")
             return {
                 addToBagById : addToBagById(state.addToBagById,action)
             }

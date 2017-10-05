@@ -1,5 +1,6 @@
 import React from 'react'
-import { Row , Column , Grid } from '../theme/Grid'
+import { Grid } from 'semantic-ui-react'
+import { DisplayGrid } from '../theme/Grid'
 import { connect } from 'react-redux'
 import { showProducts } from '../reducers/products'
 import ProductList from '../components/ProductList/ProductList'
@@ -9,23 +10,25 @@ import CategoryList from '../components/CategoryList/CategoryList'
 const Shop = ({products}) => {
         console.log(products)
         return(
-                <Row>
-                    <Column md={2}>
+                <Grid columns={3}>
+                    <Grid.Row>
+                    <Grid.Column mobile={16} tablet={16} computer={3}>
                         <CategoryList products={products}/>
-                    </Column>
-                    <Column md={8} sm={12}>
-                        <Grid column={'repeat(auto-fill,19em)'} colGap={10} rowGap={50}>
+                    </Grid.Column>
+                    <Grid.Column mobile={16} tablet={16} computer={10}>
+                        <DisplayGrid column={'repeat(auto-fill,19em)'} colGap={10} rowGap={70}>
                             {products.map(product => 
                         <ProductList 
                             key={product.id}
                             product={product}/>
                         )}
-                       </Grid>
-                    </Column>
-                    <Column md={1}>
-                        
-                    </Column>
-                </Row>
+                       </DisplayGrid>
+                    </Grid.Column>
+                    <Grid.Column mobile={16} tablet={16} computer={3}>
+                        mobile 16 tab 8 com 4
+                    </Grid.Column>
+                    </Grid.Row>
+                </Grid>
         )
     }
 

@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { showProducts } from '../reducers/products'
-import Container from '../components/Etc/Container'
-import { Row , Column , Flex } from '../theme/Grid'
-import Image from '../components/Etc/Image'
+import { Grid , Container , Image , Divider , Header } from 'semantic-ui-react'
 import ShippingDetail from '../components/ShippingDetail/ShippingDetail'
 import { addToBag } from '../actions'
 
@@ -12,27 +10,28 @@ const Product = ({ match , products , addToBag }) => {
     const currentProduct = products[id-1]
 
     return(
-        <Row>
-            <Column lg={3}>
-                <Flex align={'center'} style={{padding:'40px',height:'70vh'}}>
-                   <p> {currentProduct.title}
-                    <br/>
-                    {currentProduct.description} </p>
-                </Flex>
-            </Column>
-            <Column lg={4}>
-                <Container height={'70vh'} padding={40}>
-                    <Image height={'61vh'} width={'auto'} image={currentProduct.img}/>
+        <Grid verticalAlign='middle'>
+            <Grid.Row columns={3}>
+            <Grid.Column mobile={16} tablet={16} computer={5}>
+                <Container text fluid>
+                 <Divider horizontal>{currentProduct.title}</Divider>           
+                 <p>  {currentProduct.description} </p>
                 </Container>
-            </Column>
-            <Column lg={3}>
-                <Flex align={'center'} style={{padding:'40px',height:'70vh'}}>
-                    <ShippingDetail onAddToBag={() => addToBag(currentProduct.id)}>
-                        {currentProduct.price} $
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={16} computer={6}>
+                <Container>
+                    <Image src={currentProduct.img} fluid/>
+                </Container>
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={16} computer={5}>
+                <Container>
+                    <ShippingDetail onAddToBag={() => addToBag(currentProduct)}>
+                      {currentProduct.price} $
                     </ShippingDetail>   
-                </Flex>
-            </Column>
-        </Row>
+                </Container>
+            </Grid.Column>
+            </Grid.Row>
+        </Grid>
     )
 }
 

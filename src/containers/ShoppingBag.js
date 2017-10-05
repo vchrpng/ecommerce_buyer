@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Container from '../components/Etc/Container'
 import { connect } from 'react-redux'
 import { Row , Column } from '../theme/Grid'
 import { getBagProducts } from '../reducers'
 
-class ShoppingBag extends Component {
-    render() {
+const ShoppingBag = ({ products }) => {
+    console.log(products)
         return (
             <Container height={500}>
                 <Row>
@@ -15,7 +15,6 @@ class ShoppingBag extends Component {
                 </Row>
             </Container>
         )
-    }
 }
 
 

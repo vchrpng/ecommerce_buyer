@@ -14,8 +14,7 @@ const ProductList = ({ product }) => {
             <Image 
                 height={'100%'} 
                 width={'100%'}
-                image={product.img}
-            />
+                image={product.img}/>
             </Link>
             <Row>
                 <Column style={{marginTop:'10px'}}>

@@ -1,15 +1,15 @@
 import React from 'react'
 import { Field , reduxForm} from 'redux-form'
 import SizeDropDown from '../SizeDropDown/SizeDropDown'
-
+import { Container } from 'semantic-ui-react'
 
 const SizePickup = () => {
     return (
-        <div>
+        <Container>
            <Field
             name="sizePickup" 
             component={SizeDropDown}/>
-        </div>
+        </Container>
     )
 }
 

@@ -48,9 +48,9 @@ export const Flex = styled.div`
     `}
 `
 
-export const Grid = styled.div`
+export const DisplayGrid = styled.div`
      display:grid;
-
+     justify-content:center;
      ${({ column }) => column && css`
         grid-template-columns:${column};
      `}

@@ -1,22 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import SizePickup from '../SizePickup/SizePickup'
+import { Button , Icon , Header , Grid } from 'semantic-ui-react'
 
 
-const ShippingDetail = ({children , onAddToBag}) => {
+const ShippingDetail = ({ children , onAddToBag }) => {
     
     return (
-        <div style={{textAlign:'center'}}>
-            <div>
-                <h3>{children}</h3>
-                <p>Taxes and duties included.<br/>
-                Free shipping on orders over $500</p>
-            </div>
+        <Grid container textAlign="center">
+            <Grid.Row ><Header size="medium">{children}</Header></Grid.Row >
+            <Grid.Row ><p>Taxes and duties included.<br/>
+                Free shipping on orders over $500</p></Grid.Row >
+            <Grid.Row>
                 <SizePickup/>
-                <button onClick={onAddToBag}>
-                ADD TO BAG
-                </button>
-        </div>
+            </Grid.Row>
+            <Grid.Row>
+                <Button onClick={onAddToBag}>
+                    <Button.Content>ADD TO BAG</Button.Content>
+                </Button>
+            </Grid.Row>
+        </Grid>
 
     )
 }
