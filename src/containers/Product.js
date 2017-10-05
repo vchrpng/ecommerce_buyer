@@ -5,8 +5,9 @@ import Container from '../components/Etc/Container'
 import { Row , Column , Flex } from '../theme/Grid'
 import Image from '../components/Etc/Image'
 import ShippingDetail from '../components/ShippingDetail/ShippingDetail'
+import { addToBag } from '../actions'
 
-const Product = ({ match , products }) => {
+const Product = ({ match , products , addToBag }) => {
     const { id } = match.params
     const currentProduct = products[id-1]
 
@@ -26,7 +27,7 @@ const Product = ({ match , products }) => {
             </Column>
             <Column lg={3}>
                 <Flex align={'center'} style={{padding:'40px',height:'70vh'}}>
-                    <ShippingDetail currentProduct={currentProduct}>
+                    <ShippingDetail onAddToBag={() => addToBag(currentProduct.id)}>
                         {currentProduct.price} $
                     </ShippingDetail>   
                 </Flex>
@@ -38,4 +39,4 @@ const Product = ({ match , products }) => {
 const mapStateToProps = state => ({
     products : showProducts(state.products)
 })
-export default connect(mapStateToProps)(Product)
+export default connect(mapStateToProps,{addToBag})(Product)

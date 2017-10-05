@@ -19,8 +19,7 @@ const SizeDropDown = ({ input }) => {
          options={options}
          onChange={(value) => input.onChange(value)}
          onBlur={() => input.onBlur(input.value)}
-         simpleValue
-         
+         simpleValue    
     />
 )}
 
