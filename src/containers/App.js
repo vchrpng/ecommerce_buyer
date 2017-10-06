@@ -3,8 +3,8 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
-import Footer from '../components/Footer/Footer'
-import Nav from '../components//Nav/Nav'
+import Footer from '../components/Footer'
+import Nav from '../components//Nav'
 import Home from './Home'
 import ShoppingBag from './ShoppingBag'
 import About from './About'

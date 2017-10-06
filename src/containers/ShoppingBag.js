@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { DisplayGrid } from '../theme/Grid'
 import { getBagProducts } from '../reducers'
-import EmptyBag from '../components/EmptyBag/EmptyBag'
-import ItemsOnBag from '../components/ItemsOnBag/ItemsOnBag'
+import EmptyBag from '../components/EmptyBag'
+import ItemsOnBag from '../components/ItemsOnBag'
 
 const ShoppingBag = ({ products }) => {
     if(products.length)

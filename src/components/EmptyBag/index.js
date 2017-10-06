@@ -5,7 +5,7 @@ import { CustomLink } from '../Etc/CustomLink'
 
 const EmptyBag = () => {
     return (
-        <DisplayGrid  autoRows={'50px,auto'}>
+        <DisplayGrid  autoRows={'70px,auto'}>
             <Flex justify={'center'} align={'center'}>Your bag is empty please go to shopping</Flex>
             <Flex justify={'center'} align={'center'}>
                 <ButtonStyled>

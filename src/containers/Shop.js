@@ -3,8 +3,8 @@ import { Grid } from 'semantic-ui-react'
 import { DisplayGrid } from '../theme/Grid'
 import { connect } from 'react-redux'
 import { showProducts } from '../reducers/products'
-import ProductList from '../components/ProductList/ProductList'
-import CategoryList from '../components/CategoryList/CategoryList'
+import ProductList from '../components/ProductList'
+import CategoryList from '../components/CategoryList'
 
 
 const Shop = ({products}) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import SizePickup from '../SizePickup/SizePickup'
+import SizePickup from '../SizePickup'
 import { Header , Grid } from 'semantic-ui-react'
 import { ButtonStyled } from '../Etc/ButtonStyled'
 

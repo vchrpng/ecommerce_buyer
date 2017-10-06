@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { showProducts } from '../reducers/products'
 import { Grid , Container , Image , Divider } from 'semantic-ui-react'
-import ShippingDetail from '../components/ShippingDetail/ShippingDetail'
+import ShippingDetail from '../components/ShippingDetail'
 import { addToBag } from '../actions'
 
 

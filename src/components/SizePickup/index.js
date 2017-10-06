@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field , reduxForm} from 'redux-form'
-import SizeDropDown from '../SizeDropDown/SizeDropDown'
+import SizeDropDown from '../SizeDropDown'
 import { Container } from 'semantic-ui-react'
 
 const SizePickup = () => {

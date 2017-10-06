@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image } from 'semantic-ui-react'
-import { Thumbnail } from './ProductList.style'
+import { Thumbnail } from './styled'
 import { Row , Column } from '../../theme/Grid'
 import { Link } from 'react-router-dom'
 // import { Dimmer , Image , Header , Button } from 'semantic-ui-react'
