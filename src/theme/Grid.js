@@ -49,29 +49,27 @@ export const Flex = styled.div`
 `
 
 export const DisplayGrid = styled.div`
-     display:grid;
-     justify-content:center;
-     ${({ column }) => column && css`
+    display:grid;
+    justify-content:center;
+    ${({ column }) => column && css`
         grid-template-columns:${column};
-     `}
+    `}
 
-     ${({ gap }) => gap && css`
+    ${({ gap }) => gap && css`
         grid-gap:${gap}px;
-     `}
+    `}
 
-     ${({ rowGap }) => rowGap && css`
+    ${({ rowGap }) => rowGap && css`
         grid-row-gap:${rowGap}px;
-     `}
+    `}
 
-     ${({ colGap }) => colGap && css`
-     grid-column-gap:${colGap}px;
+    ${({ colGap }) => colGap && css`
+        grid-column-gap:${colGap}px;
+    `}
 
-     ${({ autoRows }) => autoRows && css`
+    ${({ autoRows }) => autoRows && css`
         grid-auto-rows:minmax(${autoRows});
-     
-     `}
-
-  `}
+    `}
 
 `
 

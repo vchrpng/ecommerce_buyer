@@ -1,16 +1,19 @@
 import styled from 'styled-components'
-import { Button } from 'semantic-ui-react'
 
-export const ButtonStyled = styled(Button)`
+
+export const ButtonStyled = styled.div`
     width:65%;
-    color:white !important; 
-    background:black !important;
-    font-size:9px !important;
-    border-radius:0px !important;
+    color:white ; 
+    background:black ;
+    font-size:9px ;
+    border-radius:0px ;
     height:50px;
-
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
     &:hover{
-        color:black !important;
-        background:white !important;
+        color:black ;
+        background:white ;
     } 
 `
