@@ -17,7 +17,7 @@ const Product = ({ match , products , addToBag }) => {
 
         <Grid verticalAlign='middle'>
             <Grid.Row columns={3}>
-                <Grid.Column mobile={16} tablet={16} computer={5}>
+                <Grid.Column computer={5} only="computer">
                     <Container text fluid>
                     <Divider horizontal>{currentProduct.title}</Divider>           
                     <p>  {currentProduct.description} </p>

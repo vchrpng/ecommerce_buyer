@@ -8,11 +8,11 @@ import CategoryList from '../components/CategoryList/CategoryList'
 
 
 const Shop = ({products}) => {
-        console.log(products)
+   
         return(
                 <Grid columns={3}>
                     <Grid.Row>
-                    <Grid.Column mobile={16} tablet={16} computer={3}>
+                    <Grid.Column mobile={16} tablet={16} computer={3} >
                         <CategoryList products={products}/>
                     </Grid.Column>
                     <Grid.Column mobile={16} tablet={16} computer={10}>

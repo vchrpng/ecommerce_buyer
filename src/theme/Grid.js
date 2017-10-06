@@ -65,6 +65,12 @@ export const DisplayGrid = styled.div`
 
      ${({ colGap }) => colGap && css`
      grid-column-gap:${colGap}px;
+
+     ${({ autoRows }) => autoRows && css`
+        grid-auto-rows:minmax(${autoRows});
+     
+     `}
+
   `}
 
 `
