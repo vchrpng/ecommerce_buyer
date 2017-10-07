@@ -1,10 +1,12 @@
 import React from 'react'
+import { Container , Divider} from 'semantic-ui-react'
 
-const ProductDescription = () => {
+const ProductDescription = ({ currentProduct }) => {
     return (
-        <div>
-            Product ProductDescription
-        </div>
+        <Container style={{padding:'60px'}}  text fluid>
+            <Divider horizontal>{currentProduct.title}</Divider>           
+                    <p>  {currentProduct.description} </p>
+        </Container>
     )
 }
 

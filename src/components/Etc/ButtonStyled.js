@@ -2,18 +2,19 @@ import styled from 'styled-components'
 
 
 export const ButtonStyled = styled.div`
-    width:65%;
+    letter-spacing:1px;
+    width:100%;
     color:white ; 
-    background:black ;
-    font-size:9px ;
+    background:#333 ;
+    font-size:12px ;
     border-radius:0px ;
     height:50px;
     display:flex;
     justify-content:center;
     align-items:center;
     cursor:pointer;
+    transition:.5s;
     &:hover{
-        color:black ;
-        background:white ;
+        background-color:#555;
     } 
 `

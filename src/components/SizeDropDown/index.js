@@ -12,7 +12,7 @@ var stateOptions = [
 
 const SizeDropDown =  props  => {
   return ( 
-    <Dropdown 
+    <Dropdown style={{width:'100%'}}
         selection {...props.input}
          value={props.input.value}
          onChange={(param,data) => props.input.onChange(data.value)}

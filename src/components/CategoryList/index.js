@@ -1,5 +1,5 @@
 import React from 'react'
-import { List , Item , NewaArrival } from './CategoryList.style'
+import { List , Item , NewaArrival } from './styled'
 import category from '../../constants/Category'
 import { CustomLink } from '../Etc/CustomLink'
 

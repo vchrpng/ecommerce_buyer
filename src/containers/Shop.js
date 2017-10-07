@@ -10,12 +10,12 @@ import CategoryList from '../components/CategoryList'
 const Shop = ({products}) => {
    
         return(
-                <Grid columns={3}>
+                <Grid columns={2}>
                     <Grid.Row>
-                    <Grid.Column mobile={16} tablet={16} computer={3} >
+                    <Grid.Column mobile={16} tablet={16} computer={2} >
                         <CategoryList products={products}/>
                     </Grid.Column>
-                    <Grid.Column mobile={16} tablet={16} computer={10}>
+                    <Grid.Column mobile={16} tablet={16} computer={14}>
                         <DisplayGrid column={'repeat(auto-fill,19em)'} colGap={10} rowGap={70}>
                             {products.map(product => 
                         <ProductList 
@@ -24,9 +24,7 @@ const Shop = ({products}) => {
                         )}
                        </DisplayGrid>
                     </Grid.Column>
-                    <Grid.Column mobile={16} tablet={16} computer={3}>
-                        mobile 16 tab 8 com 4
-                    </Grid.Column>
+                 
                     </Grid.Row>
                 </Grid>
         )

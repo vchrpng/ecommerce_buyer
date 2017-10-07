@@ -8,7 +8,7 @@ export const List = styled.ul`
 
 export const Item = styled.li`
     padding:0 0 10px 10px;
-    font-size:0.5em;
+    font-size:0.7em;
     color:black;
     text-decoration:none;
     text-transform:uppercase;
@@ -16,7 +16,7 @@ export const Item = styled.li`
 
 export const NewaArrival = styled.li`
 padding:10px 10px 20px 10px;
-font-size:0.7em;
+font-size:1em;
 color:black;
 text-decoration:none;
 text-transform:uppercase;

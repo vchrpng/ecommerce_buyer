@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { showProducts } from '../reducers/products'
-import { Grid , Container , Image , Divider } from 'semantic-ui-react'
+import { Grid , Container , Image } from 'semantic-ui-react'
 import ShippingDetail from '../components/ShippingDetail'
+import ProductDescription from '../components/ProductDescription'
 import { addToBag } from '../actions'
 
 
@@ -15,20 +16,17 @@ const Product = ({ match , products , addToBag }) => {
 
     return(
 
-        <Grid verticalAlign='middle'>
+        <Grid style={{padding:'40px'}} verticalAlign='middle'>
             <Grid.Row columns={3}>
                 <Grid.Column computer={5} only="computer">
-                    <Container text fluid>
-                    <Divider horizontal>{currentProduct.title}</Divider>           
-                    <p>  {currentProduct.description} </p>
-                    </Container>
+                    <ProductDescription currentProduct={currentProduct}/>
                 </Grid.Column>
-                <Grid.Column mobile={16} tablet={16} computer={6}>
+                <Grid.Column style={{padding:'40px'}}  mobile={16} tablet={16} computer={6}>
                     <Container>
                         <Image src={currentProduct.img} fluid/>
                     </Container>
                 </Grid.Column>
-                <Grid.Column mobile={16} tablet={16} computer={5}>
+                <Grid.Column  mobile={16} tablet={16} computer={5}>
                     <Container>
                         <ShippingDetail onAddToBag={() => addToBag(currentProduct)}>
                         {currentProduct.price} $

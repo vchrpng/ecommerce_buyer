@@ -5,7 +5,7 @@ import { Container } from 'semantic-ui-react'
 
 const SizePickup = () => {
     return (
-        <Container>
+        <Container >
            <Field
             name="sizePickup" 
             component={SizeDropDown}/>

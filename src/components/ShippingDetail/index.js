@@ -8,7 +8,7 @@ import { ButtonStyled } from '../Etc/ButtonStyled'
 const ShippingDetail = ({ children , onAddToBag }) => {
     
     return (
-        <Grid container textAlign="center">
+        <Grid style={{padding:'80px'}} container textAlign="center">
             <Grid.Row ><Header size="medium">{children}</Header></Grid.Row >
             <Grid.Row ><p>Taxes and duties included.<br/>
                 Free shipping on orders over $500</p></Grid.Row >
