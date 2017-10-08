@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
-import { RECEIVE_PRODUCTS } from '../constants/ActionTypes'
+import { RECEIVE_PRODUCTS , 
+    // ADD_TO_SHOPPINGBAG 
+} from '../constants/ActionTypes'
 
 const initialState = {
     id : [],
@@ -25,6 +27,17 @@ const addProductItemById = (state = initialState.product , action ) => {
                     return obj
                     },{})
               }
+        // case ADD_TO_SHOPPINGBAG :
+        //       return 
+        //         const { productId } = action
+        //         if (productId) {
+        //           return {
+        //             ...state,
+        //             [productId]: products(state[productId], action)
+        //           }
+        //         }
+        //         return state
+              
         default : 
             return state
     }

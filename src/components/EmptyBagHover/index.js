@@ -1,10 +1,12 @@
 import React from 'react'
+import { EmptyHover } from './styled'
+
 
 const EmptyBagHover = () => {
     return (
-        <div style={{position:'absolute'}}>
-        EmptyBagHover
-        </div>
+        <EmptyHover justify={'center'} align={'center'}>       
+            <p>YOUR SHOPPING BAG IS EMPTY</p>
+        </EmptyHover>
     )
 }
 

@@ -4,15 +4,16 @@ import { getBagProducts } from '../reducers'
 import EmptyBag from '../components/EmptyBag'
 import ItemsOnBag from '../components/ItemsOnBag'
 
-const ShoppingBag = ({ products }) => {
-    if(products.length)
-        return (<ItemsOnBag products={products}/>)
+const ShoppingBag = ({ product }) => {
+    console.log(product)
+    if(product.length)
+        return (<ItemsOnBag product={product}/>)
     else 
         return (<EmptyBag/>)
 }
 
 const mapStateToProps = state => ({
-    products : getBagProducts(state)
+    product : getBagProducts(state)
 })
 
 export default connect(mapStateToProps)(ShoppingBag)

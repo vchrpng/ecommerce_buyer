@@ -8,7 +8,7 @@ export default class Home extends Component {
               
                     <Row>
                         <Column>
-                    fucking home
+                    this is home
                         </Column>
                     </Row>
            

@@ -29,7 +29,7 @@ const Product = ({ match , products , addToBag }) => {
                 <Grid.Column  mobile={16} tablet={16} computer={5}>
                     <Container>
                         <ShippingDetail onAddToBag={() => addToBag(currentProduct)}>
-                        {currentProduct.price} $
+                            {currentProduct.price} $
                         </ShippingDetail>   
                     </Container>
                 </Grid.Column>

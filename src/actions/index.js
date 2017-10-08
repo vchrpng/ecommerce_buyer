@@ -11,14 +11,14 @@ export const getAllProducts = () => dispatch => {
     dispatch(receiveProducts(products))
 }
 
-const selectProduct = product => ({
+const selectProduct = productId => ({
     type : types.ADD_TO_SHOPPINGBAG,
-    product,
+    productId,
 })
 
-export const addToBag = product => dispatch => {
+export const addToBag = productId => dispatch => {
     console.log("ADD TO BAG !!")
-    dispatch(selectProduct(product))
+    dispatch(selectProduct(productId))
 }
 
 

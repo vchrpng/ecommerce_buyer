@@ -7,8 +7,8 @@ const initialState = {
 const addToBagById = (state = initialState.id , action) => {
     switch(action.type){
         case ADD_TO_SHOPPINGBAG :
-            console.log("ADD TO BAG BY ID !!")
-            return [...state,action]
+            // console.log("ADD TO BAG BY ID !!")
+            return [...state,action.productId]
         default : 
             return state
     }
@@ -19,7 +19,7 @@ export const getBagProductsById = state => state.addToBagById
 const shoppingbag = (state = initialState,action) => {
     switch(action.type){
         default : 
-            console.log("shoppingbag !!")
+            // console.log("shoppingbag !!")
             return {
                 addToBagById : addToBagById(state.addToBagById,action)
             }
