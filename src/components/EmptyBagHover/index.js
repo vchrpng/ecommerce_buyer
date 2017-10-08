@@ -2,7 +2,7 @@ import React from 'react'
 
 const EmptyBagHover = () => {
     return (
-        <div>
+        <div style={{position:'absolute'}}>
         EmptyBagHover
         </div>
     )
