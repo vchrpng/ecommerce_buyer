@@ -18,7 +18,16 @@ const selectProduct = productId => ({
 
 export const addToBag = productId => dispatch => {
     dispatch(selectProduct(productId))
-    console.log(productId)
+}
+
+const removeFromBag = index => ({
+    type : types.REMOVE_FROM_BAG,
+    index
+})
+
+export const deleteFromBag = index => dispatch => {
+    dispatch(removeFromBag(index))
+    
 }
 
 

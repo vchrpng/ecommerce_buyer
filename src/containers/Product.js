@@ -16,17 +16,26 @@ const Product = ({ match , products , addToBag }) => {
 
     return(
 
-        <Grid style={{padding:'40px'}} verticalAlign='middle'>
-            <Grid.Row columns={3}>
-                <Grid.Column computer={5} only="computer">
-                    <ProductDescription currentProduct={currentProduct}/>
+        <Grid  
+            style={{padding:'40px'}} 
+            verticalAlign='middle'>
+            <Grid.Row 
+                columns={3}>
+                <Grid.Column 
+                    computer={5} 
+                    only="computer">
+                    <ProductDescription 
+                        currentProduct={currentProduct}/>
                 </Grid.Column>
-                <Grid.Column style={{padding:'40px'}}  mobile={16} tablet={16} computer={6}>
+                <Grid.Column 
+                    style={{padding:'40px'}}  
+                    mobile={16} tablet={16} computer={6}>
                     <Container>
                         <Image src={currentProduct.img} fluid/>
                     </Container>
                 </Grid.Column>
-                <Grid.Column  mobile={16} tablet={16} computer={5}>
+                <Grid.Column  
+                    mobile={16} tablet={16} computer={5}>
                     <Container>
                         <ShippingDetail onAddToBag={() => addToBag(currentProduct.id)}>
                             {currentProduct.price} $

@@ -31,15 +31,22 @@ class Nav extends React.Component {
         return (
             <Flex justify={'center'} align={'center'}>
                 <List>
-                    <Item><CustomLink color={'black'} to="/shop">Shop</CustomLink></Item>
-                    <Item><CustomLink color={'black'} to="/contact">Contact</CustomLink></Item>
+                    <Item>
+                        <CustomLink color={'black'} to="/shop">Shop</CustomLink>
+                    </Item>
+                    <Item>
+                        <CustomLink color={'black'} to="/contact">Contact</CustomLink>
+                    </Item>
                     <Item>
                         <CustomLink color={'black'} to="/">
-                            <Image style={{ margin: '0 40px 0 40px' }}
+                            <Image 
+                                style={{ margin: '0 40px 0 40px' }}
                                 src="http://www.sneakavilla.net/wp-content/uploads/2015/12/smalllogo-font-header6.png" />
                         </CustomLink>
                     </Item>
-                    <Item><CustomLink color={'black'} to="/wishlist">Wishlist</CustomLink></Item>
+                    <Item>
+                        <CustomLink color={'black'} to="/wishlist">Wishlist</CustomLink
+                    ></Item>
                     <Item
                         onMouseEnter={this.handleMouseHover}
                         onMouseLeave={this.handleMouseHover}

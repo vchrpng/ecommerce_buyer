@@ -70,6 +70,13 @@ export const DisplayGrid = styled.div`
     ${({ autoRows }) => autoRows && css`
         grid-auto-rows:minmax(${autoRows});
     `}
+    grid-column : ${(props) => props.col} ;
+    grid-row : ${(props) => props.row} ;
 
+`
+
+export const GridItem = styled.div`
+     grid-column : ${(props) => props.col} ;
+     grid-row : ${(props) => props.row} ;
 `
 
