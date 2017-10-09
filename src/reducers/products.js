@@ -3,12 +3,12 @@ import { RECEIVE_PRODUCTS ,
     // ADD_TO_SHOPPINGBAG 
 } from '../constants/ActionTypes'
 
-const initialState = {
-    id : [],
-    product : {}
-}
+// const initialState = {
+//     id : [],
+//     product : {}
+// }
 
-const getProductId = (state = initialState.id , action) => {
+const getProductId = (state = [], action) => {
     switch(action.type){
         case RECEIVE_PRODUCTS : 
             return action.products.map(product => product.id)
@@ -17,7 +17,7 @@ const getProductId = (state = initialState.id , action) => {
     }
 }
 
-const addProductItemById = (state = initialState.product , action ) => {
+const addProductItemById = (state = {} , action ) => {
     switch(action.type){
         case RECEIVE_PRODUCTS : 
             return {

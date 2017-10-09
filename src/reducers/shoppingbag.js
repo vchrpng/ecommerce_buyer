@@ -14,14 +14,14 @@ const addToBagById = (state = initialState.id , action) => {
     }
 }
 
-export const getBagProductsById = state => state.addToBagById
+export const getBagProductsById = state => state.id
 
 const shoppingbag = (state = initialState,action) => {
     switch(action.type){
         default : 
             // console.log("shoppingbag !!")
             return {
-                addToBagById : addToBagById(state.addToBagById,action)
+                id : addToBagById(state.id,action)
             }
     }
 }

@@ -17,8 +17,8 @@ const selectProduct = productId => ({
 })
 
 export const addToBag = productId => dispatch => {
-    console.log("ADD TO BAG !!")
     dispatch(selectProduct(productId))
+    console.log(productId)
 }
 
 
