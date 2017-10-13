@@ -9,21 +9,12 @@ const addToBagById = (state = initialState.addedIds , action) => {
     
     switch(action.type){
         case ADD_TO_SHOPPINGBAG :
-            console.log("add To bag by id")
-            return [...state,action.productId]
-            
+            return [...state,action.productId]      
         default : 
             return state
     }
 }
 
-const removeProductFromBag = (state = initialState.addedIds ,action) => {
-    state.splice(action.index,1)
-    
-    switch(action.type){
-        default : return state
-    }
-}
 
 export const getBagProductsById = state => state.addedIds
 
@@ -31,7 +22,10 @@ const shoppingbag = (state = initialState,action) => {
     switch(action.type){
         case REMOVE_FROM_BAG : 
             return {
-                addedIds : removeProductFromBag(state.addedIds,action)
+                addedIds : [
+                    ...state.addedIds.slice(0,action.index),
+                    ...state.addedIds.slice(action.index + 1)
+                ]
             }
          
         case ADD_TO_SHOPPINGBAG : 
