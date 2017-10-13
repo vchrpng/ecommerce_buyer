@@ -2,8 +2,7 @@ import { ADD_TO_SHOPPINGBAG , REMOVE_FROM_BAG } from '../constants/ActionTypes'
 import _ from 'lodash'
 
 const initialState = {
-    addedIds : [],
-    index : 0
+    addedIds : []
 }
 
 const addToBagById = (state = initialState.addedIds , action) => {
@@ -19,13 +18,9 @@ const addToBagById = (state = initialState.addedIds , action) => {
 }
 
 const removeProductFromBag = (state = initialState.addedIds ,action) => {
-    console.log(state)
-    console.log(action)
+    state.splice(action.index,1)
+    
     switch(action.type){
-        case REMOVE_FROM_BAG :
-            console.log("remove product")
-            return  state.slice(1,-1)
-            
         default : return state
     }
 }
@@ -39,10 +34,11 @@ const shoppingbag = (state = initialState,action) => {
                 addedIds : removeProductFromBag(state.addedIds,action)
             }
          
-        default : 
+        case ADD_TO_SHOPPINGBAG : 
             return {
                 addedIds : addToBagById(state.addedIds,action),
             }
+        default : return state
     }
 }
 
