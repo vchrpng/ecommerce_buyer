@@ -1,5 +1,5 @@
 import { ADD_TO_SHOPPINGBAG , REMOVE_FROM_BAG } from '../constants/ActionTypes'
-import _ from 'lodash'
+
 
 const initialState = {
     addedIds : []

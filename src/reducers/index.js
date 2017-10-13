@@ -12,6 +12,11 @@ shoppingbagReducer.getBagProductsById(state.shoppingbag)
 const getProducts = (state,id) => 
     productReducer.getProducts(state.products,id)
 
+export const getTotal = state =>
+    getBagProductsById(state)
+        .reduce((total,id) => 
+            total + getProducts(state,id).price,0).toFixed(2)
+
 
 export const getBagProducts = state => 
     getBagProductsById(state).map(id => ({
