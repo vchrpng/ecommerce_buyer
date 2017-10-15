@@ -1,62 +1,44 @@
 import React from 'react'
 import { deleteFromBag } from '../../actions'
-import {  Item , Grid , Icon } from 'semantic-ui-react'
+import { Grid , Icon , Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { getTotal } from '../../reducers'
+import CheckoutDetail from '../CheckoutDetail'
 
 
 const ItemsOnBag = ({ product , deleteFromBag , total }) => {
     const renderLists = product.map((item,idx) =>
-        <Item key={idx}>
-            <Item.Image 
-                size="tiny" 
-                src={item.img}/>
-            <Item.Content>
-               
-                <Item.Meta>
+        <div key={idx}>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(12,1fr)'}}>
+                <div style={{gridColumn:'4/5'}}>
+                    <Image size="tiny" src={item.img}/>
+                </div>
+                <div style={{gridColumn:'6/7'}}>
                     <span>{item.title}</span><br/>
-                    <span>{item.price} $</span>
-                </Item.Meta>
-                <Item.Extra>
-                    
-                        <Icon onClick={() => deleteFromBag(idx)} name='x' />
-                    </Item.Extra>
-            </Item.Content>
-            
-        </Item>
+                </div>
+                <div style={{gridColumn:'11/12'}}>
+                    <span >${item.price.toFixed(2)}</span>    
+                </div>
+                <div style={{gridColumn:'12/13'}}>         
+                    <Icon onClick={() => deleteFromBag(idx)} name='x' />
+                </div>
+            </div>
+        </div>
     )
-    const shippingCost = (total > 500 ? 0 : 200).toFixed(2)
-    const orderTotal = parseFloat(total) + parseInt(shippingCost)
+    
    
 
     return (
         <Grid>
             <Grid.Row columns={2}>
-                <Grid.Column>
-                  <div>  Shopping Bag </div>
-                    <Item.Group divided>
+                <Grid.Column width={8} >
+                  <p style={{textAlign:'center'}}>  Shopping Bag </p>
+              
                         {renderLists}
-                    </Item.Group>
-                    <Grid>
-                    <Grid.Row columns={2}>
-                        <Grid.Column> Total</Grid.Column>
-                        <Grid.Column>{total}$</Grid.Column>
-                    </Grid.Row>
-                    <Grid.Row columns={2}>
-                        <Grid.Column>Shipping Estimate</Grid.Column>
-                        <Grid.Column>{shippingCost}$</Grid.Column>
-                    </Grid.Row>
-                    <Grid.Row columns={2}>
-                        <Grid.Column>Duties and Taxes</Grid.Column>
-                        <Grid.Column>included</Grid.Column>
-                    </Grid.Row>
-                    <Grid.Row columns={2}>
-                        <Grid.Column>Order Total</Grid.Column>
-                        <Grid.Column>{orderTotal.toFixed(2)}$</Grid.Column>
-                    </Grid.Row>
-                    </Grid> 
+                    
+                <CheckoutDetail total={total}/>
                 </Grid.Column>
-                <Grid.Column>
+                <Grid.Column width={8} >
                     register
                 </Grid.Column>
             </Grid.Row>
