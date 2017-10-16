@@ -17,7 +17,7 @@ const selectProduct = productId => ({
 })
 
 export const addToBag = productId => dispatch => {
-    dispatch(selectProduct(productId))
+    setTimeout(() => dispatch(selectProduct(productId)),1000)
 }
 
 const removeFromBag = index => ({
@@ -27,7 +27,6 @@ const removeFromBag = index => ({
 
 export const deleteFromBag = index => dispatch => {
     dispatch(removeFromBag(index))
-    
 }
 
 

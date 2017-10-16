@@ -21,7 +21,9 @@ class ShippingDetail extends React.Component {
         })
         setTimeout(() => this.setState({
             isLoading : !this.state.isLoading
-        }),2000)
+        }),1000)
+        this.props.onAddToBag()
+        
     }
 
     render(){
@@ -35,10 +37,12 @@ class ShippingDetail extends React.Component {
             </Grid.Row>
             <Grid.Row>
                 {this.state.isLoading ? 
-                <ButtonStyled><Loader active inline size='small' inverted/></ButtonStyled>:
-                <ButtonStyled onClick={this.Loader}>
-                ADD TO BAG
-            </ButtonStyled>
+                <ButtonStyled>
+                    <Loader active inline size='small' inverted/>
+                </ButtonStyled>:
+                <ButtonStyled onClick={this.Loader} >
+                    ADD TO BAG
+                </ButtonStyled>
             }
                
             </Grid.Row>
