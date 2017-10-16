@@ -3,26 +3,29 @@ import PropTypes from 'prop-types'
 import SizePickup from '../SizePickup'
 import { Header , Grid } from 'semantic-ui-react'
 import { ButtonStyled } from '../Etc/ButtonStyled'
+import { Loader } from 'semantic-ui-react'
 
 
-const ShippingDetail = ({ children , onAddToBag }) => {
-    
+class ShippingDetail extends React.Component {
+    render(){
     return (
         <Grid style={{padding:'80px'}} container textAlign="center">
-            <Grid.Row ><Header size="medium">{children}</Header></Grid.Row >
+            <Grid.Row ><Header size="medium">{this.props.children}</Header></Grid.Row >
             <Grid.Row ><p>Taxes and duties included.<br/>
                 Free shipping on orders over $500</p></Grid.Row >
             <Grid.Row>
                 <SizePickup/>
             </Grid.Row>
             <Grid.Row>
-                <ButtonStyled onClick={onAddToBag}>
+                
+                <ButtonStyled onClick={this.props.onAddToBag}>
                     ADD TO BAG
                 </ButtonStyled>
             </Grid.Row>
         </Grid>
 
     )
+    }
 }
 
 ShippingDetail.PropTypes = {
