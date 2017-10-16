@@ -7,6 +7,23 @@ import { Loader } from 'semantic-ui-react'
 
 
 class ShippingDetail extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            isLoading : false
+        }
+        this.Loader = this.Loader.bind(this)
+    }
+
+    Loader(){
+        this.setState({
+            isLoading : !this.state.isLoading
+        })
+        setTimeout(() => this.setState({
+            isLoading : !this.state.isLoading
+        }),2000)
+    }
+
     render(){
     return (
         <Grid style={{padding:'80px'}} container textAlign="center">
@@ -17,10 +34,13 @@ class ShippingDetail extends React.Component {
                 <SizePickup/>
             </Grid.Row>
             <Grid.Row>
-                
-                <ButtonStyled onClick={this.props.onAddToBag}>
-                    ADD TO BAG
-                </ButtonStyled>
+                {this.state.isLoading ? 
+                <ButtonStyled><Loader active inline size='small' inverted/></ButtonStyled>:
+                <ButtonStyled onClick={this.Loader}>
+                ADD TO BAG
+            </ButtonStyled>
+            }
+               
             </Grid.Row>
         </Grid>
 
