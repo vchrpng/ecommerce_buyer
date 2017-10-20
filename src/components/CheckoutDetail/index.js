@@ -1,10 +1,11 @@
 import React from 'react'
-
+import { ButtonStyled } from '../Etc/ButtonStyled'
 
 const CheckoutDetail = ({ total }) => {
     const shippingCost = total > 500 ? 0 : 50
     const orderTotal = parseFloat(total) + parseFloat(shippingCost)
     return (
+        <div>
         <div style={{
             display:'grid',
             gridTemplateColumns:'repeat(12,1fr)',
@@ -26,6 +27,8 @@ const CheckoutDetail = ({ total }) => {
       
             <div style={{gridColumn:'1/9',gridRow:'4'}}>Order Total</div>
             <div style={{gridColumn:'11/12',textAlign:'right',gridRow:'4'}}>${orderTotal.toFixed(2)}</div>
+        </div>
+            <ButtonStyled>Checkout</ButtonStyled>
         </div>
         
     )

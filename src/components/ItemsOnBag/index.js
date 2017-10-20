@@ -6,6 +6,7 @@ import { getTotal } from '../../reducers'
 import CheckoutDetail from '../CheckoutDetail'
 import CheckoutItems from '../CheckoutItems'
 import { ButtonStyled } from '../Etc/ButtonStyled'
+import Member from '../Member'
 
 
 const ItemsOnBag = ({ product , deleteFromBag , total }) => {
@@ -36,14 +37,14 @@ const ItemsOnBag = ({ product , deleteFromBag , total }) => {
     return (
         <Grid style={{margin:'60px'}}>
             <Grid.Row columns={2}>
-                <Grid.Column mobile={16} computer={8} >
-                <CheckoutItems/>
-                {renderLists}
-                <CheckoutDetail total={total}/>
-                <ButtonStyled>Checkout</ButtonStyled>
+                <Grid.Column mobile={16} computer={8}>
+                    <CheckoutItems>
+                        {renderLists}
+                        <CheckoutDetail total={total}/>
+                    </CheckoutItems>
                 </Grid.Column>
                 <Grid.Column mobile={16} computer={8} >
-             
+                    <Member/>
                 </Grid.Column>
             </Grid.Row>
         </Grid>

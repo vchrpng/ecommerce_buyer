@@ -8,7 +8,7 @@ const products = [
         "title":"Denim Jacket",
         "category":"jackets",
         "price":350,
-        "description":Lorem
+        "description":Lorem,
     },
     {
         "id":2,

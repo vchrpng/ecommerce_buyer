@@ -12,10 +12,10 @@ class ShippingDetail extends React.Component {
         this.state = {
             isLoading : false
         }
-        this.Loader = this.Loader.bind(this)
+        this.handleDelayAfterClicked = this.handleDelayAfterClicked.bind(this)
     }
 
-    Loader(){
+    handleDelayAfterClicked(){
         this.setState({
             isLoading : !this.state.isLoading
         })
@@ -40,7 +40,7 @@ class ShippingDetail extends React.Component {
                 <ButtonStyled>
                     <Loader active inline size='small' inverted/>
                 </ButtonStyled>:
-                <ButtonStyled onClick={this.Loader} >
+                <ButtonStyled onClick={this.handleDelayAfterClicked} >
                     ADD TO BAG
                 </ButtonStyled>
             }
