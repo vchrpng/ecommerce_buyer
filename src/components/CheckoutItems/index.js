@@ -1,30 +1,34 @@
 import React from 'react'
 import { Grid } from 'semantic-ui-react'
+import { Label} from '../Etc/Label' 
 
 const CheckoutItems = ({children}) => {
     return (
-        <Grid>
-            <Grid.Column>
+        <Grid textAlign={'center'}>
+            <Grid.Column computer={14}>
             <div 
             style={{
                 display:'grid',
                 gridTemplateColumns:'repeat(12,1fr)',padding:'10px 0 10px 0'}}>
                 {/* <div style={{gridColumn:'1/13',textAlign:'center',padding:'10px'}}>Shopping Bag</div> */}
-                    <div
-                    style={{
-                        gridColumn:'1/3'}}/>
+                   
                     <div style={{
-                        gridColumn:'3/9'}}> Product </div>
+                        gridColumn:'3/9'}}> 
+                        <Label> Product  </Label>
+                        </div>
                     <div style={{
-                        gridColumn:'9/11'}}> Price</div>
+                        gridColumn:'9/11',
+                        textAlign:'right'}}>
+                         <label> Price  </label>
+                         </div>
                     <div style={{
-                        gridColumn:'11/12'}}>Remove</div>
-                
-                <div style={{gridColumn:'1/12'}}>
-                    {children}
-                </div>
+                        gridColumn:'11/13',
+                        textAlign:'center'}}>
+                         <label> Remove  </label>
+                        </div>
             </div>
-        </Grid.Column>
+            {children}
+            </Grid.Column>
         </Grid>
        
     )

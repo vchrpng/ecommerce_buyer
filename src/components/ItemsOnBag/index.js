@@ -1,17 +1,19 @@
 import React from 'react'
 import { deleteFromBag } from '../../actions'
-import { Grid , Icon , Image } from 'semantic-ui-react'
+import { Grid , Icon , Image , Divider } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { getTotal } from '../../reducers'
 import CheckoutDetail from '../CheckoutDetail'
 import CheckoutItems from '../CheckoutItems'
 import { ButtonStyled } from '../Etc/ButtonStyled'
+import { Label } from '../Etc/Label'
 import Member from '../Member'
 
 
 const ItemsOnBag = ({ product , deleteFromBag , total }) => {
     const renderLists = product.map((item,idx) =>
-        <div key={idx}>
+        <Grid key={idx} textAlign={'center'}>
+            <Grid.Column>
             <div style={{
                 display:'grid',
                 gridTemplateColumns:'repeat(12,1fr)'}}
@@ -20,16 +22,17 @@ const ItemsOnBag = ({ product , deleteFromBag , total }) => {
                     <Image size="tiny" src={item.img}/>
                 </div>
                 <div style={{gridColumn:'3/9'}}>
-                    <span>{item.title}</span><br/>
+                    <Label>{item.title}</Label><br/>
                 </div>
-                <div style={{gridColumn:'9/11'}}>
-                    <span >${item.price.toFixed(2)}</span>    
+                <div style={{gridColumn:'9/11',textAlign:'right'}}>
+                    <label>${item.price.toFixed(2)}</label>    
                 </div>
-                <div style={{gridColumn:'11/12',textAlign:'center'}}>         
+                <div style={{gridColumn:'11/13',textAlign:'center'}}>         
                     <Icon style={{cursor:'pointer'}} onClick={() => deleteFromBag(idx)} name='x' />
                 </div>
             </div>
-        </div>
+            </Grid.Column>
+        </Grid>
     )
     
    
@@ -39,11 +42,13 @@ const ItemsOnBag = ({ product , deleteFromBag , total }) => {
             <Grid.Row columns={2}>
                 <Grid.Column mobile={16} computer={8}>
                     <CheckoutItems>
+                    <Divider/>
                         {renderLists}
-                        <CheckoutDetail total={total}/>
+                        <Divider/>
                     </CheckoutItems>
+                    <CheckoutDetail total={total}/>
                 </Grid.Column>
-                <Grid.Column mobile={16} computer={8} >
+                <Grid.Column only={'computer'} computer={8} >
                     <Member/>
                 </Grid.Column>
             </Grid.Row>

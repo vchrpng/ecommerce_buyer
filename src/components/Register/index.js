@@ -7,9 +7,10 @@ import { Radio  , Grid} from 'semantic-ui-react'
 
 const Register = ({ handleSubmit , pristine , submitting}) => {
     return (
+      <form onSubmit={handleSubmit}>
       <Grid textAlign={'center'}>
+        <Grid.Row>
         <Grid.Column width={9}>
-        <form onSubmit={handleSubmit}>
         <div>
           <Label>Email</Label>
             <Field
@@ -34,41 +35,39 @@ const Register = ({ handleSubmit , pristine , submitting}) => {
               type="password"
             />
         </div>
-        <div>
-          <Label>Gender</Label>
-          <div>
-            <Label>
+        <div style={{textAlign:'center'}}>
+            <label style={{marginRight:'20px'}}>
               <Field
                 name="gender"
                 component={Radio}
                 type="radio"
                 value="male"
-              />{' '}
-              Male
-            </Label>
-            <Label>
+              />{' '}Male
+            </label>
+            <label>
               <Field
                 name="sex"
                 component={Radio}
                 type="radio"
                 value="female"
-              />{' '}
-              Female
-            </Label>
-          </div>
+              />{' '}Female
+            </label>
         </div>
- 
-        <div>
-          <ButtonStyled disabled={pristine || submitting}>
-            Submit
-          </ButtonStyled>
-        </div>
-      </form>
-      </Grid.Column>
+        </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column width={5}>
+            <ButtonStyled disabled={pristine || submitting}>
+              Submit
+            </ButtonStyled>
+          </Grid.Column>
+        </Grid.Row>
+        
       </Grid>
+      </form>
     )
 }
 
 export default reduxForm({
-    form:'register',
+    form:'register'
 })(Register)
