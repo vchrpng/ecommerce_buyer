@@ -1,21 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { showProducts } from '../reducers/products'
-import { Grid , Container , Image , Rail , Sticky } from 'semantic-ui-react'
+import { Grid , Container , Image } from 'semantic-ui-react'
 import ShippingDetail from '../components/ShippingDetail'
 import ProductDescription from '../components/ProductDescription'
 import { addToBag } from '../actions'
 
 
+    
 
-class Product extends React.Component {
-    
-    state = {}
-    
-    handleContextRef = contextRef => this.setState({ contextRef })
-render(){
-    const { contextRef } = this.state
-    const { match , products , addToBag } = this.props
+const Product = ({ match , products , addToBag }) => {
+
     const { id } = match.params
     const currentProduct = products[id-1]
 
@@ -23,36 +18,35 @@ render(){
 
         <Grid  
             style={{padding:'40px'}} 
-            centered columns={3}>
-           
-            <Grid.Column>
-            <div ref={this.handleContextRef}>
-                <Rail position={'left'} >
-                    <Sticky context={contextRef}>
+            verticalAlign='middle'>
+            <Grid.Row 
+                columns={3} style={{height:'3500px'}}>
+                <Grid.Column 
+                    computer={5} 
+                    only="computer" style={{top:'50%',position:'fixed',left:'6%'}}>
+                    <Container>
                     <ProductDescription 
                         currentProduct={currentProduct}/>
-                    </Sticky>
-                </Rail>
-                
+                        </Container>
+                </Grid.Column>
+                <Grid.Column 
+                    style={{padding:'40px'}}  
+                    mobile={16} tablet={16} computer={16}>
                     <Container>
                         <Image src={currentProduct.img} fluid/>
                     </Container>
-           
-                <Rail position={'right'}>
-                <Sticky context={contextRef}>
+                </Grid.Column>
+                <Grid.Column  
+                    mobile={16} tablet={16} computer={5} style={{top:'50%',position:'fixed',right:'6%'}}>
                     <Container>
                         <ShippingDetail onAddToBag={() => addToBag(currentProduct.id)}>
                             {currentProduct.price} $
                         </ShippingDetail>   
                     </Container>
-                </Sticky>
-                </Rail>
-                </div>
-            </Grid.Column>
-           
+                </Grid.Column>
+            </Grid.Row>
         </Grid>
     )
-    }
 }
 
 const mapStateToProps = state => ({
