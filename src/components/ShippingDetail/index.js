@@ -23,12 +23,11 @@ class ShippingDetail extends React.Component {
             isLoading : !this.state.isLoading
         }),1000)
         this.props.onAddToBag()
-        
     }
 
     render(){
     return (
-        <Grid style={{padding:'80px'}} container textAlign="center">
+        <Grid container textAlign="center">
             <Grid.Row ><Header size="medium">{this.props.children}</Header></Grid.Row >
             <Grid.Row ><p>Taxes and duties included.<br/>
                 Free shipping on orders over $500</p></Grid.Row >
