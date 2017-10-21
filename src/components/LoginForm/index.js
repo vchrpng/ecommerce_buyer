@@ -5,7 +5,7 @@ import { InputText } from '../Etc/InputText'
 import { ButtonStyled } from '../Etc/ButtonStyled'
 import { Field, reduxForm } from 'redux-form'
 
-const Login = () => {
+const LoginForm = () => {
     return (
         <form>
         <Grid textAlign={'center'}>
@@ -41,4 +41,4 @@ const Login = () => {
 
 export default reduxForm({
     form : 'login'
-})(Login)
+})(LoginForm)

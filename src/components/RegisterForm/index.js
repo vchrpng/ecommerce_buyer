@@ -5,7 +5,7 @@ import { ButtonStyled } from '../Etc/ButtonStyled'
 import { Label } from '../Etc/Label'
 import { Radio  , Grid} from 'semantic-ui-react'
 
-const Register = ({ handleSubmit , pristine , submitting}) => {
+const RegisterForm = ({ handleSubmit , pristine , submitting}) => {
     return (
       <form onSubmit={handleSubmit}>
       <Grid textAlign={'center'}>
@@ -70,4 +70,4 @@ const Register = ({ handleSubmit , pristine , submitting}) => {
 
 export default reduxForm({
     form:'register'
-})(Register)
+})(RegisterForm)

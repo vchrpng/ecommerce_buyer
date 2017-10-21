@@ -1,14 +1,14 @@
 import React from 'react'
-import Register from '../Register'
-import Login from '../Login'
+import RegisterForm from '../RegisterForm'
+import LoginForm from '../LoginForm'
 import { Divider } from 'semantic-ui-react'
 
 const Member = () => {
     return (
         <div>
-            <Login/>
+            <LoginForm/>
             <Divider section/>
-            <Register/>
+            <RegisterForm/>
         </div>
     )
 }

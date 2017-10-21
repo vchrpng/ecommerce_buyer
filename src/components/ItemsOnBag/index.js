@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { getTotal } from '../../reducers'
 import CheckoutDetail from '../CheckoutDetail'
 import CheckoutItems from '../CheckoutItems'
-import { ButtonStyled } from '../Etc/ButtonStyled'
+// import { ButtonStyled } from '../Etc/ButtonStyled'
 import { Label } from '../Etc/Label'
 import Member from '../Member'
 
