@@ -2,7 +2,7 @@ import { SubmissionError } from 'redux-form'
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-const submit = (values)  => {
+const submit = (values) => {
   return sleep(1000).then(() => {
     if (!['john', 'paul', 'george', 'ringo'].includes(values.email)) {
       throw new SubmissionError({
@@ -16,6 +16,7 @@ const submit = (values)  => {
       })
     } else {
       window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`)
+      return values
     }
   })
 }

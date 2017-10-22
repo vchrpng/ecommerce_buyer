@@ -3,10 +3,11 @@ import { Grid } from 'semantic-ui-react'
 import { Label } from '../Etc/Label'
 import RenderInputText  from '../Etc/RenderInputText'
 import { ButtonStyled } from '../Etc/ButtonStyled'
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm , formValueSelector } from 'redux-form'
 import submit from './submit'
+import { connect } from 'react-redux'
 
-const LoginForm = ({ error, handleSubmit, submitting , submitSucceeded }) => {
+let LoginForm = ({ error, handleSubmit, submitting , submitSucceeded , LoggedInUser }) => {
     if(!submitSucceeded)
         return (
             <form onSubmit={handleSubmit(submit)}>
@@ -49,7 +50,7 @@ const LoginForm = ({ error, handleSubmit, submitting , submitSucceeded }) => {
             <Grid>
                 <Grid.Row>
                     <Grid.Column width={9}>
-                        <Label>Logged in as ...</Label>
+                        <Label>Logged in as {LoggedInUser}</Label>
                         <div>not your account? Sign in as another user.</div>
                     </Grid.Column>
                 </Grid.Row>
@@ -58,6 +59,18 @@ const LoginForm = ({ error, handleSubmit, submitting , submitSucceeded }) => {
     
 }
 
-export default reduxForm({
+LoginForm = reduxForm({
     form : 'login'
 })(LoginForm)
+
+const selector = formValueSelector('login')
+
+LoginForm = connect(state => {
+    const email = selector(state,'email')
+    return {
+        LoggedInUser : `${email || ''}`
+    } 
+})(LoginForm)
+
+
+export default LoginForm
