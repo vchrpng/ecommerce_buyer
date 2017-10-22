@@ -2,7 +2,7 @@ import { SubmissionError } from 'redux-form'
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-function submit(values) {
+const submit = (values)  => {
   return sleep(1000).then(() => {
     if (!['john', 'paul', 'george', 'ringo'].includes(values.email)) {
       throw new SubmissionError({
