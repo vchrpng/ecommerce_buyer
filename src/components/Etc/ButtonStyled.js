@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 
-export const ButtonStyled = styled.div`
+export const ButtonStyled = styled.button`
     letter-spacing:1px;
     width:100%;
     color:white ; 
@@ -16,5 +16,6 @@ export const ButtonStyled = styled.div`
     transition:.5s;
     &:hover{
         background-color:#555;
-    } 
+    }
+    border:none;
 `

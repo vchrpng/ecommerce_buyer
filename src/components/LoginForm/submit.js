@@ -4,12 +4,12 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 function submit(values) {
   return sleep(1000).then(() => {
-    if (!['john', 'paul', 'george', 'ringo'].includes(values.username)) {
+    if (!['john', 'paul', 'george', 'ringo'].includes(values.email)) {
       throw new SubmissionError({
         username: 'User does not exist',
         _error: 'Login failed!'
       })
-    } else if (values.password !== 'redux-form') {
+    } else if (values.password !== '1234') {
       throw new SubmissionError({
         password: 'Wrong password',
         _error: 'Login failed!'

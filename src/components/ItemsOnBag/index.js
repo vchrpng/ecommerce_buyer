@@ -38,7 +38,7 @@ const ItemsOnBag = ({ product , deleteFromBag , total }) => {
    
 
     return (
-        <Grid style={{margin:'60px'}}>
+        <Grid >
             <Grid.Row columns={2}>
                 <Grid.Column mobile={16} computer={8}>
                     <CheckoutItems>

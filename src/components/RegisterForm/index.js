@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { InputText } from '../Etc/InputText'
+import RenderInputText from '../Etc/RenderInputText'
 import { ButtonStyled } from '../Etc/ButtonStyled'
 import { Label } from '../Etc/Label'
 import { Radio  , Grid} from 'semantic-ui-react'
@@ -15,15 +15,15 @@ const RegisterForm = ({ handleSubmit , pristine , submitting}) => {
           <Label>Email</Label>
             <Field
               name="email"
-              component={InputText}
-              type="email"
+              component={RenderInputText}
+              type="text"
             />
         </div>
         <div>
           <Label>Password</Label>
             <Field
               name="password"
-              component={InputText}
+              component={RenderInputText}
               type="password"
             />
         </div>
@@ -31,7 +31,7 @@ const RegisterForm = ({ handleSubmit , pristine , submitting}) => {
           <Label>Confirm Password</Label>
             <Field
               name="confirm"
-              component={InputText}
+              component={RenderInputText}
               type="password"
             />
         </div>
