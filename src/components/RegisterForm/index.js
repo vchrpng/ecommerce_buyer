@@ -6,6 +6,7 @@ import { Label } from '../Etc/Label'
 import { Radio  , Grid} from 'semantic-ui-react'
 
 const RegisterForm = ({ handleSubmit , pristine , submitting}) => {
+
     return (
       <form onSubmit={handleSubmit}>
       <Grid textAlign={'center'}>

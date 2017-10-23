@@ -50,7 +50,8 @@ let LoginForm = ({ error, handleSubmit, submitting , submitSucceeded , LoggedInU
             <Grid>
                 <Grid.Row>
                     <Grid.Column width={9}>
-                        <Label>Logged in as {LoggedInUser}</Label>
+                        <Label>Logged in as </Label>
+                        <Label><strong> {LoggedInUser} </strong> </Label>
                         <div>not your account? Sign in as another user.</div>
                     </Grid.Column>
                 </Grid.Row>
