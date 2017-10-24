@@ -5,26 +5,10 @@ import { CustomLink } from '../Etc/CustomLink'
 import { Image } from 'semantic-ui-react'
 import { getBagProducts } from '../../reducers'
 import { connect } from 'react-redux'
-import ShoppingBagHover from '../ShoppingBagHover'
+
 
 class Nav extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleMouseHover = this.handleMouseHover.bind(this);
-        this.state = {
-            isHovering: false,
-        };
-    }
-
-    handleMouseHover() {
-        this.setState(this.toggleHoverState);
-    }
-
-    toggleHoverState(state) {
-        return {
-            isHovering: !state.isHovering,
-        };
-    }
+  
     render() {
         const { products } = this.props
 
@@ -53,13 +37,12 @@ class Nav extends React.Component {
                     >
                         <CustomLink color={'black'} to="/shoppingbag">
                             shopping bag [ {products.length} ]
-                </CustomLink></Item>
-                    {this.state.isHovering &&
-                        <ShoppingBagHover products={products} />}
+                        </CustomLink></Item>
                 </List>
             </Flex>
         )
     }
+    
 }
 const mapStateToProps = state => ({
     products: getBagProducts(state)

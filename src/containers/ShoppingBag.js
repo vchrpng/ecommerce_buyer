@@ -3,32 +3,37 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getBagProducts , getTotal } from '../reducers'
 import { deleteFromBag } from '../actions'
-import { Grid , Icon , Image , Divider } from 'semantic-ui-react'
+import { Grid  , Divider } from 'semantic-ui-react'
 import CheckoutDetail from '../components/CheckoutDetail'
 import CheckoutItems from '../components/CheckoutItems'
 import { Label } from '../components/Etc/Label'
-import Member from '../components/Member'
+import LoginForm from '../components/LoginForm'
 import RenderList from '../components/RenderList'
+import EmptyBag from '../components/EmptyBag'
 
 
 const ShoppingBag = ({ product , deleteFromBag , total }) => {
    
+
+    const haveProduct = product.length ?  
+            <CheckoutItems>
+                <Divider/>
+                <RenderList
+                    product={product}
+                    deleteFromBag={deleteFromBag}
+                />
+                <Divider/>
+                <CheckoutDetail total={total}/>
+            </CheckoutItems> : <EmptyBag/>
+
     return (
         <Grid >
             <Grid.Row columns={2}>
                 <Grid.Column mobile={16} computer={8}>
-                    <CheckoutItems>
-                    <Divider/>
-                        <RenderList
-                            product={product}
-                            deleteFromBag={deleteFromBag}
-                        />
-                        <Divider/>
-                    </CheckoutItems>
-                    <CheckoutDetail total={total}/>
+                   {haveProduct}
                 </Grid.Column>
-                <Grid.Column only={'computer'} computer={8} >
-                    <Member/>
+                <Grid.Column mobile={16} computer={8} >
+                    <LoginForm/>
                 </Grid.Column>
             </Grid.Row>
         </Grid>
