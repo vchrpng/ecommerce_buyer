@@ -15,7 +15,7 @@ const EmptyBag = () => {
                     YOUR BAG IS EMPTY PLEASE GO TO SHOPPING.
                 </h4></Flex>
             <Flex justify={'center'} align={'center'}>
-            <CustomLink style={{width:'65%'}} to='/shop'>  
+            <CustomLink style={{width:'65%'}} to='/'>  
                 <ButtonStyled>
                     
                         GO SHOPPING
