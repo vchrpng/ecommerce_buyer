@@ -10,7 +10,7 @@ class Register extends Component {
             <Grid>
                 <Grid.Row>
                     <Grid.Column>
-                    <div style={{maxWidth:'800px',margin:'0 auto',paddingTop:'50px'}}>
+                    <div style={{maxWidth:'500px',margin:'0 auto',paddingTop:'50px'}}>
                         <form>
                             <div>
                                 <Label>First Name</Label>

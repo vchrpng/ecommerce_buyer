@@ -6,42 +6,46 @@ const CheckoutDetail = ({ total }) => {
     const shippingCost = total > 500 ? 0 : 50
     const orderTotal = parseFloat(total) + parseFloat(shippingCost)
     return (
-        <Table.Body>
+        <Table.Body >
             <Table.Row>
                 <Table.Cell/>
                 <Table.Cell>
-                    <Label> Total </Label>
+                    <label> Total </label>
                 </Table.Cell>
-                <Table.Cell>
+                <Table.Cell textAlign={'right'}>
                     ${total}
                 </Table.Cell>
+                <Table.Cell/>
             </Table.Row>
             <Table.Row>
                 <Table.Cell/>
                 <Table.Cell>
-                    <Label>Shipping Estimate </Label>
+                    <label>Shipping Estimate </label>
                 </Table.Cell>
-                <Table.Cell>
+                <Table.Cell textAlign={'right'}>
                     ${shippingCost.toFixed(2)}
                 </Table.Cell>
+                <Table.Cell/>
             </Table.Row>
             <Table.Row>
                 <Table.Cell/>
                 <Table.Cell>
-                    <Label> Duties and Taxes </Label>
+                    <label> Duties and Taxes </label>
                 </Table.Cell>
-                <Table.Cell>
+                <Table.Cell textAlign={'right'}>
                     included
                 </Table.Cell>
+                <Table.Cell/>
             </Table.Row>
             <Table.Row>
                 <Table.Cell/>
                 <Table.Cell>
-                    <Label>Order Total</Label>
+                    <label>Order Total</label>
                 </Table.Cell>
-                <Table.Cell>
+                <Table.Cell textAlign={'right'}>
                     ${orderTotal.toFixed(2)}
                 </Table.Cell>
+                <Table.Cell/>
             </Table.Row>
         </Table.Body>
     )

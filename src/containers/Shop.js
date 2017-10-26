@@ -11,11 +11,11 @@ const Shop = ({products}) => {
    
         return(
                 <Grid>
-                    <Grid.Row>
-                    <Grid.Column>
+                    <Grid.Row centered>
+                    <Grid.Column computer={13} tablet={16}>
                     <div style={{marginTop:'50px'}}>
                         <h3 style={{textAlign:'center',paddingBottom:'30px'}}>SHOP ALL</h3>
-                        <DisplayGrid column={'repeat(auto-fill,24em)'} colGap={30} rowGap={130}>
+                        <DisplayGrid column={'repeat(auto-fill,18em)'} colGap={30} rowGap={70}>
                             {products.map((product,index) => 
                         <ProductList 
                             key={index}

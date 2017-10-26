@@ -10,10 +10,10 @@ const CheckoutItems = () => {
                     <Table.HeaderCell>
                         <label> Product  </label>
                     </Table.HeaderCell>  
-                    <Table.HeaderCell>
+                    <Table.HeaderCell textAlign={'right'}>
                          <label> Price  </label>
                     </Table.HeaderCell>  
-                    <Table.HeaderCell>
+                    <Table.HeaderCell textAlign={'center'}>
                          <label> Remove  </label>
                     </Table.HeaderCell>
                 </Table.Row>

@@ -21,14 +21,14 @@ class App extends Component {
         <Router>
         <div>
             <Nav/>
-            <PageWidth>
+            
               <CategoryList/>
               <Route exact path="/" component={Shop}/>
               <Route path="/shoppingbag" component={ShoppingBag}/>
               <Route path="/products/:category/:id" component={Product}/>
               <Route path="/account/login" component={Login}/>
               <Route path="/account/register" component={Register}/>
-            </PageWidth>
+   
             <Footer/>
         </div>
         </Router>
