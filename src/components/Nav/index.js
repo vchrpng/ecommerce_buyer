@@ -14,7 +14,7 @@ class Nav extends React.Component {
 
         return (
                 <List>
-                    <Item>
+                    <Item style={{width:'5%'}}>
                         <Icon size={'large'} name='search'/>
                     </Item>
                    

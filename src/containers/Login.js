@@ -3,6 +3,7 @@ import { Grid } from 'semantic-ui-react'
 import { Label } from '../components/Etc/Label'
 import { ButtonStyled } from '../components/Etc/ButtonStyled'
 import RenderInputText from '../components/Etc/RenderInputText'
+import { CustomLink } from '../components/Etc/CustomLink'
 
 
 export default class Login extends Component {
@@ -11,7 +12,9 @@ export default class Login extends Component {
             <Grid>
                 <Grid.Row>
                     <Grid.Column>
+                    <div style={{maxWidth:'800px',margin:'0 auto',paddingTop:'50px'}}>
                         <form>
+                          
                             <div>
                                 <Label>Email</Label>
                                 <RenderInputText/>
@@ -29,9 +32,13 @@ export default class Login extends Component {
                                 </ButtonStyled>
                             </div>
                             <div>
-                                <Label>Create Account</Label>
+                                <CustomLink to='/account/register'>
+                                    <Label>Create Account</Label>
+                                </CustomLink>
                             </div>
+                           
                         </form>
+                        </div>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

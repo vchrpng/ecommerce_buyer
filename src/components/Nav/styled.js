@@ -14,6 +14,6 @@ export const List = styled.ul`
 
 export const Item = styled.li`
     display:inline-block;
-    margin:30px 10px;
+    margin:30px 10px 0 10px;
 `
 

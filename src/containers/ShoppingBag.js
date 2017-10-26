@@ -3,11 +3,9 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getBagProducts , getTotal } from '../reducers'
 import { deleteFromBag } from '../actions'
-import { Grid  , Divider , Table } from 'semantic-ui-react'
+import { Grid , Table } from 'semantic-ui-react'
 import CheckoutDetail from '../components/CheckoutDetail'
 import CheckoutItems from '../components/CheckoutItems'
-import { Label } from '../components/Etc/Label'
-import LoginForm from '../components/LoginForm'
 import RenderList from '../components/RenderList'
 import EmptyBag from '../components/EmptyBag'
 
@@ -16,7 +14,7 @@ const ShoppingBag = ({ product , deleteFromBag , total }) => {
    
 
     const haveProduct = product.length ? 
-            <Table basic='very' celled collapsing> 
+            <Table basic='very' celled > 
                 <CheckoutItems/>
                 <RenderList
                     product={product}
@@ -30,7 +28,9 @@ const ShoppingBag = ({ product , deleteFromBag , total }) => {
         <Grid >
             <Grid.Row>
                 <Grid.Column>
+                <div style={{maxWidth:'1000px',margin:'0 auto',paddingTop:'50px'}}>
                    {haveProduct}
+                </div>
                 </Grid.Column>
             </Grid.Row>
         </Grid>

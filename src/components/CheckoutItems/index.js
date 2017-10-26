@@ -6,6 +6,7 @@ const CheckoutItems = () => {
     return (
             <Table.Header>
                 <Table.Row>
+                    <Table.HeaderCell/>
                     <Table.HeaderCell>
                         <label> Product  </label>
                     </Table.HeaderCell>  

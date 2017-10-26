@@ -1,5 +1,4 @@
 import React from 'react'
-import { ButtonStyled } from '../Etc/ButtonStyled'
 import { Label} from '../Etc/Label' 
 import { Table } from 'semantic-ui-react'
 
@@ -9,6 +8,7 @@ const CheckoutDetail = ({ total }) => {
     return (
         <Table.Body>
             <Table.Row>
+                <Table.Cell/>
                 <Table.Cell>
                     <Label> Total </Label>
                 </Table.Cell>
@@ -17,6 +17,7 @@ const CheckoutDetail = ({ total }) => {
                 </Table.Cell>
             </Table.Row>
             <Table.Row>
+                <Table.Cell/>
                 <Table.Cell>
                     <Label>Shipping Estimate </Label>
                 </Table.Cell>
@@ -25,6 +26,7 @@ const CheckoutDetail = ({ total }) => {
                 </Table.Cell>
             </Table.Row>
             <Table.Row>
+                <Table.Cell/>
                 <Table.Cell>
                     <Label> Duties and Taxes </Label>
                 </Table.Cell>
@@ -33,6 +35,7 @@ const CheckoutDetail = ({ total }) => {
                 </Table.Cell>
             </Table.Row>
             <Table.Row>
+                <Table.Cell/>
                 <Table.Cell>
                     <Label>Order Total</Label>
                 </Table.Cell>
