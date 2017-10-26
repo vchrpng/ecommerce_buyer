@@ -9,10 +9,11 @@ export const List = styled.ul`
     text-transform:uppercase;
     font-size:0.8em;
     float:${(props) => props.float};
+    padding:20px 50px 0 50px;
 `
 
 export const Item = styled.li`
     display:inline-block;
-    margin:30px;
+    margin:30px 10px;
 `
 

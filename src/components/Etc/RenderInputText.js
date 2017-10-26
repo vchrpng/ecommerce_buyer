@@ -11,10 +11,9 @@ const InputText = styled.input`
     padding-left:10px;
 `
 
-const RenderInputText = ({ input, label, type, meta: { touched, error } }) => {
+const RenderInputText = () => {
     return (
         <InputText
-            {...input} placeholder={label} type={type}
         />
     )
 }

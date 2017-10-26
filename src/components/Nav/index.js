@@ -18,23 +18,24 @@ class Nav extends React.Component {
                         <Icon size={'large'} name='search'/>
                     </Item>
                    
-                    <Item>
+                    <Item style={{width:'86%',textAlign:'-webkit-center'}}>
                         <CustomLink color={'black'} to="/">
                             <Image 
-                                style={{ margin: '0 40px 0 40px' }}
                                 src="http://www.sneakavilla.net/wp-content/uploads/2015/12/smalllogo-font-header6.png" />
                         </CustomLink>
                     </Item>
                     <Item>
+                    <CustomLink color={'black'} to="/account/login">
                         <Icon size={'big'} name='user outline'/>
+                    </CustomLink>
                     </Item>
                     <Item>
                         <CustomLink color={'black'} to="/shoppingbag">
                             <Image src={shoppingbag}/>
-                            <Label circular color={'red'}
+                            <Label circular size={'tiny'} color={'red'}
                             style={{
                                 position:'relative',
-                                top:'-33px',left:'15px'
+                                top:'-30px',left:'13px'
                             }}> {products.length}  </Label>
                         </CustomLink>
                     </Item>

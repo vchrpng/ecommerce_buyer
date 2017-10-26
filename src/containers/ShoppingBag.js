@@ -28,12 +28,9 @@ const ShoppingBag = ({ product , deleteFromBag , total }) => {
 
     return (
         <Grid >
-            <Grid.Row columns={2}>
-                <Grid.Column mobile={16} computer={8}>
+            <Grid.Row>
+                <Grid.Column>
                    {haveProduct}
-                </Grid.Column>
-                <Grid.Column mobile={16} computer={8} >
-                    <LoginForm/>
                 </Grid.Column>
             </Grid.Row>
         </Grid>

@@ -8,6 +8,11 @@ export const Row = styled.div`
     }
 `
 
+export const PageWidth = styled.div`
+    padding:0 50px;
+    margin : 0 auto;
+`
+
 function getWidth(span) {
     if(!span) return ;
 
