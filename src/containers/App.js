@@ -14,7 +14,6 @@ import Register from './Register'
 import Admin from './Admin'
 import { connect } from 'react-redux'
 import { getAllProducts } from '../actions'
-import { bindActionCreators } from 'redux';
 
 
 class App extends Component {
@@ -42,15 +41,4 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
-    getAllProducts:getAllProducts
-  },dispatch)
-}
-const mapStateToProps = (state, ownProps) => ({
-  
-})
-
-
-
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(null,{getAllProducts})(App);
