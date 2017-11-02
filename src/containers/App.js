@@ -12,10 +12,18 @@ import Login from './Login'
 import CategoryList from '../components/CategoryList'
 import Register from './Register'
 import Admin from './Admin'
+import { connect } from 'react-redux'
+import { getAllProducts } from '../actions'
+import { bindActionCreators } from 'redux';
 
 
 class App extends Component {
+
+  componentDidMount(){
+    this.props.getAllProducts()
+  }
   render() {
+    
       return (
         <Router>
           <div>
@@ -34,10 +42,15 @@ class App extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+    getAllProducts:getAllProducts
+  },dispatch)
+}
+const mapStateToProps = (state, ownProps) => ({
+  
+})
 
 
 
-
-
-
-export default App;
+export default connect(mapStateToProps,mapDispatchToProps)(App);
