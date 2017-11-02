@@ -9,28 +9,26 @@ import ShoppingBag from './ShoppingBag'
 import Shop from './Shop'
 import Product from './Product'
 import Login from './Login'
-import { PageWidth } from '../theme/Grid'
 import CategoryList from '../components/CategoryList'
 import Register from './Register'
-
+import Admin from './Admin'
 
 
 class App extends Component {
   render() {
       return (
         <Router>
-        <div>
+          <div>
             <Nav/>
-            
               <CategoryList/>
               <Route exact path="/" component={Shop}/>
               <Route path="/shoppingbag" component={ShoppingBag}/>
               <Route path="/products/:category/:id" component={Product}/>
               <Route path="/account/login" component={Login}/>
               <Route path="/account/register" component={Register}/>
-   
+              <Route path="/account/admin" component={Admin} />
             <Footer/>
-        </div>
+          </div>
         </Router>
       );
   }

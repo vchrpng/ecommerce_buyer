@@ -9,7 +9,7 @@ const RenderList = ({ product , deleteFromBag }) => (
                 <Table.Cell width={2}>
                     <Image size="tiny" src={item.img}/>
                 </Table.Cell>
-                <Table.Cell width={10}>
+                <Table.Cell width={10} verticalAlign={'top'}>
                     <Label>{item.title}</Label><br/>
                 </Table.Cell>
                 <Table.Cell width={2} textAlign={'right'}>

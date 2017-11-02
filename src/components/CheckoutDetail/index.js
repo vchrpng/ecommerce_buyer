@@ -1,5 +1,4 @@
 import React from 'react'
-import { Label} from '../Etc/Label' 
 import { Table } from 'semantic-ui-react'
 
 const CheckoutDetail = ({ total }) => {

@@ -5,6 +5,7 @@ import { Image , Icon , Label } from 'semantic-ui-react'
 import { getBagProducts } from '../../reducers'
 import { connect } from 'react-redux'
 import shoppingbag from '../../shopping-bag.svg'
+import user from '../../avatar.svg'
 
 
 class Nav extends React.Component {
@@ -25,10 +26,12 @@ class Nav extends React.Component {
                         </CustomLink>
                     </Item>
                     <Item>
-                    <CustomLink color={'black'} to="/account/login">
-                        <Icon size={'big'} name='user outline'/>
-                    </CustomLink>
+                        <CustomLink color={'black'} to="/account/login">
+                            <Image src={user}/>
+                            <Label style={{visibility:'hidden'}}/>
+                        </CustomLink>
                     </Item>
+                 
                     <Item>
                         <CustomLink color={'black'} to="/shoppingbag">
                             <Image src={shoppingbag}/>
