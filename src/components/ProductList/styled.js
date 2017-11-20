@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Thumbnail = styled.div`
     text-align:center;
-    font-size:0.7em;
+    font-size:12px;
     height:350px;
 `
 

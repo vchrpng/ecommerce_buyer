@@ -1,51 +1,52 @@
 import React from 'react'
+import { Cell } from './styled'
 import { Table } from 'semantic-ui-react'
 
 const CheckoutDetail = ({ total }) => {
     const shippingCost = total > 500 ? 0 : 50
     const orderTotal = parseFloat(total) + parseFloat(shippingCost)
     return (
-        <Table.Body >
-            <Table.Row>
-                <Table.Cell/>
-                <Table.Cell>
+        <Table.Body>
+            <tr>
+                <Cell/>
+                <Cell>
                     <label> Total </label>
-                </Table.Cell>
-                <Table.Cell textAlign={'right'}>
+                </Cell>
+                <Cell >
                     ${total}
-                </Table.Cell>
-                <Table.Cell/>
-            </Table.Row>
-            <Table.Row>
-                <Table.Cell/>
-                <Table.Cell>
+                </Cell>
+                <Cell/>
+            </tr>
+            <tr>
+                <Cell/>
+                <Cell>
                     <label>Shipping Estimate </label>
-                </Table.Cell>
-                <Table.Cell textAlign={'right'}>
+                </Cell>
+                <Cell >
                     ${shippingCost.toFixed(2)}
-                </Table.Cell>
-                <Table.Cell/>
-            </Table.Row>
-            <Table.Row>
-                <Table.Cell/>
-                <Table.Cell>
+                </Cell>
+                <Cell/>
+            </tr>
+            <tr>
+                <Cell/>
+                <Cell>
                     <label> Duties and Taxes </label>
-                </Table.Cell>
-                <Table.Cell textAlign={'right'}>
+                </Cell>
+                <Cell >
                     included
-                </Table.Cell>
-                <Table.Cell/>
-            </Table.Row>
-            <Table.Row>
-                <Table.Cell/>
-                <Table.Cell>
+                </Cell>
+                <Cell/>
+            </tr>
+            <tr>
+                <Cell/>
+                <Cell>
                     <label>Order Total</label>
-                </Table.Cell>
-                <Table.Cell textAlign={'right'}>
+                </Cell>
+                <Cell textAlign={'right'}>
                     ${orderTotal.toFixed(2)}
-                </Table.Cell>
-                <Table.Cell/>
-            </Table.Row>
+                </Cell>
+                <Cell/>
+            </tr>
         </Table.Body>
     )
 }

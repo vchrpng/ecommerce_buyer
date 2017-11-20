@@ -10,7 +10,9 @@ const RenderList = ({ product , deleteFromBag }) => (
                     <Image size="tiny" src={item.img}/>
                 </Table.Cell>
                 <Table.Cell width={10} verticalAlign={'top'}>
-                    <Label>{item.title}</Label><br/>
+                    <Label>{item.title}</Label>
+                    <Label>{item.category}</Label>
+                    <Label>size : M </Label>
                 </Table.Cell>
                 <Table.Cell width={2} textAlign={'right'}>
                     <label>${item.price.toFixed(2)}</label>    
