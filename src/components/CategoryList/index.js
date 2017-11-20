@@ -10,10 +10,8 @@ const CategoryList = () => {
        <Grid>
         <Grid.Row only={'computer'} centered >
             <List>
-            {category.map(i => 
-                <CustomLink key={i} to={`/products/${i}`}>
-                <Item >{i}</Item>
-                </CustomLink>
+            {category.map((i,idx) =>           
+                <Item key={idx}>{i}</Item>
             )}
             </List>
         </Grid.Row>

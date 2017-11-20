@@ -6,11 +6,11 @@ import { ButtonStyled } from '../Etc/ButtonStyled'
 export default class Footer extends Component {
     render() {
         return (
-            <div style={{padding:'50px',marginTop:'50px'}}>
+            <div style={{marginTop:'150px'}}>
             <Grid>
                 <Grid.Row centered>
-                    <Grid.Column computer={6}>
-                        <ul style={{listStyle:'none',padding:'0'}}>
+                    <Grid.Column computer={7} only={'computer'}>
+                        <ul style={{listStyle:'none',padding:'0',fontWeight:'bold'}}>
                             <li>FAQ</li>
                             <li>Privacy Policy</li>
                             <li>Term of Service</li>
@@ -18,16 +18,17 @@ export default class Footer extends Component {
 
                         </ul>
                     </Grid.Column>
-                    <Grid.Column textAlign={'right'} computer={6}>
+                    <Grid.Column textAlign={'right'} computer={6} mobile={13}>
+                        <h4 style={{textAlign:'left'}}>Join Our Newsletter</h4>
                         <div style={{display:'flex'}}>
-                        <RenderInputText style={{height:'50px',width:'70%'}}/>
-                        <ButtonStyled style={{width:'30%'}}>SUBSCRIBE</ButtonStyled>
+                            <RenderInputText height={'39px'} width={'73%'} placeholder={'Email Address'} />
+                            <ButtonStyled style={{width:'25%',marginLeft:'10px'}}>SUBSCRIBE</ButtonStyled>
                         </div>
                     </Grid.Column>
                 </Grid.Row>
              
                 <Grid.Row centered>
-                    <Grid.Column computer={6}>
+                    <Grid.Column computer={7} >
                         <Icon size={'big'} name={'facebook square'}/>
                         <Icon size={'big'} name={'github'}/>
                         <Icon size={'big'} name={'instagram'}/>
@@ -35,9 +36,9 @@ export default class Footer extends Component {
                     </Grid.Column>
                     <Grid.Column textAlign={'right'} computer={6}>
                         <Icon size={'large'} name={'paypal'}/>
-                        <Icon size={'large'} name={'visa'}/>
-                        <Icon size={'large'} name={'mastercard'}/>
-                        <Icon size={'large'} name={'google wallet'}/>
+                        <Icon style={{marginLeft:'3px'}} size={'large'} name={'visa'}/>
+                        <Icon style={{marginLeft:'5px'}} size={'large'} name={'mastercard'}/>
+                        <Icon style={{marginLeft:'5px'}} size={'large'} name={'google wallet'}/>
                     </Grid.Column>
                     
                 </Grid.Row>

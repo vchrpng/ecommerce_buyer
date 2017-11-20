@@ -2,12 +2,13 @@ import styled from 'styled-components'
 
 
 export const ButtonStyled = styled.button`
+    text-transformation:uppercase;
+    border-radius:4px;
     letter-spacing:1px;
     width:100%;
     color:white ; 
     background:#333 ;
-    font-size:12px ;
-    border-radius:0px ;
+    font-size:10px ;
     height:40px;
     display:flex;
     justify-content:center;

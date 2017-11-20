@@ -15,7 +15,7 @@ const Shop = ({products}) => {
                     <Grid.Column computer={13} tablet={16}>
                     <div style={{marginTop:'50px'}}>
                         <h4 style={{textAlign:'center',paddingBottom:'30px'}}>SHOP ALL</h4>
-                        <DisplayGrid column={'repeat(auto-fill,18em)'} colGap={30} rowGap={70}>
+                        <DisplayGrid column={'repeat(auto-fill,17em)'} colGap={50} rowGap={70}>
                             {products.map((product,index) => 
                         <ProductList 
                             key={index}

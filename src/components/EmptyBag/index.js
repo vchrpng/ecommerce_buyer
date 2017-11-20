@@ -12,7 +12,7 @@ const EmptyBag = () => {
             >
             <Flex justify={'center'} align={'center'}>
                 <h4 style={{fontWeight:'100',letterSpacing:'1px'}}>
-                    YOUR BAG IS EMPTY PLEASE GO TO SHOPPING.
+                    Your bag is empty please go to shopping.
                 </h4></Flex>
             <Flex justify={'center'} align={'center'}>
             <CustomLink style={{width:'65%'}} to='/'>  
