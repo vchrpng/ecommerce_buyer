@@ -4,7 +4,7 @@ import { showProducts } from '../reducers/products'
 import { Grid , Container , Image } from 'semantic-ui-react'
 import ShippingDetail from '../components/ShippingDetail'
 import ProductDescription from '../components/ProductDescription'
-import { addToBag } from '../actions'
+
 
 
     
@@ -18,32 +18,44 @@ const Product = ({ match , products , addToBag }) => {
 
         <Grid  
             style={{padding:'40px'}} 
-            verticalAlign='middle'>
+            verticalAlign='middle'
+        >
             <Grid.Row 
-                columns={3} style={{height:'3500px'}}>
+                columns={5} 
+                style={{height:'1500px',textAlign:'center'}}
+            >
+                <Grid.Column computer={1}/>
                 <Grid.Column 
-                    computer={5} 
-                    only="computer" style={{top:'50%',position:'fixed',left:'6%'}}>
-                    <Container>
-                    <ProductDescription 
-                        currentProduct={currentProduct}/>
-                        </Container>
+                    computer={4} 
+                    only="computer" 
+                    style={{top:'40%',position:'sticky',bottom:'30%'}}>
+                        <ProductDescription 
+                            currentProduct={currentProduct}
+                        />
                 </Grid.Column>
-                <Grid.Column 
-                    style={{padding:'40px'}}  
-                    mobile={16} tablet={16} computer={16}>
+                <Grid.Column
+                    style={{margin:'0 auto'}}
+                    mobile={16} tablet={16} computer={4}
+                >
                     <Container>
                         <Image src={currentProduct.img} fluid/>
                     </Container>
                 </Grid.Column>
                 <Grid.Column  
-                    mobile={16} tablet={16} computer={5} style={{top:'50%',position:'fixed',right:'6%'}}>
+                    mobile={16} 
+                    tablet={16} 
+                    computer={4} 
+                    style={{top:'40%',position:'sticky',bottom:'30%'}}>
                     <Container>
-                        <ShippingDetail onAddToBag={() => addToBag(currentProduct.id)}>
+                        <ShippingDetail 
+                            currentProduct={currentProduct}
+                            inventory={currentProduct.inventory}
+                        >
                             {currentProduct.price} $
                         </ShippingDetail>   
                     </Container>
                 </Grid.Column>
+                <Grid.Column computer={1}/>
             </Grid.Row>
         </Grid>
     )
@@ -52,4 +64,4 @@ const Product = ({ match , products , addToBag }) => {
 const mapStateToProps = state => ({
     products : showProducts(state.products)
 })
-export default connect(mapStateToProps,{addToBag})(Product)
+export default connect(mapStateToProps)(Product)

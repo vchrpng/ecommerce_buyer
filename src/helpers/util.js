@@ -1,0 +1,1 @@
+export const checkItem = item => item > 0 ? false : true

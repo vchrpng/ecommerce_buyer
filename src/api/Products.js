@@ -1,19 +1,26 @@
-const Lorem = "Lorem ipsum dolor sit amet, ea nec reque consectetuer, malis recteque nam no. Ne nam omnis iuvaret. Vel inimicus petentium no. Admodum phaedrum ea cum, ut nam velit maluisset complectitur. Sea ad reque populo facilisis, exerci patrioque conceptam mea ne. Pro eu numquam voluptua, ea eam nusquam officiis sententiae.Et modo expetenda vulputate sed, te vis congue omittam periculis, ad mei sonet oratio phaedrum."
+const Lorem = "Long sleeve French terry hoodie in white. Drawstring at hood. Graphics printed in yellow and black at chest and back. Kangaroo pocket at waist. Transparent rubber logo patch at sleeve. Rib knit cuffs and hem. Text flocked in blue at back hem. Tonal grosgrain strap at interior. Tonal stitching."
+
 
 const products = [
     {
         "id":1,
         "img":"https://d1gb2jjgc1xisz.cloudfront.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/V/E/VETEMENTS_515554.jpg",
-        "title":"Vetements Men's Reworked Denim Jacket",
+        "title":"Vetements Reworked Denim Jacket",
         "color" : "Black",
         "category":"jackets",
         "price":350,
+        "inventory" : {
+             "s": 3 ,
+             "m": 2 ,
+             "l": 0 ,
+             "xl": 1 ,
+        },
         "description":Lorem,
     },
     {
         "id":2,
         "img":"https://d1gb2jjgc1xisz.cloudfront.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/a/mah18tr24_front.jpg",
-        "title":"Vetements Men's Tourist T-Shirt",
+        "title":"Vetements Tourist T-Shirt",
         "color" : "Green",
         "category":"t-shirts",
         "price":150,
@@ -22,7 +29,7 @@ const products = [
     {
         "id":3,
         "img":"https://d1gb2jjgc1xisz.cloudfront.net/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/V/E/VETEMENTS_510100.jpg",
-        "title":"Vetements Men's Fitted Cut Up Hoodie",
+        "title":"Vetements Fitted Cut Up Hoodie",
         "color" : "Black",
         "category":"t-shirts",
         "price":150,
@@ -49,7 +56,7 @@ const products = [
     {
         "id":6,
         "img":"https://d1gb2jjgc1xisz.cloudfront.net/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/V/E/VETEMENTS_510159.jpg",
-        "title":"Vetements Men's Hooded Bomber",
+        "title":"Vetements Hooded Bomber",
         "color" : "Navy",
         "category":"t-shirts",
         "price":150,
@@ -67,7 +74,7 @@ const products = [
     {
         "id":8,
         "img":"https://d1gb2jjgc1xisz.cloudfront.net/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/V/E/VETEMENTS_VOLUNTEER_PUFFER_515552.jpg",
-        "title":"Vetements Men's Volunteer Puffer Jacket",
+        "title":"Vetements Volunteer Puffer Jacket",
         "color" : "Black",
         "category":"t-shirts",
         "price":150,

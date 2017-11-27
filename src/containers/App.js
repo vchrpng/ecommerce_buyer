@@ -12,15 +12,10 @@ import Login from './Login'
 import CategoryList from '../components/CategoryList'
 import Register from './Register'
 import Admin from './Admin'
-import { connect } from 'react-redux'
-import { getAllProducts } from '../actions'
 
 
 class App extends Component {
 
-  componentDidMount(){
-    this.props.getAllProducts()
-  }
   render() {
     
       return (
@@ -41,4 +36,4 @@ class App extends Component {
   }
 }
 
-export default connect(null,{getAllProducts})(App);
+export default App

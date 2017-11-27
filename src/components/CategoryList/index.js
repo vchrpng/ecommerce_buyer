@@ -1,7 +1,6 @@
 import React from 'react'
 import { List , Item } from './styled'
 import category from '../../constants/Category'
-import { CustomLink } from '../Etc/CustomLink'
 import { Grid } from 'semantic-ui-react'
 
 const CategoryList = () => {

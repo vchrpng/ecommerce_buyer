@@ -3,11 +3,9 @@ import shoppingbag , * as shoppingbagReducer from './shoppingbag'
 import { combineReducers } from 'redux'
 import { reducer as form } from 'redux-form';
 
-export default combineReducers({ products,form,shoppingbag})
-
 
 const getBagProductsById = state => 
-shoppingbagReducer.getBagProductsById(state.shoppingbag)
+    shoppingbagReducer.getBagProductsById(state.shoppingbag)
 
 const getProducts = (state,id) => 
     productReducer.getProducts(state.products,id)
@@ -23,3 +21,10 @@ export const getBagProducts = state =>
              ...getProducts(state,id)
         }))
 
+
+
+export default combineReducers({ 
+    products,
+    form,
+    shoppingbag
+})

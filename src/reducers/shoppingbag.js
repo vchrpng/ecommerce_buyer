@@ -9,7 +9,10 @@ const addToBagById = (state = initialState.addedIds , action) => {
     
     switch(action.type){
         case ADD_TO_SHOPPINGBAG :
-            return [...state,action.productId]      
+            return [
+                ...state,
+                action.productId
+            ]      
         default : 
             return state
     }
@@ -30,7 +33,7 @@ const shoppingbag = (state = initialState,action) => {
          
         case ADD_TO_SHOPPINGBAG : 
             return {
-                addedIds : addToBagById(state.addedIds,action),
+                addedIds : addToBagById(state.addedIds,action)
             }
         default : return state
     }

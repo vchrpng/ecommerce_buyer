@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 import { RECEIVE_PRODUCTS } from '../constants/ActionTypes'
 
 
+
 const getProductId = (state = [], action) => {
     switch(action.type){
         case RECEIVE_PRODUCTS : 
@@ -21,10 +22,8 @@ const addProductItemById = (state = {} , action ) => {
                     return obj
                     },{})
               }
-              
-        default : 
-            return state
-    }
+        default : return {...state}
+    }    
 }
 
 export default combineReducers({
@@ -38,5 +37,3 @@ export const getProducts = (state,id) =>
 
 export const showProducts = state => 
     state.getProductId.map(id => getProducts(state,id))
-
-
