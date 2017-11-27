@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { getBagProducts , getTotal } from '../reducers'
+import { getBagProducts , getTotal, getSize } from '../reducers'
 import { deleteFromBag } from '../actions'
 import { Grid , Table } from 'semantic-ui-react'
 import CheckoutDetail from '../components/CheckoutDetail'
@@ -10,13 +10,14 @@ import RenderList from '../components/RenderList'
 import EmptyBag from '../components/EmptyBag'
 
 
-const ShoppingBag = ({ product , deleteFromBag , total }) => {
+const ShoppingBag = ({ product , deleteFromBag , total , size }) => {
    
 
     const haveProduct = product.length ? 
             <Table basic='very' celled unstackable > 
                 <CheckoutItems/>
                 <RenderList
+                    size={size}
                     product={product}
                     deleteFromBag={deleteFromBag}
                 />
@@ -40,7 +41,8 @@ const ShoppingBag = ({ product , deleteFromBag , total }) => {
 
 const mapStateToProps = state => ({
     product : getBagProducts(state),
-    total : getTotal(state)
+    total : getTotal(state),
+    size : getSize(state)
 })
 
 ShoppingBag.PropTypes = {

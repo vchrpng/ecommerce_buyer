@@ -17,11 +17,12 @@ export const getTotal = state =>
 
 
 export const getBagProducts = state => 
-    getBagProductsById(state).map(id => ({
-             ...getProducts(state,id)
+    getBagProductsById(state).map((id,size) => ({
+             ...getProducts(state,id),size
         }))
 
-
+export const getSize = state =>
+        shoppingbagReducer.getBagProductsBySize(state.shoppingbag)
 
 export default combineReducers({ 
     products,
