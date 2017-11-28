@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import SizeDropDown from '../SizeDropDown'
-import { Header , Grid , Message , Transition } from 'semantic-ui-react'
+import { Header , Grid , Transition } from 'semantic-ui-react'
 import { ButtonStyled } from '../Etc/ButtonStyled'
 import { Loader } from 'semantic-ui-react'
 import { addToBag } from '../../actions'
 import { connect } from 'react-redux'
+import { MessageBox } from '../Etc/RequiredMsg'
 
 class ShippingDetail extends React.Component {
     constructor(props){
@@ -52,10 +53,12 @@ render(){
      
             <Grid container textAlign="center">
                 
-                <Transition visible={this.state.showRequired} animation='scale' duration={500}>
-                    <Message warning attached={true}>
-                            <p>Please select your size</p>
-                    </Message>
+                <Transition visible={this.state.showRequired} animation='fade' duration={500}>
+                <div>
+                    <MessageBox>
+                        <p>Please select your size</p>
+                    </MessageBox>
+                </div>
                 </Transition>
                 
                 <Grid.Row >
