@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import SizeDropDown from '../SizeDropDown'
-import { Header , Grid , Transition } from 'semantic-ui-react'
+import { Header , Grid , Transition , Icon } from 'semantic-ui-react'
 import { ButtonStyled } from '../Etc/ButtonStyled'
 import { Loader } from 'semantic-ui-react'
 import { addToBag } from '../../actions'
@@ -83,6 +83,10 @@ render(){
                 }
                 
                 </Grid.Row>
+                <div>
+                    <Icon name={'heart outline'}/>
+                      <span style={{fontSize:'12px',marginLeft:'10px'}}>ADD TO WISHLIST</span>
+                </div>
             </Grid>
     
         )

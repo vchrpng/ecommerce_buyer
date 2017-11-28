@@ -28,7 +28,7 @@ const Product = ({ match , products , addToBag }) => {
                 <Grid.Column 
                     computer={4} 
                     only="computer" 
-                    style={{top:'40%',position:'sticky',bottom:'30%'}}>
+                    style={{top:'40%',position:'sticky',bottom:'40%'}}>
                         <ProductDescription 
                             currentProduct={currentProduct}
                         />
@@ -45,7 +45,7 @@ const Product = ({ match , products , addToBag }) => {
                     mobile={16} 
                     tablet={16} 
                     computer={4} 
-                    style={{top:'40%',position:'sticky',bottom:'30%'}}>
+                    style={{top:'30%',position:'sticky',bottom:'30%',right:'0'}}>
                     <Container>
                         <ShippingDetail 
                             currentProduct={currentProduct}
