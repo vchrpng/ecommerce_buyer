@@ -3,7 +3,6 @@ import { Table , Icon , Image } from 'semantic-ui-react'
 import { Label } from '../Etc/Label'
 
 const RenderList = ({ product , deleteFromBag , size }) => {
-    const renderSize = size.map((size) => size)
     return (
         product.map((item,idx) =>
             <Table.Body key={idx}>
@@ -14,10 +13,10 @@ const RenderList = ({ product , deleteFromBag , size }) => {
                     <Table.Cell width={10} verticalAlign={'top'}>
                         <Label>{item.title}</Label>
                         <Label>{item.category}</Label>
-                        <Label>{renderSize[idx]}</Label>
+                        <Label>Size : {size[idx]}</Label>
                     </Table.Cell>
                     <Table.Cell width={2} textAlign={'right'}>
-                        {/* <label>${item.price.toFixed(2)}</label>     */}
+                        <label>${item.price.toFixed(2)}</label>    
                     </Table.Cell>
                     <Table.Cell width={2} textAlign={'center'}>
                         <Icon 

@@ -7,7 +7,7 @@ const products = [
         "img":"https://d1gb2jjgc1xisz.cloudfront.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/V/E/VETEMENTS_515554.jpg",
         "title":"Vetements Reworked Denim Jacket",
         "color" : "Black",
-        "category":"jackets",
+        "category":"Jackets",
         "price":350,
         "inventory" : {
              "s": 3 ,
@@ -22,7 +22,7 @@ const products = [
         "img":"https://d1gb2jjgc1xisz.cloudfront.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/a/mah18tr24_front.jpg",
         "title":"Vetements Tourist T-Shirt",
         "color" : "Green",
-        "category":"t-shirts",
+        "category":"T-shirts",
         "price":150,
         "description":Lorem
     },
@@ -31,7 +31,7 @@ const products = [
         "img":"https://d1gb2jjgc1xisz.cloudfront.net/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/V/E/VETEMENTS_510100.jpg",
         "title":"Vetements Fitted Cut Up Hoodie",
         "color" : "Black",
-        "category":"t-shirts",
+        "category":"T-shirts",
         "price":150,
         "description":Lorem
     },
@@ -40,7 +40,7 @@ const products = [
         "img":"https://d1gb2jjgc1xisz.cloudfront.net/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/G/0/G011_B006A.jpg",
         "title":"Gosha Rubchinskiy Denim Shirt",
         "color" : "Black",
-        "category":"t-shirts",
+        "category":"T-shirts",
         "price":150,
         "description":Lorem
     },
@@ -49,7 +49,7 @@ const products = [
         "img":"https://d1gb2jjgc1xisz.cloudfront.net/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/G/0/G011_T007A_5.jpg",
         "title":"Gosha Rubchinskiy Logo Hooded",
         "color" : "Drak Grey",
-        "category":"t-shirts",
+        "category":"T-shirts",
         "price":150,
         "description":Lorem
     },
@@ -58,7 +58,7 @@ const products = [
         "img":"https://d1gb2jjgc1xisz.cloudfront.net/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/V/E/VETEMENTS_510159.jpg",
         "title":"Vetements Hooded Bomber",
         "color" : "Navy",
-        "category":"t-shirts",
+        "category":"T-shirts",
         "price":150,
         "description":Lorem
     },

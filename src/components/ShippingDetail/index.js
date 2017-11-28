@@ -12,13 +12,14 @@ class ShippingDetail extends React.Component {
         super(props)
         this.state = {
             isLoading : false ,
-            size : 's'
+            size : 'S'
 
         }
         this.handleDelayAfterClicked = this.handleDelayAfterClicked.bind(this)
+        this.handleOnChange = this.handleOnChange.bind(this)
     }
 
-    handleDelayAfterClicked(){
+    handleDelayAfterClicked = () => {
         this.setState({
             isLoading : !this.state.isLoading
         })
@@ -26,6 +27,12 @@ class ShippingDetail extends React.Component {
             isLoading : !this.state.isLoading
         }),1000)
         this.props.addToBag(this.props.currentProduct.id,this.state.size)
+    }
+
+    handleOnChange = (e,data) => {
+      this.setState({
+          size : data.value
+      })
     }
 
 render(){
@@ -40,6 +47,7 @@ render(){
                 <Grid.Row>
                     <SizeDropDown
                         inventory={this.props.inventory}
+                        valueOnChange={this.handleOnChange}
                     />
                 </Grid.Row>
                 <Grid.Row>
