@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import SizeDropDown from '../SizeDropDown'
-import { Header , Grid } from 'semantic-ui-react'
+import { Header , Grid , Message , Transition } from 'semantic-ui-react'
 import { ButtonStyled } from '../Etc/ButtonStyled'
 import { Loader } from 'semantic-ui-react'
 import { addToBag } from '../../actions'
@@ -12,7 +12,8 @@ class ShippingDetail extends React.Component {
         super(props)
         this.state = {
             isLoading : false ,
-            size : 'S'
+            size : null ,
+            showRequired : false
 
         }
         this.handleDelayAfterClicked = this.handleDelayAfterClicked.bind(this)
@@ -20,25 +21,43 @@ class ShippingDetail extends React.Component {
     }
 
     handleDelayAfterClicked = () => {
-        this.setState({
-            isLoading : !this.state.isLoading
-        })
-        setTimeout(() => this.setState({
-            isLoading : !this.state.isLoading
-        }),1000)
-        this.props.addToBag(this.props.currentProduct.id,this.state.size)
+        if(this.state.size){
+            this.setState({
+                isLoading : !this.state.isLoading
+            })
+            setTimeout(() => this.setState({
+                isLoading : !this.state.isLoading
+            }),1000)
+            this.props.addToBag(this.props.currentProduct.id,this.state.size)
+        }
+        else {
+            this.setState({
+                showRequired : !this.state.showRequired
+            })
+            setTimeout(() => this.setState({
+                showRequired : !this.state.showRequired
+            }),1000)
+        } 
+        
     }
 
     handleOnChange = (e,data) => {
-      this.setState({
-          size : data.value
-      })
+        this.setState({
+            size : data.value
+        })
     }
-
+  
 render(){
     return (
      
             <Grid container textAlign="center">
+                
+                <Transition visible={this.state.showRequired} animation='scale' duration={500}>
+                    <Message warning attached={true}>
+                            <p>Please select your size</p>
+                    </Message>
+                </Transition>
+                
                 <Grid.Row >
                     <Header size="medium">{this.props.children}</Header>
                 </Grid.Row >
