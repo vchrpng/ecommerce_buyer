@@ -32,9 +32,15 @@ class SizeDropDown extends React.Component {
 
       return ( 
         <Dropdown
+              style={{fontSize:'12px',
+                height:'35px',
+                paddingTop:'11px',
+                borderColor:'#333',
+                borderRadius:'0'
+              }}
               onChange={this.props.valueOnChange}
-              placeholder={'Please pick your size'} 
-              fluid 
+              placeholder={'SELECT YOUR SIZE'} 
+              fluid selection
               options={stateOptions} />
     )
   }

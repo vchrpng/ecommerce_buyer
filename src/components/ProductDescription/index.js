@@ -1,11 +1,15 @@
 import React from 'react'
-import { Container , Divider} from 'semantic-ui-react'
+import { Container} from 'semantic-ui-react'
 
 const ProductDescription = ({ currentProduct }) => {
     return (
         <Container>
-            <Divider horizontal>{currentProduct.title}</Divider>           
-                    <p>  {currentProduct.description} </p>
+            <p style={{fontSize:'18px'}}>{currentProduct.title}</p>         
+            <p>{currentProduct.description}</p>
+            <p>100% Nylon imported</p>
+            <div>
+                <p style={{fontSize:'14px',fontWeight:'bold'}}>Share</p>
+            </div>
         </Container>
     )
 }

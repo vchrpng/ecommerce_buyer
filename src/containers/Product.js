@@ -22,13 +22,13 @@ const Product = ({ match , products , addToBag }) => {
         >
             <Grid.Row 
                 columns={5} 
-                style={{height:'1500px',textAlign:'center'}}
+                style={{textAlign:'center'}}
             >
                 <Grid.Column computer={1}/>
                 <Grid.Column 
-                    computer={4} 
+                    computer={3} 
                     only="computer" 
-                    style={{top:'40%',position:'sticky',bottom:'40%'}}>
+                    style={{top:'30%',position:'sticky',bottom:'30%',left:'0'}}>
                         <ProductDescription 
                             currentProduct={currentProduct}
                         />
@@ -38,20 +38,22 @@ const Product = ({ match , products , addToBag }) => {
                     mobile={16} tablet={16} computer={4}
                 >
                     <Container>
-                        <Image src={currentProduct.img} fluid/>
+                        {currentProduct.imgDetail.map((pic,index) =>
+                            <Image src={pic} key={index} />
+                        )}
                     </Container>
                 </Grid.Column>
                 <Grid.Column  
                     mobile={16} 
                     tablet={16} 
-                    computer={4} 
-                    style={{top:'30%',position:'sticky',bottom:'30%',right:'0'}}>
+                    computer={3} 
+                    style={{top:'30%',position:'sticky',bottom:'37%',right:'0'}}>
                     <Container>
                         <ShippingDetail 
                             currentProduct={currentProduct}
                             inventory={currentProduct.inventory}
                         >
-                            {currentProduct.price} $
+                            {currentProduct.price} $ USD
                         </ShippingDetail>   
                     </Container>
                 </Grid.Column>

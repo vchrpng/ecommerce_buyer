@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import SizeDropDown from '../SizeDropDown'
-import { Header , Grid , Transition , Icon } from 'semantic-ui-react'
+import { Grid , Transition , Icon } from 'semantic-ui-react'
 import { ButtonStyled } from '../Etc/ButtonStyled'
 import { Loader } from 'semantic-ui-react'
 import { addToBag } from '../../actions'
@@ -14,14 +14,16 @@ class ShippingDetail extends React.Component {
         this.state = {
             isLoading : false ,
             size : null ,
-            showRequired : false
+            showRequired : false ,
+            text : ''
 
         }
-        this.handleDelayAfterClicked = this.handleDelayAfterClicked.bind(this)
+        this.handleAddToBagDelay = this.handleAddToBagDelay.bind(this)
         this.handleOnChange = this.handleOnChange.bind(this)
+        this.addToWishlist = this.addToWishlist.bind(this)
     }
 
-    handleDelayAfterClicked = () => {
+    handleAddToBagDelay = () => {
         if(this.state.size){
             this.setState({
                 isLoading : !this.state.isLoading
@@ -33,13 +35,23 @@ class ShippingDetail extends React.Component {
         }
         else {
             this.setState({
-                showRequired : !this.state.showRequired
+                showRequired : !this.state.showRequired,
+                text : 'Please select your size'
             })
             setTimeout(() => this.setState({
                 showRequired : !this.state.showRequired
             }),1000)
         } 
-        
+    }
+
+    addToWishlist = () => {
+        this.setState({
+            showRequired : !this.state.showRequired,
+            text : 'Please login first'
+        })
+        setTimeout(() => this.setState({
+            showRequired : !this.state.showRequired
+        }),1000)
     }
 
     handleOnChange = (e,data) => {
@@ -56,36 +68,44 @@ render(){
                 <Transition visible={this.state.showRequired} animation='fade' duration={500}>
                 <div>
                     <MessageBox>
-                        <p>Please select your size</p>
+                        <p>{this.state.text}</p>
                     </MessageBox>
                 </div>
                 </Transition>
                 
                 <Grid.Row >
-                    <Header size="medium">{this.props.children}</Header>
+                    <p style={{fontSize:'18px'}}>{this.props.children}</p>
                 </Grid.Row >
-                <Grid.Row ><p>Taxes and duties included.<br/>
-                    Free shipping on orders over $500</p></Grid.Row >
+                <Grid.Row >
+                    <p style={{fontWeight:'lighter',fontSize:'12px'}}>Taxes and duties included.<br/>
+                    Free shipping on orders over $500</p>
+                </Grid.Row >
                 <Grid.Row>
                     <SizeDropDown
                         inventory={this.props.inventory}
                         valueOnChange={this.handleOnChange}
                     />
                 </Grid.Row>
-                <Grid.Row>
+                <Grid.Row style={{paddingTop:'5px'}}>
                     {this.state.isLoading ? 
-                    <ButtonStyled>
+                    <ButtonStyled height={'35px'}>
                         <Loader active inline size='small' inverted/>
                     </ButtonStyled> :
-                    <ButtonStyled onClick={this.handleDelayAfterClicked} >
+                    <ButtonStyled height={'35px'} onClick={this.handleAddToBagDelay} >
                         ADD TO BAG
                     </ButtonStyled>
                 }
                 
                 </Grid.Row>
-                <div>
-                    <Icon name={'heart outline'}/>
-                      <span style={{fontSize:'12px',marginLeft:'10px'}}>ADD TO WISHLIST</span>
+                <div style={{paddingLeft:'0'}}>
+                    <Icon 
+                        onClick={this.addToWishlist}
+                        style={{cursor:'pointer'}} 
+                        name={'heart outline'}
+                    />
+                      <span style={{fontSize:'10px',marginLeft:'10px',fontWeight:'bold'}}>
+                        ADD TO WISHLIST
+                      </span>
                 </div>
             </Grid>
     
