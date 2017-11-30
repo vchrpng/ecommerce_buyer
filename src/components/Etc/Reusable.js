@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 
 export const ButtonStyled = styled.button`
@@ -20,4 +21,12 @@ export const ButtonStyled = styled.button`
     }
     border:none;
     outline:none;
+`
+
+
+
+export const CustomLink = styled(Link)`
+    color: ${(props) => props.color};
+    text-decoration: none;
+    
 `

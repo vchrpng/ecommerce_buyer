@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import SizeDropDown from '../SizeDropDown'
 import { Grid , Transition , Icon } from 'semantic-ui-react'
-import { ButtonStyled } from '../Etc/ButtonStyled'
+import { ButtonStyled } from '../Etc/Reusable'
 import { Loader } from 'semantic-ui-react'
 import { addToBag } from '../../actions'
 import { connect } from 'react-redux'

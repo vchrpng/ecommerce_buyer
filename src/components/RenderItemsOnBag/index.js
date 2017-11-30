@@ -1,9 +1,9 @@
 import React from 'react'
 import { Table , Image } from 'semantic-ui-react'
 import { Label } from '../Etc/Label'
-import { ButtonStyled } from '../Etc/ButtonStyled'
+import { ButtonStyled } from '../Etc/Reusable'
 
-const RenderList = ({ product , deleteFromBag , size }) => {
+const RenderItemsOnBag = ({ product , deleteFromBag , size }) => {
     return (
         product.map((item,idx) =>
             <Table.Body key={idx}>
@@ -30,4 +30,4 @@ const RenderList = ({ product , deleteFromBag , size }) => {
     )
 }
 
-export default RenderList
+export default RenderItemsOnBag

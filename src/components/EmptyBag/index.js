@@ -1,7 +1,6 @@
 import React from 'react'
 import { DisplayGrid , Flex } from '../../theme/Grid'
-import { ButtonStyled } from '../Etc/ButtonStyled'
-import { CustomLink } from '../Etc/CustomLink'
+import { ButtonStyled , CustomLink } from '../Etc/Reusable'
 
 
 const EmptyBag = () => {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Grid } from 'semantic-ui-react'
 import { Label } from '../components/Etc/Label'
-import { ButtonStyled } from '../components/Etc/ButtonStyled'
+import { ButtonStyled } from '../components/Etc/Reusable'
 import RenderInputText from '../components/Etc/RenderInputText'
 import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'

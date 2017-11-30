@@ -6,13 +6,14 @@ import { deleteFromBag } from '../actions'
 import { Grid , Table } from 'semantic-ui-react'
 import CheckoutDetail from '../components/CheckoutDetail'
 import CheckoutItems from '../components/CheckoutItems'
-import RenderList from '../components/RenderList'
+import RenderItemsOnBag from '../components/RenderItemsOnBag'
 import EmptyBag from '../components/EmptyBag'
-import { ButtonStyled } from '../components/Etc/ButtonStyled'
+import { ButtonStyled } from '../components/Etc/Reusable'
 import RenderInputText  from '../components/Etc/RenderInputText'
 import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'
 import Footer from '../components/Footer'
+import { Link } from 'react-router-dom'
 
 
 const ShoppingBag = ({ product , deleteFromBag , total , size }) => {
@@ -22,7 +23,7 @@ const ShoppingBag = ({ product , deleteFromBag , total , size }) => {
         <div>
             <Table basic='very' celled unstackable > 
                 <CheckoutItems/>
-                <RenderList
+                <RenderItemsOnBag
                     size={size}
                     product={product}
                     deleteFromBag={deleteFromBag}
@@ -32,7 +33,7 @@ const ShoppingBag = ({ product , deleteFromBag , total , size }) => {
             <div style={{width:'17%',marginLeft:'82%',marginTop:'50px'}}>
                 <RenderInputText/>
                 <ButtonStyled>
-                    CHECKOUT
+                  <Link to="/checkout">  CHECKOUT </Link>
                 </ButtonStyled>
             </div>
         </div>

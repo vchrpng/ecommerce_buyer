@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Grid , Icon } from 'semantic-ui-react'
 import RenderInputText from '../Etc/RenderInputText'
-import { ButtonStyled } from '../Etc/ButtonStyled'
+import { ButtonStyled } from '../Etc/Reusable'
 
 export default class Footer extends Component {
     render() {

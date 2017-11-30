@@ -1,6 +1,6 @@
 import React from 'react'
 import { List, Item } from './styled'
-import { CustomLink } from '../Etc/CustomLink'
+import { CustomLink } from '../Etc/Reusable'
 import { Image , Icon , Label } from 'semantic-ui-react'
 import { getBagProducts } from '../../reducers'
 import { connect } from 'react-redux'
