@@ -7,14 +7,15 @@ const CheckoutItems = () => {
             <Table.Header>
                 <Table.Row>
                     <Table.HeaderCell/>
-                    <Table.HeaderCell>
+                    <Table.HeaderCell
+                        style={{borderLeft:'none'}}>
                         <label> Product  </label>
-                    </Table.HeaderCell>  
-                    <Table.HeaderCell textAlign={'right'}>
+                    </Table.HeaderCell>
+                    <Table.HeaderCell style={{borderLeft:'none'}}/>
+                    <Table.HeaderCell 
+                        textAlign={'right'} 
+                        style={{borderLeft:'none'}}>
                          <label> Price  </label>
-                    </Table.HeaderCell>  
-                    <Table.HeaderCell textAlign={'center'}>
-                         <label> Remove  </label>
                     </Table.HeaderCell>
                 </Table.Row>
             </Table.Header>

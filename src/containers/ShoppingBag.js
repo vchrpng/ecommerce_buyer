@@ -8,12 +8,18 @@ import CheckoutDetail from '../components/CheckoutDetail'
 import CheckoutItems from '../components/CheckoutItems'
 import RenderList from '../components/RenderList'
 import EmptyBag from '../components/EmptyBag'
+import { ButtonStyled } from '../components/Etc/ButtonStyled'
+import RenderInputText  from '../components/Etc/RenderInputText'
+import Nav from '../components/Nav'
+import CategoryList from '../components/CategoryList'
+import Footer from '../components/Footer'
 
 
 const ShoppingBag = ({ product , deleteFromBag , total , size }) => {
    
 
     const haveProduct = product.length ? 
+        <div>
             <Table basic='very' celled unstackable > 
                 <CheckoutItems/>
                 <RenderList
@@ -22,20 +28,32 @@ const ShoppingBag = ({ product , deleteFromBag , total , size }) => {
                     deleteFromBag={deleteFromBag}
                 />
                 <CheckoutDetail total={total}/>
-                </Table>
+            </Table>
+            <div style={{width:'17%',marginLeft:'82%',marginTop:'50px'}}>
+                <RenderInputText/>
+                <ButtonStyled>
+                    CHECKOUT
+                </ButtonStyled>
+            </div>
+        </div>
                 : <EmptyBag/>
 
     return (
+        <div>
+        <Nav/>
+        <CategoryList/>
         <Grid >
             <Grid.Row>
                 <Grid.Column>
-                    <div style={{maxWidth:'1000px',margin:'0 auto',paddingTop:'50px'}}>
+                    <div style={{maxWidth:'900px',margin:'0 auto',paddingTop:'50px'}}>
                     <h4 style={{textAlign:'center',marginBottom:'50px'}}>YOUR SHOPPING BAG</h4>
                     {haveProduct}
                     </div>
                 </Grid.Column>
             </Grid.Row>
         </Grid>
+        <Footer/>
+        </div>
     )
 }
 

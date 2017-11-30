@@ -10,29 +10,32 @@ const CheckoutDetail = ({ total }) => {
             <tr>
                 <Cell/>
                 <Cell>
-                    <label> Total </label>
+                    <label style={{fontWeight:'bold'}}> Total </label>
                 </Cell>
-                <Cell >
-                    ${total}
+                <Cell/>
+                <Cell textAlign={'right'}>
+                    $ {total}
                 </Cell>
                 <Cell/>
             </tr>
             <tr>
                 <Cell/>
                 <Cell>
-                    <label>Shipping Estimate </label>
+                    <label style={{fontWeight:'bold'}}>Shipping Estimate </label>
                 </Cell>
-                <Cell >
-                    ${shippingCost.toFixed(2)}
+                <Cell/>
+                <Cell textAlign={'right'}>
+                    $ {shippingCost.toFixed(2)}
                 </Cell>
                 <Cell/>
             </tr>
             <tr>
                 <Cell/>
                 <Cell>
-                    <label> Duties and Taxes </label>
+                    <label style={{fontWeight:'bold'}}> Duties and Taxes </label>
                 </Cell>
-                <Cell >
+                <Cell />
+                <Cell textAlign={'right'}>
                     included
                 </Cell>
                 <Cell/>
@@ -40,10 +43,11 @@ const CheckoutDetail = ({ total }) => {
             <tr>
                 <Cell/>
                 <Cell>
-                    <label>Order Total</label>
+                    <label style={{fontWeight:'bold'}}>Order Total</label>
                 </Cell>
+                <Cell/>
                 <Cell textAlign={'right'}>
-                    ${orderTotal.toFixed(2)}
+                    $ {orderTotal.toFixed(2)}
                 </Cell>
                 <Cell/>
             </tr>

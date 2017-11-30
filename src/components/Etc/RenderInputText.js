@@ -9,7 +9,7 @@ const InputText = styled.input`
     border:1px solid black;
     margin-bottom:20px;
     padding-left:17px;
-    border-radius:4px;
+    border-radius:0;
     font-size:12px;
     letter-spacing:1px;
 `

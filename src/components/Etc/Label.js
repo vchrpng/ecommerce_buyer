@@ -5,4 +5,5 @@ export const Label = styled.label`
     margin-bottom:5px;
     display:block;
     text-align:left;
+    font-weight:${(props) => props.weight};
 `

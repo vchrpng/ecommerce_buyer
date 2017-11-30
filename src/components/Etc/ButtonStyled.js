@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const ButtonStyled = styled.button`
     text-transformation:uppercase;
-    border-radius:4px;
+    border-radius:0;
     letter-spacing:1px;
     width:100%;
     color:white ; 
