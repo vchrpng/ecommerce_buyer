@@ -12,7 +12,6 @@ import Product from './Product'
 import Login from './Login'
 import CategoryList from '../components/CategoryList'
 import Register from './Register'
-import Admin from './Admin'
 import ShippingForm from './ShippingForm'
 
 
@@ -29,7 +28,6 @@ class App extends Component {
                     <Route path="/products/:category/:id" component={Product}/>
                     <Route path="/account/login" component={Login}/>
                     <Route path="/account/register" component={Register}/>
-                    <Route path="/account/admin" component={Admin} /> 
                     <Route path="/checkout" component={ShippingForm}/>
               </Switch>
               </div>
