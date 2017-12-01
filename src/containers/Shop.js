@@ -31,6 +31,7 @@ const Shop = ({products}) => {
                     </Grid.Column>
                     </Grid.Row>
                 </Grid>
+                <Footer/>
             </div>
         )
     }
