@@ -9,7 +9,7 @@ import Shop from './Shop'
 import Product from './Product'
 import Login from './Login'
 import Register from './Register'
-import ShippingForm from './ShippingForm'
+import Checkout from './Checkout'
 
 
 class App extends Component {
@@ -25,7 +25,7 @@ class App extends Component {
                     <Route path="/products/:category/:id" component={Product}/>
                     <Route path="/account/login" component={Login}/>
                     <Route path="/account/register" component={Register}/>
-                    <Route path="/checkout" component={ShippingForm}/>
+                    <Route path="/checkout" component={Checkout}/>
               </Switch>
               </div>
             </Router>
