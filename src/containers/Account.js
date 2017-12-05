@@ -4,12 +4,10 @@ import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'
 import Footer from '../components/Footer'
 import LoginForm from '../components/LoginForm'
-import { connect } from 'react-redux'
-import { login } from '../actions/auth'
+import { ButtonStyled } from '../components/Etc/Reusable';
 
 
-class Login extends Component {
-    submit = data => this.props.login(data).then(() => this.props.history.push('/account'))
+class Account extends Component {
     
     render() {
         return (
@@ -20,7 +18,10 @@ class Login extends Component {
                     <Grid.Row>
                         <Grid.Column>
                         <div style={{maxWidth:'500px',margin:'0 auto',paddingTop:'50px'}}>
-                           <LoginForm submit={this.submit}/>
+                          <div>
+                             <h1>Account</h1>
+                          </div>
+                                <ButtonStyled>Logout</ButtonStyled>
                             </div>
                         </Grid.Column>
                     </Grid.Row>
@@ -31,4 +32,4 @@ class Login extends Component {
     }
 }
 
-export default connect(null,{ login })(Login)
+export default Account

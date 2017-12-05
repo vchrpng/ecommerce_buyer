@@ -9,6 +9,7 @@ import Product from './Product'
 import Login from './Login'
 import Register from './Register'
 import Checkout from './Checkout'
+import Account from './Account'
 
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
                     <Route path="/account/login" component={Login}/>
                     <Route path="/account/register" component={Register}/>
                     <Route path="/checkout" component={Checkout}/>
+                    <Route path="/account" component={Account} />
               </div>
             </Router>
       )

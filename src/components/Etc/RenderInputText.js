@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import React from 'react';
 
 
-const InputText = styled.input`
+export const InputText = styled.input`
     width:${(props) => props.width ? props.width : '100%'};
     height:${(props) => props.height ? props.height : '30px'};
     background-color:white;
@@ -15,13 +15,16 @@ const InputText = styled.input`
 `
 class RenderInputText extends React.Component {
 
-    handleChange = (e,data) => this.props.onEventChange(e.target.value)
+    handleChange = (e,data) => {
+        this.props.onEventChange(e.target.value)
+    }
 
     render(){
-    const { width , height , placeholder , value } = this.props
+    const { width , height , placeholder , name , value } = this.props
     
         return (
-            <InputText 
+            <InputText
+                name={name}
                 width={width}
                 height={height}
                 placeholder={placeholder}

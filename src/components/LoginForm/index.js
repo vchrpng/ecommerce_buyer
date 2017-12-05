@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import RenderInputText from '../Etc/RenderInputText'
+import { InputText } from '../Etc/RenderInputText'
 import { Label } from '../Etc/Label'
 import { ButtonStyled , CustomLink } from '../Etc/Reusable'
 import Validator from 'validator'
@@ -18,14 +18,18 @@ class LoginForm extends Component {
         }
     }
 
-    onChange = e => this.setState({ 
-        data : {...this.state.data},
-        [e.target.name] : e.target.value 
+    onChange = e => {
+        this.setState({ 
+        data : { ...this.state.data,[e.target.name] : e.target.value }
     })
+}
 
     onSubmit = () => {
         const errors = this.validate(this.state.data)
         this.setState({ errors })
+        if (Object.keys(errors).length === 0){
+            this.props.submit(this.state.data)
+        }
     }
 
     validate = (data) => {
@@ -41,19 +45,25 @@ class LoginForm extends Component {
             <form onSubmit={this.onSubmit}>
                 <div>
                     <Label>Email</Label>
-                    <RenderInputText
-                        value={data.email}
-                        onEventChange={this.onChange}
-                    />
                     {errors.email && <InlineError text={errors.email}/>}
+                    <InputText
+                        type="text"
+                        value={data.email}
+                        name="email"
+                        onChange={this.onChange}
+                    />
+                  
                 </div>
                 <div>
                     <Label>Password</Label>
-                    <RenderInputText
-                        value={data.password}
-                        onEventChange={this.onChange}
-                    />
                     {errors.password && <InlineError text={errors.password}/>}
+                    <InputText
+                        type="password"
+                        value={data.password}
+                        name="password"
+                        onChange={this.onChange}
+                    />
+                   
                 </div>
                 <div>
                     <Label>Forget your password?</Label>
