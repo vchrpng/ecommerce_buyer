@@ -1,6 +1,6 @@
 import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
-import { checkItem } from '../../helpers/util'
+import { checkInventory } from '../../helpers/util'
 
 
 class SizeDropDown extends React.Component {  
@@ -15,12 +15,12 @@ class SizeDropDown extends React.Component {
   
   render(){
     
-    const hasSizeSmall = checkItem(this.props.inventory.s)
-    const hasSizeMedium = checkItem(this.props.inventory.m)
-    const hasSizeLarge = checkItem(this.props.inventory.l)
-    const hasSizeExtra = checkItem(this.props.inventory.xl)
+    const hasSizeSmall = checkInventory(this.props.inventory.s)
+    const hasSizeMedium = checkInventory(this.props.inventory.m)
+    const hasSizeLarge = checkInventory(this.props.inventory.l)
+    const hasSizeExtra = checkInventory(this.props.inventory.xl)
 
-    const soldout = (item) => {
+    const checkAvailable = (item) => {
       if(!item){
           return ''
       }else{
@@ -29,10 +29,10 @@ class SizeDropDown extends React.Component {
     }
 
     const stateOptions = [
-      { key : 'S',  value: 'S',   text: `S  ${soldout(hasSizeSmall)}` , disabled : hasSizeSmall },
-      { key : 'M',  value: 'M',   text: `M  ${soldout(hasSizeMedium)}` , disabled : hasSizeMedium },
-      { key : 'L',  value: 'L',   text: `L  ${soldout(hasSizeLarge)}` , disabled : hasSizeLarge },
-      { key : 'XL', value: 'XL',  text: `XL  ${soldout(hasSizeExtra)}` ,disabled : hasSizeExtra },
+      { key : 'S',  value: 'S',   text: `S  ${checkAvailable(hasSizeSmall)}` , disabled : hasSizeSmall },
+      { key : 'M',  value: 'M',   text: `M  ${checkAvailable(hasSizeMedium)}` , disabled : hasSizeMedium },
+      { key : 'L',  value: 'L',   text: `L  ${checkAvailable(hasSizeLarge)}` , disabled : hasSizeLarge },
+      { key : 'XL', value: 'XL',  text: `XL  ${checkAvailable(hasSizeExtra)}` ,disabled : hasSizeExtra },
     ]
 
 

@@ -8,12 +8,10 @@ import CheckoutDetail from '../components/CheckoutDetail'
 import CheckoutItems from '../components/CheckoutItems'
 import RenderItemsOnBag from '../components/RenderItemsOnBag'
 import EmptyBag from '../components/EmptyBag'
-import { ButtonStyled } from '../components/Etc/Reusable'
-import RenderInputText  from '../components/Etc/RenderInputText'
+import { ButtonStyled , CustomLink } from '../components/Etc/Reusable'
 import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'
 import Footer from '../components/Footer'
-import { Link } from 'react-router-dom'
 
 
 const ShoppingBag = ({ product , deleteFromBag , total , size }) => {
@@ -31,10 +29,12 @@ const ShoppingBag = ({ product , deleteFromBag , total , size }) => {
                 <CheckoutDetail total={total}/>
             </Table>
             <div style={{width:'17%',marginLeft:'82%',marginTop:'50px'}}>
-                <RenderInputText/>
-                <ButtonStyled>
-                  <Link to="/checkout">  CHECKOUT </Link>
-                </ButtonStyled>
+                {/* <RenderInputText/> */}
+                <CustomLink to='/checkout' color={'white'}>
+                    <ButtonStyled>
+                    CHECKOUT
+                    </ButtonStyled>
+                </CustomLink>
             </div>
         </div>
                 : <EmptyBag/>

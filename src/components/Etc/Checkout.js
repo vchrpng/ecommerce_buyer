@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import React from 'react'
+import { Grid } from 'semantic-ui-react'
 
 
 const InputText = styled.input`
@@ -15,9 +16,27 @@ const InputText = styled.input`
     outline:none;
     transition:all .5s;
      &:focus {
-        border:1px solid black;
+        border:2px solid black;
      }
-    `
+`
+
+export const WiderInput = styled.div`
+
+     @media screen and (min-width:768px){
+        display:flex;
+        justify-content:space-between;
+        > ${InputText} {
+            width:48%;
+        }
+     }
+   
+`
+
+export const GridCol = styled(Grid.Column)`
+     margin:0 auto;
+     max-width:40em;
+     display:flex;
+`
 
 export const RenderInputText = ({ width , height , placeholder , type }) => {
     return (

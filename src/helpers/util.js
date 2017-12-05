@@ -1,1 +1,1 @@
-export const checkItem = item => item > 0 ? false : true
+export const checkInventory = item => item > 0 ? false : true

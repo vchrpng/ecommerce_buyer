@@ -13,15 +13,24 @@ const InputText = styled.input`
     font-size:12px;
     letter-spacing:1px;
 `
+class RenderInputText extends React.Component {
 
-const RenderInputText = ({ width , height , placeholder }) => {
-    return (
-        <InputText 
-            width={width}
-            height={height}
-            placeholder={placeholder}
-        />
-    )
+    handleChange = (e,data) => this.props.onEventChange(e.target.value)
+
+    render(){
+    const { width , height , placeholder , value } = this.props
+    
+        return (
+            <InputText 
+                width={width}
+                height={height}
+                placeholder={placeholder}
+                value={value}
+                onChange={this.handleChange}
+            />
+        )
+    }
 }
+
 
 export default RenderInputText

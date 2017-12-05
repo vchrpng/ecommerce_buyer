@@ -6,7 +6,7 @@ import { getBagProducts } from '../../reducers'
 import { connect } from 'react-redux'
 import shoppingbag from '../../shopping-bag.svg'
 import user from '../../avatar.svg'
-import SearchBar from '../SearchBar'
+// import SearchBar from '../SearchBar'
 
 class Nav extends React.Component {
 
@@ -27,7 +27,7 @@ class Nav extends React.Component {
   
     render() {
         const { products } = this.props
-        const  toggleState = this.state.searchBarToggle
+        // const  toggleState = this.state.searchBarToggle
 
         return (
                 <List>
@@ -38,7 +38,7 @@ class Nav extends React.Component {
                             name='search' 
                             onClick={this.toggleSearch}
                         />
-                        {toggleState && <SearchBar open={toggleState}/>}
+                        {/* {toggleState && <SearchBar open={toggleState}/>} */}
                     </Item>
                    
                     <Item style={{width:'86%',textAlign:'-webkit-center'}}>

@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 
 export const ButtonStyled = styled.button`
     text-transformation:uppercase;
-    border-radius:0;
+    border-radius:${(props) => props.radius ? props.radius : '0'};
     letter-spacing:1px;
     width:100%;
     color:white ; 
-    background:#333 ;
-    font-size:10px ;
+    background:${(props) => props.color ? props.color  : '#333'} ;
+    font-size:${(props) => props.fontSize ? props.fontSize : '10px' };
     height: ${(props) => props.height ? props.height : '40px' };
     display:flex;
     justify-content:center;
@@ -17,7 +17,7 @@ export const ButtonStyled = styled.button`
     cursor:pointer;
     transition:.5s;
     &:hover{
-        background-color:#555;
+        background-color:${(props) => props.hoverColor ? props.hoverColor  : '#555'} ;
     }
     border:none;
     outline:none;
@@ -28,5 +28,7 @@ export const ButtonStyled = styled.button`
 export const CustomLink = styled(Link)`
     color: ${(props) => props.color};
     text-decoration: none;
-    
+    &:hover{
+        color:${(props) => props.color};
+    }
 `
