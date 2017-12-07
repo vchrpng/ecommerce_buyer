@@ -1,5 +1,6 @@
 import products , * as productReducer from './products'
 import shoppingbag , * as shoppingbagReducer from './shoppingbag'
+import user from './user'
 import { combineReducers } from 'redux'
 import { reducer as form } from 'redux-form';
 
@@ -27,5 +28,6 @@ export const getSize = state =>
 export default combineReducers({ 
     products,
     form,
-    shoppingbag
+    shoppingbag,
+    user
 })

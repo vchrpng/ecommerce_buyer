@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { InputText } from '../Etc/RenderInputText'
 import { Label } from '../Etc/Label'
+import { Form , Message } from 'semantic-ui-react'
 import { ButtonStyled , CustomLink } from '../Etc/Reusable'
 import Validator from 'validator'
 import InlineError from '../Etc/InlineError'
@@ -28,7 +29,13 @@ class LoginForm extends Component {
         const errors = this.validate(this.state.data)
         this.setState({ errors })
         if (Object.keys(errors).length === 0){
+            this.setState({ loading : true })
+            setTimeout(() =>
             this.props.submit(this.state.data)
+            .catch(err => this.setState({ 
+                errors : err.response.data.errors,
+                loading : false 
+            })),2000)
         }
     }
 
@@ -40,9 +47,17 @@ class LoginForm extends Component {
     }
 
     render() {
-        const { data , errors } = this.state
+        const { data , errors , loading } = this.state
+
         return (
-            <form onSubmit={this.onSubmit}>
+            <Form onSubmit={this.onSubmit} loading={loading}>
+            {errors.global && 
+                <Message negative>
+                    <Message.Header content={'Somthing went wrong'} />
+                    <Message.Content>
+                        {errors.global}
+                    </Message.Content>
+                </Message>}
                 <div>
                     <Label>Email</Label>
                     {errors.email && <InlineError text={errors.email}/>}
@@ -79,8 +94,10 @@ class LoginForm extends Component {
                     </CustomLink>
                 </div>
                             
-            </form>
+            </Form>
         )
     }
 }
+
+
 export default LoginForm

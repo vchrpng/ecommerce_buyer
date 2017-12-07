@@ -9,7 +9,7 @@ import { login } from '../actions/auth'
 
 
 class Login extends Component {
-    submit = data => this.props.login(data).then(() => this.props.history.push('/account'))
+    submit = data => this.props.login(data).then(() => this.props.history.push('/account/myaccount'))
     
     render() {
         return (

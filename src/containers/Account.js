@@ -3,14 +3,19 @@ import { Grid } from 'semantic-ui-react'
 import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'
 import Footer from '../components/Footer'
-import LoginForm from '../components/LoginForm'
-import { ButtonStyled } from '../components/Etc/Reusable';
+import { ButtonStyled } from '../components/Etc/Reusable'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import { logout } from '../actions/auth'
 
 
 class Account extends Component {
     
     render() {
-        return (
+        const { isAuthenticated , logout } = this.props
+
+        if(isAuthenticated){
+            return (
             <div>
                 <Nav/>
                 <CategoryList/>
@@ -21,15 +26,22 @@ class Account extends Component {
                           <div>
                              <h1>Account</h1>
                           </div>
-                                <ButtonStyled>Logout</ButtonStyled>
+                                <ButtonStyled
+                                    onClick={() => logout()}
+                                >Logout
+                                </ButtonStyled>
                             </div>
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
                 <Footer/>
             </div>
-        )
+        )}
+        else return <Redirect to='/account/login' />
     }
 }
+const mapStateToProps = state => ({
+    isAuthenticated : !!state.user.token
+})
 
-export default Account
+export default connect(mapStateToProps,{ logout })(Account)

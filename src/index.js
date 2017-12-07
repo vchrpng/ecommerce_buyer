@@ -9,6 +9,7 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
 import { getAllProducts } from './actions/index';
+import { userLoggedIn } from './actions/auth';
 
 const middleware = [ thunk ];
     middleware.push(createLogger());
@@ -20,7 +21,10 @@ const store = createStore(
   )
 
 store.dispatch(getAllProducts())
-
+if(localStorage.ecommerceJWT){
+    const user = { token : localStorage.ecommerceJWT }
+    store.dispatch(userLoggedIn(user))
+}
 
 ReactDOM.render(
     <Provider store={store}>
