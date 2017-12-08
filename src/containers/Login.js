@@ -6,13 +6,16 @@ import Footer from '../components/Footer'
 import LoginForm from '../components/LoginForm'
 import { connect } from 'react-redux'
 import { login } from '../actions/auth'
+import { Redirect } from 'react-router-dom'
 
 
 class Login extends Component {
     submit = data => this.props.login(data).then(() => this.props.history.push('/account/myaccount'))
     
     render() {
-        return (
+        const { isAuthenticated } = this.props
+        if(!isAuthenticated){
+            return (
             <div>
                 <Nav/>
                 <CategoryList/>
@@ -27,8 +30,13 @@ class Login extends Component {
                 </Grid>
                 <Footer/>
             </div>
-        )
+        )}
+        else return <Redirect to='/account/myaccount' />
     }
 }
+const mapStateToProps = state => ({
+    isAuthenticated : !!state.user.token
+})
 
-export default connect(null,{ login })(Login)
+
+export default connect(mapStateToProps,{ login })(Login)

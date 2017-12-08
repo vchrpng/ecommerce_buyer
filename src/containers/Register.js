@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { Grid } from 'semantic-ui-react'
-import { Label } from '../components/Etc/Label'
-import { ButtonStyled } from '../components/Etc/Reusable'
-import RenderInputText from '../components/Etc/RenderInputText'
 import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'
 import Footer from '../components/Footer'
+import SignupForm from '../components/SignupForm'
+import { connect } from 'react-redux'
+import { signup } from '../actions/users'
 
 class Register extends Component {
+    submit = data => this.props.signup(data).then(() => this.props.history.push('/account/login'))
     render() {
         return (
                 <div>
@@ -17,34 +18,7 @@ class Register extends Component {
                         <Grid.Row>
                             <Grid.Column>
                             <div style={{maxWidth:'500px',margin:'0 auto',paddingTop:'50px'}}>
-                                <form>
-                                    <div>
-                                        <Label>First Name</Label>
-                                        <RenderInputText/>
-                                    </div>
-                                    <div>
-                                        <Label>Last Name</Label>
-                                        <RenderInputText/>
-                                    </div>
-                                    <div>
-                                        <Label>Email</Label>
-                                        <RenderInputText/>
-                                    </div>
-                                    <div>
-                                        <Label>Password</Label>
-                                        <RenderInputText/>
-                                    </div>
-                                    <div>
-                                        <Label>Confirm Password</Label>
-                                        <RenderInputText/>
-                                    </div>
-                                    <div>
-                                        <ButtonStyled>
-                                            Create
-                                        </ButtonStyled>
-                                    </div>
-                                    
-                                </form>
+                                <SignupForm submit={this.submit}/>
                             </div>
                             </Grid.Column>
                         </Grid.Row>
@@ -55,4 +29,4 @@ class Register extends Component {
     }
 }
 
-export default Register
+export default connect(null,{ signup })(Register)
