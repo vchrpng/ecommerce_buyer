@@ -13,7 +13,7 @@ const ProductList = ({ product }) => {
       
         <Thumbnail>
             <Link to={`/products/${product.category}/${product.id}`}>
-            <Image src={product.img}/>
+            <Image src={product.thumbnial}/>
             </Link>
             <Row>
                 <Column style={{marginTop:'10px'}}>

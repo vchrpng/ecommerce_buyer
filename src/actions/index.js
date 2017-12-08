@@ -1,5 +1,6 @@
 import * as types from '../constants/ActionTypes'
 import products from '../api/Products'
+import axios from 'axios'
 
 
 const receiveProducts = products => ({
@@ -8,7 +9,9 @@ const receiveProducts = products => ({
   })
   
 export const getAllProducts = () => dispatch => {
-    dispatch(receiveProducts(products))
+    axios.get('/api/products').then((res) => {
+        dispatch(receiveProducts(res.data))
+    })
 }
 
 const selectProduct = (productId,size) => ({

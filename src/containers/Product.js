@@ -42,7 +42,7 @@ const Product = ({ match , products , addToBag }) => {
                             mobile={16} tablet={16} computer={4}
                         >
                             <Container>
-                                {currentProduct.imgDetail.map((pic,index) =>
+                                {currentProduct.images.map((pic,index) =>
                                     <Image src={pic} key={index} style={{marginBottom:'50px'}}/>
                                 )}
                             </Container>
