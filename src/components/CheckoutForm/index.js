@@ -20,11 +20,7 @@ class CheckoutForm extends React.Component {
                 city:'',
                 postcode: '',
                 province:'',
-                country:'',
-                // items :  _.map(this.props.products,(product)=>
-                //     _.pick(product,['title','category','price','id'])) ,
-                //  total : this.props.total,
-
+                country:''
             },
             loading:false,
             errors:{}

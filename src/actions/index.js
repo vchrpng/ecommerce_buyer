@@ -38,13 +38,16 @@ export const deleteFromBag = index => dispatch => {
 
 export const checkout = (data) => (dispatch,getState) => {
     const { shoppingbag , products } = getState()
+    const user = localStorage.getItem('email')
+    console.log(user)
     dispatch({ type : types.CHECKOUT_REQUEST })
     if(shoppingbag.addedIds.length > 0){
         dispatch({
             type : types.CHECKOUT_SUCCESS,
             shoppingbag,
             data,
-            products
+            products,
+            user
         })
     }
     else dispatch({ type : types.CHECKOUT_FAILURE })

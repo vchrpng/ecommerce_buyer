@@ -75,6 +75,7 @@ export const checkout = (state = {}, action) => {
             const products = action.products.byId
             const ids = action.shoppingbag.addedIds
             const sizes = action.shoppingbag.addedSizes
+            console.log(action.user)
             return {
                 order : {
                     ...action.data,
@@ -86,7 +87,8 @@ export const checkout = (state = {}, action) => {
                     ,
                     total : ids
                     .reduce((total,id) => 
-                        total + products[id].price,0)
+                        total + products[id].price,0),
+                    email : action.user
                 }
             }
         case CHECKOUT_FAILURE : 
