@@ -8,14 +8,18 @@ import {
     ADD_TO_SHOPPINGBAG
 } from '../constants/ActionTypes'
 
-const  test = (state,action) => {
+const  inventoryUpdate = (state,action) => {
     switch(action.type){
-        case ADD_TO_SHOPPINGBAG : 
-        console.log(state)
-        return {
+       
+    case ADD_TO_SHOPPINGBAG : 
+    if (state[action.size] > 0 ) {   
+            return  {
             ...state,
             [action.size] : state[action.size] - 1
         }
+    }
+    else return state
+    
         default : return state
     }
 }
@@ -37,12 +41,11 @@ const getInventory = (state = {},action) => {
             }
         case ADD_TO_SHOPPINGBAG :
             const { productId } = action
-            console.log(state.inventory[action.productId])
             return {
                 ...state,
                 inventory : {
                     ...state.inventory,
-                    [productId] : test(state.inventory[productId],action)
+                    [productId - 1] : inventoryUpdate(state.inventory[productId - 1],action)
                 }
             }
         default : return state
@@ -91,7 +94,6 @@ export default combineReducers({
     byId,
     getProductId,
     checkout,
-    // updateInventory,
     getInventory
 })
 
@@ -100,6 +102,9 @@ state.byId[id]
 
 export const showProducts = state => 
 state.getProductId.map(id => getProducts(state,id))
+
+export const showInventory = state => 
+state.getInventory.inventory
 
 
 

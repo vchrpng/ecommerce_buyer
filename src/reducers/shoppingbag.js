@@ -51,7 +51,8 @@ const shoppingbag = (state = initialState,action) => {
             return {
                 addedIds : addedIds(state.addedIds,action),
                 addedSizes : addedSizes(state.addedSizes,action)
-            }
+        }
+
         default : return state
     }
 }

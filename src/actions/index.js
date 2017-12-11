@@ -13,14 +13,17 @@ export const getAllProducts = () => dispatch => {
     })
 }
 
-const selectProduct = (productId,size) => ({
+const addToBagSuccess = (productId,size) => ({
     type : types.ADD_TO_SHOPPINGBAG,
     productId,size
 })
 
 
-export const addToBag = (productId,size) => (dispatch) => {
-    setTimeout(() => dispatch(selectProduct(productId,size)),1000)
+export const addToBag = (productId,size) => (dispatch,getState) => {
+    const { products } = getState()
+    if (products.getInventory.inventory[productId-1][size] > 0) {
+        setTimeout(() => dispatch(addToBagSuccess(productId,size)),1000)
+    }
 }
 
 const removeFromBag = index => ({

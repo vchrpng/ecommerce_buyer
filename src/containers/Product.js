@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { showProducts } from '../reducers/products'
+import { showProducts , showInventory } from '../reducers/products'
 import { Grid , Container , Image } from 'semantic-ui-react'
 import ShippingDetail from '../components/ShippingDetail'
 import ProductDescription from '../components/ProductDescription'
@@ -11,7 +11,7 @@ import Footer from '../components/Footer'
 
     
 
-const Product = ({ match , products , addToBag }) => {
+const Product = ({ match , products , addToBag , inventory }) => {
 
     const { id } = match.params
     const currentProduct = products[id-1]
@@ -55,7 +55,7 @@ const Product = ({ match , products , addToBag }) => {
                             <Container>
                                 <ShippingDetail 
                                     currentProduct={currentProduct}
-                                    inventory={currentProduct.inventory}
+                                    inventory={inventory[id-1]}
                                 >
                                     {currentProduct.price} $ USD
                                 </ShippingDetail>   
@@ -70,6 +70,7 @@ const Product = ({ match , products , addToBag }) => {
 }
 
 const mapStateToProps = state => ({
-    products : showProducts(state.products)
+    products : showProducts(state.products),
+    inventory : showInventory(state.products)
 })
 export default connect(mapStateToProps)(Product)

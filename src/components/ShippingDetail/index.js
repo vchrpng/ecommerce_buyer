@@ -14,7 +14,7 @@ class ShippingDetail extends React.Component {
         this.state = {
             isLoading : false ,
             size : null ,
-            showRequired : false ,
+            showRequired : false,
             text : ''
 
         }
@@ -25,13 +25,17 @@ class ShippingDetail extends React.Component {
 
     handleAddToBagDelay = () => {
         if(this.state.size){
+            if(this.props.inventory[this.state.size] > 0){
             this.setState({
                 isLoading : !this.state.isLoading
             })
+           
             setTimeout(() => this.setState({
                 isLoading : !this.state.isLoading
             }),1000)
-            this.props.addToBag(this.props.currentProduct.id,this.state.size)
+            
+                this.props.addToBag(this.props.currentProduct.id,this.state.size)
+            }
         }
         else {
             this.setState({
@@ -39,7 +43,7 @@ class ShippingDetail extends React.Component {
                 text : 'Please select your size'
             })
             setTimeout(() => this.setState({
-                showRequired : !this.state.showRequired
+                showRequired : !this.state.showRequired,
             }),1000)
         } 
     }
@@ -50,7 +54,7 @@ class ShippingDetail extends React.Component {
             text : 'Please login first'
         })
         setTimeout(() => this.setState({
-            showRequired : !this.state.showRequired
+            showRequired : !this.state.showRequired,
         }),1000)
     }
 
