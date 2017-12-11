@@ -1,18 +1,18 @@
 import React from 'react'
 
-const RenderItemsCheckout = ({ product , size }) => {
+const RenderItemsCheckout = ({ products , size }) => {
     return (
-        product.map((product,idx) =>
-            <div key={idx} style={{width:'100%',display:'flex'}}>
-                <div style={{width:'50%'}}>
-                    <span style={{fontWeight:'bold'}}>{product.title}</span>
+        products.map((product,idx) =>
+            <div key={idx} style={{display:'flex',justifyContent:'space-between',padding:'10px 0'}}>
+                <div>
+                    <span><strong>{product.title}</strong></span>
                         <br/>
                     <span>category : {product.category}</span>
                         <br/>
                     <span>size : {size[idx]}</span>
                 </div>
-                <div style={{width:'50%',textAlign:'right',verticalAlign:'middle'}}>
-                    <span style={{fontWeight:'bold'}}>{product.price}</span>
+                <div style={{display:'flex',alignItems:'center'}}>
+                    <span>$ {product.price}</span>
                 </div>
             </div>
         )

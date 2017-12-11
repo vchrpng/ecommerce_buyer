@@ -29,7 +29,6 @@ const ShoppingBag = ({ product , deleteFromBag , total , size }) => {
                 <CheckoutDetail total={total}/>
             </Table>
             <div style={{width:'17%',marginLeft:'82%',marginTop:'50px'}}>
-                {/* <RenderInputText/> */}
                 <CustomLink to='/checkout' color={'white'}>
                     <ButtonStyled>
                     CHECKOUT

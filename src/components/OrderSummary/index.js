@@ -1,26 +1,43 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import RenderItemCheckout from '../RenderItemsCheckout'
+import RenderCostTotal from '../RenderCostTotal'
+import { connect } from 'react-redux'
+import { getBagProducts , getTotal, getSize } from '../../reducers'
 
-const OrderSummary = ({ total , shipping }) => {
+const OrderSummary = ({ products,size,total }) => {
     return (
-    <div style={{width:'100%',display:'flex'}}>
-        <div style={{width:'50%'}}>
-            <span style={{fontWeight:'bold'}}>   Subtotal </span>
-            <br/>
-            <span style={{fontWeight:'bold'}}>    Shipping</span>
-            <br/>
-            <span style={{fontWeight:'bold'}}>     Duties and taxes</span>
-            <br/>
+        <div>
+            <h3> OrderSummary </h3>
+            <div style={{
+                borderTop:'1px solid lightgray'}}>
+                <RenderItemCheckout 
+                    products={products}
+                    size={size}
+                />
+            </div>
+            <div style={{
+                borderBottom:'1px solid lightgray'
+            }}>
+                <RenderCostTotal 
+                    total={total}
+                />
+            </div>
         </div>
-        <div style={{width:'50%',textAlign:'right'}}>
-            <span style={{marginRight:'-3px',fontWeight:'bold'}}>  $ {total}</span>
-            <br/>
-            <span style={{marginRight:'-3px',fontWeight:'bold'}}>   $ {shipping}</span>
-            <br/>
-            <span style={{marginRight:'-7px',fontWeight:'bold'}}>  included </span>
-            <br/>
-        </div>
-    </div>
     )
 }
 
-export default OrderSummary
+const mapStateToProps = state => ({
+    products : getBagProducts(state),
+    total : getTotal(state),
+    size : getSize(state)
+})
+
+OrderSummary.PropTypes = {
+    product : PropTypes.array.isRequired,
+    total : PropTypes.number.isRequired,
+    size : PropTypes.array.isRequired
+}
+
+
+export default connect(mapStateToProps)(OrderSummary)

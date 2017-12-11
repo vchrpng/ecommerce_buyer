@@ -29,11 +29,9 @@ const addedSizes = (state = initialState.addedSizes, action) => {
     }
 }
 
-
-
-
 export const getBagProductsById = state => state.addedIds
 export const getBagProductsBySize = state => state.addedSizes
+
 
 const shoppingbag = (state = initialState,action) => {
     switch(action.type){

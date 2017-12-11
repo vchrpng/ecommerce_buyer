@@ -15,10 +15,10 @@ class SizeDropDown extends React.Component {
   
   render(){
     
-    const hasSizeSmall = checkInventory(this.props.inventory.s)
-    const hasSizeMedium = checkInventory(this.props.inventory.m)
-    const hasSizeLarge = checkInventory(this.props.inventory.l)
-    const hasSizeExtra = checkInventory(this.props.inventory.xl)
+    const hasSizeSmall = checkInventory(this.props.inventory.S)
+    const hasSizeMedium = checkInventory(this.props.inventory.M)
+    const hasSizeLarge = checkInventory(this.props.inventory.L)
+    const hasSizeExtra = checkInventory(this.props.inventory.XL)
 
     const checkAvailable = (item) => {
       if(!item){

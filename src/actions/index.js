@@ -1,5 +1,4 @@
 import * as types from '../constants/ActionTypes'
-import products from '../api/Products'
 import axios from 'axios'
 
 
@@ -19,6 +18,7 @@ const selectProduct = (productId,size) => ({
     productId,size
 })
 
+
 export const addToBag = (productId,size) => (dispatch) => {
     setTimeout(() => dispatch(selectProduct(productId,size)),1000)
 }
@@ -33,11 +33,17 @@ export const deleteFromBag = index => dispatch => {
 }
 
 
-
-
-
-
-
-
-
-
+export const checkout = (data) => (dispatch,getState) => {
+    const { shoppingbag , products } = getState()
+    dispatch({ type : types.CHECKOUT_REQUEST })
+    if(shoppingbag.addedIds.length > 0){
+        dispatch({
+            type : types.CHECKOUT_SUCCESS,
+            shoppingbag,
+            data,
+            products
+        })
+    }
+    else dispatch({ type : types.CHECKOUT_FAILURE })
+  
+}

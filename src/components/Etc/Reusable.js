@@ -23,6 +23,27 @@ export const ButtonStyled = styled.button`
     outline:none;
 `
 
+export const RedButton = styled.button`
+    text-transformation:uppercase;
+    border-radius:4px;
+    letter-spacing:1px;
+    width:100%;
+    color:white ; 
+    background:#b61200;
+    font-size:12px;
+    height: 50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition:.5s;
+    &:hover{
+        background-color:#830d00 ;
+    }
+    border:none;
+    outline:none;
+`
+
 
 
 export const CustomLink = styled(Link)`

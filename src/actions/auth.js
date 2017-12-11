@@ -10,7 +10,7 @@ export const userLoggedOut = () => ({
     type : USER_LOGGED_OUT
 })
 
-export const login = (credentials) => dispatch => api.user.login(credentials)
+export const login = credentials => dispatch => api.user.login(credentials)
     .then(user => {
         localStorage.ecommerceJWT = user.token
         dispatch(userLoggedIn(user))
@@ -22,7 +22,5 @@ export const logout = () => dispatch => {
     dispatch(userLoggedOut())
 }
     
-
-export const register = users => dispatch => {
-  
-}
+export const signup = data => dispatch => api.user.signup(data)
+    .then(user => dispatch(userLoggedIn(user)))

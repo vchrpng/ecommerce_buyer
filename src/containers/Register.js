@@ -5,7 +5,7 @@ import CategoryList from '../components/CategoryList'
 import Footer from '../components/Footer'
 import SignupForm from '../components/SignupForm'
 import { connect } from 'react-redux'
-import { signup } from '../actions/users'
+import { signup } from '../actions/auth'
 
 class Register extends Component {
     submit = data => this.props.signup(data).then(() => this.props.history.push('/account/login'))

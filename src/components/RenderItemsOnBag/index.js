@@ -9,7 +9,7 @@ const RenderItemsOnBag = ({ product , deleteFromBag , size }) => {
             <Table.Body key={idx}>
                 <Table.Row>
                     <Table.Cell width={2}>
-                        <Image style={{marginLeft:'20%'}} size="tiny" src={item.img}/>
+                        <Image style={{marginLeft:'20%'}} size="tiny" src={item.thumbnial}/>
                     </Table.Cell>
                     <Table.Cell width={10} verticalAlign={'top'} style={{borderLeft:'none'}}>
                         <Label weight={'bold'}>{item.title}</Label>

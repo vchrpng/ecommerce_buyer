@@ -3,8 +3,8 @@ import { Cell } from './styled'
 import { Table } from 'semantic-ui-react'
 
 const CheckoutDetail = ({ total }) => {
-    const shippingCost = total > 500 ? 0 : 50
-    const orderTotal = parseFloat(total) + parseFloat(shippingCost)
+    // const shippingCost = total > 500 ? 0 : 50
+    // const orderTotal = parseFloat(total) + parseFloat(shippingCost)
     return (
         <Table.Body>
             <tr>
@@ -25,7 +25,7 @@ const CheckoutDetail = ({ total }) => {
                 </Cell>
                 <Cell/>
                 <Cell textAlign={'right'}>
-                    $ {shippingCost.toFixed(2)}
+                    $ free
                 </Cell>
                 <Cell/>
             </tr>
@@ -47,7 +47,7 @@ const CheckoutDetail = ({ total }) => {
                 </Cell>
                 <Cell/>
                 <Cell textAlign={'right'}>
-                    $ {orderTotal.toFixed(2)}
+                    $ {total}
                 </Cell>
                 <Cell/>
             </tr>

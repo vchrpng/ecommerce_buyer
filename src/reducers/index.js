@@ -2,7 +2,6 @@ import products , * as productReducer from './products'
 import shoppingbag , * as shoppingbagReducer from './shoppingbag'
 import user from './user'
 import { combineReducers } from 'redux'
-import { reducer as form } from 'redux-form';
 
 
 const getBagProductsById = state => 
@@ -11,10 +10,13 @@ const getBagProductsById = state =>
 const getProducts = (state,id) => 
     productReducer.getProducts(state.products,id)
 
+
 export const getTotal = state =>
-    getBagProductsById(state)
+        getBagProductsById(state)
         .reduce((total,id) => 
-            total + getProducts(state,id).price,0).toFixed(2)
+              total + getProducts(state,id).price
+            ,0).toFixed(2)
+
 
 
 export const getBagProducts = state => 
@@ -23,11 +25,10 @@ export const getBagProducts = state =>
         }))
 
 export const getSize = state =>
-        shoppingbagReducer.getBagProductsBySize(state.shoppingbag)
+    shoppingbagReducer.getBagProductsBySize(state.shoppingbag)
 
 export default combineReducers({ 
     products,
-    form,
     shoppingbag,
     user
 })

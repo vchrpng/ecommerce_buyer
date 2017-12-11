@@ -1,6 +1,5 @@
 import React from 'react'
 import { Table } from 'semantic-ui-react'
-// import { Label} from '../Etc/Label' 
 
 const CheckoutItems = () => {
     return (
