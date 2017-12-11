@@ -24,7 +24,7 @@ class SizeDropDown extends React.Component {
       if(!item){
           return ''
       }else{
-          return ' Sold Out'
+          return ' :  Out of Stock'
       }
     }
 

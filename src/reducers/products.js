@@ -7,6 +7,7 @@ import {
     UPDATE_INVENTORY ,
     ADD_TO_SHOPPINGBAG
 } from '../constants/ActionTypes'
+import _ from 'lodash'
 
 const  inventoryUpdate = (state,action) => {
     switch(action.type){
@@ -69,18 +70,23 @@ const byId = (state = {} , action ) => {
 export const checkout = (state = {}, action) => {
    
     switch (action.type) {
-        case CHECKOUT_REQUEST :
-            return {}
+        case CHECKOUT_REQUEST : return {}
         case CHECKOUT_SUCCESS :
-            const product = action.products.byId
+            const products = action.products.byId
             const ids = action.shoppingbag.addedIds
+            const sizes = action.shoppingbag.addedSizes
             return {
                 order : {
                     ...action.data,
-                    items : ids.map(id => product[id]),
+                    items : ids.map((id,idx) => {
+                            const test =  _.pick(products[id],
+                                ['title','category','price','id'])
+                            return _.merge({},test,{size : sizes[idx]})
+                        })
+                    ,
                     total : ids
                     .reduce((total,id) => 
-                        total + product[id].price,0)
+                        total + products[id].price,0)
                 }
             }
         case CHECKOUT_FAILURE : 

@@ -1,9 +1,13 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { InputText , WiderInput } from '../Etc/Checkout'
 import OrderSummary from '../OrderSummary'
 import { RedButton } from '../Etc/Reusable'
 import CheckoutNavigate from '../CheckoutNavigate'
 import { Form } from 'semantic-ui-react'
+import { getBagProducts , getTotal, getSize } from '../../reducers'
+import { connect } from 'react-redux'
+import _ from 'lodash'
 
 class CheckoutForm extends React.Component {
 
@@ -16,7 +20,11 @@ class CheckoutForm extends React.Component {
                 city:'',
                 postcode: '',
                 province:'',
-                country:''
+                country:'',
+                // items :  _.map(this.props.products,(product)=>
+                //     _.pick(product,['title','category','price','id'])) ,
+                //  total : this.props.total,
+
             },
             loading:false,
             errors:{}
@@ -54,7 +62,7 @@ class CheckoutForm extends React.Component {
         return errors
     }
     render(){
-
+        const {products,total,size} = this.props
         const { loading } = this.state
         return (
             <div style={{marginTop:'20px'}}>
@@ -110,7 +118,11 @@ class CheckoutForm extends React.Component {
                     />
                 </WiderInput>
                 <div>
-                    <OrderSummary />
+                    <OrderSummary 
+                        products={products}
+                        total={total}
+                        size={size}
+                    />
                 </div>
                 <div style={{display:'flex',margin:'25px 0'}}>
                     <CheckoutNavigate />
@@ -123,5 +135,15 @@ class CheckoutForm extends React.Component {
         )
     }
 }
+const mapStateToProps = state => ({
+    products : getBagProducts(state),
+    total : getTotal(state),
+    size : getSize(state)
+})
+CheckoutForm.PropTypes = {
+    product : PropTypes.array.isRequired,
+    total : PropTypes.number.isRequired,
+    size : PropTypes.array.isRequired
+}
 
-export default CheckoutForm
+export default connect(mapStateToProps)(CheckoutForm)

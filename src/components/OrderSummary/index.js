@@ -1,9 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import RenderItemCheckout from '../RenderItemsCheckout'
 import RenderCostTotal from '../RenderCostTotal'
-import { connect } from 'react-redux'
-import { getBagProducts , getTotal, getSize } from '../../reducers'
+
 
 const OrderSummary = ({ products,size,total }) => {
     return (
@@ -27,17 +25,5 @@ const OrderSummary = ({ products,size,total }) => {
     )
 }
 
-const mapStateToProps = state => ({
-    products : getBagProducts(state),
-    total : getTotal(state),
-    size : getSize(state)
-})
 
-OrderSummary.PropTypes = {
-    product : PropTypes.array.isRequired,
-    total : PropTypes.number.isRequired,
-    size : PropTypes.array.isRequired
-}
-
-
-export default connect(mapStateToProps)(OrderSummary)
+export default OrderSummary
