@@ -21,7 +21,7 @@ const addToBagSuccess = (productId,size) => ({
 
 export const addToBag = (productId,size) => (dispatch,getState) => {
     const { products } = getState()
-    if (products.getInventory[productId].inventory[size] > 0) {
+    if (products.getInventory[productId-1].inventory[size] > 0) {
         setTimeout(() => dispatch(addToBagSuccess(productId,size)),1000)
     }
 }
