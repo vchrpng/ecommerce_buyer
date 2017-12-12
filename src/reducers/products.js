@@ -12,10 +12,13 @@ const  inventoryUpdate = (state,action) => {
     switch(action.type){
        
     case ADD_TO_SHOPPINGBAG : 
-    if (state[action.size] > 0 ) {   
-            return  {
-            ...state,
-            [action.size] : state[action.size] - 1
+    console.log(action.size)
+    console.log(state.inventory[action.size])
+    if (state.inventory[action.size] > 0 ) {   
+            return  { 
+                inventory : { 
+                ...state.inventory,
+            [action.size] : state.inventory[action.size] - 1 }
         }
     }
     else return state
@@ -36,20 +39,21 @@ const getProductId = (state = [], action) => {
 const getInventory = (state = {},action) => {
     switch(action.type){
         case RECEIVE_PRODUCTS :
-            return {
-               inventory :  action.products.map((product,idx) =>{
-                   const test = product.inventory
-                   return _.merge({},test,{id : product.id})
-               })
-            }
+        return {
+            ...state,
+            ...action.products.reduce((obj, product) => {
+              obj[product.id] =  {
+                           inventory : product.inventory,
+                           id : product.id
+                       }
+                return obj
+                },{})
+          }
         case ADD_TO_SHOPPINGBAG :
             const { productId } = action
             return {
-                ...state,
-                inventory : {
-                    ...state.inventory,
-                    [productId - 1] : inventoryUpdate(state.inventory[productId - 1],action)
-                }
+                 ...state,
+                   [productId] : inventoryUpdate(state[productId],action)
             }
         default : return state
     }
@@ -111,7 +115,7 @@ export const showProducts = state =>
 state.getProductId.map(id => getProducts(state,id))
 
 export const showInventory = state => 
-state.getInventory.inventory
+state.getInventory
 
 
 

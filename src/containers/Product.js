@@ -15,7 +15,6 @@ const Product = ({ match , products , addToBag , inventory }) => {
 
     const { id } = match.params
     const currentProduct = products[id-1]
-
     return(
             <div>
                 <Nav/>
@@ -55,7 +54,7 @@ const Product = ({ match , products , addToBag , inventory }) => {
                             <Container>
                                 <ShippingDetail 
                                     currentProduct={currentProduct}
-                                    inventory={inventory[id-1]}
+                                    inventory={inventory[id].inventory}
                                 >
                                     {currentProduct.price} $ USD
                                 </ShippingDetail>   
