@@ -12,6 +12,7 @@ const  inventoryUpdate = (state,action) => {
     switch(action.type){
     
     case ADD_TO_SHOPPINGBAG :  
+        if(state[action.size] > 0)
             return  { 
                 ...state,
                 [action.size] : state[action.size] - 1         
