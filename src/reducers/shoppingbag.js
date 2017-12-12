@@ -1,4 +1,4 @@
-import { ADD_TO_SHOPPINGBAG , REMOVE_FROM_BAG } from '../constants/ActionTypes'
+import { ADD_TO_SHOPPINGBAG , REMOVE_FROM_BAG, CHECKOUT_SUCCESS } from '../constants/ActionTypes'
 
 
 const initialState = {
@@ -51,6 +51,10 @@ const shoppingbag = (state = initialState,action) => {
             return {
                 addedIds : addedIds(state.addedIds,action),
                 addedSizes : addedSizes(state.addedSizes,action)
+        }
+        case CHECKOUT_SUCCESS : return {
+            addedIds : [],
+            addedSizes : []
         }
 
         default : return state

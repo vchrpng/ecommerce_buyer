@@ -6,9 +6,10 @@ import { connect } from 'react-redux'
 import { checkout } from '../actions'
 
 
-const Checkout = ({ checkout }) => {
-      const submit = data => checkout(data)
-    //   .then(() => this.props.history.push('/'))
+const Checkout = ({ checkout , history }) => {
+      const submit = data => {
+          return checkout(data).then(() => history.push('/'))
+        }
         return (
             <div style={{margin:'0 auto',maxWidth:'500px'}}> 
                 <CheckoutHeader />

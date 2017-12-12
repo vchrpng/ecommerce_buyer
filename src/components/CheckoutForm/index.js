@@ -40,10 +40,11 @@ class CheckoutForm extends React.Component {
             this.props.submitOrder(this.state.data)
             setTimeout(() => 
                 this.props.submit(this.props.order)
-                // this.setState({ 
-                //     loading : false 
-                // })
-            ,2000) 
+                .catch(err => this.setState({ 
+                    errors : err.response.data.errors,
+                    loading : false 
+                    }))
+                ,2000) 
 
  
         }

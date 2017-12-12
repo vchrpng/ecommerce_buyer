@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux'
 import { 
     RECEIVE_PRODUCTS , 
-    CHECKOUT_FAILURE , 
-    CHECKOUT_SUCCESS ,
     ADD_TO_SHOPPINGBAG,
     SUBMIT_ORDER
 } from '../constants/ActionTypes'
@@ -17,6 +15,7 @@ const  inventoryUpdate = (state,action) => {
                 ...state,
                 [action.size] : state[action.size] - 1         
         }
+        else return 
     
         default : return state
     }
@@ -90,9 +89,7 @@ export const checkout = (state = {}, action) => {
                         total + products[id].price,0),
                     email : action.user
                 }
-        case CHECKOUT_SUCCESS : return {}
-        case CHECKOUT_FAILURE : 
-            return { }
+
         default :
             return state
     }
