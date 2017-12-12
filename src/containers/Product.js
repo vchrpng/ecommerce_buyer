@@ -54,7 +54,7 @@ const Product = ({ match , products , addToBag , inventory }) => {
                             <Container>
                                 <ShippingDetail 
                                     currentProduct={currentProduct}
-                                    inventory={inventory[id].inventory}
+                                    // inventory={inventory[id-1].inventory}
                                 >
                                     {currentProduct.price} $ USD
                                 </ShippingDetail>   

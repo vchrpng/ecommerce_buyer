@@ -10,18 +10,12 @@ import _ from 'lodash'
 
 const  inventoryUpdate = (state,action) => {
     switch(action.type){
-       
-    case ADD_TO_SHOPPINGBAG : 
-    console.log(action.size)
-    console.log(state.inventory[action.size])
-    if (state.inventory[action.size] > 0 ) {   
+    
+    case ADD_TO_SHOPPINGBAG :  
             return  { 
-                inventory : { 
-                ...state.inventory,
-            [action.size] : state.inventory[action.size] - 1 }
+                ...state,
+                [action.size] : state[action.size] - 1         
         }
-    }
-    else return state
     
         default : return state
     }
@@ -39,22 +33,24 @@ const getProductId = (state = [], action) => {
 const getInventory = (state = {},action) => {
     switch(action.type){
         case RECEIVE_PRODUCTS :
-        return {
-            ...state,
-            ...action.products.reduce((obj, product) => {
-              obj[product.id] =  {
-                           inventory : product.inventory,
-                           id : product.id
-                       }
-                return obj
-                },{})
-          }
+        return action.products.map((product,idx) => {
+                const arr = {
+                    inventory : product.inventory,
+                    id : product.id
+                }
+                return arr
+            })
+          
         case ADD_TO_SHOPPINGBAG :
             const { productId } = action
-            return {
-                 ...state,
-                   [productId] : inventoryUpdate(state[productId],action)
-            }
+            console.log(state[productId-1].inventory)
+            return [
+                ...state.slice(0,productId-1)
+                .concat(state[productId-1] = {
+                        ...state[productId-1],
+                       inventory : inventoryUpdate(state[productId-1].inventory,action)})
+                .concat(...state.slice(productId))
+            ]
         default : return state
     }
 }

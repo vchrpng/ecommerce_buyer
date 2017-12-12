@@ -14,10 +14,10 @@ class SizeDropDown extends React.Component {
   }
   
   render(){
-    const hasSizeSmall = checkInventory(this.props.inventory.S)
-    const hasSizeMedium = checkInventory(this.props.inventory.M)
-    const hasSizeLarge = checkInventory(this.props.inventory.L)
-    const hasSizeExtra = checkInventory(this.props.inventory.XL)
+    // const hasSizeSmall = checkInventory(this.props.inventory.S)
+    // const hasSizeMedium = checkInventory(this.props.inventory.M)
+    // const hasSizeLarge = checkInventory(this.props.inventory.L)
+    // const hasSizeExtra = checkInventory(this.props.inventory.XL)
 
     const checkAvailable = (item) => {
       if(!item){
@@ -27,14 +27,19 @@ class SizeDropDown extends React.Component {
       }
     }
 
+    // const stateOptions = [
+    //   { key : 'S',  value: 'S',   text: `S  ${checkAvailable(hasSizeSmall)}` , disabled : hasSizeSmall },
+    //   { key : 'M',  value: 'M',   text: `M  ${checkAvailable(hasSizeMedium)}` , disabled : hasSizeMedium },
+    //   { key : 'L',  value: 'L',   text: `L  ${checkAvailable(hasSizeLarge)}` , disabled : hasSizeLarge },
+    //   { key : 'XL', value: 'XL',  text: `XL  ${checkAvailable(hasSizeExtra)}` ,disabled : hasSizeExtra },
+    // ]
+
     const stateOptions = [
-      { key : 'S',  value: 'S',   text: `S  ${checkAvailable(hasSizeSmall)}` , disabled : hasSizeSmall },
-      { key : 'M',  value: 'M',   text: `M  ${checkAvailable(hasSizeMedium)}` , disabled : hasSizeMedium },
-      { key : 'L',  value: 'L',   text: `L  ${checkAvailable(hasSizeLarge)}` , disabled : hasSizeLarge },
-      { key : 'XL', value: 'XL',  text: `XL  ${checkAvailable(hasSizeExtra)}` ,disabled : hasSizeExtra },
+      { key : 'S',  value: 'S',   text: 'S' },
+        { key : 'M',  value: 'M',   text:'M' },
+        { key : 'L',  value: 'L',   text: 'L' },
+        { key : 'XL', value: 'XL',  text: 'XL' }
     ]
-
-
 
       return ( 
         <Dropdown

@@ -25,7 +25,7 @@ class ShippingDetail extends React.Component {
 
     handleAddToBagDelay = () => {
         if(this.state.size){
-            if(this.props.inventory[this.state.size] > 0){
+            // if(this.props.inventory[this.state.size] > 0){
             this.setState({
                 isLoading : !this.state.isLoading
             })
@@ -35,7 +35,7 @@ class ShippingDetail extends React.Component {
             }),1000)
             
                 this.props.addToBag(this.props.currentProduct.id,this.state.size)
-            }
+            // }
         }
         else {
             this.setState({

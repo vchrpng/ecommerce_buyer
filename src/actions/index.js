@@ -46,8 +46,11 @@ export const submitOrder = (data) => (dispatch,getState) => {
         }
 }
 
-export const checkout = data => dispatch => {
+export const checkout = data => (dispatch,getState) => {
+    const { products } = getState()
     axios.post('/api/orders',data)
+    // .then(response =>
+    //     axios.put('/api/products/new',products.getInventory)
+    // )
     dispatch({ type : types.CHECKOUT_SUCCESS })
-        // .catch(err => dispatch({ type : types.CHECKOUT_FAILURE }))
 }
