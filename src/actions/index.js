@@ -35,21 +35,19 @@ export const deleteFromBag = index => dispatch => {
     dispatch(removeFromBag(index))
 }
 
-
-export const checkout = (data) => (dispatch,getState) => {
+export const submitOrder = (data) => (dispatch,getState) => {
     const { shoppingbag , products } = getState()
     const user = localStorage.getItem('email')
-    console.log(user)
-    dispatch({ type : types.CHECKOUT_REQUEST })
-    if(shoppingbag.addedIds.length > 0){
-        dispatch({
-            type : types.CHECKOUT_SUCCESS,
-            shoppingbag,
-            data,
-            products,
-            user
-        })
-    }
-    else dispatch({ type : types.CHECKOUT_FAILURE })
-  
+        if(shoppingbag.addedIds.length > 0){
+            dispatch({
+                type : types.SUBMIT_ORDER,
+                shoppingbag,data,products,user
+            })
+        }
+}
+
+export const checkout = data => dispatch => {
+    axios.post('/api/orders',data)
+    dispatch({ type : types.CHECKOUT_SUCCESS })
+        // .catch(err => dispatch({ type : types.CHECKOUT_FAILURE }))
 }

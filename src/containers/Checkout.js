@@ -6,8 +6,8 @@ import { connect } from 'react-redux'
 import { checkout } from '../actions'
 
 
-const Checkout = ({ submit , checkout }) => {
-      submit = data => checkout(data)
+const Checkout = ({ checkout }) => {
+      const submit = data => checkout(data)
     //   .then(() => this.props.history.push('/'))
         return (
             <div style={{margin:'0 auto',maxWidth:'500px'}}> 
@@ -18,5 +18,6 @@ const Checkout = ({ submit , checkout }) => {
         )
     
 }
+
 
 export default connect(null,{checkout})(Checkout)

@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux'
 import { 
     RECEIVE_PRODUCTS , 
-    CHECKOUT_REQUEST, 
     CHECKOUT_FAILURE , 
     CHECKOUT_SUCCESS ,
-    UPDATE_INVENTORY ,
-    ADD_TO_SHOPPINGBAG
+    ADD_TO_SHOPPINGBAG,
+    SUBMIT_ORDER
 } from '../constants/ActionTypes'
 import _ from 'lodash'
 
@@ -38,7 +37,10 @@ const getInventory = (state = {},action) => {
     switch(action.type){
         case RECEIVE_PRODUCTS :
             return {
-               inventory :  action.products.map(product => product.inventory)
+               inventory :  action.products.map((product,idx) =>{
+                   const test = product.inventory
+                   return _.merge({},test,{id : product.id})
+               })
             }
         case ADD_TO_SHOPPINGBAG :
             const { productId } = action
@@ -70,19 +72,16 @@ const byId = (state = {} , action ) => {
 export const checkout = (state = {}, action) => {
    
     switch (action.type) {
-        case CHECKOUT_REQUEST : return {}
-        case CHECKOUT_SUCCESS :
+        case SUBMIT_ORDER :
             const products = action.products.byId
             const ids = action.shoppingbag.addedIds
             const sizes = action.shoppingbag.addedSizes
-            console.log(action.user)
-            return {
-                order : {
+            return  {
                     ...action.data,
                     items : ids.map((id,idx) => {
-                            const test =  _.pick(products[id],
+                            const newObj =  _.pick(products[id],
                                 ['title','category','price','id'])
-                            return _.merge({},test,{size : sizes[idx]})
+                            return _.merge({},newObj,{size : sizes[idx]})
                         })
                     ,
                     total : ids
@@ -90,7 +89,7 @@ export const checkout = (state = {}, action) => {
                         total + products[id].price,0),
                     email : action.user
                 }
-            }
+        case CHECKOUT_SUCCESS : return {}
         case CHECKOUT_FAILURE : 
             return { }
         default :

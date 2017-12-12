@@ -7,7 +7,7 @@ import CheckoutNavigate from '../CheckoutNavigate'
 import { Form } from 'semantic-ui-react'
 import { getBagProducts , getTotal, getSize } from '../../reducers'
 import { connect } from 'react-redux'
-import _ from 'lodash'
+import { submitOrder } from '../../actions'
 
 class CheckoutForm extends React.Component {
 
@@ -37,14 +37,15 @@ class CheckoutForm extends React.Component {
         this.setState({ errors })
         if (Object.keys(errors).length === 0){
             this.setState({ loading : true })
-            // setTimeout(() =>
-            // this.props.submit(this.state.data)
-            // .catch(err => this.setState({ 
-            //     errors : err.response.data.errors,
-            //     loading : false 
-            // })),2000) 
+            this.props.submitOrder(this.state.data)
+            setTimeout(() => 
+                this.props.submit(this.props.order)
+                // this.setState({ 
+                //     loading : false 
+                // })
+            ,2000) 
 
-            this.props.submit(this.state.data)
+ 
         }
     }
     validate = data => {
@@ -134,7 +135,8 @@ class CheckoutForm extends React.Component {
 const mapStateToProps = state => ({
     products : getBagProducts(state),
     total : getTotal(state),
-    size : getSize(state)
+    size : getSize(state),
+    order : state.products.checkout
 })
 CheckoutForm.PropTypes = {
     product : PropTypes.array.isRequired,
@@ -142,4 +144,4 @@ CheckoutForm.PropTypes = {
     size : PropTypes.array.isRequired
 }
 
-export default connect(mapStateToProps)(CheckoutForm)
+export default connect(mapStateToProps,{submitOrder})(CheckoutForm)
