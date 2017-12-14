@@ -2,15 +2,16 @@ import React from 'react'
 import { Table , Image } from 'semantic-ui-react'
 import { Label } from '../Etc/Label'
 import { ButtonStyled } from '../Etc/Reusable'
+import { ProdImg } from '../Responsive'
 
 const RenderItemsOnBag = ({ product , deleteFromBag , size }) => {
     return (
         product.map((item,idx) =>
             <Table.Body key={idx}>
                 <Table.Row>
-                    <Table.Cell width={2}>
-                        <Image style={{marginLeft:'20%'}} size="tiny" src={item.thumbnial}/>
-                    </Table.Cell>
+                    <ProdImg width={2}>
+                        <Image style={{marginLeft:'20%'}} size="tiny" src={item.thumbnail}/>
+                    </ProdImg>
                     <Table.Cell width={10} verticalAlign={'top'} style={{borderLeft:'none'}}>
                         <Label weight={'bold'}>{item.title}</Label>
                         <Label weight={'lighter'}>{item.category}</Label>

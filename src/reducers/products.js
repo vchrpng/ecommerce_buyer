@@ -43,7 +43,7 @@ const getInventory = (state = {},action) => {
           
         case ADD_TO_SHOPPINGBAG :
             const { productId } = action
-            console.log(state[productId-1].inventory)
+            console.log(state)
             return [
                 ...state.slice(0,productId-1)
                 .concat(state[productId-1] = {

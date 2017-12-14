@@ -58,7 +58,7 @@ class LoginForm extends Component {
                         {errors.global}
                     </Message.Content>
                 </Message>}
-                <div>
+                <Form.Field>
                     <Label>Email</Label>
                     {errors.email && <InlineError text={errors.email}/>}
                     <InputText
@@ -68,8 +68,8 @@ class LoginForm extends Component {
                         onChange={this.onChange}
                     />
                   
-                </div>
-                <div>
+                </Form.Field>
+                <Form.Field>
                     <Label>Password</Label>
                     {errors.password && <InlineError text={errors.password}/>}
                     <InputText
@@ -79,20 +79,20 @@ class LoginForm extends Component {
                         onChange={this.onChange}
                     />
                    
-                </div>
-                <div>
+                </Form.Field>
+                <Form.Field>
                     <Label>Forget your password?</Label>
-                </div>
-                <div>
+                </Form.Field>
+                <Form.Field>
                     <ButtonStyled>
                        SIGN IN
                     </ButtonStyled>
-                </div>
-                <div>
+                </Form.Field>
+                <Form.Field>
                     <CustomLink to='/account/register'>
                         <Label>Create Account</Label>
                     </CustomLink>
-                </div>
+                </Form.Field>
                             
             </Form>
         )

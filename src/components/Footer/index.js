@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 import { Grid , Icon } from 'semantic-ui-react'
 import RenderInputText from '../Etc/RenderInputText'
 import { ButtonStyled } from '../Etc/Reusable'
+import { FooterResponsive } from '../Responsive'
 
 export default class Footer extends Component {
     render() {
         return (
-            <div style={{marginTop:'150px'}}>
+            <FooterResponsive>
             <Grid>
                 <Grid.Row centered>
-                    <Grid.Column computer={7} only={'computer'}>
+                    <Grid.Column computer={7} only='computer'>
                         <ul style={{listStyle:'none',padding:'0',fontWeight:'bold'}}>
                             <li>FAQ</li>
                             <li>Privacy Policy</li>
@@ -18,7 +19,16 @@ export default class Footer extends Component {
 
                         </ul>
                     </Grid.Column>
-                    <Grid.Column textAlign={'right'} computer={6} mobile={13}>
+                    <Grid.Column only='tablet' tablet={7}>
+                        <ul style={{listStyle:'none',padding:'0',fontWeight:'bold'}}>
+                            <li>FAQ</li>
+                            <li>Privacy Policy</li>
+                            <li>Term of Service</li>
+                            <li>Log in</li>
+
+                        </ul>
+                    </Grid.Column>
+                    <Grid.Column textAlign={'right'} computer={6} tablet={6} mobile={13}>
                         <h4 style={{textAlign:'left'}}>Join Our Newsletter</h4>
                         <div style={{display:'flex'}}>
                             <RenderInputText height={'39px'} width={'73%'} placeholder={'Email Address'} />
@@ -46,7 +56,7 @@ export default class Footer extends Component {
                     <p>© 2017,International Online Retailer</p>
                 </Grid.Row>
             </Grid>
-            </div>
+            </FooterResponsive>
         )
     }
 }

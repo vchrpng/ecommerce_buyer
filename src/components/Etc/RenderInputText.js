@@ -5,13 +5,13 @@ import React from 'react';
 export const InputText = styled.input`
     width:${(props) => props.width ? props.width : '100%'};
     height:${(props) => props.height ? props.height : '30px'};
-    background-color:white;
-    border:1px solid black;
+    background-color:white !important;
+    border:1px solid black !important;
     margin-bottom:20px;
-    padding-left:17px;
-    border-radius:0;
-    font-size:12px;
-    letter-spacing:1px;
+    padding-left:17px !important;
+    border-radius:0 !important;
+    font-size:12px !important;
+    letter-spacing:1px !important;
 `
 class RenderInputText extends React.Component {
 

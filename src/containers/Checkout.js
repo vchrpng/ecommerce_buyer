@@ -11,7 +11,7 @@ const Checkout = ({ checkout , history }) => {
           return checkout(data).then(() => history.push('/'))
         }
         return (
-            <div style={{margin:'0 auto',maxWidth:'500px'}}> 
+            <div style={{margin:'0 auto',maxWidth:'500px',padding:'20px'}}> 
                 <CheckoutHeader />
                 <CheckoutForm submit={submit}/>
                 <CheckoutFooter/>

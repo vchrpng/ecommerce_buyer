@@ -5,22 +5,36 @@ import { getBagProducts , getTotal, getSize } from '../reducers'
 import { deleteFromBag } from '../actions'
 import { Grid , Table } from 'semantic-ui-react'
 import CheckoutDetail from '../components/CheckoutDetail'
-import CheckoutItems from '../components/CheckoutItems'
 import RenderItemsOnBag from '../components/RenderItemsOnBag'
 import EmptyBag from '../components/EmptyBag'
 import { ButtonStyled , CustomLink } from '../components/Etc/Reusable'
 import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'
 import Footer from '../components/Footer'
+import { Padded , Td } from '../components/Responsive'
 
 
 const ShoppingBag = ({ product , deleteFromBag , total , size }) => {
    
 
     const haveProduct = product.length ? 
-        <div>
+        <Padded>
             <Table basic='very' celled unstackable > 
-                <CheckoutItems/>
+            <Table.Header>
+                <Table.Row>
+                    <Td/>
+                    <Table.HeaderCell
+                        style={{borderLeft:'none'}}>
+                        <label> Product  </label>
+                    </Table.HeaderCell>
+                    <Table.HeaderCell style={{borderLeft:'none'}}/>
+                    <Table.HeaderCell 
+                        textAlign={'right'} 
+                        style={{borderLeft:'none'}}>
+                         <label> Price  </label>
+                    </Table.HeaderCell>
+                </Table.Row>
+            </Table.Header>
                 <RenderItemsOnBag
                     size={size}
                     product={product}
@@ -35,7 +49,7 @@ const ShoppingBag = ({ product , deleteFromBag , total , size }) => {
                     </ButtonStyled>
                 </CustomLink>
             </div>
-        </div>
+        </Padded>
                 : <EmptyBag/>
 
     return (

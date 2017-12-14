@@ -49,8 +49,8 @@ class SignupForm extends Component {
     render() {
         const { data , errors , loading } = this.state
         return (
-            <Form loading={loading} onSubmit={this.onSubmit}>
-                <div>
+            <Form loading={loading} onSubmit={this.onSubmit} >
+                <Form.Field>
                     <Label>Email</Label>
                     <InputText
                         type="email"
@@ -59,8 +59,8 @@ class SignupForm extends Component {
                         onChange={this.onChange}
                     />
                      {errors.email && <InlineError text={errors.email}/>}
-                </div>
-                <div>
+                </Form.Field>
+                <Form.Field>
                     <Label>Password</Label>
                     {errors.password && <InlineError text={errors.password}/>}
                     <InputText
@@ -69,12 +69,12 @@ class SignupForm extends Component {
                         name="password"
                         onChange={this.onChange}
                     />
-                </div>
-                <div>
+                </Form.Field>
+                <Form.Field >
                     <ButtonStyled>
                         Create
                     </ButtonStyled>
-                </div>
+                </Form.Field>
             </Form>
         )
     }

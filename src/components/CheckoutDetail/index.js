@@ -1,14 +1,13 @@
 import React from 'react'
 import { Cell } from './styled'
 import { Table } from 'semantic-ui-react'
+import { First } from '../Responsive'
 
 const CheckoutDetail = ({ total }) => {
-    // const shippingCost = total > 500 ? 0 : 50
-    // const orderTotal = parseFloat(total) + parseFloat(shippingCost)
     return (
         <Table.Body>
             <tr>
-                <Cell/>
+                <First/>
                 <Cell>
                     <label style={{fontWeight:'bold'}}> Total </label>
                 </Cell>
@@ -19,7 +18,7 @@ const CheckoutDetail = ({ total }) => {
                 <Cell/>
             </tr>
             <tr>
-                <Cell/>
+                <First/>
                 <Cell>
                     <label style={{fontWeight:'bold'}}>Shipping Estimate </label>
                 </Cell>
@@ -30,7 +29,7 @@ const CheckoutDetail = ({ total }) => {
                 <Cell/>
             </tr>
             <tr>
-                <Cell/>
+                <First/>
                 <Cell>
                     <label style={{fontWeight:'bold'}}> Duties and Taxes </label>
                 </Cell>
@@ -41,7 +40,7 @@ const CheckoutDetail = ({ total }) => {
                 <Cell/>
             </tr>
             <tr>
-                <Cell/>
+                <First/>
                 <Cell>
                     <label style={{fontWeight:'bold'}}>Order Total</label>
                 </Cell>
