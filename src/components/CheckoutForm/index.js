@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { InputText , WiderInput } from '../Etc/Checkout'
+import { InputText } from '../Etc/Checkout'
 import OrderSummary from '../OrderSummary'
 import { RedButton } from '../Etc/Reusable'
 import CheckoutNavigate from '../CheckoutNavigate'
@@ -66,24 +66,25 @@ class CheckoutForm extends React.Component {
             <div style={{marginTop:'20px'}}>
                 <Form onSubmit={this.onSubmit} loading={loading}>
                 <h3>Customer Information</h3>
-                <div>
+                <Form.Field>
                 <InputText
                     name={'fullname'}
                     placeholder={'Full name'}
                     type={'text'}
                     onChange={this.onChange}
                 />
-                </div>
-                <div>
+                </Form.Field>
+                <Form.Field>
                 <InputText
                     name={'phone'}
                     placeholder={'Phone'}
                     type={'text'}
                     onChange={this.onChange}
                 />
-                 </div>
+                 </Form.Field>
                 <h3 style={{marginTop:'0'}}>Shipping Address</h3>
-                <WiderInput>
+                <Form.Group>
+                    <Form.Field width={8}>
                     <InputText
                         name={'city'}
                         placeholder={'City'}
@@ -91,6 +92,8 @@ class CheckoutForm extends React.Component {
                         onChange={this.onChange}
                          
                    />
+                   </Form.Field>
+                   <Form.Field width={8}>
                     <InputText
                         name={'province'}
                         placeholder={'Province'}
@@ -98,8 +101,10 @@ class CheckoutForm extends React.Component {
                         onChange={this.onChange}
                          
                     />
-                 </WiderInput>
-                 <WiderInput>
+                    </Form.Field>
+                 </Form.Group>
+                 <Form.Group>
+                 <Form.Field width={8}>
                     <InputText
                         name={'postcode'}
                         placeholder={'Postcode'}
@@ -107,6 +112,8 @@ class CheckoutForm extends React.Component {
                         onChange={this.onChange}
                          
                     />
+                </Form.Field>
+                <Form.Field width={8}>
                     <InputText
                         name={'country'}
                         placeholder={'Country'}
@@ -114,7 +121,8 @@ class CheckoutForm extends React.Component {
                         onChange={this.onChange}
                         
                     />
-                </WiderInput>
+                </Form.Field>
+                </Form.Group>
                 <div>
                     <OrderSummary 
                         products={products}

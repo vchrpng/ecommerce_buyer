@@ -5,16 +5,16 @@ export const InputText = styled.input`
     width:${(props) => props.width ? props.width : '100%'};
     height:${(props) => props.height ? props.height : '45px'};
     background-color:white;
-    border:1px solid lightgray;
+    border:1px solid lightgray !important;
     margin-bottom:20px;
     padding-left:17px;
     border-radius:4px;
     font-size:12px;
     letter-spacing:1px;
-    outline:none;
+    outline:none ;
     transition:all .5s;
      &:focus {
-        border:2px solid black;
+        border:2px solid black !important;
      }
 `
 
