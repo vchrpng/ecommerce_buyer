@@ -18,6 +18,7 @@ class Register extends Component {
                         <Grid.Row>
                             <Grid.Column>
                             <div style={{maxWidth:'500px',margin:'0 auto',paddingTop:'50px'}}>
+                            <h3 style={{textAlign:'center',marginBottom:'20px'}}>Signup</h3>
                                 <SignupForm submit={this.submit}/>
                             </div>
                             </Grid.Column>

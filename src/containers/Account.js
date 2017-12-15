@@ -24,7 +24,7 @@ class Account extends Component {
                         <Grid.Column>
                         <div style={{maxWidth:'500px',margin:'0 auto',paddingTop:'50px'}}>
                           <div>
-                             <h1>Account</h1>
+                             <h1 style={{textAlign:'center',marginBottom:'30px'}}>Account</h1>
                           </div>
                                 <ButtonStyled
                                     onClick={() => logout()}

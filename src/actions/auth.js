@@ -19,7 +19,7 @@ export const login = credentials => dispatch => api.user.login(credentials)
     
 
 export const logout = () => dispatch => {
-    localStorage.removeItem('ecommerceJWT')
+    localStorage.clear()
     dispatch(userLoggedOut())
 }
     
