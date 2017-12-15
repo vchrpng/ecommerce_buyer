@@ -18,6 +18,8 @@ const Product = ({ match , products , addToBag , inventory }) => {
     const currentProduct = products.filter(product => {
         return product.id == id
     })
+   
+
     const settings = {
         dots: true,
         infinite: true,
@@ -25,10 +27,6 @@ const Product = ({ match , products , addToBag , inventory }) => {
         slidesToShow: 1,
         slidesToScroll: 1
       }
-
-    // const currentInventory = inventory.filter(inventory => {
-    //     return inventory.id == id
-    // })
 
     const test = currentProduct.map(current =>
     <Grid.Row key={current.id}
@@ -62,7 +60,7 @@ const Product = ({ match , products , addToBag , inventory }) => {
             <Container>
                 <ShippingDetail 
                     currentProduct={current}
-                    inventory={current.inventory}
+                    inventory={inventory}
                 >
                     {current.price} $ USD
                 </ShippingDetail>   
@@ -92,7 +90,7 @@ const Product = ({ match , products , addToBag , inventory }) => {
             <Container>
                 <ShippingDetail 
                     currentProduct={current}
-                    inventory={current.inventory}
+                    inventory={inventory}
                 >
                     {current.price} $ USD
                 </ShippingDetail>   
@@ -122,7 +120,7 @@ const Product = ({ match , products , addToBag , inventory }) => {
             <Container>
                 <ShippingDetail 
                     currentProduct={current}
-                    inventory={current.inventory}
+                    inventory={inventory}
                 >
                     {current.price} $ USD
                 </ShippingDetail>   
@@ -131,6 +129,8 @@ const Product = ({ match , products , addToBag , inventory }) => {
         <Grid.Column computer={1}/>
 
     </Grid.Row>)
+
+                
 
     return(
             <div>

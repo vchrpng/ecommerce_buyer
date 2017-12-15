@@ -15,8 +15,8 @@ class ShippingDetail extends React.Component {
             isLoading : false ,
             size : null ,
             showRequired : false,
-            text : ''
-
+            text : '',
+            index : this.props.inventory.findIndex(el => el.id === this.props.currentProduct.id)          
         }
         this.handleAddToBagDelay = this.handleAddToBagDelay.bind(this)
         this.handleOnChange = this.handleOnChange.bind(this)
@@ -25,7 +25,7 @@ class ShippingDetail extends React.Component {
 
     handleAddToBagDelay = () => {
         if(this.state.size){
-             if(this.props.inventory[this.state.size] > 0){
+             if(this.props.inventory[this.state.index].inventory[this.state.size] > 0){
             this.setState({
                 isLoading : !this.state.isLoading
             })
@@ -65,6 +65,9 @@ class ShippingDetail extends React.Component {
     }
   
 render(){
+    // console.log(this.props.inventory[this.state.index].inventory[this.state.size])
+    const inventoryByIndex = this.props.inventory[this.state.index]
+
     return (
      
             <Grid container textAlign="center">
@@ -86,7 +89,7 @@ render(){
                 </Grid.Row >
                 <Grid.Row>
                     <SizeDropDown
-                        inventory={this.props.inventory}
+                        inventory={inventoryByIndex.inventory}
                         valueOnChange={this.handleOnChange}
                     />
                 </Grid.Row>
