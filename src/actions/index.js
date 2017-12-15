@@ -21,10 +21,11 @@ const addToBagSuccess = (productId,size) => ({
 
 export const addToBag = (productId,size) => (dispatch,getState) => {
     const { products } = getState()
-    const current = products.getInventory.map(product => product)
-    if (current[productId - 1].inventory[size] > 0) {
+    console.log(products.getInventory[productId])
+    // const current = products.getInventory.map(product => product)
+    // if (current[productId - 1].inventory[size] > 0) {
         setTimeout(() => dispatch(addToBagSuccess(productId,size)),1000)
-    }
+    // }
 }
 
 const removeFromBag = index => ({

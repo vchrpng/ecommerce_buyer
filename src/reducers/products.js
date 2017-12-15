@@ -43,13 +43,13 @@ const getInventory = (state = {},action) => {
           
         case ADD_TO_SHOPPINGBAG :
             const { productId } = action
-            console.log(state)
+            const invenId = state.findIndex((el) => el.id === productId)
             return [
-                ...state.slice(0,productId-1)
-                .concat(state[productId-1] = {
-                        ...state[productId-1],
-                       inventory : inventoryUpdate(state[productId-1].inventory,action)})
-                .concat(...state.slice(productId))
+                ...state.slice(0,invenId)
+                .concat(state[invenId] = {
+                        ...state[invenId],
+                       inventory : inventoryUpdate(state[invenId].inventory,action)})
+                .concat(...state.slice(invenId + 1))
             ]
         default : return state
     }
