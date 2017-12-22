@@ -10,8 +10,6 @@ import Footer from '../components/Footer'
 import Slider from 'react-slick'
 
 
-    
-
 const Product = ({ match , products , addToBag , inventory }) => {
 
     const { id } = match.params

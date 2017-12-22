@@ -80,7 +80,8 @@ const mapStateToProps = state => ({
 ShoppingBag.PropTypes = {
     product : PropTypes.array.isRequired,
     total : PropTypes.number.isRequired,
-    size : PropTypes.array.isRequired
+    size : PropTypes.array.isRequired,
+    deleteFromBag : PropTypes.func.isRequired
 }
 
 export default connect(mapStateToProps,{deleteFromBag})(ShoppingBag)
