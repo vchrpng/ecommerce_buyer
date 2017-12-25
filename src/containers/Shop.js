@@ -3,7 +3,7 @@ import { Grid } from 'semantic-ui-react'
 import { DisplayGrid } from '../theme/Grid'
 import { connect } from 'react-redux'
 import { showProducts } from '../reducers/products'
-import ProductList from '../components/ProductList'
+import BuyerProductList from '../components/BuyerProductList'
 import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'
 import Footer from '../components/Footer'
@@ -22,7 +22,7 @@ const Shop = ({products}) => {
                         <h4 style={{textAlign:'center',paddingBottom:'30px'}}>SHOP ALL</h4>
                         <DisplayGrid column={'repeat(auto-fill,17em)'} colGap={50} rowGap={70}>
                             {products.map((product,index) => 
-                        <ProductList 
+                        <BuyerProductList 
                             key={index}
                             product={product}/>
                         )}

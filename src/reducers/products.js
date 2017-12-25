@@ -2,13 +2,18 @@ import { combineReducers } from 'redux'
 import { 
     RECEIVE_PRODUCTS , 
     ADD_TO_SHOPPINGBAG,
-    SUBMIT_ORDER
+    SUBMIT_ORDER ,
+    REMOVE_FROM_BAG
 } from '../constants/ActionTypes'
 import _ from 'lodash'
 
-const  inventoryUpdate = (state,action) => {
+const inventoryUpdate = (state,action) => {
     switch(action.type){
-    
+    case REMOVE_FROM_BAG :
+        return  { 
+            ...state,
+            [action.size] : state[action.size] + 1         
+        }
     case ADD_TO_SHOPPINGBAG :  
         if(state[action.size] > 0)
             return  { 

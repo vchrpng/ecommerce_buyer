@@ -5,7 +5,7 @@ import { Row , Column } from '../../theme/Grid'
 import { Link } from 'react-router-dom'
 
 
-const ProductList = ({ product }) => {
+const BuyerProductList = ({ product }) => {
 
 
 
@@ -33,4 +33,4 @@ const ProductList = ({ product }) => {
     )
 }
 
-export default ProductList
+export default BuyerProductList

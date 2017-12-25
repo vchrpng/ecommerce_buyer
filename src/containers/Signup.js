@@ -7,7 +7,7 @@ import SignupForm from '../components/SignupForm'
 import { connect } from 'react-redux'
 import { signup } from '../actions/auth'
 
-class Register extends Component {
+class Signup extends Component {
     submit = data => this.props.signup(data).then(() => this.props.history.push('/account/login'))
     render() {
         return (
@@ -30,4 +30,4 @@ class Register extends Component {
     }
 }
 
-export default connect(null,{ signup })(Register)
+export default connect(null,{ signup })(Signup)

@@ -3,7 +3,7 @@ import { Cell } from './styled'
 import { Table } from 'semantic-ui-react'
 import { First } from '../Responsive'
 
-const CheckoutDetail = ({ total }) => {
+const ShoppingBagTablePricing = ({ total }) => {
     return (
         <Table.Body>
             <tr>
@@ -54,4 +54,4 @@ const CheckoutDetail = ({ total }) => {
     )
 }
 
-export default CheckoutDetail
+export default ShoppingBagTablePricing

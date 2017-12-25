@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { getBagProducts , getTotal, getSize } from '../reducers'
 import { deleteFromBag } from '../actions'
 import { Grid , Table } from 'semantic-ui-react'
-import CheckoutDetail from '../components/CheckoutDetail'
+import ShoppingBagTablePricing from '../components/ShoppingBagTablePricing'
 import RenderItemsOnBag from '../components/RenderItemsOnBag'
 import EmptyBag from '../components/EmptyBag'
 import { ButtonStyled , CustomLink } from '../components/Etc/Reusable'
@@ -40,7 +40,7 @@ const ShoppingBag = ({ product , deleteFromBag , total , size }) => {
                     product={product}
                     deleteFromBag={deleteFromBag}
                 />
-                <CheckoutDetail total={total}/>
+                <ShoppingBagTablePricing total={total}/>
             </Table>
             <div style={{width:'17%',marginLeft:'82%',marginTop:'50px'}}>
                 <CustomLink to='/checkout' color={'white'}>
