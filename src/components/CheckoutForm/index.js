@@ -5,9 +5,9 @@ import OrderSummary from '../OrderSummary'
 import { RedButton } from '../Etc/Reusable'
 import CheckoutNavigate from '../CheckoutNavigate'
 import { Form } from 'semantic-ui-react'
-import { getBagProducts , getTotal, getSize } from '../../reducers'
 import { connect } from 'react-redux'
 import { submitOrder } from '../../actions'
+import { totalSelector, selectedProducts , selectedSizes } from '../../selectors'
 
 class CheckoutForm extends React.Component {
 
@@ -142,9 +142,9 @@ class CheckoutForm extends React.Component {
     }
 }
 const mapStateToProps = state => ({
-    products : getBagProducts(state),
-    total : getTotal(state),
-    size : getSize(state),
+    products : selectedProducts(state),
+    total : totalSelector(state),
+    size : selectedSizes(state),
     order : state.products.checkout
 })
 CheckoutForm.PropTypes = {

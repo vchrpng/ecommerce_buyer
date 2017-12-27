@@ -2,7 +2,7 @@ import React from 'react'
 import { List, Item } from './styled'
 import { CustomLink } from '../Etc/Reusable'
 import { Image , Icon , Label } from 'semantic-ui-react'
-import { getBagProducts } from '../../reducers'
+import { selectedProducts } from '../../selectors'
 import { connect } from 'react-redux'
 import shoppingbag from '../../shopping-bag.svg'
 import user from '../../avatar.svg'
@@ -50,7 +50,7 @@ const Nav = ({ products , toggleVisibility , isVisible }) => (
 export default compose(
     connect(state => {
         return {
-            products : getBagProducts(state)
+            products : selectedProducts(state)
         }
     }),
     withState('isVisible','toggleHandler',false),
