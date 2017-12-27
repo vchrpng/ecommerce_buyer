@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { getBagProducts , 
-    // getTotal, 
-    getSize } from '../reducers'
+import { getBagProducts , getSize } from '../reducers'
 import { deleteFromBag } from '../actions'
 import { Grid , Table } from 'semantic-ui-react'
 import ShoppingBagTablePricing from '../components/ShoppingBagTablePricing'
@@ -14,11 +12,10 @@ import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'
 import Footer from '../components/Footer'
 import { Padded , Td } from '../components/Responsive'
-import { id } from '../selectors'
+import { totalSelector } from '../selectors'
 
 
-const ShoppingBag = ({ product , deleteFromBag , total , size , id }) => {
-    console.log(id)
+const ShoppingBag = ({ product , deleteFromBag , total , size }) => {
     const haveProduct = product.length ? 
         <Padded>
             <Table basic='very' celled unstackable > 
@@ -75,14 +72,13 @@ const ShoppingBag = ({ product , deleteFromBag , total , size , id }) => {
 
 const mapStateToProps = state => ({
     product : getBagProducts(state),
-    // total : totalSelector(state),
-    id : id(state),
+    total : totalSelector(state),
     size : getSize(state)
 })
 
 ShoppingBag.PropTypes = {
     product : PropTypes.array.isRequired,
-    // total : PropTypes.number.isRequired,
+    total : PropTypes.number.isRequired,
     size : PropTypes.array.isRequired,
     deleteFromBag : PropTypes.func.isRequired
 }
