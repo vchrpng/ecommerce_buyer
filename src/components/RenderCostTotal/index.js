@@ -13,8 +13,6 @@ const TableRow = styled.tr`
 `
 
 const RenderCostTotal = ({ total }) => {
-    // const shipping = total > 500 ? 0 : 50 
-    // const orderTotal = parseFloat(total) + parseFloat(shipping)
     return(
         <Table>
             <tbody>
