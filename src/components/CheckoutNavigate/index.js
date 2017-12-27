@@ -14,8 +14,6 @@ const CheckoutNavigate = () => (
             </CustomLink>
             </div>
         </div>
-        
-    
 )
 
 export default CheckoutNavigate

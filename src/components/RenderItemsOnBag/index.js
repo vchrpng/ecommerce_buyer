@@ -18,7 +18,9 @@ const RenderItemsOnBag = ({ product , deleteFromBag , size }) => {
                         <Label weight={'lighter'}>Size : {size[idx]}</Label>
                     </Table.Cell>
                     <Table.Cell width={2} style={{borderLeft:'none'}}>
-                        <ButtonStyled onClick={() => deleteFromBag(idx)}>  REMOVE </ButtonStyled>
+                        <ButtonStyled onClick={() => 
+                            deleteFromBag(idx,size[idx],item.id)}
+                        >  REMOVE </ButtonStyled>
                     </Table.Cell>
                     <Table.Cell width={2} 
                         textAlign={'right'} 

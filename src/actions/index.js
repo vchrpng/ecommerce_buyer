@@ -27,19 +27,19 @@ export const addToBag = (productId,size) => (dispatch,getState) => {
     }
 }
 
-const removeFromBag = index => ({
+const removeFromBag = (index,size,id) => ({
     type : types.REMOVE_FROM_BAG,
-    index
+    index,size,id
 })
 
-export const deleteFromBag = index => dispatch => {
-    dispatch(removeFromBag(index))
+export const deleteFromBag = (index,size,id) => dispatch => {
+    dispatch(removeFromBag(index,size,id))
 }
 
 export const submitOrder = (data) => (dispatch,getState) => {
     const { shoppingbag , products } = getState()
     const user = localStorage.getItem('email')
-        if(shoppingbag.addedIds.length > 0){
+        if(shoppingbag.addedIds.length > 0 && user){
             dispatch({
                 type : types.SUBMIT_ORDER,
                 shoppingbag,data,products,user
@@ -51,6 +51,6 @@ export const checkout = data => (dispatch,getState) => {
     const { products } = getState()
     console.log(products.getInventory)
    return  axios.post('/api/orders',data)
-        .then(res => axios.put('/api/products/new',products.getInventory)
-     .then(res => dispatch({ type : types.CHECKOUT_SUCCESS })))
+        .then(() => axios.put('/api/products/new',products.getInventory)
+     .then(() => dispatch({ type : types.CHECKOUT_SUCCESS })))
 }

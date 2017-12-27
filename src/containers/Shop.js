@@ -9,9 +9,9 @@ import CategoryList from '../components/CategoryList'
 import Footer from '../components/Footer'
 
 
-const Shop = ({products}) => {
+const Shop = ({ products }) => {
    
-    return(
+    return (
             <div>
                 <Nav/>
                 <CategoryList/>
@@ -37,9 +37,8 @@ const Shop = ({products}) => {
     }
 
 const mapStateToProps = state => ({
-     products : showProducts(state.products)
+    products : showProducts(state.products)
 })
-
 
 export default connect(mapStateToProps)(Shop)
 

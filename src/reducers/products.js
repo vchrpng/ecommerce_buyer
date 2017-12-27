@@ -12,7 +12,7 @@ const inventoryUpdate = (state,action) => {
     case REMOVE_FROM_BAG :
         return  { 
             ...state,
-            [action.size] : state[action.size] + 1         
+            [action.size] : state[action.size] + 1       
         }
     case ADD_TO_SHOPPINGBAG :  
         if(state[action.size] > 0)
@@ -56,6 +56,16 @@ const getInventory = (state = {},action) => {
                        inventory : inventoryUpdate(state[invenId].inventory,action)})
                 .concat(...state.slice(invenId + 1))
             ]
+        case REMOVE_FROM_BAG :
+            const removeId = state.findIndex((el) => el.id === action.id)
+            return [
+                ...state.slice(0,removeId)
+                .concat(state[removeId] = {
+                        ...state[removeId],
+                       inventory : inventoryUpdate(state[removeId].inventory,action)})
+                .concat(...state.slice(removeId + 1))
+            ]
+
         default : return state
     }
 }

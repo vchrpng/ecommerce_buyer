@@ -15,8 +15,7 @@ const RenderItemsCheckout = ({ products , size }) => {
                     <span>$ {product.price}</span>
                 </div>
             </div>
-        )
-       
+        ) 
     )
 }
 export default RenderItemsCheckout
