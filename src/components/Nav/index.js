@@ -45,14 +45,12 @@ const Nav = ({ products , toggleVisibility , isVisible }) => (
         </List>
     )
 
-
+const mapStateToProps = state => ({
+    products : selectedProducts(state)
+})
 
 export default compose(
-    connect(state => {
-        return {
-            products : selectedProducts(state)
-        }
-    }),
+    connect(mapStateToProps),
     withState('isVisible','toggleHandler',false),
     withHandlers({
         toggleVisibility : ({ toggleHandler , isVisible }) => () => toggleHandler(!isVisible)

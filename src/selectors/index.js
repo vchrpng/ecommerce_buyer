@@ -23,3 +23,8 @@ export const selectedSizes = createSelector(
     shoppingbag,
     shoppingbag => shoppingbag.addedSizes
 )
+
+export const showProducts = createSelector(
+    products,
+    products => products.getProductId.map(id => products.byId[id])
+)

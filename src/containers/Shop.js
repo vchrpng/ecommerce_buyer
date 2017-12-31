@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import { DisplayGrid } from '../theme/Grid'
 import { connect } from 'react-redux'
-import { showProducts } from '../reducers/products'
+import { showProducts } from '../selectors'
 import BuyerProductList from '../components/BuyerProductList'
 import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'
@@ -37,7 +37,7 @@ const Shop = ({ products }) => {
     }
 
 const mapStateToProps = state => ({
-    products : showProducts(state.products)
+    products : showProducts(state)
 })
 
 export default connect(mapStateToProps)(Shop)

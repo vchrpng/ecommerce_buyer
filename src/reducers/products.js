@@ -3,7 +3,8 @@ import {
     RECEIVE_PRODUCTS , 
     ADD_TO_SHOPPINGBAG,
     SUBMIT_ORDER ,
-    REMOVE_FROM_BAG
+    REMOVE_FROM_BAG,
+    FILTER_CATEGORY
 } from '../constants/ActionTypes'
 import _ from 'lodash'
 
@@ -116,16 +117,6 @@ export default combineReducers({
     checkout,
     getInventory
 })
-
-export const getProducts = (state,id) => 
-state.byId[id]
-
-export const showProducts = state => 
-state.getProductId.map(id => getProducts(state,id))
-
-export const showInventory = state => 
-state.getInventory
-
 
 
 

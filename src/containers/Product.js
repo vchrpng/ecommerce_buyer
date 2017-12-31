@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { showProducts , showInventory } from '../reducers/products'
 import { Grid , Container , Image } from 'semantic-ui-react'
 import ShippingDetail from '../components/ShippingDetail'
 import ProductDescription from '../components/ProductDescription'
@@ -8,6 +7,7 @@ import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'
 import Footer from '../components/Footer'
 import Slider from 'react-slick'
+import { showProducts } from '../selectors'
 
 
 const Product = ({ match , products , addToBag , inventory }) => {
@@ -146,7 +146,7 @@ const Product = ({ match , products , addToBag , inventory }) => {
 }
 
 const mapStateToProps = state => ({
-    products : showProducts(state.products),
-    inventory : showInventory(state.products)
+    products : showProducts(state),
+    inventory : state.products.getInventory
 })
 export default connect(mapStateToProps)(Product)

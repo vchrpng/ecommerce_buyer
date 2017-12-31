@@ -1,4 +1,8 @@
-import { ADD_TO_SHOPPINGBAG , REMOVE_FROM_BAG, CHECKOUT_SUCCESS } from '../constants/ActionTypes'
+import { 
+    ADD_TO_SHOPPINGBAG , 
+    REMOVE_FROM_BAG, 
+    CHECKOUT_SUCCESS 
+} from '../constants/ActionTypes'
 
 
 const initialState = {
@@ -28,10 +32,6 @@ const addedSizes = (state = initialState.addedSizes, action) => {
             return state
     }
 }
-
-export const getBagProductsById = state => state.addedIds
-export const getBagProductsBySize = state => state.addedSizes
-
 
 const shoppingbag = (state = initialState,action) => {
     switch(action.type){

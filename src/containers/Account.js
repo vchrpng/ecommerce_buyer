@@ -20,16 +20,39 @@ class Account extends Component {
                 <Nav/>
                 <CategoryList/>
                 <Grid>
-                    <Grid.Row>
-                        <Grid.Column>
+                    <Grid.Row textAlign={'center'} centered>
+                        <Grid.Column width={4} verticalAlign={'bottom'}>
+                          <h4> Order History </h4> 
+                            <span> You haven't place any orders yet.</span>
+                        </Grid.Column>
+                        <Grid.Column width={5}>
                         <div style={{maxWidth:'500px',margin:'0 auto',paddingTop:'50px'}}>
                           <div>
                              <h1 style={{textAlign:'center',marginBottom:'30px'}}>Account</h1>
                           </div>
+                            <div style={{width:'60%',margin:'0 auto'}}>
                                 <ButtonStyled
                                     onClick={() => logout()}
-                                >Logout
+                                >LOGOUT
                                 </ButtonStyled>
+                            </div>
+                        </div>
+                        </Grid.Column>
+                        <Grid.Column width={4} verticalAlign={'bottom'}>
+                            <h4> Account Details </h4>
+                            <div style={{
+                                width:'170px',
+                                height:'45px',
+                                margin:'0 auto',
+                                border:'1px solid',
+                                cursor:'pointer',
+                                paddingTop:'12px'
+                            }}>
+                            <span style={{
+                                color:'gray',
+                                letterSpacing:'1px',
+                                fontSize:'12px'
+                            }}>View Address (0)</span>
                             </div>
                         </Grid.Column>
                     </Grid.Row>
