@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import SizeDropDown from '../SizeDropDown'
-import { Grid , Transition , Icon } from 'semantic-ui-react'
+import { Grid , Icon } from 'semantic-ui-react'
 import { ButtonStyled } from '../Etc/Reusable'
 import { Loader } from 'semantic-ui-react'
 import { addToBag } from '../../actions'
 import { connect } from 'react-redux'
-import { MessageBox } from '../Etc/RequiredMsg'
+import { MessageBox , FadeMessage } from '../Etc/RequiredMsg'
 
 class ShippingDetail extends React.Component {
     constructor(props){
@@ -18,9 +18,6 @@ class ShippingDetail extends React.Component {
             text : '',
             index : this.props.inventory.findIndex(el => el.id === this.props.currentProduct.id)          
         }
-        this.handleAddToBagDelay = this.handleAddToBagDelay.bind(this)
-        this.handleOnChange = this.handleOnChange.bind(this)
-        this.addToWishlist = this.addToWishlist.bind(this)
     }
 
     handleAddToBagDelay = () => {
@@ -71,15 +68,11 @@ render(){
     return (
      
             <Grid container textAlign="center">
-                
-                <Transition visible={this.state.showRequired} animation='fade' duration={500}>
-                <div>
+                <FadeMessage visible={this.state.showRequired}>
                     <MessageBox>
                         <p>{this.state.text}</p>
                     </MessageBox>
-                </div>
-                </Transition>
-                
+                </FadeMessage>
                 <Grid.Row >
                     <p style={{fontSize:'18px'}}>{this.props.children}</p>
                 </Grid.Row >

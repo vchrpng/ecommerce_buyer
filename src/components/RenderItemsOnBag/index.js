@@ -2,7 +2,9 @@ import React from 'react'
 import { Table , Image } from 'semantic-ui-react'
 import { Label } from '../Etc/Label'
 import { ButtonStyled } from '../Etc/Reusable'
+import { connect } from 'react-redux'
 import { ProdImg } from '../Responsive'
+import { deleteFromBag } from '../../actions'
 
 const RenderItemsOnBag = ({ product , deleteFromBag , size }) => {
     return (
@@ -33,4 +35,4 @@ const RenderItemsOnBag = ({ product , deleteFromBag , size }) => {
     )
 }
 
-export default RenderItemsOnBag
+export default connect(null,{deleteFromBag})(RenderItemsOnBag)

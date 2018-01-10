@@ -33,6 +33,7 @@ const removeFromBag = (index,size,id) => ({
 })
 
 export const deleteFromBag = (index,size,id) => dispatch => {
+    console.log(index + size + id)
     dispatch(removeFromBag(index,size,id))
 }
 

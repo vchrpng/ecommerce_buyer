@@ -4,7 +4,6 @@ import {
     ADD_TO_SHOPPINGBAG,
     SUBMIT_ORDER ,
     REMOVE_FROM_BAG,
-    FILTER_CATEGORY
 } from '../constants/ActionTypes'
 import _ from 'lodash'
 
