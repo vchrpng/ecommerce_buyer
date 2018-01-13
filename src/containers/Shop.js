@@ -10,7 +10,6 @@ import Footer from '../components/Footer'
 
 
 const Shop = ({ products }) => {
-   
     return (
             <div>
                 <Nav/>

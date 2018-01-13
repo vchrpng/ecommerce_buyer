@@ -4,6 +4,7 @@ import {
     ADD_TO_SHOPPINGBAG,
     SUBMIT_ORDER ,
     REMOVE_FROM_BAG,
+    FILTER_CATEGORY
 } from '../constants/ActionTypes'
 import _ from 'lodash'
 
@@ -30,6 +31,9 @@ const getProductId = (state = [], action) => {
     switch(action.type){
         case RECEIVE_PRODUCTS : 
             return action.products.map(product => product.id)
+        case FILTER_CATEGORY :
+            return Object.values(action.byId)
+            .filter(i => i.category === `${action.category}`).map(i => i.id)
         default : 
             return state
     }
@@ -80,6 +84,19 @@ const byId = (state = {} , action ) => {
                     return obj
                     },{})
               }
+        // case FILTER_CATEGORY : 
+        //     console.log(Object.values(state)
+        //         .filter(i => i.category === `${action.category}`)
+        //         .reduce((obj,product) => {
+        //             obj[product.id] = product
+        //                 return obj
+        //             },{}))
+        //     return Object.values(state)
+        //     .filter(i => i.category === `${action.category}`)
+        //     .reduce((obj,product) => {
+        //         obj[product.id] = product
+        //             return obj
+        //         },{})
         default : return state
     }    
 }

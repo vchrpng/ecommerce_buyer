@@ -1,5 +1,5 @@
 const Category = [
-    'Jackets','Pants','Shorts','Shirts','T-shirts','Sweatshirts','accessories','shoes','bags'
+    'jackets','pants','shorts','shirts','t-shirts','sweatshirts','accessories','shoes','bags','hoodie'
 ]
 
 export default Category

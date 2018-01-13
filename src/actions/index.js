@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const receiveProducts = products => ({
     type: types.RECEIVE_PRODUCTS,
-    products: products
+    products
   })
   
 export const getAllProducts = () => dispatch => {
@@ -12,6 +12,15 @@ export const getAllProducts = () => dispatch => {
         dispatch(receiveProducts(res.data))
     })
 }
+
+export const filterCategory = category => (dispatch,getState) => {
+    const {byId} = getState().products
+    dispatch({
+        type : types.FILTER_CATEGORY,
+        category,byId
+    })
+}
+
 
 const addToBagSuccess = (productId,size) => ({
     type : types.ADD_TO_SHOPPINGBAG,
