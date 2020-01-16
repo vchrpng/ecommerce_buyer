@@ -1,8 +1,6 @@
 import * as types from '../constants/ActionTypes'
-import dotenv from 'dotenv'
 import axios from 'axios'
 
-dotenv.config()
 
 const apiURI = process.env.REACT_APP_API
 
