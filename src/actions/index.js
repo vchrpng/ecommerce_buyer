@@ -1,5 +1,10 @@
 import * as types from '../constants/ActionTypes'
+import dotenv from 'dotenv'
 import axios from 'axios'
+
+dotenv.config()
+
+const apiURI = process.env.REACT_APP_API
 
 
 const receiveProducts = products => ({
@@ -8,7 +13,7 @@ const receiveProducts = products => ({
   })
   
 export const getAllProducts = () => dispatch => {
-    axios.get('/api/products').then((res) => {
+    axios.get(`${apiURI}/api/products`).then((res) => {
         dispatch(receiveProducts(res.data))
     })
 }
@@ -60,7 +65,7 @@ export const submitOrder = (data) => (dispatch,getState) => {
 export const checkout = data => (dispatch,getState) => {
     const { products } = getState()
     console.log(products.getInventory)
-   return  axios.post('/api/orders',data)
-        .then(() => axios.put('/api/products/new',products.getInventory)
+   return  axios.post(`${apiURI}/api/orders`,data)
+        .then(() => axios.put(`${apiURI}/api/products/new`,products.getInventory)
      .then(() => dispatch({ type : types.CHECKOUT_SUCCESS })))
 }
