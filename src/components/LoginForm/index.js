@@ -89,7 +89,7 @@ class LoginForm extends Component {
                     </ButtonStyled>
                 </Form.Field>
                 <Form.Field>
-                    <CustomLink to='/account/register'>
+                    <CustomLink to='/account/signup'>
                         <Label>Create Account</Label>
                     </CustomLink>
                 </Form.Field>

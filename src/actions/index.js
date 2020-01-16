@@ -49,7 +49,7 @@ export const deleteFromBag = (index,size,id) => dispatch => {
 export const submitOrder = (data) => (dispatch,getState) => {
     const { shoppingbag , products } = getState()
     const user = localStorage.getItem('email')
-        if(shoppingbag.addedIds.length > 0 && user){
+        if(shoppingbag.addedIds.length && user){
             dispatch({
                 type : types.SUBMIT_ORDER,
                 shoppingbag,data,products,user
