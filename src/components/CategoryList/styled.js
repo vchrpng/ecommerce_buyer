@@ -13,4 +13,5 @@ export const Item = styled.li`
     color:black;
     text-decoration:none;
     text-transform:uppercase;
+    cursor: pointer;
 `
