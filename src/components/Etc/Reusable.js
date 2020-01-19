@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 export const ButtonStyled = styled.button`
-    text-transformation:uppercase;
+    text-transform:uppercase;
     border-radius:${(props) => props.radius ? props.radius : '0'};
     letter-spacing:1px;
     width:100%;
@@ -24,7 +24,7 @@ export const ButtonStyled = styled.button`
 `
 
 export const RedButton = styled.button`
-    text-transformation:uppercase;
+    text-transform:uppercase;
     border-radius:4px;
     letter-spacing:1px;
     width:100%;
