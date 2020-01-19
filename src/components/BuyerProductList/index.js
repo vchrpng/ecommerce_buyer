@@ -16,8 +16,6 @@ const BuyerProductList = ({ product }) => {
                     <Column style={{marginTop:'10px'}}>
                         <strong>   
                         {product.title} 
-                        <br/>
-                        ({product.color})
                         </strong>
                     </Column>
                     <Column>
