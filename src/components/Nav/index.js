@@ -24,7 +24,7 @@ const Nav = ({ products , toggleVisibility , isVisible }) => (
             <Item style={{width:'86%',textAlign:'-webkit-center'}}>
                 <Image
                     href="/" 
-                    src="http://www.sneakavilla.net/wp-content/uploads/2015/12/smalllogo-font-header6.png" />
+                    src="https://res.cloudinary.com/josphr/image/upload/v1579412709/products/logo.png" />
             </Item>
             <Item>
                 <CustomLink color={'black'} to="/account/login">
