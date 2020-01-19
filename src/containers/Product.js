@@ -29,7 +29,8 @@ const Product = ({ id , products , addToBag , inventory }) => {
             >
                 <Grid.Column
                     style={{margin:'0 auto'}}
-                    width='6'
+                    tablet='6'
+                    mobile='12'
                 >
                     <Container>
                     <Slider {...settings}>
@@ -42,7 +43,8 @@ const Product = ({ id , products , addToBag , inventory }) => {
 
                 <Grid.Column
                     style={{margin:'50px auto'}}
-                    width='6'
+                    tablet='6'
+                    mobile='12'
                 >
                     <ProductDescription currentProduct={current} />
 
