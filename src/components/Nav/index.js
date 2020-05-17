@@ -2,7 +2,7 @@ import React from 'react'
 import { List, Item } from './styled'
 import { CustomLink } from '../Etc/Reusable'
 import ShoppingBag from '../../containers/ShoppingBag'
-import { Image  , Label, Modal } from 'semantic-ui-react'
+import { Image  , Label, Popup } from 'semantic-ui-react'
 import { selectedProducts } from '../../selectors'
 import { connect } from 'react-redux'
 import shoppingbag from '../../shopping-bag.svg'
@@ -25,7 +25,7 @@ const Nav = ({ products }) => (
                     <Label style={{visibility:'hidden'}}/>
                 </CustomLink>
             </Item>
-            <Modal trigger={
+            <Popup hoverable position="bottom center" trigger={
                 <Item>
                     <Image src={shoppingbag}/>
                     <Label circular size={'tiny'} color={'red'}
@@ -36,7 +36,7 @@ const Nav = ({ products }) => (
             </Item>
             }>
                 <ShoppingBag />
-            </Modal>
+            </Popup>
             
         </List>
     )
