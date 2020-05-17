@@ -25,7 +25,7 @@ const Nav = ({ products }) => (
                     <Label style={{visibility:'hidden'}}/>
                 </CustomLink>
             </Item>
-            <Popup hoverable position="bottom center" trigger={
+            <Popup pinned hoverable position="bottom center" trigger={
                 <Item>
                     <Image src={shoppingbag}/>
                     <Label circular size={'tiny'} color={'red'}
