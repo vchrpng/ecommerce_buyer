@@ -1,7 +1,8 @@
 import React from 'react'
 import { List, Item } from './styled'
 import { CustomLink } from '../Etc/Reusable'
-import { Image , Icon , Label } from 'semantic-ui-react'
+import ShoppingBag from '../../containers/ShoppingBag'
+import { Image  , Label, Modal } from 'semantic-ui-react'
 import { selectedProducts } from '../../selectors'
 import { connect } from 'react-redux'
 import shoppingbag from '../../shopping-bag.svg'
@@ -10,17 +11,9 @@ import { compose , withState , withHandlers } from 'recompose'
 
 
 
-const Nav = ({ products , toggleVisibility , isVisible }) => (
+const Nav = ({ products }) => (
 
             <List>
-                <Item style={{width:'5%'}}>
-                <Icon
-                    style={{cursor:'pointer'}}
-                    size={'large'} 
-                    name='search' 
-                    onClick={toggleVisibility}
-                />
-            </Item>
             <Item style={{width:'86%',textAlign:'-webkit-center'}}>
                 <Image
                     href="/" 
@@ -32,16 +25,19 @@ const Nav = ({ products , toggleVisibility , isVisible }) => (
                     <Label style={{visibility:'hidden'}}/>
                 </CustomLink>
             </Item>
-            <Item>
-                <CustomLink color={'black'} to="/shoppingbag">
+            <Modal trigger={
+                <Item>
                     <Image src={shoppingbag}/>
                     <Label circular size={'tiny'} color={'red'}
                     style={{
                         position:'relative',
                         top:'-30px',left:'13px'
                     }}> {products.length}  </Label>
-                </CustomLink>
             </Item>
+            }>
+                <ShoppingBag />
+            </Modal>
+            
         </List>
     )
 
