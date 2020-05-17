@@ -35,7 +35,7 @@ class ShoppingBag extends React.Component {
     render(){
         const { product , size , total } = this.props
         const haveProduct = product.length ? 
-        <Padded>
+        <Padded size="medium">
             
             <Table basic='very' celled unstackable > 
             <Table.Header>
@@ -78,10 +78,7 @@ class ShoppingBag extends React.Component {
                 </FadeMessage>
                 <Grid.Row>
                     <Grid.Column>
-                        <div style={{maxWidth:'900px',margin:'0 auto',paddingTop:'50px'}}>
-                        <h4 style={{textAlign:'center',marginBottom:'50px'}}>YOUR SHOPPING BAG</h4>
                         {haveProduct}
-                        </div>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
