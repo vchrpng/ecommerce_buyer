@@ -3,6 +3,8 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
+import styled from 'styled-components'
+
 import ShoppingBag from './ShoppingBag'
 import Shop from './Shop'
 import Product from './Product'
@@ -11,13 +13,19 @@ import Signup from './Signup'
 import Checkout from './Checkout'
 import Account from './Account'
 
+const Layout = styled.div`
+  max-width: 1010px;
+  margin: 0 auto;
+
+`
+
 
 class App extends Component {
   render() {
     
       return (
             <Router>
-              <div>
+              <Layout>
                     <Route exact path="/" component={Shop}/>
                     <Route path="/shoppingbag" component={ShoppingBag}/>
                     <Route path="/products/:category/:id" component={Product}/>
@@ -25,7 +33,7 @@ class App extends Component {
                     <Route path="/account/signup" component={Signup}/>
                     <Route path="/checkout" component={Checkout}/>
                     <Route path="/account/myaccount" component={Account} />
-              </div>
+              </Layout>
             </Router>
       )
   }
