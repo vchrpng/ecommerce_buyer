@@ -6,7 +6,6 @@ import { showProducts } from '../selectors'
 import BuyerProductList from '../components/BuyerProductList'
 import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'
-import Footer from '../components/Footer'
 
 
 const Shop = ({ products }) => {
@@ -29,7 +28,6 @@ const Shop = ({ products }) => {
                     </Grid.Column>
                     </Grid.Row>
                 </Grid>
-                <Footer/>
             </div>
         )
     }

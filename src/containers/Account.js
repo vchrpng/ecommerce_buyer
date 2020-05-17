@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Grid } from 'semantic-ui-react'
 import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'
-import Footer from '../components/Footer'
 import { ButtonStyled } from '../components/Etc/Reusable'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -57,7 +56,6 @@ class Account extends Component {
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
-                <Footer/>
             </div>
         )}
         else return <Redirect to='/account/login' />

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Grid } from 'semantic-ui-react'
 import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'
-import Footer from '../components/Footer'
 import LoginForm from '../components/LoginForm'
 import { connect } from 'react-redux'
 import { login } from '../actions/auth'
@@ -29,7 +28,6 @@ class Login extends Component {
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
-                <Footer/>
             </div>
         )}
         else return <Redirect to='/account/myaccount' />

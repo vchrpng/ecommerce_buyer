@@ -10,7 +10,6 @@ import { ButtonStyled } from '../components/Etc/Reusable'
 import { MessageBox , FadeMessage } from '../components/Etc/RequiredMsg'
 import Nav from '../components/Nav'
 import CategoryList from '../components/CategoryList'
-import Footer from '../components/Footer'
 import { Padded , Td } from '../components/Responsive'
 import { totalSelector , selectedProducts , selectedSizes } from '../selectors'
 
@@ -92,7 +91,6 @@ class ShoppingBag extends React.Component {
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
-            <Footer/>
             </div>
         )
     }
