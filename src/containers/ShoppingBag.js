@@ -36,7 +36,6 @@ class ShoppingBag extends React.Component {
         const { product , size , total } = this.props
         const haveProduct = product.length ? 
         <Padded size="medium">
-            
             <Table basic='very' celled unstackable > 
             <Table.Header>
                 <Table.Row>
@@ -60,10 +59,10 @@ class ShoppingBag extends React.Component {
                 />
                 <ShoppingBagTablePricing total={total}/>
             </Table>
-            <div style={{width:'17%',marginLeft:'82%',marginTop:'50px'}}>
-                    <ButtonStyled onClick={this.authBeforeCheckout}>
-                        CHECKOUT
-                    </ButtonStyled>
+            <div style={{ marginTop:'50px'}}>
+                <ButtonStyled onClick={this.authBeforeCheckout}>
+                    CHECKOUT
+                </ButtonStyled>
             </div>
         </Padded>
                 : <EmptyBag/>
