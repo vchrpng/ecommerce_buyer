@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Grid } from 'semantic-ui-react'
-import Nav from '../components/Nav'
-import CategoryList from '../components/CategoryList'
 import LoginForm from '../components/LoginForm'
 import { connect } from 'react-redux'
 import { login } from '../actions/auth'
@@ -15,9 +13,6 @@ class Login extends Component {
         const { isAuthenticated } = this.props
         if(!isAuthenticated){
             return (
-            <div>
-                <Nav/>
-                <CategoryList/>
                 <Grid>
                     <Grid.Row>
                         <Grid.Column>
@@ -28,7 +23,6 @@ class Login extends Component {
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
-            </div>
         )}
         else return <Redirect to='/account/myaccount' />
     }

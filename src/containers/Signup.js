@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Grid } from 'semantic-ui-react'
-import Nav from '../components/Nav'
-import CategoryList from '../components/CategoryList'
 import SignupForm from '../components/SignupForm'
 import { connect } from 'react-redux'
 import { signup } from '../actions/auth'
@@ -11,8 +9,6 @@ class Signup extends Component {
     render() {
         return (
                 <div>
-                    <Nav/>
-                    <CategoryList/>
                     <Grid>
                         <Grid.Row>
                             <Grid.Column>

@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Grid } from 'semantic-ui-react'
-import Nav from '../components/Nav'
-import CategoryList from '../components/CategoryList'
 import { ButtonStyled } from '../components/Etc/Reusable'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -15,9 +13,6 @@ class Account extends Component {
 
         if(isAuthenticated){
             return (
-            <div>
-                <Nav/>
-                <CategoryList/>
                 <Grid>
                     <Grid.Row textAlign={'center'} centered>
                         <Grid.Column width={4} verticalAlign={'bottom'}>
@@ -56,7 +51,6 @@ class Account extends Component {
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
-            </div>
         )}
         else return <Redirect to='/account/login' />
     }

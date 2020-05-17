@@ -4,15 +4,10 @@ import { DisplayGrid } from '../theme/Grid'
 import { connect } from 'react-redux'
 import { showProducts } from '../selectors'
 import BuyerProductList from '../components/BuyerProductList'
-import Nav from '../components/Nav'
-import CategoryList from '../components/CategoryList'
 
 
 const Shop = ({ products }) => {
     return (
-            <div>
-                <Nav/>
-                <CategoryList/>
                 <Grid>
                     <Grid.Row centered>
                     <Grid.Column computer={13} tablet={16}>
@@ -28,7 +23,6 @@ const Shop = ({ products }) => {
                     </Grid.Column>
                     </Grid.Row>
                 </Grid>
-            </div>
         )
     }
 

@@ -8,8 +8,6 @@ import RenderItemsOnBag from '../components/RenderItemsOnBag'
 import EmptyBag from '../components/EmptyBag'
 import { ButtonStyled } from '../components/Etc/Reusable'
 import { MessageBox , FadeMessage } from '../components/Etc/RequiredMsg'
-import Nav from '../components/Nav'
-import CategoryList from '../components/CategoryList'
 import { Padded , Td } from '../components/Responsive'
 import { totalSelector , selectedProducts , selectedSizes } from '../selectors'
 
@@ -71,10 +69,6 @@ class ShoppingBag extends React.Component {
                 : <EmptyBag/>
 
         return (
-            <div>
-            <Nav/>
-            <CategoryList/>
-           
             <Grid >
            
                 <FadeMessage visible={this.state.showRequired}>
@@ -91,7 +85,6 @@ class ShoppingBag extends React.Component {
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
-            </div>
         )
     }
 }
