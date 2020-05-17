@@ -5,24 +5,28 @@ import { ButtonStyled , CustomLink } from '../Etc/Reusable'
 
 const EmptyBag = () => {
     return (
-        <DisplayGrid 
-            style={{marginTop:'100px'}}  
-            autoRows={'70px,auto'}
-            >
-            <Flex justify={'center'} align={'center'}>
-                <h4 style={{fontWeight:'100',letterSpacing:'1px'}}>
-                    Your bag is empty please go to shopping.
-                </h4></Flex>
-            <Flex justify={'center'} align={'center'}>
-            <CustomLink style={{width:'65%'}} to='/'>  
-                <ButtonStyled>
+        <div style={{
+            minWidth: '200px'
+        }}>
+            <DisplayGrid 
+                style={{marginTop:'100px'}}  
+                autoRows={'70px,auto'}
+                >
+                <Flex justify={'center'} align={'center'}>
+                    <h4 style={{fontWeight:'100',letterSpacing:'1px'}}>
+                        Your bag is empty please go to shopping.
+                    </h4></Flex>
+                <Flex justify={'center'} align={'center'}>
+                <CustomLink style={{width:'65%'}} to='/'>  
+                    <ButtonStyled>
+                        
+                            GO SHOPPING
                     
-                        GO SHOPPING
-                  
-                </ButtonStyled>
-                </CustomLink>
-            </Flex>
-        </DisplayGrid>
+                    </ButtonStyled>
+                    </CustomLink>
+                </Flex>
+            </DisplayGrid>
+        </div>
     )
 }
 
