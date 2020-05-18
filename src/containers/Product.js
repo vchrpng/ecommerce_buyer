@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { Grid , Container , Image } from 'semantic-ui-react'
+import { Container , Image, Segment, Modal } from 'semantic-ui-react'
 import ShippingDetail from '../components/ShippingDetail'
 import ProductDescription from '../components/ProductDescription'
 import Slider from 'react-slick'
@@ -22,52 +22,26 @@ const Product = ({ id , products , addToBag , inventory }) => {
         slidesToScroll: 1
       }
 
-    const product = currentProduct.map(current =>
-            <Grid.Row key={current.id}
-                columns={5} 
-                style={{textAlign:'center'}}
+    return  currentProduct.map(current =>
+        <Modal.Content>
+            <Slider {...settings}>
+                {current.images.map((pic,index) =>
+                <Segment>
+                    <Image  src={pic} key={index}/>
+                </Segment>
+                )}
+            </Slider>
+            <ProductDescription currentProduct={current} />
+
+            <ShippingDetail 
+                currentProduct={current}
+                inventory={inventory}
             >
-                <Grid.Column
-                    style={{margin:'0 auto'}}
-                    tablet='6'
-                    mobile='12'
-                >
-                    <Container>
-                    <Slider {...settings}>
-                        {current.images.map((pic,index) =>
-                            <Image size='mini' src={pic} key={index} style={{marginBottom:'50px'}}/>
-                        )}
-                    </Slider>
-                    </Container>
-                </Grid.Column>
-
-                <Grid.Column
-                    style={{margin:'50px auto'}}
-                    tablet='6'
-                    mobile='12'
-                >
-                    <ProductDescription currentProduct={current} />
-
-                    <Container>
-                        <ShippingDetail 
-                            currentProduct={current}
-                            inventory={inventory}
-                        >
-                            {current.price} $ USD
-                        </ShippingDetail>   
-                    </Container>
-                </Grid.Column>
-            </Grid.Row>)
-
-                
-
-    return(
-            <div>
-                <Grid verticalAlign='middle'>
-                    {product}
-                </Grid>
-            </div>
-    )
+                {current.price} $ USD
+            </ShippingDetail> 
+        </Modal.Content>
+                      
+                    )
 }
 
 const mapStateToProps = state => ({
