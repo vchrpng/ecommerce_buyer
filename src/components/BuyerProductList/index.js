@@ -9,7 +9,7 @@ const BuyerProductList = ({ product }) => {
 
 
     return(
-        <Modal trigger={
+        <Modal header={product.title} size="small" trigger={
             <Thumbnail>
                 <Image src={product.thumbnail}/>
                 <Row>
@@ -23,7 +23,7 @@ const BuyerProductList = ({ product }) => {
                 </Row>
             </Thumbnail>
         }>
-        <Product id={product.id} />
+            <Product id={product.id} />
         </Modal>
     )
 }
