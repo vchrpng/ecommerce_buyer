@@ -6,7 +6,7 @@ import { ButtonStyled , CustomLink } from '../Etc/Reusable'
 const EmptyBag = () => {
     return (
         <div style={{
-            minWidth: '200px'
+            minWidth: '300px'
         }}>
             <DisplayGrid 
                 style={{marginTop:'100px'}}  
