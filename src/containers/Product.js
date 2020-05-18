@@ -22,7 +22,7 @@ const Product = ({ id , products , addToBag , inventory }) => {
         slidesToScroll: 1
       }
 
-    const test = currentProduct.map(current =>
+    const product = currentProduct.map(current =>
             <Grid.Row key={current.id}
                 columns={5} 
                 style={{textAlign:'center'}}
@@ -63,11 +63,8 @@ const Product = ({ id , products , addToBag , inventory }) => {
 
     return(
             <div>
-                <Grid  
-                    style={{padding:'40px'}} 
-                    verticalAlign='middle'
-                >
-                    {test}
+                <Grid verticalAlign='middle'>
+                    {product}
                 </Grid>
             </div>
     )
