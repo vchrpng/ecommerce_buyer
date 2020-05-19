@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { ButtonStyled } from '../components/Etc/Reusable'
-import { Container , Image, Segment, Modal } from 'semantic-ui-react'
+import { Container , Image, Segment } from 'semantic-ui-react'
 import ShippingDetail from '../components/ShippingDetail'
 import ProductDescription from '../components/ProductDescription'
 import Slider from 'react-slick'
@@ -24,7 +24,6 @@ const Product = ({ id , products , addToBag , inventory }) => {
       }
 
     return  <React.Fragment>
-                <Modal.Content>
                             <Slider variableWidth adaptiveHeight {...settings}>
                                 {currentProduct.images.map((pic,index) =>
                                     <Image wrapped size="medium" src={pic} key={index}/>
@@ -33,18 +32,14 @@ const Product = ({ id , products , addToBag , inventory }) => {
                             </Slider>
 
                     
-                        <Modal.Description style={{ marginTop: '72px'}}>
                             <ProductDescription currentProduct={currentProduct} />
-                            {currentProduct.price} $ USD
 
-                        </Modal.Description>
-                </Modal.Content>
-                <Modal.Actions>
-                
-                        <ButtonStyled height={'35px'} onClick={this.handleAddToBagDelay} >
+                        {/* <ButtonStyled height={'35px'} onClick={this.handleAddToBagDelay} >
                         ADD TO BAG
-                    </ButtonStyled>
-                </Modal.Actions>
+
+                    </ButtonStyled> */}
+
+                    <ShippingDetail inventory={inventory} currentProduct={currentProduct} />
             </React.Fragment>
 }
 
