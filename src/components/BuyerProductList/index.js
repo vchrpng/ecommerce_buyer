@@ -9,7 +9,7 @@ const BuyerProductList = ({ product }) => {
 
 
     return(
-        <Modal header={product.title} size="small" trigger={
+        <Modal style={{ marginTop: '-250px'}} centered={false} closeIcon size="tiny" trigger={
             <Thumbnail>
                 <Image src={product.thumbnail}/>
                 <Row>
