@@ -68,11 +68,7 @@ render(){
     return (
      
             <Grid container textAlign="center">
-                <FadeMessage visible={this.state.showRequired}>
-                    <MessageBox>
-                        <p>{this.state.text}</p>
-                    </MessageBox>
-                </FadeMessage>
+          
                 <Grid.Row >
                     <p style={{fontSize:'18px'}}>{this.props.children}</p>
                 </Grid.Row >
