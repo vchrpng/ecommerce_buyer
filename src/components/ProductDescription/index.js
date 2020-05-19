@@ -7,7 +7,7 @@ const ProductDescription = ({ currentProduct }) => {
             <p style={{fontSize:'18px'}}>{currentProduct.title}</p>         
             <p>100% Nylon imported</p>
             <div>
-                <p style={{fontSize:'14px',fontWeight:'bold'}}>Share</p>
+                <h3>{currentProduct.price} $ USD</h3>
             </div>
         </Container>
     )
