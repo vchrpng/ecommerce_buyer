@@ -27,12 +27,13 @@ const Product = ({ id , products , addToBag , inventory }) => {
                 <Modal.Content>
                             <Slider variableWidth adaptiveHeight {...settings}>
                                 {currentProduct.images.map((pic,index) =>
-                                    <Image wrapped size="small" src={pic} key={index}/>
+                                    <Image wrapped size="medium" src={pic} key={index}/>
                                 )}
+                                
                             </Slider>
 
                     
-                        <Modal.Description>
+                        <Modal.Description style={{ marginTop: '72px'}}>
                             <ProductDescription currentProduct={currentProduct} />
                             {currentProduct.price} $ USD
 
