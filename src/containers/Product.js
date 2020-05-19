@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { ButtonStyled } from '../components/Etc/Reusable'
 import { Container , Image, Segment, Modal } from 'semantic-ui-react'
 import ShippingDetail from '../components/ShippingDetail'
 import ProductDescription from '../components/ProductDescription'
@@ -11,7 +12,7 @@ const Product = ({ id , products , addToBag , inventory }) => {
     
     const currentProduct = products.filter(product => {
         return product.id === parseInt(id,10)
-    })
+    })[0]
    
 
     const settings = {
@@ -22,26 +23,28 @@ const Product = ({ id , products , addToBag , inventory }) => {
         slidesToScroll: 1
       }
 
-    return  currentProduct.map(current =>
-        <Modal.Content>
-            <Slider {...settings}>
-                {current.images.map((pic,index) =>
-                <Segment>
-                    <Image  src={pic} key={index}/>
-                </Segment>
-                )}
-            </Slider>
-            <ProductDescription currentProduct={current} />
+    return  <React.Fragment>
+                <Modal.Content>
+                            <Slider variableWidth adaptiveHeight {...settings}>
+                                {currentProduct.images.map((pic,index) =>
+                                    <Image wrapped size="small" src={pic} key={index}/>
+                                )}
+                            </Slider>
 
-            <ShippingDetail 
-                currentProduct={current}
-                inventory={inventory}
-            >
-                {current.price} $ USD
-            </ShippingDetail> 
-        </Modal.Content>
-                      
-                    )
+                    
+                        <Modal.Description>
+                            <ProductDescription currentProduct={currentProduct} />
+                            {currentProduct.price} $ USD
+
+                        </Modal.Description>
+                </Modal.Content>
+                <Modal.Actions>
+                
+                        <ButtonStyled height={'35px'} onClick={this.handleAddToBagDelay} >
+                        ADD TO BAG
+                    </ButtonStyled>
+                </Modal.Actions>
+            </React.Fragment>
 }
 
 const mapStateToProps = state => ({
