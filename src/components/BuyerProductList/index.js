@@ -1,30 +1,39 @@
 import React from 'react'
 import Product from '../../containers/Product'
-import { Image, Modal } from 'semantic-ui-react'
-import { Thumbnail } from './styled'
+import { Image } from 'semantic-ui-react'
+import Modal from '../Modal'
+
+import { Thumbnail, ProductListContainer } from './styled'
 import { Row , Column } from '../../theme/Grid'
 
 
 const BuyerProductList = ({ product }) => {
-
-
-    return(
-        <Modal style={{ marginTop: '-250px'}} centered={false} closeIcon size="mini" trigger={
-            <Thumbnail>
+    const [isOpen,onToggleModal] = React.useState(false)
+    
+    return (
+        <div>
+            <Thumbnail onClick={() => onToggleModal(true)}>
                 <Image src={product.thumbnail}/>
                 <Row>
                     <Column style={{marginTop:'10px'}}>
-                       <h4> {product.title} </h4>
+                    <h4> {product.title} </h4>
                     </Column>
                     <Column><p style={{ color: 'gray' }}>{product.category}</p></Column>
                     <Column>
-                       <h4> {product.price} $</h4>
+                    <h4> {product.price} $</h4>
                     </Column>
                 </Row>
             </Thumbnail>
-        }>
-            <Product id={product.id} />
-        </Modal>
+            {isOpen && 
+            <Modal
+                id="modal"
+                isOpen={isOpen}
+                onClose={onToggleModal}
+                header={product.title}
+            >
+                <Product id={product.id} />
+            </Modal>}
+        </div>
     )
 }
 
