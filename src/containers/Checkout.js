@@ -11,7 +11,7 @@ const Checkout = ({ checkout , history , isAuthenticated }) => {
       const submit = data => {
           return checkout(data).then(() => history.push('/'))
         }
-        if(isAuthenticated){
+        // if(isAuthenticated){
             return (
                 <div style={{margin:'0 auto',maxWidth:'500px',padding:'20px'}}> 
                     <CheckoutHeader />
@@ -19,8 +19,9 @@ const Checkout = ({ checkout , history , isAuthenticated }) => {
                     <CheckoutFooter/>
                 </div>      
             )
-        }
-        else return <Redirect to='/account/myaccount' />
+        // }
+        // else 
+        // return <Redirect to='/account/myaccount' />
     
 }
 const mapStateToProps = state => ({
