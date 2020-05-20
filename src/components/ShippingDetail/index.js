@@ -72,10 +72,6 @@ render(){
                 <Grid.Row >
                     <p style={{fontSize:'18px'}}>{this.props.children}</p>
                 </Grid.Row >
-                <Grid.Row >
-                    <p style={{fontWeight:'lighter',fontSize:'12px'}}>Taxes and duties included.<br/>
-                    Free shipping on orders over $500</p>
-                </Grid.Row >
                 <Grid.Row>
                     <SizeDropDown
                         inventory={inventoryByIndex.inventory}
