@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { deleteFromBag } from '../actions'
 import { Grid , Table } from 'semantic-ui-react'
 import ShoppingBagTablePricing from '../components/ShoppingBagTablePricing'
 import RenderItemsOnBag from '../components/RenderItemsOnBag'
 import EmptyBag from '../components/EmptyBag'
-import { ButtonStyled } from '../components/Etc/Reusable'
+import { ButtonStyled, CustomLink } from '../components/Etc/Reusable'
 import { MessageBox , FadeMessage } from '../components/Etc/RequiredMsg'
 import { Padded , Td } from '../components/Responsive'
 import { totalSelector , selectedProducts , selectedSizes } from '../selectors'
@@ -21,15 +22,15 @@ class ShoppingBag extends React.Component {
     }
 
     authBeforeCheckout = () => {
-        if(!this.props.isAuthenticated){
-            this.setState({
-                showRequired : !this.state.showRequired
-            })
-            setTimeout(() => this.setState({
-                showRequired : !this.state.showRequired
-            }),1000)
-        }
-        else this.props.history.push('/checkout')
+        // if(!this.props.isAuthenticated){
+        //     this.setState({
+        //         showRequired : !this.state.showRequired
+        //     })
+        //     setTimeout(() => this.setState({
+        //         showRequired : !this.state.showRequired
+        //     }),1000)
+        // }
+        // else
     }
 
     render(){
@@ -60,9 +61,11 @@ class ShoppingBag extends React.Component {
                 <ShoppingBagTablePricing total={total}/>
             </Table>
             <div style={{ marginTop:'50px'}}>
-                <ButtonStyled onClick={this.authBeforeCheckout}>
-                    CHECKOUT
-                </ButtonStyled>
+                <CustomLink to="/checkout" >
+                    <ButtonStyled onClick={this.authBeforeCheckout}>
+                        CHECKOUT
+                    </ButtonStyled>
+                </CustomLink>
             </div>
         </Padded>
                 : <EmptyBag/>
