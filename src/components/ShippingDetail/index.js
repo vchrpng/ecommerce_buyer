@@ -68,10 +68,7 @@ render(){
     return (
      
             <Grid container textAlign="center">
-          
-                <Grid.Row >
-                    <p style={{fontSize:'18px'}}>{this.props.children}</p>
-                </Grid.Row >
+
                 <Grid.Row>
                     <SizeDropDown
                         inventory={inventoryByIndex.inventory}
@@ -87,18 +84,7 @@ render(){
                         ADD TO BAG
                     </ButtonStyled>
                 }
-                
                 </Grid.Row>
-                <div style={{paddingLeft:'0'}}>
-                    <Icon 
-                        onClick={this.addToWishlist}
-                        style={{cursor:'pointer'}} 
-                        name={'heart outline'}
-                    />
-                      <span style={{fontSize:'10px',marginLeft:'10px',fontWeight:'bold'}}>
-                        ADD TO WISHLIST
-                      </span>
-                </div>
             </Grid>
     
         )
