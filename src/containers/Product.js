@@ -23,24 +23,26 @@ const Product = ({ id , products , addToBag , inventory }) => {
         slidesToScroll: 1
       }
 
-    return  <React.Fragment>
-                            <Slider variableWidth adaptiveHeight {...settings}>
-                                {currentProduct.images.map((pic,index) =>
-                                    <Image wrapped size="medium" src={pic} key={index}/>
-                                )}
-                                
-                            </Slider>
-
+    return (<div>
+                <Slider variableWidth adaptiveHeight {...settings}>
+                    {currentProduct.images.map((pic,index) =>
+                        <Image wrapped size="medium" src={pic} key={index}/>
+                    )}
                     
-                            <ProductDescription currentProduct={currentProduct} />
+                </Slider>
+
+                <div>
+                    <ShippingDetail inventory={inventory} currentProduct={currentProduct} />
+                    <ProductDescription currentProduct={currentProduct} />
+                </div>
+            </div>)
+                           
 
                         {/* <ButtonStyled height={'35px'} onClick={this.handleAddToBagDelay} >
                         ADD TO BAG
 
                     </ButtonStyled> */}
 
-                    <ShippingDetail inventory={inventory} currentProduct={currentProduct} />
-            </React.Fragment>
 }
 
 const mapStateToProps = state => ({
