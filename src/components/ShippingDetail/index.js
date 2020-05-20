@@ -67,7 +67,7 @@ render(){
 
     return (
      
-            <Grid container textAlign="center">
+            <Grid textAlign="center">
 
                 <Grid.Row>
                     <SizeDropDown
