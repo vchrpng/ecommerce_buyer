@@ -17,28 +17,7 @@ const ShoppingBagTablePricing = ({ total }) => {
                 </Cell>
                 <Cell/>
             </tr>
-            <tr>
-                <First/>
-                <Cell>
-                    <label style={{fontWeight:'bold'}}>Shipping Estimate </label>
-                </Cell>
-                <Cell/>
-                <Cell textAlign={'right'}>
-                    $ free
-                </Cell>
-                <Cell/>
-            </tr>
-            <tr>
-                <First/>
-                <Cell>
-                    <label style={{fontWeight:'bold'}}> Duties and Taxes </label>
-                </Cell>
-                <Cell />
-                <Cell textAlign={'right'}>
-                    included
-                </Cell>
-                <Cell/>
-            </tr>
+
             <tr>
                 <First/>
                 <Cell>
