@@ -23,15 +23,16 @@ const Product = ({ id , products , addToBag , inventory }) => {
         slidesToScroll: 1
       }
 
-    return (<div>
-                <Slider variableWidth adaptiveHeight {...settings}>
-                    {currentProduct.images.map((pic,index) =>
-                        <Image wrapped size="medium" src={pic} key={index}/>
-                    )}
-                    
-                </Slider>
-
-                <div>
+    return (<div style={{ display: 'flex',maxWidth: '500px' }}>
+                <div style={{ maxWidth: '250px'}}>
+                    <Slider variableWidth adaptiveHeight {...settings}>
+                        {currentProduct.images.map((pic,index) =>
+                            <Image wrapped size="medium" src={pic} key={index}/>
+                        )}
+                        
+                    </Slider>
+                </div>
+                <div style={{ maxWidth: '250px'}}>
                     <ShippingDetail inventory={inventory} currentProduct={currentProduct} />
                     <ProductDescription currentProduct={currentProduct} />
                 </div>
