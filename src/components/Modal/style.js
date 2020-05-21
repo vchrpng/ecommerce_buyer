@@ -28,6 +28,7 @@ export const ModalWrapper = styled.div`
 
     .box-dialog {
         z-index: 1050;
+        height: 400px;
         width: 100%;
         background-color: #fefefe;
         box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
