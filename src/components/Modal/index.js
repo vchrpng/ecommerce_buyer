@@ -5,40 +5,41 @@ import { ModalWrapper } from "./style"
 const modalRoot = document.getElementById("modal-root")
 
 
-const Modal = ({ isOpen, onClose, size }) => {
+const Modal = ({ isOpen, onClose, size, children, header }) => {
   
     const [open,handleToggle] = React.useState(false)
     const outsideRef = React.createRef()
 
-    useEffect(() => {
-        window.addEventListener("keydown", this.onEscKeyDown, false)
+    React.useEffect(() => {
+        window.addEventListener("keydown", onEscKeyDown, false)
         setTimeout(() => handleToggle(true), 0)
         if (!isOpen && open) {
                 onClose(false)
             }
         return () => {
-            window.removeEventListener("keydown", this.onEscKeyDown, false)
+            window.removeEventListener("keydown", onEscKeyDown, false)
         }
     }, [isOpen])
 
-    onEscKeyDown = e => {
+    function onEscKeyDown(e) {
         if (e.key !== "Escape") {
             onClose(false)
         }
     }
-    handleClick = e => {
+
+    function handleClick(e) {
         e.preventDefault()
         onClose(false)
     }
         return ReactDom.createPortal(
         <ModalWrapper
             modalSize={size}
-            isOpen={this.state.open}
+            isOpen={open}
         >
             <div className="box-dialog">
                 <div className="box-header">
                     <h4 className="box-title">{header}</h4>
-                    <button onClick={this.handleClick} className="close">
+                    <button onClick={handleClick} className="close">
                     ×
                     </button>
                 </div>
@@ -46,7 +47,7 @@ const Modal = ({ isOpen, onClose, size }) => {
                 </div>
                 <div
                     className={`outside`}
-                    onMouseDown={this.handleClick}
+                    onMouseDown={handleClick}
                     ref={outsideRef}
                 />
         </ModalWrapper>,
