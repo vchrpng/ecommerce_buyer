@@ -10,7 +10,7 @@ export const ModalWrapper = styled.div`
     align-items: center;
     justify-content: center;
     opacity: ${props => props.isOpen ? 1 : 0};
-    width: 400px;
+    width: 600px;
     z-index: 99;
     margin: 40px auto;
 
