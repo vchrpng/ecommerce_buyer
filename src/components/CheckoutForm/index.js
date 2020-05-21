@@ -6,21 +6,25 @@ import { RedButton } from '../Etc/Reusable'
 import CheckoutNavigate from '../CheckoutNavigate'
 import { Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import { Formik } from 'formik'
 import { submitOrder } from '../../actions'
 import { totalSelector, selectedProducts , selectedSizes } from '../../selectors'
 
+const initialValues = {
+    fullname:'',
+    phone:'',
+    city:'',
+    postcode: '',
+    province:'',
+    country:''
+}
 class CheckoutForm extends React.Component {
 
     constructor(props){
         super(props)
         this.state = {
             data : {
-                fullname:'',
-                phone:'',
-                city:'',
-                postcode: '',
-                province:'',
-                country:''
+                
             },
             loading:false,
             errors:{}
@@ -63,81 +67,88 @@ class CheckoutForm extends React.Component {
         const {products,total,size} = this.props
         const { loading } = this.state
         return (
-            <div style={{marginTop:'20px'}}>
-                <Form onSubmit={this.onSubmit} loading={loading}>
-                <h3>Customer Information</h3>
-                <Form.Field>
-                <InputText
-                    name={'fullname'}
-                    placeholder={'Full name'}
-                    type={'text'}
-                    onChange={this.onChange}
-                />
-                </Form.Field>
-                <Form.Field>
-                <InputText
-                    name={'phone'}
-                    placeholder={'Phone'}
-                    type={'text'}
-                    onChange={this.onChange}
-                />
-                 </Form.Field>
-                <h3 style={{marginTop:'0'}}>Shipping Address</h3>
-                <Form.Group>
-                    <Form.Field width={8}>
+            <Formik
+                initialValues={initialValues}
+                onSubmit={this.onSubmit}
+            >
+                {({ isSubmitting }) => (
+                    <div style={{marginTop:'20px'}}>
+                    <Form onSubmit={this.onSubmit} loading={loading}>
+                    <h3>Customer Information</h3>
+                    <Form.Field>
                     <InputText
-                        name={'city'}
-                        placeholder={'City'}
+                        name={'fullname'}
+                        placeholder={'Full name'}
                         type={'text'}
                         onChange={this.onChange}
-                         
-                   />
-                   </Form.Field>
-                   <Form.Field width={8}>
-                    <InputText
-                        name={'province'}
-                        placeholder={'Province'}
-                        type={'text'}
-                        onChange={this.onChange}
-                         
                     />
                     </Form.Field>
-                 </Form.Group>
-                 <Form.Group>
-                 <Form.Field width={8}>
+                    <Form.Field>
                     <InputText
-                        name={'postcode'}
-                        placeholder={'Postcode'}
+                        name={'phone'}
+                        placeholder={'Phone'}
                         type={'text'}
                         onChange={this.onChange}
-                         
                     />
-                </Form.Field>
-                <Form.Field width={8}>
-                    <InputText
-                        name={'country'}
-                        placeholder={'Country'}
-                        type={'text'}
-                        onChange={this.onChange}
-                        
-                    />
-                </Form.Field>
-                </Form.Group>
-                <div>
-                    <OrderSummary 
-                        products={products}
-                        total={total}
-                        size={size}
-                    />
-                </div>
-                <div style={{display:'flex',margin:'25px 0'}}>
-                    <CheckoutNavigate />
-                    <div style={{width:'40%'}}>
-                        <RedButton>CONFIRM ORDER</RedButton>
+                     </Form.Field>
+                    <h3 style={{marginTop:'0'}}>Shipping Address</h3>
+                    <Form.Group>
+                        <Form.Field width={8}>
+                        <InputText
+                            name={'city'}
+                            placeholder={'City'}
+                            type={'text'}
+                            onChange={this.onChange}
+                             
+                       />
+                       </Form.Field>
+                       <Form.Field width={8}>
+                        <InputText
+                            name={'province'}
+                            placeholder={'Province'}
+                            type={'text'}
+                            onChange={this.onChange}
+                             
+                        />
+                        </Form.Field>
+                     </Form.Group>
+                     <Form.Group>
+                     <Form.Field width={8}>
+                        <InputText
+                            name={'postcode'}
+                            placeholder={'Postcode'}
+                            type={'text'}
+                            onChange={this.onChange}
+                             
+                        />
+                    </Form.Field>
+                    <Form.Field width={8}>
+                        <InputText
+                            name={'country'}
+                            placeholder={'Country'}
+                            type={'text'}
+                            onChange={this.onChange}
+                            
+                        />
+                    </Form.Field>
+                    </Form.Group>
+                    <div>
+                        <OrderSummary 
+                            products={products}
+                            total={total}
+                            size={size}
+                        />
                     </div>
+                    <div style={{display:'flex',margin:'25px 0'}}>
+                        <CheckoutNavigate />
+                        <div style={{width:'40%'}}>
+                            <RedButton>{isSubmitting ? 'LOADING' : 'CONFIRM ORDER'}</RedButton>
+                        </div>
+                    </div>
+                    </Form>
                 </div>
-                </Form>
-            </div>
+                )}
+            </Formik>
         )
     }
 }
