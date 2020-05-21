@@ -67,15 +67,14 @@ render(){
 
     return (
      
-            <Grid textAlign="center">
-
-                <Grid.Row>
+            <div >
+                <div>
                     <SizeDropDown
                         inventory={inventoryByIndex.inventory}
                         valueOnChange={this.handleOnChange}
                     />
-                </Grid.Row>
-                <Grid.Row style={{paddingTop:'5px'}}>
+                </div>
+                <div style={{paddingTop:'5px'}}>
                     {this.state.isLoading ? 
                     <ButtonStyled height={'35px'}>
                         <Loader active inline size='small' inverted/>
@@ -84,8 +83,8 @@ render(){
                         ADD TO BAG
                     </ButtonStyled>
                 }
-                </Grid.Row>
-            </Grid>
+                </div>
+            </div>
     
         )
     }
