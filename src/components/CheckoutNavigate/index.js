@@ -8,7 +8,7 @@ const CheckoutNavigate = () => (
             <div>
             <Icon name={'chevron left'}/> 
             <CustomLink 
-                to="/shoppingbag"
+                to="/"
                 color={'black'}> 
             Back to shopping bag 
             </CustomLink>
