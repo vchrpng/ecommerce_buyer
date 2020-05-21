@@ -36,11 +36,8 @@ class CheckoutForm extends React.Component {
             data : { ...this.state.data,[e.target.name] : e.target.value }
         })
     }
+
     onSubmit = () => {
-        const errors = this.validate(this.state.data)
-        this.setState({ errors })
-        if (Object.keys(errors).length === 0){
-            this.setState({ loading : true })
             this.props.submitOrder(this.state.data)
             setTimeout(() => 
                 this.props.submit(this.props.order)
@@ -49,10 +46,8 @@ class CheckoutForm extends React.Component {
                     loading : false 
                     }))
                 ,2000) 
-
- 
-        }
     }
+
     validate = data => {
         const errors = {}
         if(!data.fullname) errors.fullname = "Required Field"
@@ -70,6 +65,7 @@ class CheckoutForm extends React.Component {
             <Formik
                 initialValues={initialValues}
                 onSubmit={this.onSubmit}
+                validate={this.validate}
             >
                 {({ isSubmitting }) => (
                     <div style={{marginTop:'20px'}}>
