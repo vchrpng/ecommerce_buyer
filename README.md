@@ -10,5 +10,7 @@
   - Redux
   - Node.js
   - MongoDB
+  - Formik + Yup
+  - Stripe API
 
 
