@@ -4,11 +4,12 @@ import { InputText } from '../Etc/Checkout'
 import OrderSummary from '../OrderSummary'
 import { RedButton } from '../Etc/Reusable'
 import CheckoutNavigate from '../CheckoutNavigate'
-import { Form } from 'semantic-ui-react'
+import validate from './validate'
 import { connect } from 'react-redux'
-import { Formik } from 'formik'
+import { Formik, Field, Form, ErrorMessage } from 'formik'
 import { submitOrder } from '../../actions'
 import { totalSelector, selectedProducts , selectedSizes } from '../../selectors'
+import { StripeProvider, Elements } from 'react-stripe-elements'
 
 const initialValues = {
     fullname:'',
@@ -23,9 +24,6 @@ class CheckoutForm extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            data : {
-                
-            },
             loading:false,
             errors:{}
         }
@@ -37,114 +35,95 @@ class CheckoutForm extends React.Component {
         })
     }
 
-    onSubmit = () => {
-            this.props.submitOrder(this.state.data)
-            setTimeout(() => 
-                this.props.submit(this.props.order)
-                .catch(err => this.setState({ 
-                    errors : err.response.data.errors,
-                    loading : false 
-                    }))
-                ,2000) 
+    onSubmit = (values) => {
+        console.log(values)
+        alert(JSON.stringify(values),null,2)
+            // this.props.submitOrder(this.state.data)
+            // setTimeout(() => 
+            //     this.props.submit(this.props.order)
+            //     .catch(err => this.setState({ 
+            //         errors : err.response.data.errors,
+            //         loading : false 
+            //         }))
+            //     ,2000) 
     }
 
-    validate = data => {
-        const errors = {}
-        if(!data.fullname) errors.fullname = "Required Field"
-        if(!data.phone) errors.phone = "Required Field"
-        if(!data.city) errors.city = "Required Field"
-        if(!data.postcode) errors.postcode = "Required Field"
-        if(!data.province) errors.province = "Required Field"
-        if(!data.country) errors.country = "Required Field"
-        return errors
-    }
+    
     render(){
         const {products,total,size} = this.props
         const { loading } = this.state
         return (
+            <StripeProvider apiKey="pk_test_UrBUzJWPNse3I03Bsaxh6WFX00r6rJ1YCq">
+            <Elements>
             <Formik
                 initialValues={initialValues}
                 onSubmit={this.onSubmit}
-                validate={this.validate}
+                validate={validate}
             >
                 {({ isSubmitting }) => (
                     <div style={{marginTop:'20px'}}>
-                    <Form onSubmit={this.onSubmit} loading={loading}>
-                    <h3>Customer Information</h3>
-                    <Form.Field>
-                    <InputText
-                        name={'fullname'}
-                        placeholder={'Full name'}
-                        type={'text'}
-                        onChange={this.onChange}
-                    />
-                    </Form.Field>
-                    <Form.Field>
-                    <InputText
-                        name={'phone'}
-                        placeholder={'Phone'}
-                        type={'text'}
-                        onChange={this.onChange}
-                    />
-                     </Form.Field>
-                    <h3 style={{marginTop:'0'}}>Shipping Address</h3>
-                    <Form.Group>
-                        <Form.Field width={8}>
-                        <InputText
-                            name={'city'}
-                            placeholder={'City'}
-                            type={'text'}
-                            onChange={this.onChange}
-                             
-                       />
-                       </Form.Field>
-                       <Form.Field width={8}>
-                        <InputText
-                            name={'province'}
-                            placeholder={'Province'}
-                            type={'text'}
-                            onChange={this.onChange}
-                             
-                        />
-                        </Form.Field>
-                     </Form.Group>
-                     <Form.Group>
-                     <Form.Field width={8}>
-                        <InputText
-                            name={'postcode'}
-                            placeholder={'Postcode'}
-                            type={'text'}
-                            onChange={this.onChange}
-                             
-                        />
-                    </Form.Field>
-                    <Form.Field width={8}>
-                        <InputText
-                            name={'country'}
-                            placeholder={'Country'}
-                            type={'text'}
-                            onChange={this.onChange}
-                            
-                        />
-                    </Form.Field>
-                    </Form.Group>
-                    <div>
-                        <OrderSummary 
-                            products={products}
-                            total={total}
-                            size={size}
-                        />
+                        <Form onSubmit={this.onSubmit} loading={loading}>
+                            <h3>Customer Information</h3>
+                            <Field  name={'fullname'}
+                                placeholder={'Full name'}
+                                type={'text'}>
+             
+                            </Field>
+                            <Field name={'phone'}
+                                placeholder={'Phone'}
+                                type={'text'}>
+                           
+                            </Field>
+                            <h3 style={{marginTop:'0'}}>Shipping Address</h3>
+                            <div>
+                                <Field name={'city'}
+                                    placeholder={'City'}
+                                    type={'text'} >
+                                {/* <InputText
+                                    
+                                    onChange={this.onChange}
+                                    
+                            /> */}
+                            </Field>
+                            <Field
+                              name={'province'}
+                              placeholder={'Province'}
+                              type={'text'}>
+                               
+                                </Field>
+                            </div>
+                            <div>
+                            <Field  name={'postcode'}
+                                    placeholder={'Postcode'}
+                                    type={'text'}>
+                               
+                            </Field>
+                            <Field 
+                             name={'country'}
+                             placeholder={'Country'}
+                             type={'text'}>
+                           
+                            </Field>
+                            </div>
+                            <div>
+                                <OrderSummary 
+                                    products={products}
+                                    total={total}
+                                    size={size}
+                                />
+                            </div>
+                            <div style={{display:'flex',margin:'25px 0'}}>
+                                <CheckoutNavigate />
+                                <div style={{width:'40%'}}>
+                                    <RedButton>{isSubmitting ? 'LOADING' : 'CONFIRM ORDER'}</RedButton>
+                                </div>
+                            </div>
+                        </Form>
                     </div>
-                    <div style={{display:'flex',margin:'25px 0'}}>
-                        <CheckoutNavigate />
-                        <div style={{width:'40%'}}>
-                            <RedButton>{isSubmitting ? 'LOADING' : 'CONFIRM ORDER'}</RedButton>
-                        </div>
-                    </div>
-                    </Form>
-                </div>
                 )}
             </Formik>
+            </Elements>
+            </StripeProvider>
         )
     }
 }
@@ -154,10 +133,6 @@ const mapStateToProps = state => ({
     size : selectedSizes(state),
     order : state.products.checkout
 })
-CheckoutForm.PropTypes = {
-    product : PropTypes.array.isRequired,
-    total : PropTypes.number.isRequired,
-    size : PropTypes.array.isRequired
-}
+
 
 export default connect(mapStateToProps,{submitOrder})(CheckoutForm)
