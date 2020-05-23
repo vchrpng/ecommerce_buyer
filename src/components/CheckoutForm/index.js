@@ -41,9 +41,15 @@ class CheckoutForm extends React.Component {
     }
 
     onSubmit = async (values) => {
-        const { token } = await this.props.stripe.createToken()
+        const stripeCharge = await this.props.stripe.createToken()
+
             setTimeout(() => 
-                this.props.submit({...this.props.order, source: token.id })
+            this.props.submit({
+                amount: '11200000000',
+                source: stripeCharge.token.id,
+                receipt_email:'payment@gmail.eiei'
+            })
+                // this.props.submit({...this.props.order, source: token.id })
                 .catch(err => this.setState({ 
                     errors : err.response.data.errors,
                     loading : false 
@@ -107,6 +113,20 @@ class CheckoutForm extends React.Component {
                             </Field>
                             </div>
                             <div>
+                            <label>
+                                Card details
+                                <CardNumberElement />
+                                </label>
+                                <label>
+                                Expiration date
+                                <CardExpiryElement />
+                                </label>
+                                <label>
+                                CVC
+                                <CardCVCElement />
+                                </label>
+                            </div>
+                            <div>
                                 <OrderSummary 
                                     products={products}
                                     total={total}
@@ -134,4 +154,4 @@ const mapStateToProps = state => ({
 })
 
 
-export default connect(mapStateToProps,{submitOrder})(CheckoutForm)
+export default connect(mapStateToProps,{submitOrder})(injectStripe(CheckoutForm))
