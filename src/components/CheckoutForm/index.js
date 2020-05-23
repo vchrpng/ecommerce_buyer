@@ -9,7 +9,12 @@ import { connect } from 'react-redux'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import { submitOrder } from '../../actions'
 import { totalSelector, selectedProducts , selectedSizes } from '../../selectors'
-import { StripeProvider, Elements } from 'react-stripe-elements'
+import {
+    CardNumberElement,
+    CardExpiryElement,
+    CardCVCElement,
+    injectStripe
+  } from 'react-stripe-elements'
 
 const initialValues = {
     fullname:'',
@@ -35,17 +40,15 @@ class CheckoutForm extends React.Component {
         })
     }
 
-    onSubmit = (values) => {
-        console.log(values)
-        alert(JSON.stringify(values),null,2)
-            // this.props.submitOrder(this.state.data)
-            // setTimeout(() => 
-            //     this.props.submit(this.props.order)
-            //     .catch(err => this.setState({ 
-            //         errors : err.response.data.errors,
-            //         loading : false 
-            //         }))
-            //     ,2000) 
+    onSubmit = async (values) => {
+        const { token } = await this.props.stripe.createToken()
+            setTimeout(() => 
+                this.props.submit({...this.props.order, source: token.id })
+                .catch(err => this.setState({ 
+                    errors : err.response.data.errors,
+                    loading : false 
+                    }))
+                ,2000) 
     }
 
     
@@ -53,8 +56,6 @@ class CheckoutForm extends React.Component {
         const {products,total,size} = this.props
         const { loading } = this.state
         return (
-            <StripeProvider apiKey="pk_test_UrBUzJWPNse3I03Bsaxh6WFX00r6rJ1YCq">
-            <Elements>
             <Formik
                 initialValues={initialValues}
                 onSubmit={this.onSubmit}
@@ -122,8 +123,6 @@ class CheckoutForm extends React.Component {
                     </div>
                 )}
             </Formik>
-            </Elements>
-            </StripeProvider>
         )
     }
 }
