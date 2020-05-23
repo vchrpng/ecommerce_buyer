@@ -45,7 +45,7 @@ class CheckoutForm extends React.Component {
 
             setTimeout(() => 
             this.props.submit({
-                amount: '11200000000',
+                amount: '1120',
                 source: stripeCharge.token.id,
                 receipt_email:'payment@gmail.eiei'
             })
