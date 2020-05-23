@@ -11,7 +11,7 @@ import { StripeProvider, Elements } from 'react-stripe-elements'
 
 const Checkout = ({ checkout , history , isAuthenticated }) => {
       const submit = data => {
-          return checkout(data).then(() => history.push('/'))
+          return checkout(data)
         }
 
         // if(isAuthenticated){
