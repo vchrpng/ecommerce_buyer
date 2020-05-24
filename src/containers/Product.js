@@ -1,14 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { ButtonStyled } from '../components/Etc/Reusable'
-import { Container , Image, Segment } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
 import ShippingDetail from '../components/ShippingDetail'
 import ProductDescription from '../components/ProductDescription'
 import Slider from 'react-slick'
 import { showProducts } from '../selectors'
 
 
-const Product = ({ id , products , addToBag , inventory }) => {
+const Product = ({ id , products , inventory }) => {
     
     const currentProduct = products.filter(product => {
         return product.id === parseInt(id,10)
@@ -32,18 +31,18 @@ const Product = ({ id , products , addToBag , inventory }) => {
                         
                     </Slider>
                 </div>
-                <div style={{ maxWidth: '250px', padding: '20px 0 20px 20px' }}>
+                <div style={{ 
+                    maxWidth: '250px', 
+                    paddingLeft: '20px', 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    flexDirection: 'column' 
+                    }}
+                >
                     <ProductDescription currentProduct={currentProduct} />
                     <ShippingDetail inventory={inventory} currentProduct={currentProduct} />
                 </div>
             </div>)
-                           
-
-                        {/* <ButtonStyled height={'35px'} onClick={this.handleAddToBagDelay} >
-                        ADD TO BAG
-
-                    </ButtonStyled> */}
-
 }
 
 const mapStateToProps = state => ({
