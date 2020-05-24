@@ -13,7 +13,9 @@ const BuyerProductList = ({ product }) => {
     return (
         <div>
             <Thumbnail onClick={() => onToggleModal(true)}>
-                <Image src={product.thumbnail}/>
+                <Image style={{
+                    boxShadow: '6px 6px 5px -8px'
+                }} src={product.thumbnail}/>
                 <Row>
                     <Column style={{marginTop:'10px'}}>
                     <h4> {product.title} </h4>
