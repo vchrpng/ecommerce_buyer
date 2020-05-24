@@ -14,7 +14,8 @@ export const List = styled.ul`
 
 export const Item = styled.li`
     cursor:pointer;
-    display:inline-block;
-    margin:30px 10px 0 10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 `
 
