@@ -15,12 +15,12 @@ const Shop = ({ products }) => {
                 <Grid.Row centered>
                 <Grid.Column computer={13} tablet={16}>
                 <div style={{marginTop:'50px'}}>
-                    <DisplayGrid column={'repeat(auto-fill,17em)'} colGap={50} rowGap={70}>
+                    <DisplayGrid column={'repeat(auto-fill,12em)'} colGap={25}>
                         {products.map((product,index) => 
-                    <BuyerProductList 
-                        key={index}
-                        product={product}/>
-                    )}
+                        <BuyerProductList 
+                            key={index}
+                            product={product}/>
+                        )}
                     </DisplayGrid>
                 </div>
                 </Grid.Column>
