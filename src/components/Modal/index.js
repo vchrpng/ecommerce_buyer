@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDom from "react-dom"
 import { ModalWrapper } from "./style"
+import { Icon } from 'semantic-ui-react'
 
 const modalRoot = document.getElementById("modal-root")
 
@@ -37,19 +38,18 @@ const Modal = ({ isOpen, onClose, size, children, header }) => {
             isOpen={open}
         >
             <div className="box-dialog">
-                <div className="box-header">
-                    <h4 className="box-title">{header}</h4>
-                    <button onClick={handleClick} className="close">
-                    ×
-                    </button>
+                <div style={{ float: 'right', padding: '10px' }}>
+                    <Icon onClick={handleClick} name="close" />
                 </div>
-                <div className="box-content">{children}</div>
+                <div className="box-content">
+                {children}
                 </div>
-                <div
-                    className={`outside`}
-                    onMouseDown={handleClick}
-                    ref={outsideRef}
-                />
+            </div>
+            <div
+                className={`outside`}
+                onMouseDown={handleClick}
+                ref={outsideRef}
+            />
         </ModalWrapper>,
             modalRoot
             )
