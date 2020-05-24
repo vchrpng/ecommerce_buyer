@@ -24,7 +24,7 @@ const Product = ({ id , products , addToBag , inventory }) => {
       }
 
     return (<div style={{ display: 'flex',maxWidth: '500px' }}>
-                <div style={{ maxWidth: '300px', marginLeft: '20px'}}>
+                <div style={{ maxWidth: '300px'}}>
                     <Slider variableWidth adaptiveHeight {...settings}>
                         {currentProduct.images.map((pic,index) =>
                             <Image wrapped size="medium" src={pic} key={index}/>
@@ -32,11 +32,9 @@ const Product = ({ id , products , addToBag , inventory }) => {
                         
                     </Slider>
                 </div>
-                <div style={{ maxWidth: '250px'}}>
-
+                <div style={{ maxWidth: '250px', padding: '20px 0 20px 20px' }}>
                     <ProductDescription currentProduct={currentProduct} />
                     <ShippingDetail inventory={inventory} currentProduct={currentProduct} />
-
                 </div>
             </div>)
                            
