@@ -4,7 +4,7 @@ import CheckoutHeader from '../components/CheckoutHeader'
 import CheckoutFooter from '../components/CheckoutFooter'
 import { connect } from 'react-redux'
 import { checkout } from '../actions'
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 import { StripeProvider, Elements } from 'react-stripe-elements'
 
 
