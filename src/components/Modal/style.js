@@ -28,31 +28,16 @@ export const ModalWrapper = styled.div`
 
     .box-dialog {
         z-index: 1050;
-        height: 400px;
+        height: 330px;
         width: 100%;
         background-color: #fefefe;
         box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
 
         .box-content {
-            padding: 24px;
+            padding: 30px 24px 24px 24px;
             width: 100%;
         }
 
-        .box-header {
-            height: 48px;
-            padding: 8px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #c7c7c7;
-
-            .box-title {
-                font-size: 24px;
-                font-weight: 400;
-                margin: 0 0 0 0;
-            }
-        }
-        
         .box-body {
             font-size: 14px;
             padding: 0px;
