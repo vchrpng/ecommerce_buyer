@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import SizeDropDown from '../SizeDropDown'
-import { Grid , Icon } from 'semantic-ui-react'
 import { ButtonStyled } from '../Etc/Reusable'
 import { Loader } from 'semantic-ui-react'
 import { addToBag } from '../../actions'
 import { connect } from 'react-redux'
-import { MessageBox , FadeMessage } from '../Etc/RequiredMsg'
 
 class ShippingDetail extends React.Component {
     constructor(props){
