@@ -14,11 +14,6 @@ import { compose , withState , withHandlers } from 'recompose'
 const Nav = ({ products }) => (
 
             <List>
-            <Item style={{width:'86%',textAlign:'-webkit-center'}}>
-                <Image
-                    href="/" 
-                    src="https://res.cloudinary.com/josphr/image/upload/v1579416257/products/logo.png" />
-            </Item>
             <Item>
                 <CustomLink color={'black'} to="/account/login">
                     <Image src={user}/>
@@ -27,12 +22,18 @@ const Nav = ({ products }) => (
             </Item>
             <Popup pinned hoverable position="bottom center" trigger={
                 <Item>
-                    <Image src={shoppingbag}/>
-                    <Label circular size={'tiny'} color={'red'}
-                    style={{
-                        position:'relative',
-                        top:'-30px',left:'13px'
-                    }}> {products.length}  </Label>
+                    <div>
+                        <Image src={shoppingbag}/>
+                        <Label 
+                            circular size={'tiny'} 
+                            color={'red'}
+                            style={{
+                                position:'relative',
+                                top:'-30px',left:'13px'
+                            }}> 
+                            {products.length} 
+                        </Label>
+                    </div>
             </Item>
             }>
                 <ShoppingBag />
