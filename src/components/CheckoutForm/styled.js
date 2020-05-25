@@ -6,9 +6,24 @@ export const OrderFormLayout = styled.div`
     .input-group {
         display: flex;
     }
-    
-    .payment-section {
+
+    .credit-card {
         background: red;
+    }
+
+    .confirm-payment {
+        display: flex;
+        margin: 25px 0;
+
+        .pay-button {
+            width: 40%;
+
+            .secure-icon {
+                width: 18px;
+                height: 18px;
+                filter: invert(1);
+            }
+        }
     }
 
 
