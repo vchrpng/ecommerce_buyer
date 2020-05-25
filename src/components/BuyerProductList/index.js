@@ -11,9 +11,10 @@ const BuyerProductList = ({ product }) => {
     const [isOpen,onToggleModal] = React.useState(false)
     
     return (
-        <div>
+        <ProductListContainer>
             <Thumbnail onClick={() => onToggleModal(true)}>
                 <Image style={{
+                    borderRadius: '5px',
                     boxShadow: '6px 6px 5px -8px'
                 }} src={product.thumbnail}/>
                 <Row>
@@ -35,7 +36,7 @@ const BuyerProductList = ({ product }) => {
             >
                 <Product id={product.id} />
             </Modal>}
-        </div>
+        </ProductListContainer>
     )
 }
 
