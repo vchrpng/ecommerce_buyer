@@ -130,10 +130,10 @@ class CheckoutForm extends React.Component {
                             <div className="confirm-payment">
                                 <CheckoutNavigate />
                                 <div className="pay-button">
-                                    <ProceedButton>
+                                    <ProceedPayment>
                                         <img className="secure-icon" src={lockIcon} />
                                         <h3>{isSubmitting ? 'LOADING' : `Pay ${total} $`}</h3>
-                                    </ProceedButton>
+                                    </ProceedPayment>
                                 </div>
                             </div>
                         </Form>
