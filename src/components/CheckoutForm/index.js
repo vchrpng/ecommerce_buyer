@@ -106,7 +106,7 @@ class CheckoutForm extends React.Component {
                                     type={'text'}
                                 />
                             </div>
-                            <div className="payment-section">
+                            <div className="credit-card">
                             <label>
                                 Card details
                                 <CardNumberElement />
@@ -120,19 +120,18 @@ class CheckoutForm extends React.Component {
                                 <CardCVCElement />
                                 </label>
                             </div>
-                            <div>
+                            <div >
                                 <OrderSummary 
                                     products={products}
                                     total={total}
                                     size={size}
                                 />
                             </div>
-                            <div style={{display:'flex',margin:'25px 0'}}>
+                            <div className="confirm-payment">
                                 <CheckoutNavigate />
-                                <div style={{width:'40%'}}>
+                                <div className="pay-button">
                                     <RedButton>
-                                        <img style={{ width: '20px', height: '20px' }} src={lockIcon} />
-
+                                        <img className="secure-icon" src={lockIcon} />
                                         {isSubmitting ? 'LOADING' : `Pay ${total} $`}
                                     </RedButton>
                                 </div>
