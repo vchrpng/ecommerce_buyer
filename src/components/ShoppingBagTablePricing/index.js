@@ -9,25 +9,11 @@ const ShoppingBagTablePricing = ({ total }) => {
             <tr>
                 <First/>
                 <Cell>
-                    <label style={{fontWeight:'bold'}}> Total </label>
+                    <label style={{fontWeight:'bold'}}>Total</label>
                 </Cell>
-                <Cell/>
                 <Cell textAlign={'right'}>
-                    $ {total}
+                  <h4>  $ {total} </h4>
                 </Cell>
-                <Cell/>
-            </tr>
-
-            <tr>
-                <First/>
-                <Cell>
-                    <label style={{fontWeight:'bold'}}>Order Total</label>
-                </Cell>
-                <Cell/>
-                <Cell textAlign={'right'}>
-                    $ {total}
-                </Cell>
-                <Cell/>
             </tr>
         </Table.Body>
     )
