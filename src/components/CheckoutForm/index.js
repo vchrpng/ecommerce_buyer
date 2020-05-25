@@ -74,8 +74,8 @@ class CheckoutForm extends React.Component {
                 {({ isSubmitting }) => (
                     <OrderFormLayout>
                         <Form onSubmit={this.onSubmit} loading={loading}>
-                            <div>
-                                <aside>
+                            <div className="invoice-detail">
+                                <aside className="shipping-destination">
                                     <h3>Customer Information</h3>
                                     <InputText  name={'fullname'}
                                         placeholder={'Full name'}
@@ -109,7 +109,7 @@ class CheckoutForm extends React.Component {
                                         />
                                     </div>
                                 </aside>
-                                <aside>
+                                <aside className="payment-method">
                                     <div className="credit-card">
                                     <label>
                                         Card details
