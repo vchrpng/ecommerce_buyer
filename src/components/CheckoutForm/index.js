@@ -1,7 +1,7 @@
 import React from 'react'
 import { InputText } from '../Etc/Checkout'
 import OrderSummary from '../OrderSummary'
-import { RedButton } from '../Etc/Reusable'
+import { ProceedPayment } from '../Etc/Reusable'
 import CheckoutNavigate from '../CheckoutNavigate'
 import validate from './validate'
 import { connect } from 'react-redux'
@@ -130,10 +130,10 @@ class CheckoutForm extends React.Component {
                             <div className="confirm-payment">
                                 <CheckoutNavigate />
                                 <div className="pay-button">
-                                    <RedButton>
+                                    <ProceedButton>
                                         <img className="secure-icon" src={lockIcon} />
-                                        {isSubmitting ? 'LOADING' : `Pay ${total} $`}
-                                    </RedButton>
+                                        <h3>{isSubmitting ? 'LOADING' : `Pay ${total} $`}</h3>
+                                    </ProceedButton>
                                 </div>
                             </div>
                         </Form>
