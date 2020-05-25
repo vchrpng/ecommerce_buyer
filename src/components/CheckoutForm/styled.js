@@ -19,9 +19,10 @@ export const OrderFormLayout = styled.div`
             width: 40%;
 
             .secure-icon {
-                width: 18px;
-                height: 18px;
+                width: 15px;
+                height: 15px;
                 filter: invert(1);
+                margin-right:8px;
             }
         }
     }
