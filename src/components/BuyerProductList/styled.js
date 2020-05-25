@@ -9,3 +9,5 @@ export const Thumbnail = styled.div`
     cursor:pointer;
 `
 
+export const ProductListContainer = styled.div``
+
