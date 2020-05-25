@@ -23,22 +23,24 @@ export const ButtonStyled = styled.button`
     outline:none;
 `
 
-export const RedButton = styled.button`
-    text-transform:uppercase;
+export const ProceedPayment = styled.button`
     border-radius:4px;
     letter-spacing:1px;
     width:100%;
     color:white ; 
-    background:#b61200;
+    background:#3682ac;
     font-size:12px;
     height: 50px;
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items: baseline;
     cursor:pointer;
     transition:.5s;
+    h3 {
+        margin:0;
+    }
     &:hover{
-        background-color:#830d00 ;
+        background-color:#24546F ;
     }
     border:none;
     outline:none;
