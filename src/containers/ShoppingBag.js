@@ -60,7 +60,7 @@ class ShoppingBag extends React.Component {
                 />
                 <ShoppingBagTablePricing total={total}/>
             </Table>
-            <div style={{ marginTop:'50px'}}>
+            <div>
                 <CustomLink to="/checkout" >
                     <ButtonStyled onClick={this.authBeforeCheckout}>
                         CHECKOUT
