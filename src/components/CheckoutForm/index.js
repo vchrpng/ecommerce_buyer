@@ -5,8 +5,11 @@ import { RedButton } from '../Etc/Reusable'
 import CheckoutNavigate from '../CheckoutNavigate'
 import validate from './validate'
 import { connect } from 'react-redux'
-import { Formik, Form, ErrorMessage } from 'formik'
+import { Formik, Form, 
+    // ErrorMessage
+ } from 'formik'
 import { submitOrder } from '../../actions'
+import { OrderFormLayout } from './styled'
 import { totalSelector, selectedProducts , selectedSizes } from '../../selectors'
 import {
     CardNumberElement,
@@ -14,6 +17,8 @@ import {
     CardCVCElement,
     injectStripe
   } from 'react-stripe-elements'
+
+const lockIcon = require('../../assets/lock.svg') 
 
 const initialValues = {
     fullname:'',
@@ -67,7 +72,7 @@ class CheckoutForm extends React.Component {
                 validate={validate}
             >
                 {({ isSubmitting }) => (
-                    <div style={{marginTop:'20px'}}>
+                    <OrderFormLayout>
                         <Form onSubmit={this.onSubmit} loading={loading}>
                             <h3>Customer Information</h3>
                             <InputText  name={'fullname'}
@@ -79,7 +84,7 @@ class CheckoutForm extends React.Component {
                                 type={'text'}
                             />
                             <h3 style={{marginTop:'0'}}>Shipping Address</h3>
-                            <div>
+                            <div className="input-group">
                                 <InputText name={'city'}
                                     placeholder={'City'}
                                     type={'text'} 
@@ -90,7 +95,7 @@ class CheckoutForm extends React.Component {
                                     type={'text'}
                                 />
                             </div>
-                            <div>
+                            <div className="input-group">
                                 <InputText  name={'postcode'}
                                         placeholder={'Postcode'}
                                         type={'text'}
@@ -101,7 +106,7 @@ class CheckoutForm extends React.Component {
                                     type={'text'}
                                 />
                             </div>
-                            <div>
+                            <div className="payment-section">
                             <label>
                                 Card details
                                 <CardNumberElement />
@@ -125,11 +130,15 @@ class CheckoutForm extends React.Component {
                             <div style={{display:'flex',margin:'25px 0'}}>
                                 <CheckoutNavigate />
                                 <div style={{width:'40%'}}>
-                                    <RedButton>{isSubmitting ? 'LOADING' : 'CONFIRM ORDER'}</RedButton>
+                                    <RedButton>
+                                        <img style={{ width: '20px', height: '20px' }} src={lockIcon} />
+
+                                        {isSubmitting ? 'LOADING' : `Pay ${total} $`}
+                                    </RedButton>
                                 </div>
                             </div>
                         </Form>
-                    </div>
+                    </OrderFormLayout>
                 )}
             </Formik>
         )
