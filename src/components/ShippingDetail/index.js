@@ -74,10 +74,10 @@ render(){
                 </div>
                 <div style={{paddingTop:'5px'}}>
                     {this.state.isLoading ? 
-                    <ButtonStyled height={'35px'}>
+                    <ButtonStyled height={'40px'}>
                         <Loader active inline size='small' inverted/>
                     </ButtonStyled> :
-                    <ButtonStyled height={'35px'} onClick={this.handleAddToBagDelay} >
+                    <ButtonStyled height={'40px'} onClick={this.handleAddToBagDelay} >
                         ADD TO BAG
                     </ButtonStyled>
                 }
