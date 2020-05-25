@@ -18,7 +18,7 @@ const Checkout = ({ checkout , history , isAuthenticated }) => {
             return (
                 <StripeProvider apiKey={process.env.REACT_APP_PUBLISH_SECRET}>
                 <Elements>
-                <div style={{margin:'0 auto',maxWidth:'500px',padding:'20px'}}> 
+                <div style={{margin:'0 auto',padding:'20px'}}> 
                     <CheckoutHeader />
                     <CheckoutForm submit={submit}/>
                     <CheckoutFooter/>

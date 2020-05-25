@@ -74,59 +74,67 @@ class CheckoutForm extends React.Component {
                 {({ isSubmitting }) => (
                     <OrderFormLayout>
                         <Form onSubmit={this.onSubmit} loading={loading}>
-                            <h3>Customer Information</h3>
-                            <InputText  name={'fullname'}
-                                placeholder={'Full name'}
-                                type={'text'}
-                            />
-                            <InputText name={'phone'}
-                                placeholder={'Phone'}
-                                type={'text'}
-                            />
-                            <h3 style={{marginTop:'0'}}>Shipping Address</h3>
-                            <div className="input-group">
-                                <InputText name={'city'}
-                                    placeholder={'City'}
-                                    type={'text'} 
-                                />
-                                <InputText
-                                    name={'province'}
-                                    placeholder={'Province'}
-                                    type={'text'}
-                                />
-                            </div>
-                            <div className="input-group">
-                                <InputText  name={'postcode'}
-                                        placeholder={'Postcode'}
+                            <div>
+                                <aside>
+                                    <h3>Customer Information</h3>
+                                    <InputText  name={'fullname'}
+                                        placeholder={'Full name'}
                                         type={'text'}
-                                />
-                                <InputText 
-                                    name={'country'}
-                                    placeholder={'Country'}
-                                    type={'text'}
-                                />
+                                    />
+                                    <InputText name={'phone'}
+                                        placeholder={'Phone'}
+                                        type={'text'}
+                                    />
+                                    <h3 style={{marginTop:'0'}}>Shipping Address</h3>
+                                    <div className="input-group">
+                                        <InputText name={'city'}
+                                            placeholder={'City'}
+                                            type={'text'} 
+                                        />
+                                        <InputText
+                                            name={'province'}
+                                            placeholder={'Province'}
+                                            type={'text'}
+                                        />
+                                    </div>
+                                    <div className="input-group">
+                                        <InputText  name={'postcode'}
+                                                placeholder={'Postcode'}
+                                                type={'text'}
+                                        />
+                                        <InputText 
+                                            name={'country'}
+                                            placeholder={'Country'}
+                                            type={'text'}
+                                        />
+                                    </div>
+                                </aside>
+                                <aside>
+                                    <div className="credit-card">
+                                    <label>
+                                        Card details
+                                        <CardNumberElement />
+                                        </label>
+                                        <label>
+                                        Expiration date
+                                        <CardExpiryElement />
+                                        </label>
+                                        <label>
+                                        CVC
+                                        <CardCVCElement />
+                                        </label>
+                                    </div>
+                                    <div >
+                                        <OrderSummary 
+                                            products={products}
+                                            total={total}
+                                            size={size}
+                                        />
+                                    </div>
+                                </aside>
                             </div>
-                            <div className="credit-card">
-                            <label>
-                                Card details
-                                <CardNumberElement />
-                                </label>
-                                <label>
-                                Expiration date
-                                <CardExpiryElement />
-                                </label>
-                                <label>
-                                CVC
-                                <CardCVCElement />
-                                </label>
-                            </div>
-                            <div >
-                                <OrderSummary 
-                                    products={products}
-                                    total={total}
-                                    size={size}
-                                />
-                            </div>
+                            
+                           
                             <div className="confirm-payment">
                                 <CheckoutNavigate />
                                 <div className="pay-button">
