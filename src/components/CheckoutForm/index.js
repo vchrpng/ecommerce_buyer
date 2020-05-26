@@ -12,11 +12,8 @@ import { submitOrder } from '../../actions'
 import { OrderFormLayout } from './styled'
 import { totalSelector, selectedProducts , selectedSizes } from '../../selectors'
 import {
-    CardNumberElement,
-    CardExpiryElement,
-    CardCVCElement,
-    injectStripe
-  } from 'react-stripe-elements'
+    CardElement
+  } from '@stripe/react-stripe-js'
 
 const lockIcon = require('../../assets/lock.svg') 
 
@@ -111,18 +108,7 @@ class CheckoutForm extends React.Component {
                                 </aside>
                                 <aside className="payment-method">
                                     <div className="credit-card">
-                                    <label>
-                                        Card details
-                                        <CardNumberElement />
-                                        </label>
-                                        <label>
-                                        Expiration date
-                                        <CardExpiryElement />
-                                        </label>
-                                        <label>
-                                        CVC
-                                        <CardCVCElement />
-                                        </label>
+                                        <CardElement />
                                     </div>
                                     <div >
                                         <OrderSummary 
@@ -159,4 +145,4 @@ const mapStateToProps = state => ({
 })
 
 
-export default connect(mapStateToProps,{submitOrder})(injectStripe(CheckoutForm))
+export default connect(mapStateToProps,{submitOrder})(CheckoutForm)
