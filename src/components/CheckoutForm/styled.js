@@ -2,10 +2,28 @@ import styled from 'styled-components'
 
 export const OrderFormLayout = styled.div`
     margin-top:20px;
-    
-    .input-group {
+
+    .invoice-detail {
         display: flex;
+
+        .shipping-destination {
+            width:100%;
+            
+            .input-group {
+                display: flex;
+            }
+        }
+
+        .payment-method {
+            width:100%;
+
+            .credit-card {
+
+            }
+        }
     }
+    
+    
 
     .credit-card {
         background: red;
