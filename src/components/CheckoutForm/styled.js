@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const OrderFormLayout = styled.div`
     margin-top:20px;
 
-    .invoice-detail {
+    .checkout-box {
         display: flex;
         padding: 20px;
         background: red;
@@ -25,8 +25,21 @@ export const OrderFormLayout = styled.div`
             width:100%;
             padding-left:20px;
 
-            .credit-card {
-                padding: 20px 0;
+            .pay-button {
+                width: 40%;
+
+                .secure-icon {
+                    width: 15px;
+                    height: 15px;
+                    filter: invert(1);
+                    margin-right:8px;
+                }
+            }
+
+            .invoice-detail {
+                .credit-card {
+                    padding: 20px 0;
+                }
             }
         }
     }
@@ -35,16 +48,7 @@ export const OrderFormLayout = styled.div`
         display: flex;
         margin: 25px 0;
 
-        .pay-button {
-            width: 40%;
 
-            .secure-icon {
-                width: 15px;
-                height: 15px;
-                filter: invert(1);
-                margin-right:8px;
-            }
-        }
     }
 
 
