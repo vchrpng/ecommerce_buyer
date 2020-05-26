@@ -5,28 +5,30 @@ export const OrderFormLayout = styled.div`
 
     .invoice-detail {
         display: flex;
+        padding: 20px;
+        background: red;
+        border-radius: 5px;
 
         .shipping-destination {
+            padding-right: 20px;
             width:100%;
             
             .input-group {
                 display: flex;
+                input:nth-child(1) {
+                    margin-right: 10px;
+                }
             }
         }
 
         .payment-method {
             width:100%;
+            padding-left:20px;
 
             .credit-card {
-
+                padding: 20px 0;
             }
         }
-    }
-    
-    
-
-    .credit-card {
-        background: red;
     }
 
     .confirm-payment {
