@@ -5,7 +5,11 @@ import CheckoutFooter from '../components/CheckoutFooter'
 import { connect } from 'react-redux'
 import { checkout } from '../actions'
 // import { Redirect } from 'react-router-dom'
-import { StripeProvider, Elements } from 'react-stripe-elements'
+
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+
+const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_SECRET);
 
 
 
@@ -16,15 +20,13 @@ const Checkout = ({ checkout , history , isAuthenticated }) => {
 
         // if(isAuthenticated){
             return (
-                <StripeProvider apiKey={process.env.REACT_APP_PUBLISH_SECRET}>
-                <Elements>
+                <Elements stripe={stripePromise}>
                 <div style={{margin:'0 auto',padding:'20px'}}> 
                     <CheckoutHeader />
                     <CheckoutForm submit={submit}/>
                     <CheckoutFooter/>
                 </div>      
                 </Elements>
-                </StripeProvider>
             )
         // }
         // else 
