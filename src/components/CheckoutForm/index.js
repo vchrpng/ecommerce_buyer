@@ -108,7 +108,14 @@ class CheckoutForm extends React.Component {
                                 </aside>
                                 <aside className="payment-method">
                                     <div className="credit-card">
-                                        <CardElement />
+                                        <CardElement options={{
+                                            style: {
+                                                base: { fontSize: '16px', color: '#424770',
+                                                '::placeholder': {color: '#aab7c4' },
+                                                },
+                                                invalid: { color: '#9e2146' },
+                                            }}}
+                                        />
                                     </div>
                                     <div >
                                         <OrderSummary 
