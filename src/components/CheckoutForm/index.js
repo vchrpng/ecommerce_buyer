@@ -71,7 +71,7 @@ class CheckoutForm extends React.Component {
                 {({ isSubmitting }) => (
                     <OrderFormLayout>
                         <Form onSubmit={this.onSubmit} loading={loading}>
-                            <div className="invoice-detail">
+                            <div className="checkout-box">
                                 <aside className="shipping-destination">
                                     <h3>Customer Information</h3>
                                     <InputText  name={'fullname'}
@@ -107,22 +107,30 @@ class CheckoutForm extends React.Component {
                                     </div>
                                 </aside>
                                 <aside className="payment-method">
-                                    <div className="credit-card">
-                                        <CardElement options={{
-                                            style: {
-                                                base: { fontSize: '16px', color: '#424770',
-                                                '::placeholder': {color: '#aab7c4' },
-                                                },
-                                                invalid: { color: '#9e2146' },
-                                            }}}
-                                        />
+                                    <div className="invoice-detail">
+                                        <div className="credit-card">
+                                            <CardElement options={{
+                                                style: {
+                                                    base: { fontSize: '16px', color: '#424770',
+                                                    '::placeholder': {color: '#aab7c4' },
+                                                    },
+                                                    invalid: { color: '#9e2146' },
+                                                }}}
+                                            />
+                                        </div>
+                                        <div >
+                                            <OrderSummary 
+                                                products={products}
+                                                total={total}
+                                                size={size}
+                                            />
+                                        </div>
                                     </div>
-                                    <div >
-                                        <OrderSummary 
-                                            products={products}
-                                            total={total}
-                                            size={size}
-                                        />
+                                    <div className="pay-button">
+                                        <ProceedPayment>
+                                            <img className="secure-icon" src={lockIcon} />
+                                            <h3>{isSubmitting ? 'LOADING' : `Pay ${total} $`}</h3>
+                                        </ProceedPayment>
                                     </div>
                                 </aside>
                             </div>
@@ -130,12 +138,7 @@ class CheckoutForm extends React.Component {
                            
                             <div className="confirm-payment">
                                 <CheckoutNavigate />
-                                <div className="pay-button">
-                                    <ProceedPayment>
-                                        <img className="secure-icon" src={lockIcon} />
-                                        <h3>{isSubmitting ? 'LOADING' : `Pay ${total} $`}</h3>
-                                    </ProceedPayment>
-                                </div>
+                                
                             </div>
                         </Form>
                     </OrderFormLayout>
