@@ -21,7 +21,7 @@ const Checkout = ({ checkout , history , isAuthenticated }) => {
         // if(isAuthenticated){
             return (
                 <Elements stripe={stripePromise}>
-                <div style={{margin:'0 auto',padding:'20px'}}> 
+                <div style={{margin:'0 auto',padding:'20px', maxWidth: '800px'}}> 
                     <CheckoutHeader />
                     <CheckoutForm submit={submit}/>
                     <CheckoutFooter/>
