@@ -6,8 +6,9 @@ export const OrderFormLayout = styled.div`
     .checkout-box {
         display: flex;
         padding: 20px;
-        background: red;
+        background: #f3f3f3;
         border-radius: 5px;
+        box-shadow: 2px 5px 20px -4px rgba(163,163,163,1);
 
         .shipping-destination {
             padding-right: 20px;
