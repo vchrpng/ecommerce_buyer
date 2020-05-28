@@ -42,6 +42,7 @@ class CheckoutForm extends React.Component {
     }
 
     onSubmit = async (values) => {
+        console.log('values',values)
         const stripeCharge = await this.props.stripe.createToken()
 
             setTimeout(() => 
@@ -66,11 +67,11 @@ class CheckoutForm extends React.Component {
             <Formik
                 initialValues={initialValues}
                 onSubmit={this.onSubmit}
-                validate={validate}
+                // validate={validate}
             >
-                {({ isSubmitting }) => (
+                {({ isSubmitting, handleSubmit }) => (
                     <OrderFormLayout>
-                        <Form onSubmit={this.onSubmit} loading={loading}>
+                        <Form onSubmit={handleSubmit} loading={loading}>
                             <div className="checkout-box">
                                 <aside className="shipping-destination">
                                     <h3>Customer Information</h3>
@@ -127,7 +128,7 @@ class CheckoutForm extends React.Component {
                                         </div>
                                     </div>
                                     <div className="pay-button">
-                                        <ProceedPayment>
+                                        <ProceedPayment type="submit" disabled={isSubmitting}>
                                             <img className="secure-icon" src={lockIcon} />
                                             <h3>{isSubmitting ? 'LOADING' : `Pay ${total} $`}</h3>
                                         </ProceedPayment>
