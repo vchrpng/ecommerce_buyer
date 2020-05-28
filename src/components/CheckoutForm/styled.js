@@ -25,6 +25,9 @@ export const OrderFormLayout = styled.div`
         .payment-method {
             width:100%;
             padding-left:20px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
 
             .pay-button {
                 margin-bottom: 20px;
