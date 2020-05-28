@@ -6,7 +6,7 @@ export const OrderFormLayout = styled.div`
     .checkout-box {
         display: flex;
         padding: 20px;
-        background: #f3f3f3;
+        /* background: #f3f3f3; */
         border-radius: 5px;
         box-shadow: 2px 5px 20px -4px rgba(163,163,163,1);
 
@@ -27,7 +27,7 @@ export const OrderFormLayout = styled.div`
             padding-left:20px;
 
             .pay-button {
-                width: 40%;
+                margin-bottom: 20px;
 
                 .secure-icon {
                     width: 15px;
