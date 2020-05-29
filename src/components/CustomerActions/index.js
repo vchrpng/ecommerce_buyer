@@ -5,6 +5,7 @@ import { ButtonStyled } from '../Etc/Reusable'
 import { Loader } from 'semantic-ui-react'
 import { addToBag } from '../../actions'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 
 
 const CustomerActionsWrapper = styled.div`
