@@ -6,7 +6,13 @@ import { Loader } from 'semantic-ui-react'
 import { addToBag } from '../../actions'
 import { connect } from 'react-redux'
 
-class ShippingDetail extends React.Component {
+
+const CustomerActionsWrapper = styled.div`
+    margin-top:20px;
+
+`
+
+class CustomerActions extends React.Component {
     constructor(props){
         super(props)
         this.state = {
@@ -64,14 +70,11 @@ render(){
     const inventoryByIndex = this.props.inventory[this.state.index]
 
     return (
-     
-            <div >
-                <div>
-                    <SizeDropDown
-                        inventory={inventoryByIndex.inventory}
-                        valueOnChange={this.handleOnChange}
-                    />
-                </div>
+            <CustomerActionsWrapper>
+                <SizeDropDown
+                    inventory={inventoryByIndex.inventory}
+                    valueOnChange={this.handleOnChange}
+                />
                 <div style={{paddingTop:'5px'}}>
                     {this.state.isLoading ? 
                     <ButtonStyled height={'40px'}>
@@ -82,15 +85,14 @@ render(){
                     </ButtonStyled>
                 }
                 </div>
-            </div>
-    
+            </CustomerActionsWrapper>
         )
     }
 }
 
-ShippingDetail.PropTypes = {
+CustomerActions.PropTypes = {
     onAddToBag : PropTypes.func.isRequired
 }
 
 
-export default connect(null,{ addToBag })(ShippingDetail)
+export default connect(null,{ addToBag })(CustomerActions)
