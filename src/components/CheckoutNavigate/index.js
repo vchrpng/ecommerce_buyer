@@ -10,7 +10,7 @@ const CheckoutNavigate = () => (
             <CustomLink 
                 to="/"
                 color={'black'}> 
-            Back to shopping bag 
+            Back to shopping 
             </CustomLink>
             </div>
         </div>

@@ -1,7 +1,5 @@
 import React from 'react'
 import CheckoutForm from '../components/CheckoutForm'
-import CheckoutHeader from '../components/CheckoutHeader'
-import CheckoutFooter from '../components/CheckoutFooter'
 import { connect } from 'react-redux'
 import { checkout } from '../actions'
 // import { Redirect } from 'react-router-dom'
@@ -21,11 +19,9 @@ const Checkout = ({ checkout , history , isAuthenticated }) => {
         // if(isAuthenticated){
             return (
                 <Elements stripe={stripePromise}>
-                <div style={{margin:'0 auto',padding:'20px', maxWidth: '800px'}}> 
-                    <CheckoutHeader />
-                    <CheckoutForm submit={submit}/>
-                    <CheckoutFooter/>
-                </div>      
+                    <div style={{margin:'0 auto',padding:'20px', maxWidth: '800px'}}> 
+                        <CheckoutForm submit={submit}/>
+                    </div>      
                 </Elements>
             )
         // }
