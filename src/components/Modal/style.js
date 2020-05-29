@@ -14,6 +14,10 @@ export const ModalWrapper = styled.div`
     z-index: 99;
     margin: 40px auto;
 
+    @media only screen and (max-width : 750px){
+            width:420px;;
+        }
+
     .outside {
         background: rgba(0, 0, 0, 0.5);
         position: fixed;
@@ -39,6 +43,7 @@ export const ModalWrapper = styled.div`
         .box-content {
             padding: 30px 24px 24px 24px;
             width: 100%;
+            height:100%
         }
 
         .box-body {
