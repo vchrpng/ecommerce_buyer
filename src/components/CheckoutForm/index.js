@@ -3,7 +3,7 @@ import { InputText } from '../Etc/Checkout'
 import OrderSummary from '../OrderSummary'
 import { ProceedPayment } from '../Etc/Reusable'
 import CheckoutNavigate from '../CheckoutNavigate'
-import validate from './validate'
+// import validate from './validate'
 import { connect } from 'react-redux'
 import { Formik, Form, 
     // ErrorMessage
