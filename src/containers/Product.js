@@ -5,6 +5,28 @@ import ShippingDetail from '../components/ShippingDetail'
 import ProductDescription from '../components/ProductDescription'
 import Slider from 'react-slick'
 import { showProducts } from '../selectors'
+import styled from 'styled-components'
+
+const CurrentProductWrapper = styled.div`
+    display:flex;
+    max-width: 500px;
+
+    @media only screen and (max-width : 750px){
+            flex-direction:column;
+    }
+
+    .product-image-slider {
+        max-width:300px;
+    }
+
+    .product-detail {
+        max-width: 250px; 
+        padding-left: 20px; 
+        display: flex; 
+        justify-content: space-between; 
+        flex-direction: column;
+    }
+`
 
 
 const Product = ({ id , products , inventory }) => {
@@ -22,27 +44,19 @@ const Product = ({ id , products , inventory }) => {
         slidesToScroll: 1
       }
 
-    return (<div style={{ display: 'flex',maxWidth: '500px' }}>
-                <div style={{ maxWidth: '300px'}}>
+    return (<CurrentProductWrapper>
+                <section className="product-img-slider">
                     <Slider variableWidth adaptiveHeight {...settings}>
                         {currentProduct.images.map((pic,index) =>
                             <Image wrapped size="medium" src={pic} key={index}/>
                         )}
-                        
                     </Slider>
-                </div>
-                <div style={{ 
-                    maxWidth: '250px', 
-                    paddingLeft: '20px', 
-                    display: 'flex', 
-                    justifyContent: 'space-between', 
-                    flexDirection: 'column' 
-                    }}
-                >
+                </section>
+                <section className="product-detail">
                     <ProductDescription currentProduct={currentProduct} />
                     <ShippingDetail inventory={inventory} currentProduct={currentProduct} />
-                </div>
-            </div>)
+                </section>
+            </CurrentProductWrapper>)
 }
 
 const mapStateToProps = state => ({
