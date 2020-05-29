@@ -14,9 +14,7 @@ export const ModalWrapper = styled.div`
     z-index: 99;
     margin: 40px auto;
 
-    @media only screen and (max-width : 750px){
-            width:420px;;
-        }
+    
 
     .outside {
         background: rgba(0, 0, 0, 0.5);
@@ -51,6 +49,14 @@ export const ModalWrapper = styled.div`
             padding: 0px;
             width: auto;
             height: auto;
+        }
+    }
+
+    @media only screen and (max-width : 750px) {
+        width:420px;
+
+        .box-dialog {
+            height: 540px;
         }
     }
 `;
