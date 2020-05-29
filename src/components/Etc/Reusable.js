@@ -33,7 +33,7 @@ export const ProceedPayment = styled.button`
     height: 50px;
     display:flex;
     justify-content:center;
-    align-items: baseline;
+    align-items: center;
     cursor:pointer;
     transition:.5s;
     h3 {

@@ -38,7 +38,7 @@ const Modal = ({ isOpen, onClose, size, children, header }) => {
             isOpen={open}
         >
             <div className="box-dialog">
-                <div style={{ float: 'right', padding: '10px' }}>
+                <div style={{ float: 'right', padding: '10px', cursor: 'pointer' }}>
                     <Icon onClick={handleClick} name="close" />
                 </div>
                 <div className="box-content">
