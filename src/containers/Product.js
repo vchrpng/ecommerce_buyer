@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { Image } from 'semantic-ui-react'
-import ShippingDetail from '../components/ShippingDetail'
+import ShippingDetail from '../components/CustomerActions'
 import ProductDescription from '../components/ProductDescription'
 import Slider from 'react-slick'
 import { showProducts } from '../selectors'
@@ -10,12 +10,12 @@ import styled from 'styled-components'
 const CurrentProductWrapper = styled.div`
     display:flex;
     max-width: 500px;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
 
-    @media only screen and (max-width : 750px){
-            flex-direction:column;
-    }
 
-    .product-image-slider {
+    .product-img-slider {
         max-width:300px;
     }
 
@@ -25,6 +25,16 @@ const CurrentProductWrapper = styled.div`
         display: flex; 
         justify-content: space-between; 
         flex-direction: column;
+    }
+    
+    @media only screen and (max-width : 750px){
+            flex-direction:column;
+
+            .product-detail {
+                width: 100%;
+                max-width: 100%;
+                text-align:center;
+            }
     }
 `
 
