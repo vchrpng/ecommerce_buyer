@@ -56,7 +56,7 @@ export const ModalWrapper = styled.div`
         width:420px;
 
         .box-dialog {
-            height: 540px;
+            height: 560px;
         }
     }
 `;
