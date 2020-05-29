@@ -3,12 +3,18 @@ import styled from 'styled-components'
 export const OrderFormLayout = styled.div`
     margin-top:20px;
 
+    
+
     .checkout-box {
         display: flex;
         padding: 20px;
         /* background: #f3f3f3; */
         border-radius: 5px;
         box-shadow: 2px 5px 20px -4px rgba(163,163,163,1);
+
+        @media only screen and (max-width : 750px){
+            flex-direction:column;
+        }
 
         .shipping-destination {
             padding-right: 20px;
