@@ -11,143 +11,146 @@ import { Formik, Form,
 import { submitOrder } from '../../actions'
 import { OrderFormLayout } from './styled'
 import { totalSelector, selectedProducts , selectedSizes } from '../../selectors'
-import {
-    CardElement
-  } from '@stripe/react-stripe-js'
+import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 
 const lockIcon = require('../../assets/lock.svg') 
 
 const initialValues = {
-    fullname:'',
-    phone:'',
-    city:'',
+    name:'joe',
+    phone:'09203912',
+    city:'bkk',
     postcode: '',
-    province:'',
-    country:''
+    province: 'bkk',
+    country:'th'
 }
-class CheckoutForm extends React.Component {
+const CheckoutForm = ({ products, total, size, order, submit }) => {
+    const elements = useElements();
+    const stripe = useStripe();
 
-    constructor(props){
-        super(props)
-        this.state = {
-            loading:false,
-            errors:{}
-        }
+
+
+    async function onSubmit (values) {
+        const cardElement = elements.getElement(CardElement)
+        const stripetoken = await stripe.createToken(cardElement)
+        console.log(stripetoken)
+         submit({
+            amount:Number(total),
+            source: stripetoken.token.id,
+
+            receipt_email:'payment@gmail.eiei'
+            // billing_details: {
+            //             name: values.name,
+            //             email: 'stripe-test-charge@gmail.com',
+            //             address: {
+            //                 city: values.city,
+            //                 country: values.country,
+            //             },
+            //             phone: values.phone
+            //       }
+                })
+
+        
+        // stripe.createPaymentMethod({
+        //     type: 'card',
+        //     card: elements.getElement(CardElement),
+        //     billing_details: {
+        //         name: values.name,
+        //         email: 'stripe-test-charge@gmail.com',
+        //         address: {
+        //             city: values.city,
+        //             country: values.country,
+        //         },
+        //         phone: values.phone
+        //   }});
+
     }
 
-    onChange = e => {
-        this.setState({ 
-            data : { ...this.state.data,[e.target.name] : e.target.value }
-        })
-    }
-
-    onSubmit = async (values) => {
-        console.log('values',values)
-        const stripeCharge = await this.props.stripe.createToken()
-
-            setTimeout(() => 
-            this.props.submit({
-                amount: '1120',
-                source: stripeCharge.token.id,
-                receipt_email:'payment@gmail.eiei'
-            })
-                // this.props.submit({...this.props.order, source: token.id })
-                .catch(err => this.setState({ 
-                    errors : err.response.data.errors,
-                    loading : false 
-                    }))
-                ,2000) 
-    }
-
-    
-    render(){
-        const {products,total,size} = this.props
-        const { loading } = this.state
-        return (
-            <Formik
-                initialValues={initialValues}
-                onSubmit={this.onSubmit}
-                // validate={validate}
-            >
-                {({ isSubmitting, handleSubmit }) => (
-                    <OrderFormLayout>
-                        <Form onSubmit={handleSubmit} loading={loading}>
-                            <div className="checkout-box">
-                                <aside className="shipping-destination">
-                                    <h3>Customer Information</h3>
-                                    <InputText  name={'fullname'}
-                                        placeholder={'Full name'}
+    return (
+        <Formik
+            initialValues={initialValues}
+            onSubmit={onSubmit}
+            // validate={validate}
+        >
+            {({ isSubmitting, handleSubmit }) => (
+                <OrderFormLayout>
+                    <Form onSubmit={handleSubmit}>
+                        <div className="checkout-box">
+                            <aside className="shipping-destination">
+                                <h3>Customer Information</h3>
+                                <InputText  name={'name'}
+                                    placeholder={'Full name'}
+                                    type={'text'}
+                                />
+                                <InputText name={'phone'}
+                                    placeholder={'Phone'}
+                                    type={'text'}
+                                />
+                                <h3 style={{marginTop:'0'}}>Shipping Address</h3>
+                                <div className="input-group">
+                                    <InputText name={'city'}
+                                        placeholder={'City'}
+                                        type={'text'} 
+                                    />
+                                    <InputText
+                                        name={'province'}
+                                        placeholder={'Province'}
                                         type={'text'}
                                     />
-                                    <InputText name={'phone'}
-                                        placeholder={'Phone'}
+                                </div>
+                                <div className="input-group">
+                                    <InputText  name={'postcode'}
+                                            placeholder={'Postcode'}
+                                            type={'text'}
+                                    />
+                                    <InputText 
+                                        name={'country'}
+                                        placeholder={'Country'}
                                         type={'text'}
                                     />
-                                    <h3 style={{marginTop:'0'}}>Shipping Address</h3>
-                                    <div className="input-group">
-                                        <InputText name={'city'}
-                                            placeholder={'City'}
-                                            type={'text'} 
-                                        />
-                                        <InputText
-                                            name={'province'}
-                                            placeholder={'Province'}
-                                            type={'text'}
-                                        />
-                                    </div>
-                                    <div className="input-group">
-                                        <InputText  name={'postcode'}
-                                                placeholder={'Postcode'}
-                                                type={'text'}
-                                        />
-                                        <InputText 
-                                            name={'country'}
-                                            placeholder={'Country'}
-                                            type={'text'}
+                                </div>
+                            </aside>
+                            <aside className="payment-method">
+                                <div className="invoice-detail">
+                                    <div className="credit-card">
+                                        <CardElement options={{
+                                            style: {
+                                                base: { fontSize: '16px', color: '#424770',
+                                                '::placeholder': {color: '#aab7c4' },
+                                                },
+                                                invalid: { color: '#9e2146' },
+                                            }}}
                                         />
                                     </div>
-                                </aside>
-                                <aside className="payment-method">
-                                    <div className="invoice-detail">
-                                        <div className="credit-card">
-                                            <CardElement options={{
-                                                style: {
-                                                    base: { fontSize: '16px', color: '#424770',
-                                                    '::placeholder': {color: '#aab7c4' },
-                                                    },
-                                                    invalid: { color: '#9e2146' },
-                                                }}}
-                                            />
-                                        </div>
-                                        <div >
-                                            <OrderSummary 
-                                                products={products}
-                                                total={total}
-                                                size={size}
-                                            />
-                                        </div>
+                                    <div >
+                                        <OrderSummary 
+                                            products={products}
+                                            total={total}
+                                            size={size}
+                                        />
                                     </div>
-                                    <div className="pay-button">
-                                        <ProceedPayment type="submit" disabled={isSubmitting}>
-                                            <img className="secure-icon" src={lockIcon} />
-                                            <h3>{isSubmitting ? 'LOADING' : `Pay ${total} $`}</h3>
-                                        </ProceedPayment>
-                                    </div>
-                                </aside>
-                            </div>
+                                </div>
+                                <div className="pay-button">
+                                    <ProceedPayment type="submit" disabled={isSubmitting}>
+                                        <img className="secure-icon" src={lockIcon} />
+                                        <h3>{isSubmitting ? 'LOADING' : `Pay ${total} $`}</h3>
+                                    </ProceedPayment>
+                                </div>
+                            </aside>
+                        </div>
+                        
+                        
+                        <div className="confirm-payment">
+                            <CheckoutNavigate />
                             
-                           
-                            <div className="confirm-payment">
-                                <CheckoutNavigate />
-                                
-                            </div>
-                        </Form>
-                    </OrderFormLayout>
-                )}
-            </Formik>
-        )
-    }
+                        </div>
+                    </Form>
+                </OrderFormLayout>
+            )}
+        </Formik>
+    )
 }
+
+
 const mapStateToProps = state => ({
     products : selectedProducts(state),
     total : totalSelector(state),
