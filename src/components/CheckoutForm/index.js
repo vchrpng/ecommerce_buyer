@@ -32,37 +32,21 @@ const CheckoutForm = ({ products, total, size, order, submit }) => {
     async function onSubmit (values) {
         const cardElement = elements.getElement(CardElement)
         const stripetoken = await stripe.createToken(cardElement)
-        console.log(stripetoken)
+
          submit({
-            amount:Number(total),
+            amount:Number(total) > 0 ? Number(total) : 100,
             source: stripetoken.token.id,
-
-            receipt_email:'payment@gmail.eiei'
-            // billing_details: {
-            //             name: values.name,
-            //             email: 'stripe-test-charge@gmail.com',
-            //             address: {
-            //                 city: values.city,
-            //                 country: values.country,
-            //             },
-            //             phone: values.phone
-            //       }
-                })
-
-        
-        // stripe.createPaymentMethod({
-        //     type: 'card',
-        //     card: elements.getElement(CardElement),
-        //     billing_details: {
-        //         name: values.name,
-        //         email: 'stripe-test-charge@gmail.com',
-        //         address: {
-        //             city: values.city,
-        //             country: values.country,
-        //         },
-        //         phone: values.phone
-        //   }});
-
+            receipt_email:'stripepayment@gmail.com',
+            shipping: {
+                name: values.name,
+                address: {
+                    line1: '49/47',
+                    city: values.city,
+                    country: values.country,
+                },
+                phone: values.phone
+            }
+        })
     }
 
     return (
