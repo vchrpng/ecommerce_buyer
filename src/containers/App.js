@@ -16,7 +16,6 @@ import Account from './Account'
 const Layout = styled.div`
   max-width: 1010px;
   margin: 0 auto;
-
 `
 
 
