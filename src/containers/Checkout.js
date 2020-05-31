@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { checkout } from '../actions'
 // import { Redirect } from 'react-router-dom'
 import OrderSummary from '../components/OrderSummary'
-import {ElementsConsumer, Elements} from '@stripe/react-stripe-js';
-import {loadStripe} from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_SECRET);
 
@@ -25,7 +25,7 @@ const Checkout = ({ checkout , history , isAuthenticated }) => {
                     maxWidth: '800px',
                     display: 'flex',
                     justifyContent: 'center',
-                    alignItems: 'center'
+                    // alignItems: 'center'
                 }}> 
                     <CheckoutForm submit={submit}/>
                     <OrderSummary 
