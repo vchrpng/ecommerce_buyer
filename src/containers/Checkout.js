@@ -27,7 +27,7 @@ const Checkout = ({ checkout , history , isAuthenticated }) => {
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}> 
-                    <CheckoutForm submit={submit}/>}
+                    <CheckoutForm submit={submit}/>
                 </div>      
                 </Elements>
                 
