@@ -59,7 +59,11 @@ const CheckoutForm = () => {
         >
             {({ isSubmitting, handleSubmit, errors, touched }) => (
                 <OrderFormLayout>
-                         <button onClick={() => toggleDeliveryAddressForm(true)}>ADD ADDRESS</button>
+                    <aside style={{ height: '200px'}}>
+                    <h4>Delivery Address</h4>
+                    <button onClick={() => toggleDeliveryAddressForm(true)}>ADD ADDRESS</button>
+
+                    </aside>
 
                     {isDeliveryAddressOpen && 
                         <Modal
@@ -70,6 +74,8 @@ const CheckoutForm = () => {
                         >
                             <ShippingAddressForm  />
                         </Modal>}
+                        <h4>Payment details</h4>
+
                         <aside className="payment-method">
                          <div className="invoice-detail">
                              <div className="credit-card">
@@ -88,7 +94,7 @@ const CheckoutForm = () => {
                          </div>
                          <div className="pay-button">
                              <ProceedPayment type="submit" disabled={isSubmitting}>
-                                 {/* <img className="secure-icon" src={lockIcon} /> */}
+                                 <img className="secure-icon" src={lockIcon} />
                                  <h3>{isSubmitting ? 'LOADING' : `Pay now`}</h3>
                              </ProceedPayment>
                          </div>
