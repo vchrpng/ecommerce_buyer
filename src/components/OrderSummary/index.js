@@ -1,5 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import RenderItemCheckout from '../RenderItemsCheckout'
+import { totalSelector, selectedProducts , selectedSizes } from '../../selectors'
 import RenderCostTotal from '../RenderCostTotal'
 
 
@@ -25,5 +27,10 @@ const OrderSummary = ({ products,size,total }) => {
     )
 }
 
+const mapStateToProps = state => ({
+    products : selectedProducts(state),
+    total : totalSelector(state),
+    size : selectedSizes(state),
+})
 
-export default OrderSummary
+export default connect(mapStateToProps)(OrderSummary)
