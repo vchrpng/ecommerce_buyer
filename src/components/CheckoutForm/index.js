@@ -3,7 +3,7 @@ import { InputText } from '../Etc/Checkout'
 import OrderSummary from '../OrderSummary'
 import { ProceedPayment } from '../Etc/Reusable'
 import CheckoutNavigate from '../CheckoutNavigate'
-// import validate from './validate'
+import validationSchema from './validate'
 import { connect } from 'react-redux'
 import { Formik, Form, 
     // ErrorMessage
@@ -19,7 +19,7 @@ const initialValues = {
     name:'joe',
     phone:'09203912',
     city:'bkk',
-    postcode: '',
+    line1: '',
     province: 'bkk',
     country:'th'
 }
@@ -30,38 +30,42 @@ const CheckoutForm = ({ products, total, size, order, submit }) => {
 
 
     async function onSubmit (values) {
-        const cardElement = elements.getElement(CardElement)
-        const stripetoken = await stripe.createToken(cardElement)
+        alert('test submit')
+        // const cardElement = elements.getElement(CardElement)
+        // const stripetoken = await stripe.createToken(cardElement)
 
-         submit({
-            amount:Number(total) > 0 ? Number(total) : 100,
-            source: stripetoken.token.id,
-            receipt_email:'stripepayment@gmail.com',
-            shipping: {
-                name: values.name,
-                address: {
-                    line1: '49/47',
-                    city: values.city,
-                    country: values.country,
-                },
-                phone: values.phone
-            }
-        })
+        //  submit({
+        //     amount:Number(total) > 0 ? Number(total) : 100,
+        //     source: stripetoken.token.id,
+        //     receipt_email:'stripepayment@gmail.com',
+        //     shipping: {
+        //         name: values.name,
+        //         address: {
+        //             line1: '49/47',
+        //             city: values.city,
+        //             country: values.country,
+        //         },
+        //         phone: values.phone
+        //     }
+        // })
     }
 
     return (
         <Formik
             initialValues={initialValues}
             onSubmit={onSubmit}
-            // validate={validate}
+            validationSchema={validationSchema}
         >
-            {({ isSubmitting, handleSubmit }) => (
+            {({ isSubmitting, handleSubmit, errors, touched }) => (
                 <OrderFormLayout>
                     <Form onSubmit={handleSubmit}>
                         <div className="checkout-box">
                             <aside className="shipping-destination">
                                 <h3>Customer Information</h3>
-                                <InputText  name={'name'}
+                                {errors.name && touched.name ? (
+                                    <div>{errors.name}</div>
+                                ) : null}
+                                <InputText name={'name'}
                                     placeholder={'Full name'}
                                     type={'text'}
                                 />
@@ -82,8 +86,8 @@ const CheckoutForm = ({ products, total, size, order, submit }) => {
                                     />
                                 </div>
                                 <div className="input-group">
-                                    <InputText  name={'postcode'}
-                                            placeholder={'Postcode'}
+                                    <InputText  name={'line1'}
+                                            placeholder={'Address Line'}
                                             type={'text'}
                                     />
                                     <InputText 
