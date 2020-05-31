@@ -1,5 +1,4 @@
 import React from 'react'
-import OrderSummary from '../OrderSummary'
 import { ProceedPayment } from '../Etc/Reusable'
 import CheckoutNavigate from '../CheckoutNavigate'
 import validationSchema from './validate'
@@ -9,7 +8,6 @@ import { Formik, Form,
  } from 'formik'
 import { submitOrder } from '../../actions'
 import { OrderFormLayout } from './styled'
-import { totalSelector, selectedProducts , selectedSizes } from '../../selectors'
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import ShippingAddressForm from '../ShippingAddressForm'
 import Modal from '../Modal'
@@ -24,7 +22,7 @@ const initialValues = {
     province: 'bkk',
     country:'th'
 }
-const CheckoutForm = ({ products, total, size, order, submit }) => {
+const CheckoutForm = () => {
     const elements = useElements();
     const stripe = useStripe();
 
@@ -61,13 +59,8 @@ const CheckoutForm = ({ products, total, size, order, submit }) => {
         >
             {({ isSubmitting, handleSubmit, errors, touched }) => (
                 <OrderFormLayout>
-                         <button onClick={() => toggleDeliveryAddressForm(true)}></button>
+                         <button onClick={() => toggleDeliveryAddressForm(true)}>ADD ADDRESS</button>
 
-                    <OrderSummary 
-                        products={products}
-                        total={total}
-                        size={size}
-                        />
                     {isDeliveryAddressOpen && 
                         <Modal
                             id="modal"
@@ -95,8 +88,8 @@ const CheckoutForm = ({ products, total, size, order, submit }) => {
                          </div>
                          <div className="pay-button">
                              <ProceedPayment type="submit" disabled={isSubmitting}>
-                                 <img className="secure-icon" src={lockIcon} />
-                                 <h3>{isSubmitting ? 'LOADING' : `Pay ${total} $`}</h3>
+                                 {/* <img className="secure-icon" src={lockIcon} /> */}
+                                 <h3>{isSubmitting ? 'LOADING' : `Pay now`}</h3>
                              </ProceedPayment>
                          </div>
                      </aside>
@@ -113,9 +106,7 @@ const CheckoutForm = ({ products, total, size, order, submit }) => {
 
 
 const mapStateToProps = state => ({
-    products : selectedProducts(state),
-    total : totalSelector(state),
-    size : selectedSizes(state),
+  
     order : state.products.checkout
 })
 
