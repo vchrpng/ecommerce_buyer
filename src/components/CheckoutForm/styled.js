@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const OrderFormLayout = styled.div`
     margin-top:20px;
-
+    width:100%;
     
 
     .checkout-box {
