@@ -20,13 +20,24 @@ const initialValues = {
     city:'bkk',
     line1: '',
     province: 'bkk',
-    country:'th'
+    country:'th',
+    shipping: []
 }
 const CheckoutForm = () => {
     const elements = useElements();
     const stripe = useStripe();
 
-    const [isDeliveryAddressOpen, toggleDeliveryAddressForm] = React.useState(false)
+    const [devlieryFormData,setDeliveryFormData] = React.useState({
+                    name: '',
+                    address: {
+                        line1: '',
+                        city: '',
+                        country: '',
+                    },
+                    phone: ''
+    })
+
+    const [isDeliveryFormOpen, toggleDeliveryForm] = React.useState(false)
 
 
 
@@ -61,18 +72,28 @@ const CheckoutForm = () => {
                 <OrderFormLayout>
                     <aside style={{ height: '200px'}}>
                     <h4>Delivery Address</h4>
-                    <button onClick={() => toggleDeliveryAddressForm(true)}>ADD ADDRESS</button>
+                    <div>
+                        <div>[]</div>
+                        <button
+                            style={{
+                                width: '80px',
+                                height: '80px'
+                            }}
+                        onClick={() => toggleDeliveryForm(true)}>ADD ADDRESS
+                        </button>
+                    </div>
+                    
 
                     </aside>
 
-                    {isDeliveryAddressOpen && 
+                    {isDeliveryFormOpen && 
                         <Modal
                             id="modal"
                             isOpen={isDeliveryAddressOpen}
                             onClose={toggleDeliveryAddressForm}
                             header="Delivery Address"
                         >
-                            <ShippingAddressForm  />
+                            <ShippingAddressForm onSubmit={setDeliveryFormData} />
                         </Modal>}
                         <h4>Payment details</h4>
 
