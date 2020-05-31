@@ -3,6 +3,31 @@ import styled from 'styled-components'
 export const OrderFormLayout = styled.div`
     margin-top:20px;
     width:100%;
+
+    .payment-method {
+            width:100%;
+            padding-left:20px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+
+            .pay-button {
+                margin-bottom: 20px;
+
+                .secure-icon {
+                    width: 15px;
+                    height: 15px;
+                    filter: invert(1);
+                    margin-right:8px;
+                }
+            }
+
+            .invoice-detail {
+                .credit-card {
+                    padding: 20px 0;
+                }
+            }
+        }
     
 
     .checkout-box {
@@ -28,30 +53,7 @@ export const OrderFormLayout = styled.div`
             }
         }
 
-        .payment-method {
-            width:100%;
-            padding-left:20px;
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
-
-            .pay-button {
-                margin-bottom: 20px;
-
-                .secure-icon {
-                    width: 15px;
-                    height: 15px;
-                    filter: invert(1);
-                    margin-right:8px;
-                }
-            }
-
-            .invoice-detail {
-                .credit-card {
-                    padding: 20px 0;
-                }
-            }
-        }
+       
     }
 
     .confirm-payment {
