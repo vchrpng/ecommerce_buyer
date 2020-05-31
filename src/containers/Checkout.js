@@ -3,7 +3,7 @@ import CheckoutForm from '../components/CheckoutForm'
 import { connect } from 'react-redux'
 import { checkout } from '../actions'
 // import { Redirect } from 'react-router-dom'
-
+import OrderSummary from '../components/OrderSummary'
 import {ElementsConsumer, Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 
@@ -28,6 +28,8 @@ const Checkout = ({ checkout , history , isAuthenticated }) => {
                     alignItems: 'center'
                 }}> 
                     <CheckoutForm submit={submit}/>
+                    <OrderSummary 
+                        />
                 </div>      
                 </Elements>
                 
