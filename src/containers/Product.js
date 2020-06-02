@@ -9,7 +9,6 @@ import styled from 'styled-components'
 
 const CurrentProductWrapper = styled.div`
     display:flex;
-    max-width: 500px;
     align-items: center;
     height: 100%;
     justify-content: space-between;
@@ -20,7 +19,8 @@ const CurrentProductWrapper = styled.div`
     }
 
     .product-detail {
-        max-width: 250px; 
+        width:100%;
+        height:100%;
         padding-left: 20px; 
         display: flex; 
         justify-content: space-between; 
