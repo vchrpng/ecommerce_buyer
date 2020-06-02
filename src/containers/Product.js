@@ -9,10 +9,6 @@ import styled from 'styled-components'
 
 const CurrentProductWrapper = styled.div`
     display:flex;
-    align-items: center;
-    height: 100%;
-    justify-content: space-between;
-
 
     .product-img-slider {
         max-width:300px;
@@ -20,7 +16,7 @@ const CurrentProductWrapper = styled.div`
 
     .product-detail {
         width:100%;
-        height:100%;
+        align-self:stretch;
         padding-left: 20px; 
         display: flex; 
         justify-content: space-between; 
