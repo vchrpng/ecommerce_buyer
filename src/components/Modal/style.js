@@ -31,7 +31,6 @@ export const ModalWrapper = styled.div`
     .box-dialog {
         border-radius: 3px;
         z-index: 1050;
-        height: 330px;
         width: 100%;
         background-color: #fefefe;
         -webkit-box-shadow: 0px 8px 26px -4px rgba(0,0,0,0.75);
@@ -39,7 +38,7 @@ export const ModalWrapper = styled.div`
         box-shadow: 0px 8px 26px -4px rgba(0,0,0,0.75);
 
         .box-content {
-            padding: 30px 24px 24px 24px;
+            padding: 30px 24px 35px 24px;
             width: 100%;
             height:100%
         }
