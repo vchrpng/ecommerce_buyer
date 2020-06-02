@@ -89,8 +89,8 @@ const CheckoutForm = () => {
                     {isDeliveryFormOpen && 
                         <Modal
                             id="modal"
-                            isOpen={isDeliveryAddressOpen}
-                            onClose={toggleDeliveryAddressForm}
+                            isOpen={isDeliveryFormOpen}
+                            onClose={toggleDeliveryForm}
                             header="Delivery Address"
                         >
                             <ShippingAddressForm onSubmit={setDeliveryFormData} />
