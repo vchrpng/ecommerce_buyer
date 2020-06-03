@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { deleteFromBag } from '../actions'
 import {  Table } from 'semantic-ui-react'
-import ShoppingBagTablePricing from '../components/ShoppingBagTablePricing'
+import ShoppingBagTotalPrice from '../components/ShoppingBagTotalPrice'
 import RenderItemsOnBag from '../components/RenderItemsOnBag'
 import EmptyBag from '../components/EmptyBag'
 import { ButtonStyled, CustomLink } from '../components/Etc/Reusable'
@@ -67,10 +67,10 @@ class ShoppingBag extends React.Component {
                         product={product}
                         deleteFromBag={deleteFromBag}
                     />
-                    <ShoppingBagTablePricing total={total}/>
                 </Table>
             </section>
             <section className="checkout-button">
+                <ShoppingBagTablePricing total={total}/>
                 <CustomLink to="/checkout" >
                     <ButtonStyled onClick={this.authBeforeCheckout}>
                         CHECKOUT
