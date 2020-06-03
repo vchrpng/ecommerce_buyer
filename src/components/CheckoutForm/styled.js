@@ -7,7 +7,6 @@ export const OrderFormLayout = styled.div`
 
     .payment-method {
             width:100%;
-            padding-left:20px;
             display: flex;
             justify-content: space-between;
             flex-direction: column;
@@ -15,6 +14,14 @@ export const OrderFormLayout = styled.div`
 
 
             .invoice-detail {
+                .payment-choice {
+                    width: 120px;
+                    height: 85px;
+                    display:flex;
+                    justify-content: center;
+                    align-items:center;
+                    background:lightgray;
+                }
                 .credit-card {
                     padding: 20px 0;
                 }
