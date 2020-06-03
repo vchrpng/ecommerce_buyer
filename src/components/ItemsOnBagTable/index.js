@@ -13,7 +13,7 @@ const TableBody = styled.tbody`
     padding-right: 20px;
 `
 
-const RenderItemsOnBag = ({ product , deleteFromBag , size }) => {
+const ItemsOnBagTable = ({ product , deleteFromBag , size }) => {
     return (
         <TableBody>
             {product.map((item,idx) =>
@@ -40,4 +40,4 @@ const RenderItemsOnBag = ({ product , deleteFromBag , size }) => {
     )
 }
 
-export default connect(null,{deleteFromBag})(RenderItemsOnBag)
+export default connect(null,{deleteFromBag})(ItemsOnBagTable)

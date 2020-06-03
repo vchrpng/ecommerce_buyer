@@ -2,9 +2,9 @@ import React from 'react'
 
 const ShoppingBagTotalPrice = ({ total }) => {
     return (
-            <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '14px'}}>
                 <label style={{fontWeight:'bold'}}>Total</label>
-                  <h4>  $ {total} </h4>
+                  <h3 style={{ margin: 0 }}>  $ {total} </h3>
             </div>
     )
 }

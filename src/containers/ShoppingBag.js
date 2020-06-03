@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { deleteFromBag } from '../actions'
 import ShoppingBagTotalPrice from '../components/ShoppingBagTotalPrice'
-import RenderItemsOnBag from '../components/RenderItemsOnBag'
+import ItemsOnBagTable from '../components/ItemsOnBagTable'
 import EmptyBag from '../components/EmptyBag'
 import { ButtonStyled, CustomLink } from '../components/Etc/Reusable'
 import { totalSelector , selectedProducts , selectedSizes } from '../selectors'
@@ -57,7 +57,7 @@ class ShoppingBag extends React.Component {
                             </th>
                         </tr>
                     </thead>
-                    <RenderItemsOnBag
+                    <ItemsOnBagTable
                         size={size}
                         product={product}
                         deleteFromBag={deleteFromBag}
