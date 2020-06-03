@@ -8,7 +8,7 @@ import styled from 'styled-components'
 const TableBody = styled.tbody`
     max-height: 400px;
     display: block;
-    overflow-y: auto;
+    overflow-y: scroll;
     width: 100%;
     padding-right: 20px;
 `
