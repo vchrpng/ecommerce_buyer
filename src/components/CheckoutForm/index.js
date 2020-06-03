@@ -21,20 +21,26 @@ const initialValues = {
     line1: '',
     province: 'bkk',
     country:'th',
-    shipping: []
+    shipping: [{
+        line1: '543 Amherst Street',
+        city: 'Nashua',
+        state: 'New Hampshire',
+        country: 'United States',
+    }]
 }
 const CheckoutForm = () => {
     const elements = useElements();
     const stripe = useStripe();
 
     const [devlieryFormData,setDeliveryFormData] = React.useState({
-                    name: '',
-                    address: {
-                        line1: '',
-                        city: '',
-                        country: '',
-                    },
-                    phone: ''
+                    // name: '',
+                    // address: {
+                        line1: '543 Amherst Street',
+                        city: 'Nashua',
+                        state: 'New Hampshire',
+                        country: 'United States',
+                    // },
+                    // phone: ''
     })
 
     const [isDeliveryFormOpen, toggleDeliveryForm] = React.useState(false)
@@ -70,12 +76,20 @@ const CheckoutForm = () => {
         >
             {({ isSubmitting, handleSubmit, errors, touched }) => (
                 <OrderFormLayout>
-                    <aside style={{ height: '400px'}}>
+                    <aside>
                     <h4>Customer Information</h4>
                     <div style={{ height: '100px' }}>
 
                     </div>
                     <h4>Delivery Address</h4>
+                    <ul>{initialValues.shipping.map((address) => (
+                        <li>
+                            <p>{address.line1}</p>
+                            <p>{address.city}</p>
+                            <p>{address.state}</p>
+                            <p>{address.country}</p>
+                        </li>
+                    ))}</ul>
                     <div>
                         <button
                             style={{
@@ -106,8 +120,10 @@ const CheckoutForm = () => {
 
                         <aside className="payment-method">
                          <div className="invoice-detail">
-                            <input name="credit-card-checked" checked={true} type="checkbox" />
-                            <label for="credit-card-checked">Credit Card</label>
+                            <div className="payment-choice">
+                                <input name="credit-card-checked" checked={true} type="checkbox" />
+                                <label for="credit-card-checked">Credit Card</label>
+                            </div>
                              <div className="credit-card">
                                  <CardElement options={{
                                      style: {
