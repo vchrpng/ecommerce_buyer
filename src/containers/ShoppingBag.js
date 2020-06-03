@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { deleteFromBag } from '../actions'
-import {  Table } from 'semantic-ui-react'
 import ShoppingBagTotalPrice from '../components/ShoppingBagTotalPrice'
 import RenderItemsOnBag from '../components/RenderItemsOnBag'
 import EmptyBag from '../components/EmptyBag'
@@ -47,30 +46,28 @@ class ShoppingBag extends React.Component {
         const haveProduct = product.length ? 
         <ShoppingBagContainer>
             <section className="shopping-bag-table">
-                <Table basic='very' celled unstackable > 
-                <Table.Header>
-                    <Table.Row>
-                        <Table.HeaderCell
+                <table basic='very' celled unstackable > 
+                    <tr>
+                        <td
                             style={{borderLeft:'none'}}>
                             <label> Product  </label>
-                        </Table.HeaderCell>
-                        <Table.HeaderCell style={{borderLeft:'none'}}/>
-                        <Table.HeaderCell 
+                        </td>
+                        <td style={{borderLeft:'none'}}/>
+                        <td 
                             textAlign={'right'} 
                             style={{borderLeft:'none'}}>
                             <label> Price  </label>
-                        </Table.HeaderCell>
-                    </Table.Row>
-                </Table.Header>
+                        </td>
+                    </tr>
                     <RenderItemsOnBag
                         size={size}
                         product={product}
                         deleteFromBag={deleteFromBag}
                     />
-                </Table>
+                </table>
             </section>
             <section className="checkout-button">
-                <ShoppingBagTablePricing total={total}/>
+                <ShoppingBagTotalPrice total={total}/>
                 <CustomLink to="/checkout" >
                     <ButtonStyled onClick={this.authBeforeCheckout}>
                         CHECKOUT
@@ -82,19 +79,9 @@ class ShoppingBag extends React.Component {
                 : <EmptyBag/>
 
         return (
-            <div >
-           
-                <FadeMessage visible={this.state.showRequired}>
-                    <MessageBox>
-                        <p>{this.state.text}</p>
-                    </MessageBox>
-                </FadeMessage>
                 <div>
-                    <div>
-                        {haveProduct}
-                    </div>
+                    {haveProduct}
                 </div>
-            </div>
         )
     }
 }
