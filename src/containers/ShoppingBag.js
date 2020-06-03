@@ -10,7 +10,7 @@ import { ButtonStyled, CustomLink } from '../components/Etc/Reusable'
 import { totalSelector , selectedProducts , selectedSizes } from '../selectors'
 
 const ShoppingBagContainer = styled.div`
-    width: 400px;
+    width: 500px;
     
     .shopping-bag-table {
         padding-bottom: 10px;
@@ -46,7 +46,7 @@ class ShoppingBag extends React.Component {
         const haveProduct = product.length ? 
         <ShoppingBagContainer>
             <section className="shopping-bag-table">
-                <table> 
+                <table style={{ width: '100%' }}> 
                     <thead style={{ display: 'block' }}>
                         <tr style={{ height: '40px' , paddingRight:' 40px', fontWeight: 'bold', display: 'flex', justifyContent: 'space-between'}}>
                             <th colSpan={3}>
@@ -67,7 +67,7 @@ class ShoppingBag extends React.Component {
             <section className="checkout-button">
                 <ShoppingBagTotalPrice total={total}/>
                 <CustomLink to="/checkout" >
-                    <ButtonStyled onClick={this.authBeforeCheckout}>
+                    <ButtonStyled fontSize="12px" height="50px" onClick={this.authBeforeCheckout}>
                         CHECKOUT
                     </ButtonStyled>
                 </CustomLink>
