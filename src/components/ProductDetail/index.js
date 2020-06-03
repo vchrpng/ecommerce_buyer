@@ -21,7 +21,7 @@ const ProductDetailContainer = styled.div`
 
 `
 
-const ProductDescription = ({ currentProduct }) => {
+const ProductDetail = ({ currentProduct }) => {
     return (
         <ProductDetailContainer>
             <p className="product-title">{currentProduct.title}</p>         
@@ -36,4 +36,4 @@ const ProductDescription = ({ currentProduct }) => {
     )
 }
 
-export default ProductDescription
+export default ProductDetail

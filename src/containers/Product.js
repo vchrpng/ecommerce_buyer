@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { Image } from 'semantic-ui-react'
 import ShippingDetail from '../components/CustomerActions'
-import ProductDescription from '../components/ProductDescription'
+import ProductDetail from '../components/ProductDetail'
 import Slider from 'react-slick'
 import { showProducts } from '../selectors'
 import styled from 'styled-components'
@@ -59,7 +59,7 @@ const Product = ({ id , products , inventory }) => {
                     </Slider>
                 </section>
                 <section className="product-detail">
-                    <ProductDescription currentProduct={currentProduct} />
+                    <ProductDetail currentProduct={currentProduct} />
                     <ShippingDetail inventory={inventory} currentProduct={currentProduct} />
                 </section>
             </CurrentProductWrapper>)
