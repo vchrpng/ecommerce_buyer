@@ -70,14 +70,21 @@ const CheckoutForm = () => {
         >
             {({ isSubmitting, handleSubmit, errors, touched }) => (
                 <OrderFormLayout>
-                    <aside style={{ height: '200px'}}>
+                    <aside style={{ height: '400px'}}>
+                    <h4>Customer Information</h4>
+                    <div style={{ height: '100px' }}>
+
+                    </div>
                     <h4>Delivery Address</h4>
                     <div>
-                        <div>[]</div>
                         <button
                             style={{
-                                width: '80px',
-                                height: '80px'
+                                width: '100px',
+                                height: '80px',
+                                background: 'lightgray',
+                                border: 'none',
+                                borderRadius: '4px',
+                                padding: '10px'
                             }}
                         onClick={() => toggleDeliveryForm(true)}>ADD ADDRESS
                         </button>
@@ -99,6 +106,8 @@ const CheckoutForm = () => {
 
                         <aside className="payment-method">
                          <div className="invoice-detail">
+                            <input name="credit-card-checked" checked={true} type="checkbox" />
+                            <label for="credit-card-checked">Credit Card</label>
                              <div className="credit-card">
                                  <CardElement options={{
                                      style: {
@@ -109,21 +118,18 @@ const CheckoutForm = () => {
                                      }}}
                                  />
                              </div>
-                             <div >
-
-                             </div>
                          </div>
-                         <div className="pay-button">
+                         
+                     </aside>
+                                      
+                    <div className="confirm-payment">
+                        <CheckoutNavigate />
+                        <div className="pay-button">
                              <ProceedPayment type="submit" disabled={isSubmitting}>
                                  <img className="secure-icon" src={lockIcon} />
                                  <h3>{isSubmitting ? 'LOADING' : `Pay now`}</h3>
                              </ProceedPayment>
                          </div>
-                     </aside>
-                                      
-                    <div className="confirm-payment">
-                        <CheckoutNavigate />
-                        
                     </div>
                 </OrderFormLayout>
             )}
