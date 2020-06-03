@@ -30,7 +30,7 @@ const ItemsOnBagTable = ({ product , deleteFromBag , size }) => {
                             deleteFromBag(idx,size[idx],item.id)}
                         >  REMOVE </ButtonStyled>
                     </td>
-                    <td style={{ paddingLeft: '20px' }}>
+                    <td style={{ padding: '20px' }}>
                         <label>${item.price.toFixed(2)}</label>    
                     </td>
             </tr>
