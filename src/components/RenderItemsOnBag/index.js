@@ -3,10 +3,20 @@ import { Label } from '../Etc/Label'
 import { ButtonStyled } from '../Etc/Reusable'
 import { connect } from 'react-redux'
 import { deleteFromBag } from '../../actions'
+import styled from 'styled-components'
+
+const TableBody = styled.tbody`
+    max-height: 400px;
+    display: block;
+    overflow-y: auto;
+    width: 100%;
+    padding-right: 20px;
+`
 
 const RenderItemsOnBag = ({ product , deleteFromBag , size }) => {
     return (
-        product.map((item,idx) =>
+        <TableBody>
+            {product.map((item,idx) =>
             <tr key={idx}>
                     <td >
                         <img style={{ width: '80px' }} src={item.thumbnail}/>
@@ -25,7 +35,8 @@ const RenderItemsOnBag = ({ product , deleteFromBag , size }) => {
                         <label>${item.price.toFixed(2)}</label>    
                     </td>
             </tr>
-        )
+        )}
+        </TableBody>
     )
 }
 
