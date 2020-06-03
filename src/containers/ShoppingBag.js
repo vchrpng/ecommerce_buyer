@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { deleteFromBag } from '../actions'
-import { Grid , Table } from 'semantic-ui-react'
+import {  Table } from 'semantic-ui-react'
 import ShoppingBagTablePricing from '../components/ShoppingBagTablePricing'
 import RenderItemsOnBag from '../components/RenderItemsOnBag'
 import EmptyBag from '../components/EmptyBag'
 import { ButtonStyled, CustomLink } from '../components/Etc/Reusable'
 import { MessageBox , FadeMessage } from '../components/Etc/RequiredMsg'
-import { Padded , Td } from '../components/Responsive'
+import { Td } from '../components/Responsive'
 import { totalSelector , selectedProducts , selectedSizes } from '../selectors'
 
 class ShoppingBag extends React.Component {
@@ -36,7 +35,7 @@ class ShoppingBag extends React.Component {
     render(){
         const { product , size , total } = this.props
         const haveProduct = product.length ? 
-        <Padded size="medium">
+        <div>
             <Table basic='very' celled unstackable > 
             <Table.Header>
                 <Table.Row>
@@ -67,23 +66,23 @@ class ShoppingBag extends React.Component {
                     </ButtonStyled>
                 </CustomLink>
             </div>
-        </Padded>
+        </div>
                 : <EmptyBag/>
 
         return (
-            <Grid >
+            <div >
            
                 <FadeMessage visible={this.state.showRequired}>
                     <MessageBox>
                         <p>{this.state.text}</p>
                     </MessageBox>
                 </FadeMessage>
-                <Grid.Row>
-                    <Grid.Column>
+                <div>
+                    <div>
                         {haveProduct}
-                    </Grid.Column>
-                </Grid.Row>
-            </Grid>
+                    </div>
+                </div>
+            </div>
         )
     }
 }
