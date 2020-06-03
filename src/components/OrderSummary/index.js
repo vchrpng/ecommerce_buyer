@@ -1,13 +1,22 @@
 import React from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import RenderItemCheckout from '../RenderItemsCheckout'
 import { totalSelector, selectedProducts , selectedSizes } from '../../selectors'
 import RenderCostTotal from '../RenderCostTotal'
 
+const OrderSummaryContainer = styled.section`
+    padding: 20px;
+    background: gray;
+    border-radius:6px;
+    height: fit-content;
+
+`
+
 
 const OrderSummary = ({ products,size,total }) => {
     return (
-        <div>
+        <OrderSummaryContainer>
             <h3> OrderSummary </h3>
             <div style={{
                 borderTop:'1px solid lightgray'}}>
@@ -23,7 +32,7 @@ const OrderSummary = ({ products,size,total }) => {
                     total={total}
                 />
             </div>
-        </div>
+        </OrderSummaryContainer>
     )
 }
 
