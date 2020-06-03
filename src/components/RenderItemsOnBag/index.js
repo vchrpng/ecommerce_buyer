@@ -11,7 +11,7 @@ const RenderItemsOnBag = ({ product , deleteFromBag , size }) => {
                     <td >
                         <img style={{ width: '80px' }} src={item.thumbnail}/>
                     </td>
-                    <td >
+                    <td style={{ width: '200px' }}>
                         <Label weight={'bold'}>{item.title}</Label>
                         <Label weight={'lighter'}>{item.category}</Label>
                         <Label weight={'lighter'}>Size : {size[idx]}</Label>
@@ -21,9 +21,7 @@ const RenderItemsOnBag = ({ product , deleteFromBag , size }) => {
                             deleteFromBag(idx,size[idx],item.id)}
                         >  REMOVE </ButtonStyled>
                     </td>
-                    <td  
-                        textAlign={'right'} 
-                        >
+                    <td style={{ paddingLeft: '20px' }}>
                         <label>${item.price.toFixed(2)}</label>    
                     </td>
             </tr>
