@@ -46,18 +46,16 @@ class ShoppingBag extends React.Component {
         const haveProduct = product.length ? 
         <ShoppingBagContainer>
             <section className="shopping-bag-table">
-                <table basic='very' celled unstackable > 
-                    <tr>
-                        <td
-                            style={{borderLeft:'none'}}>
+                <table> 
+                    <tr style={{ height: '40px' , fontWeight: 'bold'}}>
+                        <th>
                             <label> Product  </label>
-                        </td>
-                        <td style={{borderLeft:'none'}}/>
-                        <td 
-                            textAlign={'right'} 
-                            style={{borderLeft:'none'}}>
+                        </th>
+                        <th/>
+                        <th />
+                        <th>
                             <label> Price  </label>
-                        </td>
+                        </th>
                     </tr>
                     <RenderItemsOnBag
                         size={size}
