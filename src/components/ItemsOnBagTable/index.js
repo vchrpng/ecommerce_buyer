@@ -10,18 +10,17 @@ const TableBody = styled.tbody`
     display: block;
     overflow-y: scroll;
     width: 100%;
-    padding-right: 20px;
 `
 
 const ItemsOnBagTable = ({ product , deleteFromBag , size }) => {
     return (
         <TableBody>
             {product.map((item,idx) =>
-            <tr key={idx}>
+            <tr  style={{ width: '100%' }}key={idx}>
                     <td >
                         <img style={{ width: '80px' }} src={item.thumbnail}/>
                     </td>
-                    <td style={{ width: '200px' }}>
+                    <td style={{ width: '100%' }}>
                         <Label weight={'bold'}>{item.title}</Label>
                         <Label weight={'lighter'}>{item.category}</Label>
                         <Label weight={'lighter'}>Size : {size[idx]}</Label>
