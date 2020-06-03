@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router-dom'
 import styled from 'styled-components'
-
+import GlobalStyled from '../globalStyled'
 import ShoppingBag from './ShoppingBag'
 import Shop from './Shop'
 import Product from './Product'
@@ -23,6 +23,8 @@ class App extends Component {
   render() {
     
       return (
+        <React.Fragment>
+           <GlobalStyled />
             <Router>
               <Layout>
                     <Route exact path="/" component={Shop}/>
@@ -34,6 +36,7 @@ class App extends Component {
                     <Route path="/account/myaccount" component={Account} />
               </Layout>
             </Router>
+        </React.Fragment>
       )
   }
 }
