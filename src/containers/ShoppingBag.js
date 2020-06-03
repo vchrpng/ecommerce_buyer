@@ -7,14 +7,14 @@ import ShoppingBagTotalPrice from '../components/ShoppingBagTotalPrice'
 import RenderItemsOnBag from '../components/RenderItemsOnBag'
 import EmptyBag from '../components/EmptyBag'
 import { ButtonStyled, CustomLink } from '../components/Etc/Reusable'
-import { MessageBox , FadeMessage } from '../components/Etc/RequiredMsg'
 import { totalSelector , selectedProducts , selectedSizes } from '../selectors'
 
 const ShoppingBagContainer = styled.div`
     width: 400px;
     
     .shopping-bag-table {
-
+        padding-bottom: 10px;
+        border-bottom: 1px solid lightgray;
     }
 
 
@@ -47,16 +47,16 @@ class ShoppingBag extends React.Component {
         <ShoppingBagContainer>
             <section className="shopping-bag-table">
                 <table> 
-                    <tr style={{ height: '40px' , fontWeight: 'bold'}}>
-                        <th>
-                            <label> Product  </label>
-                        </th>
-                        <th/>
-                        <th />
-                        <th>
-                            <label> Price  </label>
-                        </th>
-                    </tr>
+                    <thead style={{ display: 'block' }}>
+                        <tr style={{ height: '40px' , paddingRight:' 40px', fontWeight: 'bold', display: 'flex', justifyContent: 'space-between'}}>
+                            <th colSpan={3}>
+                                <label> Product  </label>
+                            </th>
+                            <th>
+                                <label> Price  </label>
+                            </th>
+                        </tr>
+                    </thead>
                     <RenderItemsOnBag
                         size={size}
                         product={product}
