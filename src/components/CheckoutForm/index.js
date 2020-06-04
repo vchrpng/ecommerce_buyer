@@ -76,35 +76,42 @@ const CheckoutForm = () => {
         >
             {({ isSubmitting, handleSubmit, errors, touched }) => (
                 <OrderFormLayout>
-                    <aside>
+                    <aside className="customer-invoice">
                     <h4>Customer Information</h4>
                     <div style={{ height: '100px' }}>
 
                     </div>
                     <h4>Delivery Address</h4>
-                    <ul>{initialValues.shipping.map((address) => (
-                        <li>
-                            <p>{address.line1}</p>
-                            <p>{address.city}</p>
-                            <p>{address.state}</p>
-                            <p>{address.country}</p>
-                        </li>
-                    ))}</ul>
-                    <div>
-                        <button
-                            style={{
-                                width: '100px',
-                                height: '80px',
-                                background: 'lightgray',
-                                border: 'none',
-                                borderRadius: '4px',
-                                padding: '10px'
-                            }}
-                        onClick={() => toggleDeliveryForm(true)}>ADD ADDRESS
-                        </button>
+                    <div className="shipping-adress-selector">
+                        <ul>{initialValues.shipping.map((address) => (
+                            <li
+                                className="address-box"
+                             style={{
+                                width: '180px',
+                                background: 'gray',
+                                padding: '20px',
+                            }}>
+                                <p>{address.line1}</p>
+                                <p>{address.city}</p>
+                                <p>{address.state}</p>
+                                <p>{address.country}</p>
+                            </li>
+                        ))}</ul>
+                        <div className="more-address">
+                            <button
+                                className="add-address-btn"
+                                style={{
+                                    width: '100px',
+                                    height: '80px',
+                                    background: 'lightgray',
+                                    border: 'none',
+                                    borderRadius: '4px',
+                                    padding: '10px'
+                                }}
+                            onClick={() => toggleDeliveryForm(true)}>ADD ADDRESS
+                            </button>
+                        </div>
                     </div>
-                    
-
                     </aside>
 
                     {isDeliveryFormOpen && 
