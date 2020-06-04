@@ -7,6 +7,27 @@ export const OrderFormLayout = styled.div`
 
     .shipping-adress-selector {
         display:flex;
+
+        .more-address {
+            
+            .add-address-btn {
+                width: 100px;
+                height: 80px;
+                background: lightgray;
+                border: none;
+                border-radius: 4px;
+                padding: 10px;
+            }
+        }
+
+        ul {
+            .address-box {
+                width: 180px;
+                background: gray;
+                padding: 20px;
+                margin-right:10px;
+            }
+        }
     }
 
     .payment-method {
@@ -25,7 +46,7 @@ export const OrderFormLayout = styled.div`
                     align-items:center;
                     background:lightgray;
                 }
-                
+
                 .credit-card {
                     padding: 20px 0;
                 }
