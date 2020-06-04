@@ -5,4 +5,11 @@ body ::-webkit-scrollbar-track {
   background: rgb(0,0,0,0); 
 }
 
+body {
+  ul {
+    padding:0;
+    margin:0;
+    list-style:none;
+  }
+}
 `
