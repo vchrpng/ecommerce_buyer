@@ -5,15 +5,18 @@ export const OrderFormLayout = styled.div`
     width:100%;
     padding: 20px;
 
+    .shipping-adress-selector {
+        display:flex;
+    }
+
     .payment-method {
             width:100%;
             display: flex;
             justify-content: space-between;
             flex-direction: column;
 
-
-
             .invoice-detail {
+
                 .payment-choice {
                     width: 120px;
                     height: 85px;
@@ -22,6 +25,7 @@ export const OrderFormLayout = styled.div`
                     align-items:center;
                     background:lightgray;
                 }
+                
                 .credit-card {
                     padding: 20px 0;
                 }
