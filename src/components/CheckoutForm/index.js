@@ -84,13 +84,7 @@ const CheckoutForm = () => {
                     <h4>Delivery Address</h4>
                     <div className="shipping-adress-selector">
                         <ul>{initialValues.shipping.map((address) => (
-                            <li
-                                className="address-box"
-                             style={{
-                                width: '180px',
-                                background: 'gray',
-                                padding: '20px',
-                            }}>
+                            <li className="address-box">
                                 <p>{address.line1}</p>
                                 <p>{address.city}</p>
                                 <p>{address.state}</p>
@@ -100,15 +94,8 @@ const CheckoutForm = () => {
                         <div className="more-address">
                             <button
                                 className="add-address-btn"
-                                style={{
-                                    width: '100px',
-                                    height: '80px',
-                                    background: 'lightgray',
-                                    border: 'none',
-                                    borderRadius: '4px',
-                                    padding: '10px'
-                                }}
-                            onClick={() => toggleDeliveryForm(true)}>ADD ADDRESS
+                                
+                                onClick={() => toggleDeliveryForm(true)}>ADD ADDRESS
                             </button>
                         </div>
                     </div>
