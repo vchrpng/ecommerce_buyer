@@ -23,9 +23,10 @@ export const OrderFormLayout = styled.div`
         ul {
             .address-box {
                 width: 180px;
-                background: gray;
+                border: 2px solid gray;
                 padding: 20px;
                 margin-right:10px;
+                border-radius: 4px;
             }
         }
     }
@@ -82,7 +83,7 @@ export const OrderFormLayout = styled.div`
 
     .confirm-payment {
         display: flex;
-        margin: 25px 0;
+        margin-top: 15px;
 
         .pay-button {
                 margin-bottom: 20px;
