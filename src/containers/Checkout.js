@@ -16,6 +16,9 @@ const CheckOutPageContainer = styled.div`
     max-width: 800px;
     display: flex;
     justify-content: center;
+    margin-top: 30px;
+    border-radius:20px;
+    box-shadow: 0px 0px 26px -8px rgba(0,0,0,0.75);
 
     @media only screen and (max-width : 750px){
             flex-direction: column-reverse;
