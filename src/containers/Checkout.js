@@ -11,12 +11,15 @@ import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_SECRET);
 
 const CheckOutPageContainer = styled.div`
-    height: 100vh;
     margin:0 auto;
     padding:20px; 
     max-width: 800px;
     display: flex;
     justify-content: center;
+
+    @media only screen and (max-width : 750px){
+            flex-direction: column-reverse;
+    }
 `
 
 const Checkout = ({ checkout , history , isAuthenticated }) => {
