@@ -12,7 +12,6 @@ const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_SECRET);
 
 const CheckOutPageContainer = styled.div`
     margin:0 auto;
-    padding:20px; 
     max-width: 800px;
     display: flex;
     justify-content: center;
