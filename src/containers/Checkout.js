@@ -2,6 +2,7 @@ import React from 'react'
 import CheckoutForm from '../components/CheckoutForm'
 import { connect } from 'react-redux'
 import { checkout } from '../actions'
+import styled from 'styled-components'
 // import { Redirect } from 'react-router-dom'
 import OrderSummary from '../components/OrderSummary'
 import { Elements } from '@stripe/react-stripe-js';
@@ -9,7 +10,9 @@ import { loadStripe } from '@stripe/stripe-js';
 
 const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_SECRET);
 
+const CheckOutPageContainer = styled.div`
 
+`
 
 const Checkout = ({ checkout , history , isAuthenticated }) => {
       const submit = data => {
@@ -18,7 +21,7 @@ const Checkout = ({ checkout , history , isAuthenticated }) => {
         // if(isAuthenticated){
             return (
                 <Elements stripe={stripePromise}>
-                    <div style={{
+                    <CheckOutPageContainer style={{
                     height: '100vh',
                     margin:'0 auto',
                     padding:'20px', 
@@ -30,7 +33,7 @@ const Checkout = ({ checkout , history , isAuthenticated }) => {
                     <CheckoutForm submit={submit}/>
                     <OrderSummary 
                         />
-                </div>      
+                </CheckOutPageContainer>      
                 </Elements>
                 
             )
