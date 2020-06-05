@@ -115,8 +115,14 @@ const CheckoutForm = () => {
                         <aside className="payment-method">
                          <div className="invoice-detail">
                             <div className="payment-choice">
-                                <input name="credit-card-checked" checked={true} type="checkbox" />
-                                <label for="credit-card-checked">Credit Card</label>
+                                <div className="credit-card-selector">
+                                    <input name="credit-card-checked" checked={true} type="checkbox" />
+                                    <label for="credit-card-checked">Credit Card</label>
+                                </div>
+                                <div className="paypal-selector">
+                                    <input name="paypal-checked" checked={true} type="checkbox" />
+                                    <label for="paypal-checked">Credit Card</label>
+                                </div>
                             </div>
                              <div className="credit-card">
                                  <CardElement options={{
