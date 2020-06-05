@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const OrderFormLayout = styled.div`
-    margin-top:20px;
     width:100%;
     padding: 20px;
+    margin-right:40px;
 
     .shipping-adress-selector {
         display:flex;
@@ -86,6 +86,7 @@ export const OrderFormLayout = styled.div`
 
         .pay-button {
                 margin-bottom: 20px;
+                width: 100%;
 
                 .secure-icon {
                     width: 15px;
