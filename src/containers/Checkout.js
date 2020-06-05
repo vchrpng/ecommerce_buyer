@@ -11,7 +11,12 @@ import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe(process.env.REACT_APP_PUBLISH_SECRET);
 
 const CheckOutPageContainer = styled.div`
-
+    height: 100vh;
+    margin:0 auto;
+    padding:20px; 
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
 `
 
 const Checkout = ({ checkout , history , isAuthenticated }) => {
@@ -21,19 +26,11 @@ const Checkout = ({ checkout , history , isAuthenticated }) => {
         // if(isAuthenticated){
             return (
                 <Elements stripe={stripePromise}>
-                    <CheckOutPageContainer style={{
-                    height: '100vh',
-                    margin:'0 auto',
-                    padding:'20px', 
-                    maxWidth: '800px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    // alignItems: 'center'
-                }}> 
-                    <CheckoutForm submit={submit}/>
-                    <OrderSummary 
-                        />
-                </CheckOutPageContainer>      
+                    <CheckOutPageContainer> 
+                        <CheckoutForm submit={submit}/>
+                        <OrderSummary 
+                            />
+                    </CheckOutPageContainer>      
                 </Elements>
                 
             )
