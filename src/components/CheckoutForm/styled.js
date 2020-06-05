@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const OrderFormLayout = styled.div`
     width:100%;
-    padding: 20px 40px 20px 20px;
-    border-right:1px solid lightgray;
+    padding: 20px 40px;
+    border-right:1px solid #f8f8f8;
 
     .shipping-adress-selector {
         display:flex;
@@ -40,12 +40,16 @@ export const OrderFormLayout = styled.div`
             .invoice-detail {
 
                 .payment-choice {
-                    width: 120px;
-                    height: 85px;
                     display:flex;
-                    justify-content: center;
-                    align-items:center;
-                    background:lightgray;
+                    
+                    .credit-card-selector, .paypal-selector {
+                        width: 100%;
+                        height: 85px;
+                        display:flex;
+                        justify-content: center;
+                        align-items:center;
+                        border:1px solid #f3f3f3;
+                    }
                 }
 
                 .credit-card {
