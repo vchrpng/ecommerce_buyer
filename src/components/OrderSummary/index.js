@@ -10,7 +10,7 @@ const OrderSummaryContainer = styled.section`
     background: gray;
     border-radius:6px;
     height: fit-content;
-
+    min-width:300px;
 `
 
 
