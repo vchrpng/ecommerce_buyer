@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const OrderFormLayout = styled.div`
     width:100%;
-    padding: 20px;
-    margin-right:40px;
+    padding: 20px 40px 20px 20px;
+    border-right:1px solid lightgray;
 
     .shipping-adress-selector {
         display:flex;
@@ -11,8 +11,8 @@ export const OrderFormLayout = styled.div`
         .more-address {
             
             .add-address-btn {
-                width: 100px;
-                height: 80px;
+                width: 80px;
+                height: 100%;
                 background: lightgray;
                 border: none;
                 border-radius: 4px;

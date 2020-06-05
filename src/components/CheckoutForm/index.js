@@ -95,7 +95,7 @@ const CheckoutForm = () => {
                             <button
                                 className="add-address-btn"
                                 
-                                onClick={() => toggleDeliveryForm(true)}>ADD ADDRESS
+                                onClick={() => toggleDeliveryForm(true)}>+
                             </button>
                         </div>
                     </div>
