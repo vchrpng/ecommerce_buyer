@@ -42,9 +42,14 @@ export const OrderFormLayout = styled(Form)`
             .address-box {
                 width: 180px;
                 border: 2px solid gray;
-                padding: 20px;
+                padding: 10px 20px;
                 margin-right:10px;
                 border-radius: 4px;
+                font-size:10px;
+
+                p {
+                    margin-bottom:5px;
+                }
             }
         }
     }

@@ -24,6 +24,7 @@ const initialValues = {
     province: 'bkk',
     country:'th',
     shipping: [{
+        type: 'Work',
         line1: '543 Amherst Street',
         city: 'Nashua',
         state: 'New Hampshire',
@@ -80,7 +81,7 @@ const CheckoutForm = () => {
                 <OrderFormLayout>
                     <aside className="customer-invoice">
                     <h4>Customer Information</h4>
-                    <div style={{ height: '100px' }}>
+                    <div className="customer-info">
                     <ErrorMessage name="name" />
                          <InputText name={'name'}
                              placeholder={'Full name'}
@@ -95,6 +96,7 @@ const CheckoutForm = () => {
                     <div className="shipping-adress-selector">
                         <ul>{initialValues.shipping.map((address) => (
                             <li className="address-box">
+                                <h4>{address.type}</h4>
                                 <p>{address.line1}</p>
                                 <p>{address.city}</p>
                                 <p>{address.state}</p>
@@ -104,7 +106,6 @@ const CheckoutForm = () => {
                         <div className="more-address">
                             <button
                                 className="add-address-btn"
-                                
                                 onClick={() => toggleDeliveryForm(true)}>+
                             </button>
                         </div>
