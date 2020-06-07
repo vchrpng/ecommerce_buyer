@@ -3,9 +3,10 @@ import { ProceedPayment } from '../Etc/Reusable'
 import CheckoutNavigate from '../CheckoutNavigate'
 import validationSchema from './validate'
 import { connect } from 'react-redux'
-import { Formik, Form, 
+import { Formik, 
     ErrorMessage
  } from 'formik'
+import { InputText } from '../Etc/Checkout'
 import { submitOrder } from '../../actions'
 import { OrderFormLayout } from './styled'
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
@@ -79,7 +80,15 @@ const CheckoutForm = () => {
                     <aside className="customer-invoice">
                     <h4>Customer Information</h4>
                     <div style={{ height: '100px' }}>
-
+                    <ErrorMessage name="name" />
+                         <InputText name={'name'}
+                             placeholder={'Full name'}
+                             type={'text'}
+                         />
+                         <InputText name={'phone'}
+                             placeholder={'Phone'}
+                             type={'text'}
+                         />
                     </div>
                     <h4>Delivery Address</h4>
                     <div className="shipping-adress-selector">
