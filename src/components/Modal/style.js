@@ -40,7 +40,7 @@ export const ModalWrapper = styled.div`
         .box-content {
             padding: 30px 24px 35px 24px;
             width: 100%;
-            height:100%
+            height:fit-content;
         }
 
         .box-body {
@@ -55,7 +55,7 @@ export const ModalWrapper = styled.div`
         width:420px;
 
         .box-dialog {
-            height: 560px;
+            height: fit-content;
         }
     }
 `;

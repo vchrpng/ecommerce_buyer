@@ -12,6 +12,7 @@ const CurrentProductWrapper = styled.div`
 
     .product-img-slider {
         max-width:300px;
+        margin: 0 auto;
     }
 
     .product-detail {
@@ -26,10 +27,13 @@ const CurrentProductWrapper = styled.div`
     @media only screen and (max-width : 750px){
             flex-direction:column;
 
+
+
             .product-detail {
                 width: 100%;
                 max-width: 100%;
                 text-align:center;
+                margin-top: 40px;
             }
     }
 `
