@@ -8,12 +8,13 @@ import { Formik,
  } from 'formik'
 import { InputText } from '../Etc/Checkout'
 import { submitOrder } from '../../actions'
-import { OrderFormLayout } from './styled'
+import { OrderFormLayout, PaymentSelector } from './styled'
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import ShippingAddressForm from '../ShippingAddressForm'
 import Modal from '../Modal'
 
-const lockIcon = require('../../assets/lock.svg') 
+const lockIcon = require('../../assets/lock.svg')
+
 
 const initialValues = {
     name:'joe',
@@ -124,14 +125,14 @@ const CheckoutForm = () => {
                         <aside className="payment-method">
                          <div className="invoice-detail">
                             <div className="payment-choice">
-                                <div className="credit-card-selector">
+                                <PaymentSelector selected={1}>
                                     <input name="credit-card-checked" checked={true} type="checkbox" />
                                     <label for="credit-card-checked">Credit Card</label>
-                                </div>
-                                <div className="paypal-selector">
+                                </PaymentSelector>
+                                <PaymentSelector disable={1}>
                                     <input name="paypal-checked" checked={true} type="checkbox" />
-                                    <label for="paypal-checked">Credit Card</label>
-                                </div>
+                                    <label for="paypal-checked">Paypal</label>
+                                </PaymentSelector>
                             </div>
                              <div className="credit-card">
                                  <CardElement options={{

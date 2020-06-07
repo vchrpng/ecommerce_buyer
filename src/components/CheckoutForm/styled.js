@@ -1,6 +1,17 @@
 import styled from 'styled-components'
 import { Form } from 'formik'
 
+export const PaymentSelector = styled.div`
+    pointer-events:${props => props.disabled ? 'none' : 'auto'};
+    width: 100%;
+    height: 85px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    border:1px solid ${props => props.selected ? 'blue' : '#f3f3f3'};
+`
+
+
 export const OrderFormLayout = styled(Form)`
     width:100%;
     padding: 20px 40px;
@@ -45,14 +56,7 @@ export const OrderFormLayout = styled(Form)`
                 .payment-choice {
                     display:flex;
                     
-                    .credit-card-selector, .paypal-selector {
-                        width: 100%;
-                        height: 85px;
-                        display:flex;
-                        justify-content: center;
-                        align-items:center;
-                        border:1px solid #f3f3f3;
-                    }
+ 
                 }
 
                 .credit-card {
