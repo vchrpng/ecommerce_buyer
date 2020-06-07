@@ -1,7 +1,5 @@
 import React from 'react'
-import { Formik, Form, 
-    ErrorMessage
- } from 'formik'
+import { Formik, Form } from 'formik'
  import { InputText } from '../Etc/Checkout'
 
 
@@ -17,15 +15,7 @@ const ShippingAddressForm = () => {
                  <div className="checkout-box">
                      <aside className="shipping-destination">
                          <h3>Delivery Address</h3>
-                         <ErrorMessage name="name" />
-                         <InputText name={'name'}
-                             placeholder={'Full name'}
-                             type={'text'}
-                         />
-                         <InputText name={'phone'}
-                             placeholder={'Phone'}
-                             type={'text'}
-                         />
+                         
                          <div className="input-group">
                              <InputText name={'city'}
                                  placeholder={'City'}
