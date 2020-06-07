@@ -12,12 +12,14 @@ export const OrderFormLayout = styled(Form)`
         .more-address {
             
             .add-address-btn {
-                width: 80px;
+                width: 60px;
                 height: 100%;
                 background: lightgray;
                 border: none;
                 border-radius: 4px;
                 padding: 10px;
+                font-size:30px;
+                color:gray;
             }
         }
 
