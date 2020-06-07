@@ -2,13 +2,17 @@ import styled from 'styled-components'
 import { Form } from 'formik'
 
 export const PaymentSelector = styled.div`
+    &:nth-child(1) {
+        margin-right:15px;
+    }
     pointer-events:${props => props.disabled ? 'none' : 'auto'};
+    border-radius:4px;
     width: 100%;
     height: 85px;
     display:flex;
     justify-content: center;
     align-items:center;
-    border:1px solid ${props => props.selected ? 'blue' : '#f3f3f3'};
+    border:3px solid ${props => props.selected ? 'blue' : '#f3f3f3'};
 `
 
 
