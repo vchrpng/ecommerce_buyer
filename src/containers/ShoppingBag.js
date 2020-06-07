@@ -11,6 +11,10 @@ import { totalSelector , selectedProducts , selectedSizes } from '../selectors'
 
 const ShoppingBagContainer = styled.div`
     width: 500px;
+
+    @media only screen and (max-width : 750px){
+        width:90vw;
+    }
     
     .shopping-bag-table {
         padding-bottom: 10px;
