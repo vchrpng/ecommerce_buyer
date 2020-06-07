@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { Form } from 'formik'
 
-export const OrderFormLayout = styled.div`
+export const OrderFormLayout = styled(Form)`
     width:100%;
     padding: 20px 40px;
     border-right:1px solid #f8f8f8;
