@@ -6,7 +6,7 @@ import { totalSelector, selectedProducts , selectedSizes } from '../../selectors
 import RenderCostTotal from '../RenderCostTotal'
 
 const OrderSummaryContainer = styled.section`
-    padding: 20px;
+    padding: 40px;
     background: #fbfbfb;
     border-radius:6px;
     min-width:300px;
