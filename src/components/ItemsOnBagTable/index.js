@@ -10,6 +10,12 @@ const TableBody = styled.tbody`
     display: block;
     overflow-y: scroll;
     width: 100%;
+
+    @media only screen and (max-width : 750px){
+        .product-in-bag {
+            /* display:none; */
+        }
+    }
 `
 
 const ItemsOnBagTable = ({ product , deleteFromBag , size }) => {
@@ -20,7 +26,7 @@ const ItemsOnBagTable = ({ product , deleteFromBag , size }) => {
                     <td >
                         <img style={{ width: '80px' }} src={item.thumbnail}/>
                     </td>
-                    <td style={{ width: '100%' }}>
+                    <td className="product-in-bag" style={{ width: '100%' }}>
                         <Label weight={'bold'}>{item.title}</Label>
                         <Label weight={'lighter'}>{item.category}</Label>
                         <Label weight={'lighter'}>Size : {size[idx]}</Label>
