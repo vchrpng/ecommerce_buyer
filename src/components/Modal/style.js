@@ -29,6 +29,7 @@ export const ModalWrapper = styled.div`
     }
 
     .box-dialog {
+        transform:translateY(${props => props.verticalHeight}px);
         border-radius: 3px;
         z-index: 1050;
         width: 100%;

@@ -34,6 +34,7 @@ const Modal = ({ isOpen, onClose, size, children, header }) => {
     }
         return ReactDom.createPortal(
         <ModalWrapper
+            verticalHeight={window.pageYOffset}
             modalSize={size}
             isOpen={open}
         >
