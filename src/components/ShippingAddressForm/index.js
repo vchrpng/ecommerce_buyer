@@ -1,6 +1,7 @@
 import React from 'react'
-import { Formik, Form } from 'formik'
+import { Formik, Form, ErrorMessage } from 'formik'
  import { InputText } from '../Etc/Checkout'
+ import { ProceedPayment } from '../Etc/Reusable'
 
 
 const ShippingAddressForm = () => {
@@ -13,9 +14,20 @@ const ShippingAddressForm = () => {
                     //  }
                      >
                  <div className="checkout-box">
-                     <aside className="shipping-destination">
-                         <h3>Delivery Address</h3>
-                         
+                     <section className="shipping-destination">
+                         <h3>New Delivery Address</h3>
+                         <div className="input-group">
+                            <h4>Customer Information</h4>
+                            <ErrorMessage name="name" />
+                                <InputText name={'name'}
+                                    placeholder={'Full name'}
+                                    type={'text'}
+                                />
+                                <InputText name={'phone'}
+                                    placeholder={'Phone'}
+                                    type={'text'}
+                                />
+                         </div>
                          <div className="input-group">
                              <InputText name={'city'}
                                  placeholder={'City'}
@@ -38,7 +50,10 @@ const ShippingAddressForm = () => {
                                  type={'text'}
                              />
                          </div>
-                     </aside>
+                     </section>
+                     <section>
+                         <ProceedPayment>Submit</ProceedPayment>
+                     </section>
                      
                  </div>
                  

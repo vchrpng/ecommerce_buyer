@@ -80,18 +80,7 @@ const CheckoutForm = () => {
             {({ isSubmitting, handleSubmit, errors, touched }) => (
                 <OrderFormLayout>
                     <aside className="customer-invoice">
-                    <h4>Customer Information</h4>
-                    <div className="customer-info">
-                    <ErrorMessage name="name" />
-                         <InputText name={'name'}
-                             placeholder={'Full name'}
-                             type={'text'}
-                         />
-                         <InputText name={'phone'}
-                             placeholder={'Phone'}
-                             type={'text'}
-                         />
-                    </div>
+                  
                     <h4>Delivery Address</h4>
                     <div className="shipping-adress-selector">
                         <ul>{initialValues.shipping.map((address,idx) => (
