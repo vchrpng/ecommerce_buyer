@@ -5,7 +5,9 @@ export const PaymentSelector = styled.div`
     &:nth-child(1) {
         margin-right:15px;
     }
-    pointer-events:${props => props.disabled ? 'none' : 'auto'};
+    cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
+    display:flex;
+    flex-direction: column;
     border-radius:4px;
     width: 100%;
     height: 85px;
@@ -13,6 +15,11 @@ export const PaymentSelector = styled.div`
     justify-content: center;
     align-items:center;
     border:3px solid ${props => props.selected ? 'blue' : '#f3f3f3'};
+
+    > input,label {
+        pointer-events:none;
+        cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
+    }
 `
 
 
