@@ -8,7 +8,7 @@ import { Formik,
  } from 'formik'
 import { InputText } from '../Etc/Checkout'
 import { submitOrder } from '../../actions'
-import { OrderFormLayout, PaymentSelector } from './styled'
+import { OrderFormLayout, PaymentSelector, AddressBox } from './styled'
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import ShippingAddressForm from '../ShippingAddressForm'
 import Modal from '../Modal'
@@ -94,14 +94,14 @@ const CheckoutForm = () => {
                     </div>
                     <h4>Delivery Address</h4>
                     <div className="shipping-adress-selector">
-                        <ul>{initialValues.shipping.map((address) => (
-                            <li className="address-box">
+                        <ul>{initialValues.shipping.map((address,idx) => (
+                            <AddressBox index={idx} selected={idx === 0 ? 1 : 0}>
                                 <h4>{address.type}</h4>
                                 <p>{address.line1}</p>
                                 <p>{address.city}</p>
                                 <p>{address.state}</p>
                                 <p>{address.country}</p>
-                            </li>
+                            </AddressBox>
                         ))}</ul>
                         <div className="more-address">
                             <button

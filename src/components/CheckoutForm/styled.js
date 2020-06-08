@@ -1,15 +1,32 @@
 import styled from 'styled-components'
 import { Form } from 'formik'
 
+export const AddressBox = styled.li`
+    width: 180px;
+    border: 2px solid ${props => props.selected ? 'lightblue' : 'gray'};
+    box-shadow: ${props => props.selected ? '0px 0px 5px -1px lightblue' : 'none'};
+    padding: 10px 20px;
+    margin-right:10px;
+    border-radius: 4px;
+    font-size:10px;
+    color: rgb(0,0,0,0.7);
+
+    p {
+        margin-bottom:5px;
+    }
+
+`
+
 export const PaymentSelector = styled.div`
     font-size:12px;
-    color: rgb(0,0,0,0.5);
+    color: rgb(0,0,0,0.7);
     &:nth-child(1) {
         margin-right:15px;
     }
     > input {
         margin-bottom: 5px;
     }
+    opacity:${props => props.disabled ? 0.5 : 1};
     cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
     display:flex;
     flex-direction: column;
@@ -54,16 +71,7 @@ export const OrderFormLayout = styled(Form)`
 
         ul {
             .address-box {
-                width: 180px;
-                border: 2px solid gray;
-                padding: 10px 20px;
-                margin-right:10px;
-                border-radius: 4px;
-                font-size:10px;
-
-                p {
-                    margin-bottom:5px;
-                }
+               
             }
         }
     }
