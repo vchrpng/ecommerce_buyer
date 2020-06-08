@@ -27,7 +27,7 @@ export const OrderFormLayout = styled(Form)`
         .more-address {
             
             .add-address-btn {
-                width: 60px;
+                width: 45px;
                 height: 100%;
                 background: lightgray;
                 border: none;
@@ -35,6 +35,7 @@ export const OrderFormLayout = styled(Form)`
                 padding: 10px;
                 font-size:30px;
                 color:gray;
+                cursor:pointer;
             }
         }
 
