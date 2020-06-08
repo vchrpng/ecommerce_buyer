@@ -130,8 +130,8 @@ const CheckoutForm = () => {
                                     <input name="credit-card-checked" checked={true} type="radio" />
                                     <label for="credit-card-checked">Credit Card</label>
                                 </PaymentSelector>
-                                <PaymentSelector disable={1}>
-                                    <input name="paypal-checked"  type="radio" />
+                                <PaymentSelector disabled={1}>
+                                    <input name="paypal-checked" disabled={true} type="radio" />
                                     <label for="paypal-checked">Paypal</label>
                                 </PaymentSelector>
                             </div>
