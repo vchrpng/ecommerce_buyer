@@ -2,8 +2,13 @@ import styled from 'styled-components'
 import { Form } from 'formik'
 
 export const PaymentSelector = styled.div`
+    font-size:12px;
+    color: rgb(0,0,0,0.5);
     &:nth-child(1) {
         margin-right:15px;
+    }
+    > input {
+        margin-bottom: 5px;
     }
     cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
     display:flex;
@@ -14,7 +19,8 @@ export const PaymentSelector = styled.div`
     display:flex;
     justify-content: center;
     align-items:center;
-    border:3px solid ${props => props.selected ? 'blue' : '#f3f3f3'};
+    border:2px solid ${props => props.selected ? 'lightblue' : '#f3f3f3'};
+    box-shadow: ${props => props.selected ? '0px 0px 5px -1px lightblue' : 'none'};
 
     > input,label {
         pointer-events:none;
