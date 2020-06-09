@@ -127,10 +127,9 @@ export const OrderFormLayout = styled(Form)`
 
     .confirm-payment {
         display: flex;
-        margin-top: 15px;
+        margin-top: 25px;
 
         .pay-button {
-                margin-bottom: 20px;
                 width: 100%;
 
                 .secure-icon {
