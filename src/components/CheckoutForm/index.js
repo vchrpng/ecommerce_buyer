@@ -117,10 +117,10 @@ const CheckoutForm = () => {
                          <div className="invoice-detail">
                             <div className="payment-choice">
                                 <PaymentSelector selected={1}>
-                                    <img src={creditCards} />
+                                    <img style={{ width: '125px' }} src={creditCards} />
                                 </PaymentSelector>
                                 <PaymentSelector disabled={1}>
-                                    <img src={paypalIcon} />
+                                    <img style={{ width: '80px' }} src={paypalIcon} />
                                 </PaymentSelector>
                             </div>
                              <div className="credit-card">
