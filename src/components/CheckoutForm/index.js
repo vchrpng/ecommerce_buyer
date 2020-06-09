@@ -7,45 +7,15 @@ import { Formik } from 'formik'
 import { submitOrder } from '../../actions'
 import { OrderFormContainer, PaymentSelector, AddressBox } from './styled'
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
-import ShippingAddressForm from '../ShippingAddressForm'
-import Modal from '../Modal'
+import DeliveryAddress from '../DeliveryAddress'
 
 const lockIcon = require('../../assets/lock.svg')
 const creditCards = require('../../assets/Minimal Credit Card Icons.svg')
 const paypalIcon = require('../../assets/paypal.svg')
 
-const initialValues = {
-    name:'joe',
-    phone:'09203912',
-    city:'bkk',
-    line1: '',
-    province: 'bkk',
-    country:'th',
-    shipping: [{
-        type: 'Work',
-        line1: '543 Amherst Street',
-        city: 'Nashua',
-        state: 'New Hampshire',
-        country: 'United States',
-    }]
-}
 const CheckoutForm = () => {
     const elements = useElements();
     const stripe = useStripe();
-
-    const [devlieryFormData,setDeliveryFormData] = React.useState({
-                    // name: '',
-                    // address: {
-                        line1: '543 Amherst Street',
-                        city: 'Nashua',
-                        state: 'New Hampshire',
-                        country: 'United States',
-                    // },
-                    // phone: ''
-    })
-
-    const [isDeliveryFormOpen, toggleDeliveryForm] = React.useState(false)
-
 
 
     async function onSubmit (values) {
@@ -71,44 +41,13 @@ const CheckoutForm = () => {
 
     return (
         <Formik
-            initialValues={initialValues}
             onSubmit={onSubmit}
             validationSchema={validationSchema}
         >
             {({ isSubmitting, handleSubmit, errors, touched }) => (
                 <OrderFormContainer>
                     <div className="checkout-form-layout">
-                        <section className="customer-invoice">
-                    
-                            <h4>Delivery Address</h4>
-                            <div className="shipping-adress-selector">
-                                <ul>{initialValues.shipping.map((address,idx) => (
-                                    <AddressBox index={idx} selected={idx === 0 ? 1 : 0}>
-                                        <h4>{address.type}</h4>
-                                        <p>{address.line1}</p>
-                                        <p>{address.city}</p>
-                                        <p>{address.state}</p>
-                                        <p>{address.country}</p>
-                                    </AddressBox>
-                                ))}</ul>
-                                <div className="more-address">
-                                    <button
-                                        className="add-address-btn"
-                                        onClick={() => toggleDeliveryForm(true)}>+
-                                    </button>
-                                </div>
-                            </div>
-                        </section>
-
-                        {isDeliveryFormOpen && 
-                            <Modal
-                                id="modal"
-                                isOpen={isDeliveryFormOpen}
-                                onClose={toggleDeliveryForm}
-                                header="Delivery Address"
-                            >
-                                <ShippingAddressForm onSubmit={setDeliveryFormData} />
-                            </Modal>}
+                            <DeliveryAddress />
                             <h4>Payment details</h4>
 
                             <section className="payment-method">
