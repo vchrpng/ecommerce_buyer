@@ -12,39 +12,46 @@ const OrderSummaryContainer = styled.section`
     min-width:300px;
     max-width:620px;
 
+    .order-summary-layout {
+
+        .order-summary-table {
+
+            .items-to-checkout {
+                border-top:1px solid #f3f3f3;
+                min-height:300px;
+            }
+
+            .order-total-price {
+                border-bottom: 1px solid #f3f3f3;
+            }
+        }
+    }
+
     @media only screen and (max-width : 750px){
             max-width:100%;
     }
 
-    .order-summary-table {
 
-        .items-to-checkout {
-            border-top:1px solid #f3f3f3;
-            min-height:300px;
-        }
-
-        .order-total-price {
-            border-bottom: 1px solid #f3f3f3;
-        }
-    }
 `
 
 
 const OrderSummary = ({ products,size,total }) => {
     return (
         <OrderSummaryContainer>
-            <h3> OrderSummary </h3>
-            <div className="order-summary-table"> 
-                <div className="items-to-checkout">
-                    <RenderItemCheckout 
-                        products={products}
-                        size={size}
-                    />
-                </div>
-                <div className="order-total-price">
-                    <RenderCostTotal 
-                        total={total}
-                    />
+            <div className="order-summary-layout">
+                <h3> OrderSummary </h3>
+                <div className="order-summary-table"> 
+                    <div className="items-to-checkout">
+                        <RenderItemCheckout 
+                            products={products}
+                            size={size}
+                        />
+                    </div>
+                    <div className="order-total-price">
+                        <RenderCostTotal 
+                            total={total}
+                        />
+                    </div>
                 </div>
             </div>
         </OrderSummaryContainer>

@@ -3,12 +3,9 @@ import { ProceedPayment } from '../Etc/Reusable'
 import CheckoutNavigate from '../CheckoutNavigate'
 import validationSchema from './validate'
 import { connect } from 'react-redux'
-import { Formik, 
-    ErrorMessage
- } from 'formik'
-import { InputText } from '../Etc/Checkout'
+import { Formik } from 'formik'
 import { submitOrder } from '../../actions'
-import { OrderFormLayout, PaymentSelector, AddressBox } from './styled'
+import { OrderFormContainer, PaymentSelector, AddressBox } from './styled'
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import ShippingAddressForm from '../ShippingAddressForm'
 import Modal from '../Modal'
@@ -79,7 +76,7 @@ const CheckoutForm = () => {
             validationSchema={validationSchema}
         >
             {({ isSubmitting, handleSubmit, errors, touched }) => (
-                <OrderFormLayout>
+                <OrderFormContainer>
                     <aside className="customer-invoice">
                   
                     <h4>Delivery Address</h4>
@@ -146,7 +143,7 @@ const CheckoutForm = () => {
                              </ProceedPayment>
                          </div>
                     </div>
-                </OrderFormLayout>
+                </OrderFormContainer>
             )}
         </Formik>
     )

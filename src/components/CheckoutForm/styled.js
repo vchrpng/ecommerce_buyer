@@ -46,7 +46,7 @@ export const PaymentSelector = styled.div`
 `
 
 
-export const OrderFormLayout = styled(Form)`
+export const OrderFormContainer = styled(Form)`
     max-width:620px;
     width:100%;
     padding: 20px 40px;
