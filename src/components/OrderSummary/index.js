@@ -10,6 +10,11 @@ const OrderSummaryContainer = styled.section`
     background: #fbfbfb;
     border-radius:6px;
     min-width:300px;
+    max-width:620px;
+
+    @media only screen and (max-width : 750px){
+            max-width:100%;
+    }
 
     .order-summary-table {
 

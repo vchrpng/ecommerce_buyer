@@ -47,9 +47,14 @@ export const PaymentSelector = styled.div`
 
 
 export const OrderFormLayout = styled(Form)`
+    max-width:620px;
     width:100%;
     padding: 20px 40px;
     border-right:1px solid #f8f8f8;
+
+    @media only screen and (max-width : 750px){
+            max-width:100%;
+    }
 
     .shipping-adress-selector {
         display:flex;
