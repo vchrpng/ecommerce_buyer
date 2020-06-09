@@ -14,6 +14,7 @@ import ShippingAddressForm from '../ShippingAddressForm'
 import Modal from '../Modal'
 
 const lockIcon = require('../../assets/lock.svg')
+const creditCards = require('../../assets/Minimal Credit Card Icons.svg')
 
 
 const initialValues = {
@@ -116,6 +117,7 @@ const CheckoutForm = () => {
                          <div className="invoice-detail">
                             <div className="payment-choice">
                                 <PaymentSelector selected={1}>
+                                    <img src={creditCards} />
                                     <input name="credit-card-checked" checked={true} type="radio" />
                                     <label for="credit-card-checked">Credit Card</label>
                                 </PaymentSelector>
