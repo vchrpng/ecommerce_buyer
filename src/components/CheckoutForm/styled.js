@@ -92,7 +92,6 @@ export const OrderFormLayout = styled(Form)`
 
                 .credit-card {
                     padding: 20px;
-                    border: 1px solid black;
                     border-radius:4px;
                     box-shadow:0px 1px 5px 1px lightgray;
                 }
