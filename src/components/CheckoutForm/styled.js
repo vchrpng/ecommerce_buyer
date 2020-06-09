@@ -56,95 +56,99 @@ export const OrderFormContainer = styled(Form)`
             max-width:100%;
     }
 
-    .shipping-adress-selector {
-        display:flex;
+    .checkout-form-layout {
+        .shipping-adress-selector {
+            display:flex;
 
-        .more-address {
-            
-            .add-address-btn {
-                width: 45px;
-                height: 100%;
-                background: lightgray;
-                border: none;
-                border-radius: 4px;
-                padding: 10px;
-                font-size:30px;
-                color:gray;
-                cursor:pointer;
-            }
-        }
-
-        ul {
-            .address-box {
-               
-            }
-        }
-    }
-
-    .payment-method {
-            width:100%;
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
-
-            .invoice-detail {
-
-                .payment-choice {
-                    display:flex;
-                    margin-bottom:20px;
- 
+            .more-address {
+                
+                .add-address-btn {
+                    width: 45px;
+                    height: 100%;
+                    background: lightgray;
+                    border: none;
+                    border-radius: 4px;
+                    padding: 10px;
+                    font-size:30px;
+                    color:gray;
+                    cursor:pointer;
                 }
+            }
 
-                .credit-card {
-                    padding: 20px;
-                    border-radius:4px;
-                    box-shadow:0px 1px 5px 1px lightgray;
+            ul {
+                .address-box {
+                
                 }
             }
         }
-    
 
-    .checkout-box {
-        display: flex;
-        padding: 20px;
-        /* background: #f3f3f3; */
-        border-radius: 5px;
-        box-shadow: 2px 5px 20px -4px rgba(163,163,163,1);
-
-        @media only screen and (max-width : 750px){
-            flex-direction:column;
-        }
-
-        .shipping-destination {
-            padding-right: 20px;
-            width:100%;
-            
-            .input-group {
+        .payment-method {
+                width:100%;
                 display: flex;
-                input:nth-child(1) {
-                    margin-right: 10px;
+                justify-content: space-between;
+                flex-direction: column;
+
+                .invoice-detail {
+
+                    .payment-choice {
+                        display:flex;
+                        margin-bottom:20px;
+    
+                    }
+
+                    .credit-card {
+                        padding: 20px;
+                        border-radius:4px;
+                        box-shadow:0px 1px 5px 1px lightgray;
+                    }
                 }
             }
+        
+
+        .checkout-box {
+            display: flex;
+            padding: 20px;
+            /* background: #f3f3f3; */
+            border-radius: 5px;
+            box-shadow: 2px 5px 20px -4px rgba(163,163,163,1);
+
+            @media only screen and (max-width : 750px){
+                flex-direction:column;
+            }
+
+            .shipping-destination {
+                padding-right: 20px;
+                width:100%;
+                
+                .input-group {
+                    display: flex;
+                    input:nth-child(1) {
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+        
         }
 
-       
-    }
+        .confirm-payment {
+            display: flex;
+            margin-top: 25px;
 
-    .confirm-payment {
-        display: flex;
-        margin-top: 25px;
+            .pay-button {
+                    width: 100%;
 
-        .pay-button {
-                width: 100%;
-
-                .secure-icon {
-                    width: 15px;
-                    height: 15px;
-                    filter: invert(1);
-                    margin-right:8px;
+                    .secure-icon {
+                        width: 15px;
+                        height: 15px;
+                        filter: invert(1);
+                        margin-right:8px;
+                    }
                 }
-            }
+        }
     }
+
+    
 
 
 `

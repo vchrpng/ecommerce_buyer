@@ -77,71 +77,73 @@ const CheckoutForm = () => {
         >
             {({ isSubmitting, handleSubmit, errors, touched }) => (
                 <OrderFormContainer>
-                    <aside className="customer-invoice">
-                  
-                    <h4>Delivery Address</h4>
-                    <div className="shipping-adress-selector">
-                        <ul>{initialValues.shipping.map((address,idx) => (
-                            <AddressBox index={idx} selected={idx === 0 ? 1 : 0}>
-                                <h4>{address.type}</h4>
-                                <p>{address.line1}</p>
-                                <p>{address.city}</p>
-                                <p>{address.state}</p>
-                                <p>{address.country}</p>
-                            </AddressBox>
-                        ))}</ul>
-                        <div className="more-address">
-                            <button
-                                className="add-address-btn"
-                                onClick={() => toggleDeliveryForm(true)}>+
-                            </button>
-                        </div>
-                    </div>
-                    </aside>
-
-                    {isDeliveryFormOpen && 
-                        <Modal
-                            id="modal"
-                            isOpen={isDeliveryFormOpen}
-                            onClose={toggleDeliveryForm}
-                            header="Delivery Address"
-                        >
-                            <ShippingAddressForm onSubmit={setDeliveryFormData} />
-                        </Modal>}
-                        <h4>Payment details</h4>
-
-                        <aside className="payment-method">
-                         <div className="invoice-detail">
-                            <div className="payment-choice">
-                                <PaymentSelector selected={1}>
-                                    <img style={{ width: '125px' }} src={creditCards} />
-                                </PaymentSelector>
-                                <PaymentSelector disabled={1}>
-                                    <img style={{ width: '80px' }} src={paypalIcon} />
-                                </PaymentSelector>
+                    <div className="checkout-form-layout">
+                        <section className="customer-invoice">
+                    
+                            <h4>Delivery Address</h4>
+                            <div className="shipping-adress-selector">
+                                <ul>{initialValues.shipping.map((address,idx) => (
+                                    <AddressBox index={idx} selected={idx === 0 ? 1 : 0}>
+                                        <h4>{address.type}</h4>
+                                        <p>{address.line1}</p>
+                                        <p>{address.city}</p>
+                                        <p>{address.state}</p>
+                                        <p>{address.country}</p>
+                                    </AddressBox>
+                                ))}</ul>
+                                <div className="more-address">
+                                    <button
+                                        className="add-address-btn"
+                                        onClick={() => toggleDeliveryForm(true)}>+
+                                    </button>
+                                </div>
                             </div>
-                             <div className="credit-card">
-                                 <CardElement options={{
-                                     style: {
-                                         base: { fontSize: '16px', color: '#424770',
-                                         '::placeholder': {color: '#aab7c4' },
-                                         },
-                                         invalid: { color: '#9e2146' },
-                                     }}}
-                                 />
-                             </div>
-                         </div>
-                         
-                     </aside>
-                                      
-                    <div className="confirm-payment">
-                        <CheckoutNavigate />
-                        <div className="pay-button">
-                             <ProceedPayment type="submit" disabled={isSubmitting}>
-                                 <img className="secure-icon" src={lockIcon} />
-                                 <h3>{isSubmitting ? 'LOADING' : `Pay now`}</h3>
-                             </ProceedPayment>
-                         </div>
+                        </section>
+
+                        {isDeliveryFormOpen && 
+                            <Modal
+                                id="modal"
+                                isOpen={isDeliveryFormOpen}
+                                onClose={toggleDeliveryForm}
+                                header="Delivery Address"
+                            >
+                                <ShippingAddressForm onSubmit={setDeliveryFormData} />
+                            </Modal>}
+                            <h4>Payment details</h4>
+
+                            <section className="payment-method">
+                            <div className="invoice-detail">
+                                <div className="payment-choice">
+                                    <PaymentSelector selected={1}>
+                                        <img style={{ width: '125px' }} src={creditCards} />
+                                    </PaymentSelector>
+                                    <PaymentSelector disabled={1}>
+                                        <img style={{ width: '80px' }} src={paypalIcon} />
+                                    </PaymentSelector>
+                                </div>
+                                <div className="credit-card">
+                                    <CardElement options={{
+                                        style: {
+                                            base: { fontSize: '16px', color: '#424770',
+                                            '::placeholder': {color: '#aab7c4' },
+                                            },
+                                            invalid: { color: '#9e2146' },
+                                        }}}
+                                    />
+                                </div>
+                            </div>
+                            
+                        </section>
+                                            
+                        <section className="confirm-payment">
+                            <CheckoutNavigate />
+                            <div className="pay-button">
+                                <ProceedPayment type="submit" disabled={isSubmitting}>
+                                    <img className="secure-icon" src={lockIcon} />
+                                    <h3>{isSubmitting ? 'LOADING' : `Pay now`}</h3>
+                                </ProceedPayment>
+                            </div>
+                        </section>
                     </div>
                 </OrderFormContainer>
             )}
