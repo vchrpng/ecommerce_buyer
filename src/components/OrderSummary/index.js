@@ -13,6 +13,8 @@ const OrderSummaryContainer = styled.section`
     max-width:620px;
 
     .order-summary-layout {
+        max-width:400px;
+        margin:0 auto;
 
         .order-summary-table {
 
@@ -39,8 +41,8 @@ const OrderSummary = ({ products,size,total }) => {
     return (
         <OrderSummaryContainer>
             <div className="order-summary-layout">
-                <h3> OrderSummary </h3>
                 <div className="order-summary-table"> 
+                    <h3> OrderSummary </h3>
                     <div className="items-to-checkout">
                         <RenderItemCheckout 
                             products={products}

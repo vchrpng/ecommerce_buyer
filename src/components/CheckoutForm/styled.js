@@ -43,7 +43,8 @@ export const OrderFormContainer = styled(Form)`
     }
 
     .checkout-form-layout {
-        
+        max-width:400px;
+        margin:0 auto;
 
         .payment-method {
                 width:100%;
