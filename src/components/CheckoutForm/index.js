@@ -15,7 +15,7 @@ import Modal from '../Modal'
 
 const lockIcon = require('../../assets/lock.svg')
 const creditCards = require('../../assets/Minimal Credit Card Icons.svg')
-
+const paypalIcon = require('../../assets/paypal.svg')
 
 const initialValues = {
     name:'joe',
@@ -118,12 +118,9 @@ const CheckoutForm = () => {
                             <div className="payment-choice">
                                 <PaymentSelector selected={1}>
                                     <img src={creditCards} />
-                                    <input name="credit-card-checked" checked={true} type="radio" />
-                                    <label for="credit-card-checked">Credit Card</label>
                                 </PaymentSelector>
                                 <PaymentSelector disabled={1}>
-                                    <input name="paypal-checked" disabled={true} type="radio" />
-                                    <label for="paypal-checked">Paypal</label>
+                                    <img src={paypalIcon} />
                                 </PaymentSelector>
                             </div>
                              <div className="credit-card">
