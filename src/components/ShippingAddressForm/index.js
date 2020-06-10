@@ -7,6 +7,16 @@ import styled from 'styled-components'
 
  const ShippingAddressFormContainer = styled.form`
     .shipping-destination {
+
+        .input-group {
+            display:flex;
+            > input {
+                &:nth-child(1) {
+                    margin-right:10px;
+                }
+            }
+        }
+
         .country-list-selector {
             margin-bottom: 20px;
         }
@@ -40,17 +50,15 @@ const ShippingAddressForm = () => {
                                 type={'text'}
                             />
                         </div>
-                        <div className="input-group">
-                            <InputText  name={'line1'}
-                                    placeholder={'Address Line'}
-                                    type={'text'}
-                            />
+                        <InputText  name={'line1'}
+                                placeholder={'Address Line'}
+                                type={'text'}
+                        />
                             {/* <InputText 
                                 name={'country'}
                                 placeholder={'Country'}
                                 type={'text'}
                             /> */}
-                        </div>
                         <div className="country-list-selector">
                             <CountryList setCountry={setCountry}/>
                         </div>
