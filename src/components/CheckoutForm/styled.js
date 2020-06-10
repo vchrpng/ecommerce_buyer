@@ -22,7 +22,7 @@ export const PaymentSelector = styled.div`
     display:flex;
     justify-content: center;
     align-items:center;
-    border:2px solid ${props => props.selected ? 'lightblue' : '#f3f3f3'};
+    border:2px solid ${props => props.selected ? 'lightblue' : 'lightgray'};
     box-shadow: ${props => props.selected ? '0px 0px 5px -1px lightblue' : 'none'};
 
     > input,label {
