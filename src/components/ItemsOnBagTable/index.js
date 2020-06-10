@@ -6,7 +6,7 @@ import { deleteFromBag } from '../../actions'
 import styled from 'styled-components'
 
 const TableBody = styled.tbody`
-    max-height: 400px;
+    max-height: 230px;
     display: block;
     overflow-y: scroll;
     width: 100%;
