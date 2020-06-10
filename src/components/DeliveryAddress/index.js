@@ -47,7 +47,8 @@ const DeliveryAddress = () => {
                             display: 'flex',
                             /* max-width: 400px; */
                             overflowX: 'scroll',
-                            marginRight: '5px'
+                            marginRight: '5px',
+                            paddingBottom: '10px'
                     }}>{initialValues.shipping.map((address,idx) => (
                         <AddressBox key={idx} selected={idx === 0 ? 1 : 0}>
                             <h4>{address.type}</h4>
