@@ -6,6 +6,8 @@ import styled from 'styled-components'
 
 
  const ShippingAddressFormContainer = styled.form`
+    padding: 0 60px;
+    
     .shipping-destination {
 
         .input-group {
