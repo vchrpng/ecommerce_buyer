@@ -4,14 +4,16 @@ import styled from 'styled-components'
 
 const Select = styled.select`
     width: 100%;
-    height: 50px;
+    height: 45px;
     padding: 0 11px;
+    border: 1px solid lightgray;
+    color: gray;
 
 `
 
 const CountryList = () => {
     return (
-        <Select id="country" name="country" class="form-control">
+        <Select id="country" name="country">
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>

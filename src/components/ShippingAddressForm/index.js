@@ -1,13 +1,23 @@
 import React from 'react'
+import styled from 'styled-components'
  import { InputText } from '../Etc/Checkout'
  import CountryList from './country-list'
  import { ProceedPayment } from '../Etc/Reusable'
 
 
+ const ShippingAddressFormContainer = styled.form`
+    .shipping-destination {
+        .country-list-selector {
+            margin-bottom: 20px;
+        }
+    }
+ 
+ `
+
 const ShippingAddressForm = () => {
     const [country,setCountry] = React.useState(null)
     return (
-            <form>
+            <ShippingAddressFormContainer>
                  <div className="checkout-box">
                      <section className="shipping-destination">
                         <h3>New Delivery Address</h3>
@@ -40,6 +50,8 @@ const ShippingAddressForm = () => {
                                 placeholder={'Country'}
                                 type={'text'}
                             /> */}
+                        </div>
+                        <div className="country-list-selector">
                             <CountryList setCountry={setCountry}/>
                         </div>
                      </section>
@@ -47,7 +59,7 @@ const ShippingAddressForm = () => {
                          <ProceedPayment>Submit</ProceedPayment>
                      </section>
                  </div>
-             </form>
+             </ShippingAddressFormContainer>
     )
 }
 
