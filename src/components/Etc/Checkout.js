@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { Field } from 'formik'
 
 
-export const InputText = styled.input.attrs(props => ({ type: props.type }))`
+export const InputText = styled(Field)`
     width:${(props) => props.width ? props.width : '100%'};
     height:${(props) => props.height ? props.height : '45px'};
     background-color:white;

@@ -8,6 +8,7 @@ const Select = styled.select`
     padding: 0 11px;
     border: 1px solid lightgray;
     color: gray;
+    border-radius:4px;
 
 `
 

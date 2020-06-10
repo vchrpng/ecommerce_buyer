@@ -3,11 +3,12 @@ import styled from 'styled-components'
  import { InputText } from '../Etc/Checkout'
  import CountryList from './country-list'
  import { ProceedPayment } from '../Etc/Reusable'
+ import { Form } from 'formik'
 
 
- const ShippingAddressFormContainer = styled.form`
+ const ShippingAddressFormContainer = styled(Form)`
     padding: 0 60px;
-    
+
     .shipping-destination {
 
         .input-group {
@@ -28,6 +29,11 @@ import styled from 'styled-components'
 
 const ShippingAddressForm = () => {
     const [country,setCountry] = React.useState(null)
+
+    function addNewAddressForm() {
+
+    }
+
     return (
             <ShippingAddressFormContainer>
                  <div className="checkout-box">
@@ -66,7 +72,7 @@ const ShippingAddressForm = () => {
                         </div>
                      </section>
                      <section>
-                         <ProceedPayment>Submit</ProceedPayment>
+                         <ProceedPayment onClick={addNewAddressForm}>Submit</ProceedPayment>
                      </section>
                  </div>
              </ShippingAddressFormContainer>
