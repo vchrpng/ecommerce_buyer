@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react'
 import Modal from '../Modal'
 import ShippingAddressForm from '../ShippingAddressForm'
 import { DeliveryAddressContainer, AddressBox } from './styled'
@@ -40,12 +40,11 @@ const DeliveryAddress = () => {
     })
 
     return (
-        <React.Fragment>
             <DeliveryAddressContainer>
                 <h4>Delivery Address</h4>
                 <div className="shipping-adress-selector">
                     <ul>{initialValues.shipping.map((address,idx) => (
-                        <AddressBox index={idx} selected={idx === 0 ? 1 : 0}>
+                        <AddressBox key={idx} selected={idx === 0 ? 1 : 0}>
                             <h4>{address.type}</h4>
                             <div className="address-detail"></div>
                             <p>{address.name.charAt(0).toUpperCase() + address.name.slice(1)}</p>
@@ -53,21 +52,23 @@ const DeliveryAddress = () => {
                             <p>{address.city}</p>
                             <p>{address.state}</p>
                             <p>{address.country}</p>
-                            <h5>Mobile: {address.phone}</h5>
-                            <Button basic size="mini" icon="edit">Edit</Button> 
-                            <Button basic size="mini" icon="remove">Remove</Button>
+                            <p>Mobile: {address.phone}</p>
+                            <Button basic size="mini" icon>
+                                <Icon name="edit" />Edit
+                            </Button> 
+                            <Button basic size="mini" icon>
+                                <Icon name="remove" />Remove
+                            </Button>
                         </AddressBox>
                     ))}</ul>
                     <div className="more-address">
-                        <button
+                        <div
                             className="add-address-btn"
                             onClick={() => toggleDeliveryForm(true)}>+
-                        </button>
+                        </div>
                     </div>
                 </div>
-            </DeliveryAddressContainer>
-
-            {isDeliveryFormOpen && 
+                {isDeliveryFormOpen && 
                 <Modal
                     id="modal"
                     isOpen={isDeliveryFormOpen}
@@ -76,8 +77,7 @@ const DeliveryAddress = () => {
                 >
                     <ShippingAddressForm onSubmit={setDeliveryFormData} />
                 </Modal>}
-        </React.Fragment>
-        
+            </DeliveryAddressContainer>
     )
 }
 

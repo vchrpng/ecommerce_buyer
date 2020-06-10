@@ -24,6 +24,9 @@ export const DeliveryAddressContainer = styled.section`
             .more-address {
                 
                 .add-address-btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     width: 45px;
                     height: 100%;
                     background: lightgray;
