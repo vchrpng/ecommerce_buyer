@@ -29,12 +29,11 @@ export const DeliveryAddressContainer = styled.section`
                     align-items: center;
                     width: 45px;
                     height: 100%;
-                    background: lightgray;
-                    border: none;
+                    border: 1px dashed gray;
                     border-radius: 4px;
                     padding: 10px;
                     font-size:30px;
-                    color:gray;
+                    color:rgb(0,0,0,0.2);
                     cursor:pointer;
                 }
             }
