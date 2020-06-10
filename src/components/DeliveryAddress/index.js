@@ -42,8 +42,13 @@ const DeliveryAddress = () => {
     return (
             <DeliveryAddressContainer>
                 <h4>Delivery Address</h4>
-                <div className="shipping-adress-selector">
-                    <ul>{initialValues.shipping.map((address,idx) => (
+                <div className="shipping-address-selector">
+                    <ul style={{
+                            display: 'flex',
+                            /* max-width: 400px; */
+                            overflowX: 'scroll',
+                            marginRight: '5px'
+                    }}>{initialValues.shipping.map((address,idx) => (
                         <AddressBox key={idx} selected={idx === 0 ? 1 : 0}>
                             <h4>{address.type}</h4>
                             <div className="address-detail"></div>
