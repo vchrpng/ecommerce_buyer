@@ -1,17 +1,19 @@
 import React from 'react'
+import { Button } from 'semantic-ui-react'
 import Modal from '../Modal'
 import ShippingAddressForm from '../ShippingAddressForm'
 import { DeliveryAddressContainer, AddressBox } from './styled'
 
 
 const initialValues = {
-    name:'joe',
-    phone:'09203912',
+
     city:'bkk',
     line1: '',
     province: 'bkk',
     country:'th',
     shipping: [{
+        name:'joe',
+        phone:'09203912',
         type: 'Work',
         line1: '543 Amherst Street',
         city: 'Nashua',
@@ -45,10 +47,15 @@ const DeliveryAddress = () => {
                     <ul>{initialValues.shipping.map((address,idx) => (
                         <AddressBox index={idx} selected={idx === 0 ? 1 : 0}>
                             <h4>{address.type}</h4>
+                            <div className="address-detail"></div>
+                            <p>{address.name.charAt(0).toUpperCase() + address.name.slice(1)}</p>
                             <p>{address.line1}</p>
                             <p>{address.city}</p>
                             <p>{address.state}</p>
                             <p>{address.country}</p>
+                            <h5>Mobile: {address.phone}</h5>
+                            <Button basic size="mini" icon="edit">Edit</Button> 
+                            <Button basic size="mini" icon="remove">Remove</Button>
                         </AddressBox>
                     ))}</ul>
                     <div className="more-address">
