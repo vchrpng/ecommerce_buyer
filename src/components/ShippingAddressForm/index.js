@@ -1,9 +1,11 @@
 import React from 'react'
  import { InputText } from '../Etc/Checkout'
+ import CountryList from './country-list'
  import { ProceedPayment } from '../Etc/Reusable'
 
 
 const ShippingAddressForm = () => {
+    const [country,setCountry] = React.useState(null)
     return (
             <form>
                  <div className="checkout-box">
@@ -36,11 +38,12 @@ const ShippingAddressForm = () => {
                                      placeholder={'Address Line'}
                                      type={'text'}
                              />
-                             <InputText 
+                             {/* <InputText 
                                  name={'country'}
                                  placeholder={'Country'}
                                  type={'text'}
-                             />
+                             /> */}
+                             <CountryList setCountry={setCountry}/>
                          </div>
                      </section>
                      <section>
