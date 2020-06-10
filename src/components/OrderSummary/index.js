@@ -19,7 +19,7 @@ const OrderSummaryContainer = styled.section`
         .order-summary-table {
 
             .items-to-checkout {
-                max-height: 400px;
+                max-height: 270px;
                 overflow: scroll;
                 padding-right: 20px;
                 border-top:1px solid #f3f3f3;
