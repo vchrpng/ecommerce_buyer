@@ -1,8 +1,17 @@
 import React from 'react'
+import styled from 'styled-components'
+
+
+const Select = styled.select`
+    width: 100%;
+    height: 50px;
+    padding: 0 11px;
+
+`
 
 const CountryList = () => {
     return (
-        <select id="country" name="country" class="form-control">
+        <Select id="country" name="country" class="form-control">
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
@@ -247,7 +256,7 @@ const CountryList = () => {
                 <option value="Yemen">Yemen</option>
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
-            </select>
+            </Select>
     )
 }
 
