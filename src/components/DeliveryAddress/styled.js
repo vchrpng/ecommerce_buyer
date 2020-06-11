@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const AddressBox = styled.li`
     min-width: 193px;
     border: 2px solid ${props => props.selected ? 'lightblue' : 'gray'};
-    box-shadow: ${props => props.selected ? '0px 0px 5px -1px lightblue' : 'none'};
+    box-shadow: ${props => props.selected ? '0px 0px 15px -1px lightblue' : 'none'};
     padding: 10px 20px;
     margin-right:16px;
     border-radius: 4px;
