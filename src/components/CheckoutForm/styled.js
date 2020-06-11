@@ -6,6 +6,7 @@ const checkedIcon = require('../../assets/correct.svg')
 
 
 export const PaymentSelector = styled.div`
+    position:relative;
     font-size:12px;
     color: rgb(0,0,0,0.7);
     &:nth-child(1) {
