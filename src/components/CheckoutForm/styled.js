@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { Form } from 'formik'
 
+const checkedIcon = require('../../assets/correct.svg')
+
 
 
 export const PaymentSelector = styled.div`
@@ -23,12 +25,26 @@ export const PaymentSelector = styled.div`
     justify-content: center;
     align-items:center;
     border:2px solid ${props => props.selected ? 'lightblue' : 'lightgray'};
-    box-shadow: ${props => props.selected ? '0px 0px 5px -1px lightblue' : 'none'};
+    box-shadow: ${props => props.selected ? '0px 0px 15px -1px lightblue' : 'none'};
 
     > input,label {
         pointer-events:none;
         cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
     }
+
+    ${props => props.selected && `
+        &:after {
+            content: " ";
+            width: 20px;
+            height: 20px;
+            background-size:contain;
+            background-image: url(${checkedIcon});
+            position: absolute;
+            transform: translate(95px, -40px);
+        }
+        
+    
+    `}
 `
 
 
@@ -63,7 +79,7 @@ export const OrderFormContainer = styled(Form)`
                     .credit-card {
                         padding: 20px;
                         border-radius:4px;
-                        box-shadow:0px 1px 5px 1px lightgray;
+                        box-shadow:0px 1px 10px 1px lightgray;
                     }
                 }
             }
