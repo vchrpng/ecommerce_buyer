@@ -22,15 +22,16 @@ export const PaymentSelector = styled.div`
     border-radius:4px;
     width: 100%;
     height: 85px;
-    display:flex;
-    justify-content: center;
-    align-items:center;
     border:2px solid ${props => props.selected ? 'lightblue' : 'lightgray'};
     box-shadow: ${props => props.selected ? '0px 0px 15px -1px lightblue' : 'none'};
 
     > input,label {
         pointer-events:none;
         cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
+    }
+
+    > img {
+        margin: 0 auto;
     }
 
     ${props => props.selected && `
@@ -41,10 +42,9 @@ export const PaymentSelector = styled.div`
             background-size:contain;
             background-image: url(${checkedIcon});
             position: absolute;
-            transform: translate(95px, -40px);
+            right:-9px;
+            top:-9px;
         }
-        
-    
     `}
 `
 
