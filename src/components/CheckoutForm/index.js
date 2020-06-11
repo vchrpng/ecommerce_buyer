@@ -47,6 +47,7 @@ const CheckoutForm = () => {
             {({ isSubmitting, handleSubmit, errors, touched }) => (
                 <OrderFormContainer>
                     <div className="checkout-form-layout">
+                            <h4>Delivery Address</h4>
                             <DeliveryAddress />
                             <h4>Payment details</h4>
 
