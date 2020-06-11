@@ -1,9 +1,19 @@
 import React from 'react'
+import styled from 'styled-components'
 
 const CheckoutProduct = styled.div`
     display:flex;
     justify-content:space-between;
     padding:10px 0;
+
+    .product-checkout-detail {
+        > span {
+            color:gray;
+            &:nth-child(1) {
+                color:rgb(0,0,0,0.7);
+            }
+        }
+    }
 
 
     .product-checkout-price {
@@ -17,15 +27,15 @@ const RenderItemsCheckout = ({ products , size }) => {
     return (
         products.map((product,idx) =>
             <CheckoutProduct key={idx} >
-                <div>
+                <div className="product-checkout-detail">
                     <span><strong>{product.title}</strong></span>
                         <br/>
-                    <span>category : {product.category}</span>
+                    <span>{product.category}</span>
                         <br/>
-                    <span>size : {size[idx]}</span>
+                    <span>{size[idx]}</span>
                 </div>
                 <div className="product-checkout-price" style={{}}>
-                    <span>$ {product.price}</span>
+                    <span><strong>$ {product.price}</strong></span>
                 </div>
             </CheckoutProduct>
         ) 
