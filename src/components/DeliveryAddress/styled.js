@@ -9,6 +9,7 @@ export const AddressBox = styled.li`
     border-radius: 4px;
     font-size:10px;
     color: rgb(0,0,0,0.7);
+    padding-left:10px;
 
     p {
         margin-bottom:5px;
