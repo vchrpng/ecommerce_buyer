@@ -1,9 +1,22 @@
 import React from 'react'
 
+const CheckoutProduct = styled.div`
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+
+
+    .product-checkout-price {
+        display:flex;
+        align-items:center;
+    }
+
+`
+
 const RenderItemsCheckout = ({ products , size }) => {
     return (
         products.map((product,idx) =>
-            <div key={idx} style={{display:'flex',justifyContent:'space-between',padding:'10px 0'}}>
+            <CheckoutProduct key={idx} >
                 <div>
                     <span><strong>{product.title}</strong></span>
                         <br/>
@@ -11,10 +24,10 @@ const RenderItemsCheckout = ({ products , size }) => {
                         <br/>
                     <span>size : {size[idx]}</span>
                 </div>
-                <div style={{display:'flex',alignItems:'center'}}>
+                <div className="product-checkout-price" style={{}}>
                     <span>$ {product.price}</span>
                 </div>
-            </div>
+            </CheckoutProduct>
         ) 
     )
 }
