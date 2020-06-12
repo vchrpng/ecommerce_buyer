@@ -4,7 +4,7 @@ import Modal from '../Modal'
 import ShippingAddressForm from '../ShippingAddressForm'
 import { DeliveryAddressContainer, AddressBox } from './styled'
 
-
+const parcel = require('../../assets/parcel.png')
 const initialValues = [{
         name:'joe',
         phone:'09203912',
@@ -54,13 +54,16 @@ const DeliveryAddress = () => {
                                 <Icon name="remove" />Remove
                             </Button>
                         </AddressBox>
-                    ))}</ul>
-                    <div className="more-address">
-                        <div
-                            className="add-address-btn"
-                            onClick={() => toggleDeliveryForm(true)}>+
-                        </div>
-                    </div>
+                    ))}
+                        <li className="more-address">
+                            <div
+                                className="add-address-btn"
+                                onClick={() => toggleDeliveryForm(true)}>
+                                <img src={parcel} />
+                            </div>
+                        </li>
+                    </ul>
+
                 </div>
                 {isDeliveryFormOpen && 
                 <Modal
