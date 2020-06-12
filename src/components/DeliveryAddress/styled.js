@@ -1,6 +1,8 @@
 import styled from 'styled-components'
+const checkedIcon = require('../../assets/correct.svg')
 
 export const AddressBox = styled.li`
+    position:relative;
     min-width: 193px;
     border: 2px solid ${props => props.selected ? 'lightblue' : 'gray'};
     box-shadow: ${props => props.selected ? '0px 0px 15px -1px lightblue' : 'none'};
@@ -14,6 +16,19 @@ export const AddressBox = styled.li`
     p {
         margin-bottom:5px;
     }
+
+     ${props => props.selected && `
+        &:after {
+            content: " ";
+            width: 20px;
+            height: 20px;
+            background-size:contain;
+            background-image: url(${checkedIcon});
+            position: absolute;
+            right:-9px;
+            top:-9px;
+        }
+    `}
 
 `
 
