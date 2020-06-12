@@ -5,39 +5,33 @@ import ShippingAddressForm from '../ShippingAddressForm'
 import { DeliveryAddressContainer, AddressBox } from './styled'
 
 
-const initialValues = {
-
-    city:'bkk',
-    line1: '',
-    province: 'bkk',
-    country:'th',
-    shipping: [{
+const initialValues = [{
         name:'joe',
         phone:'09203912',
         type: 'Work',
+        province: 'bkk',
         line1: '543 Amherst Street',
         city: 'Nashua',
         state: 'New Hampshire',
         country: 'United States',
     }]
-}
+
 
 
 const DeliveryAddress = () => {
 
     const [isDeliveryFormOpen, toggleDeliveryForm] = React.useState(false)
 
+    function removeDeliveryAddress(index) {
+
+    }
+
+    function editDeliveryAddress(address) {
+
+    }
+
     
-    const [devlieryFormData,setDeliveryFormData] = React.useState({
-        // name: '',
-        // address: {
-            line1: '543 Amherst Street',
-            city: 'Nashua',
-            state: 'New Hampshire',
-            country: 'United States',
-        // },
-        // phone: ''
-    })
+    const [devlieryFormData,setDeliveryFormData] = React.useState(initialValues)
 
     return (
             <DeliveryAddressContainer>
@@ -52,7 +46,7 @@ const DeliveryAddress = () => {
                             marginLeft: '-15px',
                             marginTop: '-10px',
                             paddingTop: '10px',
-                    }}>{initialValues.shipping.map((address,idx) => (
+                    }}>{devlieryFormData.map((address,idx) => (
                         <AddressBox key={idx} selected={idx === 0 ? 1 : 0}>
                             <h4>{address.type}</h4>
                             <div className="address-detail"></div>
