@@ -50,13 +50,13 @@ export const DeliveryAddressContainer = styled.section`
             }
 
             .more-address {
-                
+                min-width:193px;
+
                 .add-address-btn {
                     height:197px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    width: 45px;
                     border: 1px dashed gray;
                     border-radius: 4px;
                     padding: 10px;
