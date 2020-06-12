@@ -38,6 +38,17 @@ export const DeliveryAddressContainer = styled.section`
             margin-right:-66px;
             display:flex;
 
+            .delivery-address-list {
+                display: flex;
+                overflow-x: scroll;
+                margin-right: 5px;
+                padding-bottom: 10px;
+                padding-left: 15px;
+                margin-left: -15px;
+                margin-top: -10px;
+                padding-top: 10px;
+            }
+
             .more-address {
                 
                 .add-address-btn {
