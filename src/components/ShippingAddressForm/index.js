@@ -80,11 +80,11 @@ const ShippingAddressForm = ({ onSubmit }) => {
                                type={'text'}
                            /> */}
                        <div className="country-list-selector">
-                           <CountryList as="select" name="country"/>
+                           <CountryList/>
                        </div>
                     </section>
                     <section>
-                        <ProceedPayment onClick={addNewAddressForm}>Submit</ProceedPayment>
+                        <ProceedPayment type="submit">Submit</ProceedPayment>
                     </section>
                 </div>
             </ShippingAddressFormContainer>

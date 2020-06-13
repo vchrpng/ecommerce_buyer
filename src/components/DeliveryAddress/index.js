@@ -26,8 +26,12 @@ const DeliveryAddress = () => {
 
     }
 
-    function editDeliveryAddress(address) {
+    function editDeliveryAddress(index) {
 
+    }
+
+    function addNewDevlieryAddress(newAddress) {
+        setDeliveryFormData(prev => [...prev,newAddress])
     }
 
     
@@ -66,14 +70,14 @@ const DeliveryAddress = () => {
                     </ul>
 
                 </div>
-                {isDeliveryFormOpen && 
+                {true && 
                 <Modal
                     id="modal"
-                    isOpen={isDeliveryFormOpen}
+                    isOpen={true}
                     onClose={toggleDeliveryForm}
                     header="Delivery Address"
                 >
-                    <ShippingAddressForm onSubmit={setDeliveryFormData} />
+                    <ShippingAddressForm onSubmit={addNewDevlieryAddress} />
                 </Modal>}
             </DeliveryAddressContainer>
     )
