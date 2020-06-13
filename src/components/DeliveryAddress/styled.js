@@ -57,12 +57,33 @@ export const DeliveryAddressContainer = styled.section`
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    flex-direction:column;
                     border: 1px dashed gray;
                     border-radius: 4px;
                     padding: 10px;
-                    font-size:30px;
-                    color:rgb(0,0,0,0.2);
+                    font-size:12px;
+                    color:rgb(0,0,0,0.5);
                     cursor:pointer;
+                    position:relative;
+
+                    p {
+                        margin-top:30px;
+                    }
+
+                    &:after {
+                            content:" ";
+                            position:absolute;
+                            top:36px;
+                            width: 84px;
+                            height: 84px;
+                            background-color:#f3f3f3;
+                            border-radius:50%;
+                            z-index: -1;
+                        }
+
+                    .parcel-img {
+                        width: 100px;
+                    }
                 }
             }
 
