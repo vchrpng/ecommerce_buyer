@@ -15,7 +15,7 @@ const Select = styled(Field)`
 
 const CountryList = () => {
     return (
-        <Select id="country" name="country">
+        <Select as="select" id="country" name="country">
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
