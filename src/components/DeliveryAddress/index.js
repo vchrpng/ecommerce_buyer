@@ -59,7 +59,8 @@ const DeliveryAddress = () => {
                             <div
                                 className="add-address-btn"
                                 onClick={() => toggleDeliveryForm(true)}>
-                                <img src={parcel} />
+                                <img className="parcel-img" src={parcel} />
+                                <p>Add new address</p>
                             </div>
                         </li>
                     </ul>
