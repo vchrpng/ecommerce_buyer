@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Field } from 'formik'
 
 
-const Select = styled.select`
+const Select = styled(Field)`
     width: 100%;
     height: 45px;
     padding: 0 11px;
