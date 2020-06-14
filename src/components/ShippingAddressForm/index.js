@@ -37,13 +37,14 @@ const ShippingAddressForm = ({ onSubmit }) => {
         <Formik
             onSubmit={(values) => onSubmit(values)}
             initialValues={{
-                name: '',
-                phone: '',
-                city: '',
-                province: '',
-                line1: '',
-                country: '',
-                state: ''
+                name:'joe',
+                phone:'09203912',
+                type: 'Work',
+                province: 'bkk',
+                line1: '543 Amherst Street',
+                city: 'Nashua',
+                state: 'New Hampshire',
+                country: 'United States',
             }}
         >
             {() => (
