@@ -22,8 +22,9 @@ export const PaymentSelector = styled.div`
     border-radius:4px;
     width: 100%;
     height: 85px;
-    border:2px solid ${props => props.selected ? 'lightblue' : 'lightgray'};
+    border:2px solid ${props => props.selected ? 'transparent' : 'lightgray'};
     box-shadow: ${props => props.selected ? '0px 0px 15px -1px lightblue' : 'none'};
+
 
     > input,label {
         pointer-events:none;
