@@ -4,14 +4,26 @@ const checkedIcon = require('../../assets/correct.svg')
 export const AddressBox = styled.li`
     position:relative;
     min-width: 193px;
-    border: 2px solid ${props => props.selected ? 'lightblue' : 'gray'};
-    box-shadow: ${props => props.selected ? '0px 0px 15px -1px lightblue' : 'none'};
     padding: 10px 20px;
     margin-right:16px;
-    border-radius: 4px;
     font-size:10px;
     color: rgb(0,0,0,0.7);
     padding-left:10px;
+
+    .address-box-background {
+        &:before {
+        border-radius: 4px;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border:2px solid ${props => props.selected ? 'transparent' : 'lightgray'};
+        box-shadow: ${props => props.selected ? '0px 0px 15px -1px lightblue' : 'none'};
+        pointer-events: none;
+        content: '';
+    }
 
     p {
         margin-bottom:5px;
@@ -29,6 +41,10 @@ export const AddressBox = styled.li`
             top:-9px;
         }
     `}
+    }
+
+    
+   
 
 `
 
@@ -66,22 +82,8 @@ export const DeliveryAddressContainer = styled.section`
                     cursor:pointer;
                     position:relative;
 
-                    p {
-                        margin-top:30px;
-                    }
 
-                    &:after {
-                            content:" ";
-                            position:absolute;
-                            top:36px;
-                            width: 84px;
-                            height: 84px;
-                            background-color:#f3f3f3;
-                            border-radius:50%;
-                            z-index: -1;
-                        }
-
-                    .parcel-img {
+                    .img {
                         width: 100px;
                     }
                 }
