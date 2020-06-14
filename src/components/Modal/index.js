@@ -23,7 +23,7 @@ const Modal = ({ isOpen, onClose, size, children, header }) => {
     }, [isOpen])
 
     function onEscKeyDown(e) {
-        if (e.key !== "Escape") {
+        if (e.key === "Escape") {
             onClose(false)
         }
     }
