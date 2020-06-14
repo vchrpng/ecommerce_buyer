@@ -9,6 +9,7 @@ export const PaymentSelector = styled.div`
     position:relative;
     font-size:12px;
     color: rgb(0,0,0,0.7);
+    transition:.3s;
     &:nth-child(1) {
         margin-right:15px;
     }
@@ -22,8 +23,7 @@ export const PaymentSelector = styled.div`
     border-radius:4px;
     width: 100%;
     height: 85px;
-    border:2px solid ${props => props.selected ? 'transparent' : 'lightgray'};
-    box-shadow: ${props => props.selected ? '0px 0px 15px -1px lightblue' : 'none'};
+    border:2px solid ${props => props.selected ? 'lightblue' : 'lightgray'};
 
 
     > input,label {
@@ -81,7 +81,7 @@ export const OrderFormContainer = styled(Form)`
                     .credit-card {
                         padding: 20px;
                         border-radius:4px;
-                        box-shadow:0px 1px 10px 1px lightgray;
+                        border: 2px solid lightblue
                     }
                 }
             }
