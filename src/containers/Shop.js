@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Grid } from 'semantic-ui-react'
 import { DisplayGrid } from '../theme/Grid'
 import { connect } from 'react-redux'
@@ -7,9 +8,15 @@ import BuyerProductList from '../components/BuyerProductList'
 import Nav from '../components/Nav'
 
 
+const CustomerShopContainer = styled.main`
+    max-width: 1010px;
+    margin: 0 auto;
+`
+
+
 const Shop = ({ products }) => {
     return (
-        <div>
+        <CustomerShopContainer>
             <Nav />
             <Grid>
                 <Grid.Row centered>
@@ -26,7 +33,7 @@ const Shop = ({ products }) => {
                 </Grid.Column>
                 </Grid.Row>
             </Grid>
-        </div>
+        </CustomerShopContainer>
         )
     }
 

@@ -14,11 +14,10 @@ import Checkout from './Checkout'
 import Account from './Account'
 
 const Layout = styled.div`
-  max-width: 1010px;
   margin: 0 auto;
-    @media only screen and (max-width : 320px){
+    /* @media only screen and (max-width : 320px){
             min-width: 320px;
-    }
+    } */
 `
 
 
