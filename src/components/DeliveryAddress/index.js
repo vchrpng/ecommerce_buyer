@@ -69,10 +69,10 @@ const DeliveryAddress = () => {
                         </li>
                     </ul>
                 </div>
-                {true && 
+                {isDeliveryFormOpen && 
                 <Modal
                     id="modal"
-                    isOpen={true}
+                    isOpen={isDeliveryFormOpen}
                     onClose={toggleDeliveryForm}
                     header="Delivery Address"
                 >
