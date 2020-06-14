@@ -9,6 +9,9 @@ export const AddressBox = styled.li`
     font-size:10px;
     color: rgb(0,0,0,0.7);
     padding-left:10px;
+    cursor: pointer;
+    transition:.3s;
+
 
     .address-box-background {
         &:before {
@@ -19,8 +22,7 @@ export const AddressBox = styled.li`
         right: 0;
         bottom: 0;
         left: 0;
-        border:2px solid ${props => props.selected ? 'transparent' : 'lightgray'};
-        box-shadow: ${props => props.selected ? '0px 0px 15px -1px lightblue' : 'none'};
+        border:2px solid ${props => props.selected ? 'lightblue' : 'lightgray'};
         pointer-events: none;
         content: '';
     }
@@ -51,18 +53,13 @@ export const AddressBox = styled.li`
 export const DeliveryAddressContainer = styled.section`
 
         .shipping-address-selector {
-            margin-right:-66px;
             display:flex;
 
             .delivery-address-list {
                 display: flex;
                 overflow-x: scroll;
-                margin-right: 5px;
-                padding-bottom: 10px;
-                padding-left: 15px;
-                margin-left: -15px;
-                margin-top: -10px;
-                padding-top: 10px;
+                margin-right: -3px;
+                padding:10px 0;
             }
 
             .more-address {
