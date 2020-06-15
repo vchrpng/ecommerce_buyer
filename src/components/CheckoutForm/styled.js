@@ -81,7 +81,7 @@ export const OrderFormContainer = styled(Form)`
                     .credit-card {
                         padding: 20px;
                         border-radius:4px;
-                        border: 2px solid lightblue
+                        border: 2px solid rgb(0,0,0,0.1);
                     }
                 }
             }
