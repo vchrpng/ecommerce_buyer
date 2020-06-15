@@ -40,7 +40,7 @@ const ShippingAddressForm = ({ onSubmit }) => {
             onSubmit={(values) => onSubmit(values)}
             initialValues={{
                 name:'joe',
-                phone:'09203912',
+                phone:'092039120',
                 type: 'Work',
                 province: 'bkk',
                 line1: '543 Amherst Street',
@@ -49,42 +49,48 @@ const ShippingAddressForm = ({ onSubmit }) => {
                 country: 'United States',
             }}
         >
-            {() => (
+            {({ errors, touched }) => (
                 <ShippingAddressFormContainer>
                 <div className="checkout-box">
                     <section className="shipping-destination">
-                       <h3>New Delivery Address</h3>
-                       <InputText name={'name'}
-                           placeholder={'Full name'}
-                           type={'text'}
-                       />
-                       <InputText name={'phone'}
-                           placeholder={'Phone'}
-                           type={'text'}
-                       />
-                       <div className="input-group">
-                           <InputText name={'city'}
-                               placeholder={'City'}
-                               type={'text'} 
-                           />
-                           <InputText
-                               name={'province'}
-                               placeholder={'Province'}
-                               type={'text'}
-                           />
-                       </div>
-                       <InputText  name={'line1'}
-                               placeholder={'Address Line'}
-                               type={'text'}
-                       />
+                        <h3>New Delivery Address</h3>
+                        <ErrorMessage name="name"/>
+                        <InputText name={'name'}
+                            placeholder={'Full name'}
+                            type={'text'}
+                        />
+                        <ErrorMessage name="phone"/>
+                        <InputText name={'phone'}
+                            placeholder={'Phone'}
+                            type={'text'}
+                        />
+                        <div className="input-group">
+                                <ErrorMessage name="city"/>
+                                <InputText name={'city'}
+                                    placeholder={'City'}
+                                    type={'text'} 
+                                />
+                                <ErrorMessage name="province"/>
+                                <InputText
+                                    name={'province'}
+                                    placeholder={'Province'}
+                                    type={'text'}
+                                />
+                        </div>
+                        <ErrorMessage name="line1"/>
+                        <InputText  
+                            name={'line1'}
+                            placeholder={'Address Line'}
+                            type={'text'}
+                        />
                            {/* <InputText 
                                name={'country'}
                                placeholder={'Country'}
                                type={'text'}
                            /> */}
-                       <div className="country-list-selector">
-                           <CountryList/>
-                       </div>
+                        <div className="country-list-selector">
+                            <CountryList/>
+                        </div>
                     </section>
                     <section>
                         <ProceedPayment type="submit">Submit</ProceedPayment>
