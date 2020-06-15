@@ -5,16 +5,11 @@ import ShippingAddressForm from '../ShippingAddressForm'
 import { DeliveryAddressContainer, AddressBox } from './styled'
 
 const deliveryaddress = require('../../assets/delivery-address.jpg')
-const initialValues = []
 
     
-
-
-
-const DeliveryAddress = () => {
+const DeliveryAddress = ({ onSelectAddress, selectedAddress }) => {
 
     const [isDeliveryFormOpen, toggleDeliveryForm] = React.useState(false)
-    const [selectedAdderess, setSelectedAddress]  = React.useState(null)
 
     function removeDeliveryAddress(index) {
 
@@ -28,19 +23,17 @@ const DeliveryAddress = () => {
         setDeliveryFormData(prev => [...prev,newAddress])
     }
 
-    function onSelectAddress(index) {
-        setSelectedAddress(index)
-    }
+
 
     
-    const [devlieryFormData,setDeliveryFormData] = React.useState(initialValues)
+    const [devlieryFormData,setDeliveryFormData] = React.useState([])
 
     return (
             <DeliveryAddressContainer>
                 <div className="shipping-address-selector">
                     <ul className="delivery-address-list">
                         {devlieryFormData.map((address,idx) => (
-                        <AddressBox onClick={() => onSelectAddress(idx)} key={idx} selected={idx === selectedAdderess ? 1 : 0}>
+                        <AddressBox onClick={() => onSelectAddress(idx)} key={idx} selected={idx === selectedAddress ? 1 : 0}>
                             <div className="address-box-background">
                                 <h4>{address.type}</h4>
                                 <div className="address-detail"></div>

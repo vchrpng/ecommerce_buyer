@@ -2,7 +2,6 @@ import React from 'react'
 import { ProceedPayment } from '../Etc/Reusable'
 import CheckoutNavigate from '../CheckoutNavigate'
 import { connect } from 'react-redux'
-import { Formik } from 'formik'
 import { submitOrder } from '../../actions'
 import { OrderFormContainer, PaymentSelector } from './styled'
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
@@ -13,14 +12,28 @@ const creditCards = require('../../assets/Minimal Credit Card Icons.svg')
 const paypalIcon = require('../../assets/paypal.svg')
 
 const CheckoutForm = () => {
+    const [selectedAddress, setSelectedAddress]  = React.useState(null)
+
+    function onSelectAddress(index) {
+        setSelectedAddress(index)
+    }
+
     const elements = useElements();
     const stripe = useStripe();
 
 
-    async function onSubmit () {
-        alert('test submit')
-        // const cardElement = elements.getElement(CardElement)
-        // const stripetoken = await stripe.createToken(cardElement)
+    async function onSubmit(e) {
+        const cardElement = elements.getElement(CardElement)
+        const stripetoken = await stripe.createToken(cardElement)
+
+        e.preventDefault()
+
+        console.log('cardElement =',cardElement)
+        if (!selectedAddress) {
+            alert('please select an address')
+        }
+        
+  
 
         //  submit({
         //     amount:Number(total) > 0 ? Number(total) : 100,
@@ -39,10 +52,13 @@ const CheckoutForm = () => {
     }
 
     return (
-                <OrderFormContainer>
+                <OrderFormContainer onSubmit={onSubmit}>
                     <div className="checkout-form-layout">
                             <h4>Delivery Address</h4>
-                            <DeliveryAddress />
+                            <DeliveryAddress 
+                                selectedAddress={selectedAddress}
+                                onSelectAddress={onSelectAddress} 
+                            />
                             <h4>Payment details</h4>
                             <section className="payment-method">
                             <div className="invoice-detail">
@@ -71,9 +87,9 @@ const CheckoutForm = () => {
                         <section className="confirm-payment">
                             <CheckoutNavigate />
                             <div className="pay-button">
-                                <ProceedPayment type="submit" disabled={isSubmitting}>
+                                <ProceedPayment type="submit">
                                     <img className="secure-icon" src={lockIcon} />
-                                    <h3>{isSubmitting ? 'LOADING' : `Pay now`}</h3>
+                                    <h3>{`Pay now`}</h3>
                                 </ProceedPayment>
                             </div>
                         </section>
