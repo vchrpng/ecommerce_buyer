@@ -13,6 +13,10 @@ const paypalIcon = require('../../assets/paypal.svg')
 
 const CheckoutForm = () => {
     const [selectedAddress, setSelectedAddress]  = React.useState(null)
+    const [errors, setErrors] = React.useState({ 
+        address: null,
+        card: null
+     })
 
     function onSelectAddress(index) {
         setSelectedAddress(index)
@@ -25,6 +29,14 @@ const CheckoutForm = () => {
     async function onSubmit(e) {
         const cardElement = elements.getElement(CardElement)
         const stripetoken = await stripe.createToken(cardElement)
+
+        if (errors.address) {
+
+        }
+
+        if (errors.card) {
+            
+        }
 
         e.preventDefault()
 
@@ -71,8 +83,19 @@ const CheckoutForm = () => {
                                     </PaymentSelector>
                                 </div>
                                 <div className="credit-card">
-                                    <CardElement options={{
+                                    <CardElement  onChange={(e) => {
+                                            setErrors(errors => ({...errors,card: e.error}));
+                                            setCardComplete(e.complete);
+                                        }} 
+                                        options={{
                                         style: {
+                                            fontWeight: 500,
+                                            fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
+                                            fontSize: '16px',
+                                            fontSmoothing: 'antialiased',
+                                            ':-webkit-autofill': {
+                                              color: '#fce883',
+                                            },
                                             base: { fontSize: '16px', color: 'black',
                                             '::placeholder': {color: 'lightgray' },
                                             },
