@@ -10,6 +10,8 @@ const deliveryaddress = require('../../assets/delivery-address.jpg')
 const DeliveryAddress = ({ onSelectAddress, selectedAddress }) => {
 
     const [isDeliveryFormOpen, toggleDeliveryForm] = React.useState(false)
+    const [devlieryFormData,setDeliveryFormData] = React.useState([])
+
 
     function removeDeliveryAddress(index) {
 
@@ -21,12 +23,12 @@ const DeliveryAddress = ({ onSelectAddress, selectedAddress }) => {
 
     function addNewDevlieryAddress(newAddress) {
         setDeliveryFormData(prev => [...prev,newAddress])
+        onSelectAddress(devlieryFormData.length)
     }
 
 
 
     
-    const [devlieryFormData,setDeliveryFormData] = React.useState([])
 
     return (
             <DeliveryAddressContainer>
