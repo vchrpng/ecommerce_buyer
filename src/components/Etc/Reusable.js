@@ -28,19 +28,19 @@ export const ProceedPayment = styled.button`
     letter-spacing:1px;
     width:100%;
     color:white ; 
-    background:#3682ac;
+    background: ${props => props.disabled ? 'lightgray' : '#3682ac'};
     font-size:12px;
     height: 50px;
     display:flex;
     justify-content:center;
     align-items: center;
-    cursor:pointer;
+    cursor:${props => props.disabled ? 'not-allowed' : 'pointer'};
     transition:.5s;
     h3 {
         margin:0;
     }
     &:hover{
-        background-color:#24546F ;
+        background-color:${props => props.disabled ? 'lightgray' : '#24546F'} ;
     }
     border:none;
     outline:none;
