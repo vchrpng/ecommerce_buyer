@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { Form } from 'formik'
-
 const checkedIcon = require('../../assets/correct.svg')
 
 
@@ -50,7 +48,7 @@ export const PaymentSelector = styled.div`
 `
 
 
-export const OrderFormContainer = styled(Form)`
+export const OrderFormContainer = styled.form`
     max-width:620px;
     width:100%;
     padding: 20px 40px;
