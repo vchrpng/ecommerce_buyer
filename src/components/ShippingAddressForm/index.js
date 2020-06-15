@@ -30,10 +30,6 @@ import schema from './validate'
 
 const ShippingAddressForm = ({ onSubmit }) => {
 
-    function addNewAddressForm() {
-
-    }
-
     return (
         <Formik
             validationSchema={schema}
