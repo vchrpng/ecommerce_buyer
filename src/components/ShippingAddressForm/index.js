@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import schema from './validate'
  import { InputText } from '../Etc/Checkout'
  import CountryList from './country-list'
  import { ProceedPayment } from '../Etc/Reusable'
- import { Form, Formik } from 'formik'
+ import { Form, Formik, ErrorMessage } from 'formik'
 
 
  const ShippingAddressFormContainer = styled(Form)`
@@ -35,6 +36,7 @@ const ShippingAddressForm = ({ onSubmit }) => {
 
     return (
         <Formik
+            validationSchema={schema}
             onSubmit={(values) => onSubmit(values)}
             initialValues={{
                 name:'joe',
