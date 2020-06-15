@@ -1,11 +1,10 @@
 import React from 'react'
 import { ProceedPayment } from '../Etc/Reusable'
 import CheckoutNavigate from '../CheckoutNavigate'
-import validationSchema from './validate'
 import { connect } from 'react-redux'
 import { Formik } from 'formik'
 import { submitOrder } from '../../actions'
-import { OrderFormContainer, PaymentSelector, AddressBox } from './styled'
+import { OrderFormContainer, PaymentSelector } from './styled'
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import DeliveryAddress from '../DeliveryAddress'
 
@@ -18,7 +17,7 @@ const CheckoutForm = () => {
     const stripe = useStripe();
 
 
-    async function onSubmit (values) {
+    async function onSubmit () {
         alert('test submit')
         // const cardElement = elements.getElement(CardElement)
         // const stripetoken = await stripe.createToken(cardElement)
@@ -40,11 +39,6 @@ const CheckoutForm = () => {
     }
 
     return (
-        <Formik
-            onSubmit={onSubmit}
-            validationSchema={validationSchema}
-        >
-            {({ isSubmitting }) => (
                 <OrderFormContainer>
                     <div className="checkout-form-layout">
                             <h4>Delivery Address</h4>
@@ -85,14 +79,11 @@ const CheckoutForm = () => {
                         </section>
                     </div>
                 </OrderFormContainer>
-            )}
-        </Formik>
     )
 }
 
 
 const mapStateToProps = state => ({
-  
     order : state.products.checkout
 })
 
