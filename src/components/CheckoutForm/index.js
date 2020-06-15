@@ -84,7 +84,9 @@ const CheckoutForm = () => {
                                 </div>
                                 <div className="credit-card">
                                     <CardElement  onChange={(e) => {
-                                            setErrors(errors => ({...errors,card: e.error}));
+                                            if (e.error) {
+                                                setErrors(errors => ({...errors,card: e.error.message}));
+                                            }
                                             setCardComplete(e.complete);
                                         }} 
                                         options={{
@@ -99,7 +101,9 @@ const CheckoutForm = () => {
                                             base: { fontSize: '16px', color: 'black',
                                             '::placeholder': {color: 'lightgray' },
                                             },
-                                            invalid: { color: '#9e2146' },
+                                            invalid: { 
+                                                iconColor: '#ffc7ee',
+                                                color: '#9e2146' },
                                         }}}
                                     />
                                 </div>
