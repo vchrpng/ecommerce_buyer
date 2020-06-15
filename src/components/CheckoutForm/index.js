@@ -44,13 +44,12 @@ const CheckoutForm = () => {
             onSubmit={onSubmit}
             validationSchema={validationSchema}
         >
-            {({ isSubmitting, handleSubmit, errors, touched }) => (
+            {({ isSubmitting }) => (
                 <OrderFormContainer>
                     <div className="checkout-form-layout">
                             <h4>Delivery Address</h4>
                             <DeliveryAddress />
                             <h4>Payment details</h4>
-
                             <section className="payment-method">
                             <div className="invoice-detail">
                                 <div className="payment-choice">
@@ -64,8 +63,8 @@ const CheckoutForm = () => {
                                 <div className="credit-card">
                                     <CardElement options={{
                                         style: {
-                                            base: { fontSize: '16px', color: '#424770',
-                                            '::placeholder': {color: '#aab7c4' },
+                                            base: { fontSize: '16px', color: 'black',
+                                            '::placeholder': {color: 'lightgray' },
                                             },
                                             invalid: { color: '#9e2146' },
                                         }}}
