@@ -7,7 +7,7 @@ import { DeliveryAddressContainer, AddressBox } from './styled'
 const deliveryaddress = require('../../assets/delivery-address.jpg')
 
     
-const DeliveryAddress = ({ onSelectAddress, selectedAddress }) => {
+const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
 
     const [isDeliveryFormOpen, toggleDeliveryForm] = React.useState(false)
     const [devlieryFormData,setDeliveryFormData] = React.useState([])
@@ -52,6 +52,7 @@ const DeliveryAddress = ({ onSelectAddress, selectedAddress }) => {
                                     <Icon name="remove" />Remove
                                 </Button>
                             </div>
+                            {error && <span>{error}</span>}
                         </AddressBox>
                     ))}
                         <li className="more-address">
