@@ -22,7 +22,7 @@ export const AddressBox = styled.li`
         right: 0;
         bottom: 0;
         left: 0;
-        border:2px solid ${props => props.selected ? 'lightblue' : 'lightgray'};
+        border:2px solid ${props => props.selected ? 'cornflowerblue' : 'lightgray'};
         pointer-events: none;
         content: '';
     }
