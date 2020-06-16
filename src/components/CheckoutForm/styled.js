@@ -64,6 +64,10 @@ export const OrderFormContainer = styled.form`
         max-width:400px;
         margin:0 auto;
 
+        .payment-detail-title {
+            margin: 10px 0;
+        }
+
         .payment-method {
                 width:100%;
                 display: flex;

@@ -37,14 +37,16 @@ const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
                         {devlieryFormData.map((address,idx) => (
                         <AddressBox onClick={() => onSelectAddress(idx)} key={idx} selected={idx === selectedAddress ? 1 : 0}>
                             <div className="address-box-background">
-                                <h4>{address.type}</h4>
-                                <div className="address-detail"></div>
-                                <p>{address.name.charAt(0).toUpperCase() + address.name.slice(1)}</p>
-                                <p>{address.line1}</p>
-                                <p>{address.city}</p>
-                                <p>{address.state}</p>
-                                <p>{address.country}</p>
-                                <p>Mobile: {address.phone}</p>
+                                <h4 className="address-type">{address.type}</h4>
+                                <div className="address-detail">
+                                    <p>{address.name.charAt(0).toUpperCase() + address.name.slice(1)}</p>
+                                    <p>{address.line1}</p>
+                                    <p>{address.city}</p>
+                                    <p>{address.state}</p>
+                                    <p>{address.country}</p>
+                                    <p>Mobile: {address.phone}</p>
+                                </div>
+                               
                                 <Button basic size="mini" icon>
                                     <Icon name="edit" />Edit
                                 </Button> 
