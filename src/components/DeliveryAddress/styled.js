@@ -2,6 +2,7 @@ import styled from 'styled-components'
 const checkedIcon = require('../../assets/correct.svg')
 
 export const AddressBox = styled.li`
+    background-color:#ffffff;
     position:relative;
     min-width: 193px;
     padding: 10px 20px;
@@ -66,6 +67,7 @@ export const DeliveryAddressContainer = styled.section`
                 min-width:193px;
 
                 .add-address-btn {
+                    background-color:#ffffff;
                     height:197px;
                     display: flex;
                     justify-content: center;
