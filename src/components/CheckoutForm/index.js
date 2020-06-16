@@ -73,7 +73,7 @@ const CheckoutForm = () => {
                                 selectedAddress={selectedAddress}
                                 onSelectAddress={onSelectAddress} 
                             />
-                            <h4>Payment details</h4>
+                            <h4 className="payment-detail-title">Payment details</h4>
                             <section className="payment-method">
                             <div className="invoice-detail">
                                 <div className="payment-choice">
