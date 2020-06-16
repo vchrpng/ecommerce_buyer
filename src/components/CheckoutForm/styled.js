@@ -4,6 +4,7 @@ const checkedIcon = require('../../assets/correct.svg')
 
 
 export const PaymentSelector = styled.div`
+    background-color:#ffffff;
     position:relative;
     font-size:12px;
     color: rgb(0,0,0,0.7);
@@ -49,10 +50,11 @@ export const PaymentSelector = styled.div`
 
 
 export const OrderFormContainer = styled.form`
+    background-color:#fafafa;
     max-width:620px;
     width:100%;
     padding: 20px 40px;
-    border-right:1px solid #f8f8f8;
+    border-right:1px solid #f0f0f0;
 
     @media only screen and (max-width : 750px){
             max-width:100%;
@@ -77,12 +79,11 @@ export const OrderFormContainer = styled.form`
                     }
 
                     .credit-card {
+                        background-color:#ffffff;
                         position:relative;
                         padding: 20px;
                         border-radius:4px;
                         border: 2px solid ${props => props.errors && props.errors.card ? '#9e2146' : 'rgb(0,0,0,0.1)'};
-
-                        
 
                         .error-message {
                             position: absolute;
