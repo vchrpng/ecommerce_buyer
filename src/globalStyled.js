@@ -9,7 +9,8 @@ body ::-webkit-scrollbar-track {
 
 
 body {
-  
+  height:auto;
+
   ul {
 
     padding:0;
