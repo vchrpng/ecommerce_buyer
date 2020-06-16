@@ -7,7 +7,7 @@ import RenderCostTotal from '../RenderCostTotal'
 
 const OrderSummaryContainer = styled.section`
     padding: 40px;
-    background: #fbfbfb;
+    background: #ffffff;
     border-radius:6px;
     min-width:300px;
     max-width:620px;
