@@ -21,7 +21,7 @@ export const PaymentSelector = styled.div`
     border-radius:4px;
     width: 100%;
     height: 85px;
-    border:2px solid ${props => props.selected ? 'lightblue' : 'lightgray'};
+    border:2px solid ${props => props.selected ? 'cornflowerblue' : 'lightgray'};
 
 
     > input,label {
