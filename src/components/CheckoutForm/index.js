@@ -15,7 +15,7 @@ const CheckoutForm = () => {
     const [selectedAddress, setSelectedAddress]  = React.useState(null)
     const [isCardComplete, setCardComplete]  = React.useState(null)
     const [errors, setErrors] = React.useState({ 
-        address: 'Please select an address',
+        address: null,
         card: null
      })
 
@@ -30,16 +30,16 @@ const CheckoutForm = () => {
 
     async function onSubmit(e) {
         e.preventDefault()
+        if (!selectedAddress) {
+            setErrors(errors => ({ ...errors, address: 'Please select any address' }))
+        }
 
         const cardElement = elements.getElement(CardElement)
         const stripetoken = await stripe.createToken(cardElement)
 
-        if (errors.address) {
 
-        }
-
-        if (errors.card) {
-
+        if (!isCardComplete || errors.card) {
+            return
         }
 
 
@@ -66,8 +66,10 @@ const CheckoutForm = () => {
     return (
                 <OrderFormContainer errors={errors} onSubmit={onSubmit}>
                     <div className="checkout-form-layout">
-                            <h4>Delivery Address</h4>
-                            <DeliveryAddress 
+                            <h3>Select Delivery Address</h3>
+                            <h5>Select or add an address</h5>
+                            <DeliveryAddress
+                                error={errors.address} 
                                 selectedAddress={selectedAddress}
                                 onSelectAddress={onSelectAddress} 
                             />
@@ -116,7 +118,7 @@ const CheckoutForm = () => {
                         <section className="confirm-payment">
                             <CheckoutNavigate />
                             <div className="pay-button">
-                                <ProceedPayment disabled={errors.address || !isCardComplete} type="submit">
+                                <ProceedPayment type="submit">
                                     <img className="secure-icon" src={lockIcon} />
                                     <h3>{`Pay now`}</h3>
                                 </ProceedPayment>
