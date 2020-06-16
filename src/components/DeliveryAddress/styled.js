@@ -15,6 +15,13 @@ export const AddressBox = styled.li`
 
 
     .address-box-background {
+        p {
+            margin-bottom:3px;
+        }
+        
+        .address-type {
+            margin-bottom:5px;
+        }
         &:before {
         border-radius: 4px;
         display: block;
@@ -26,11 +33,10 @@ export const AddressBox = styled.li`
         border:2px solid ${props => props.selected ? 'cornflowerblue' : 'lightgray'};
         pointer-events: none;
         content: '';
+
     }
 
-    p {
-        margin-bottom:5px;
-    }
+ 
 
      ${props => props.selected && `
         &:after {
@@ -68,7 +74,7 @@ export const DeliveryAddressContainer = styled.section`
 
                 .add-address-btn {
                     background-color:#ffffff;
-                    height:197px;
+                    height:168px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
