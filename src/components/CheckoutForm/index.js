@@ -83,10 +83,12 @@ const CheckoutForm = () => {
                                     </PaymentSelector>
                                 </div>
                                 <div className="credit-card">
+                                    {errors.card && <span className="error-message">{errors.card}</span>}
                                     <CardElement  onChange={(e) => {
-                                            if (e.error) {
-                                                setErrors(errors => ({...errors,card: e.error.message}));
-                                            }
+                                            setErrors(errors => ({
+                                                    ...errors,
+                                                    card: e.error ? e.error.message : null 
+                                                }));
                                             setCardComplete(e.complete);
                                         }} 
                                         options={{
@@ -114,7 +116,6 @@ const CheckoutForm = () => {
                         <section className="confirm-payment">
                             <CheckoutNavigate />
                             <div className="pay-button">
-                                {errors.card && <span>{errors.card}</span>}
                                 <ProceedPayment disabled={errors.address || !isCardComplete} type="submit">
                                     <img className="secure-icon" src={lockIcon} />
                                     <h3>{`Pay now`}</h3>
