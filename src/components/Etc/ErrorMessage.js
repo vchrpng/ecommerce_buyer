@@ -7,7 +7,7 @@ const ErrorMessageStyle = styled.span`
     color: white;
     padding: 10px;
     border-radius: 4px;
-    top: -28px;
+    top: -35px;
     -webkit-transition: .3s;
     transition: .3s;
 
