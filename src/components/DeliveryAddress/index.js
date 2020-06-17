@@ -63,7 +63,7 @@ const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
                                 className="add-address-btn"
                                 onClick={() => toggleDeliveryForm(true)}>
                                 <img className="img" src={deliveryaddress} />
-                                <p>Add new address</p>
+                                <h5 className="add-address-msg">Add new address</h5>
                             </div>
                         </li>
                     </ul>

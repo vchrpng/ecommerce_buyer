@@ -88,6 +88,10 @@ export const DeliveryAddressContainer = styled.section`
                     cursor:pointer;
                     position:relative;
 
+                    .add-address-msg {
+                        margin-top:5px;
+                    }
+
 
                     .img {
                         width: 100px;
