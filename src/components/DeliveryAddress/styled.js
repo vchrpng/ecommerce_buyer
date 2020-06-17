@@ -61,6 +61,7 @@ export const DeliveryAddressContainer = styled.section`
 
         .shipping-address-selector {
             display:flex;
+            position:relative;
 
             .delivery-address-list {
                 display: flex;
@@ -74,12 +75,12 @@ export const DeliveryAddressContainer = styled.section`
 
                 .add-address-btn {
                     background-color:#ffffff;
-                    height:168px;
+                    height:174px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     flex-direction:column;
-                    border: 1px dashed gray;
+                    border: 2px dashed ${props => props.error ? '#9e2146' : 'lightgray'};
                     border-radius: 4px;
                     padding: 10px;
                     font-size:12px;

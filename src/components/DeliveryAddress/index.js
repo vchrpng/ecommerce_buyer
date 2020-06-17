@@ -3,6 +3,7 @@ import { Button, Icon } from 'semantic-ui-react'
 import Modal from '../Modal'
 import ShippingAddressForm from '../ShippingAddressForm'
 import { DeliveryAddressContainer, AddressBox } from './styled'
+import ErrorMessage from '../Etc/ErrorMessage'
 
 const deliveryaddress = require('../../assets/delivery-address.jpg')
 
@@ -31,8 +32,9 @@ const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
     
 
     return (
-            <DeliveryAddressContainer>
+            <DeliveryAddressContainer error={error}>
                 <div className="shipping-address-selector">
+                    {error && <ErrorMessage>{error}</ErrorMessage>}
                     <ul className="delivery-address-list">
                         {devlieryFormData.map((address,idx) => (
                         <AddressBox onClick={() => onSelectAddress(idx)} key={idx} selected={idx === selectedAddress ? 1 : 0}>
@@ -54,7 +56,6 @@ const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
                                     <Icon name="remove" />Remove
                                 </Button>
                             </div>
-                            {error && <span>{error}</span>}
                         </AddressBox>
                     ))}
                         <li className="more-address">
