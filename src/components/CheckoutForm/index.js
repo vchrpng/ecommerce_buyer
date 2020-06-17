@@ -31,7 +31,7 @@ const CheckoutForm = () => {
 
     async function onSubmit(e) {
         e.preventDefault()
-        if (!selectedAddress) {
+        if (selectedAddress === null) {
             setErrors(errors => ({ ...errors, address: 'Please select any address' }))
         } else {
             setErrors(errors => ({ ...errors, address: null }))
@@ -67,7 +67,7 @@ const CheckoutForm = () => {
     }
 
     return (
-                <OrderFormContainer errors={errors} onSubmit={onSubmit}>
+                <OrderFormContainer isCardComplete={isCardComplete} errors={errors} onSubmit={onSubmit}>
                     <div className="checkout-form-layout">
                             <h3>Select Delivery Address</h3>
                             <h5>Select or add an address</h5>

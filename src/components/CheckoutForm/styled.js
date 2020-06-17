@@ -83,11 +83,13 @@ export const OrderFormContainer = styled.form`
                     }
 
                     .credit-card {
+                        transition:.3s;
                         background-color:#ffffff;
                         position:relative;
                         padding: 20px;
                         border-radius:4px;
-                        border: 2px solid ${props => props.errors && props.errors.card ? '#9e2146' : 'rgb(0,0,0,0.1)'};
+                        border: 2px solid ${props => props.errors && props.errors.card ? 
+                            '#9e2146' : props.isCardComplete ? 'cornflowerblue' : 'rgb(0,0,0,0.1)'};
                     }
                 }
             }
