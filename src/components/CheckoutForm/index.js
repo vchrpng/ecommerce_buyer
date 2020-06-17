@@ -33,6 +33,8 @@ const CheckoutForm = () => {
         e.preventDefault()
         if (!selectedAddress) {
             setErrors(errors => ({ ...errors, address: 'Please select any address' }))
+        } else {
+            setErrors(errors => ({ ...errors, address: null }))
         }
 
         const cardElement = elements.getElement(CardElement)
