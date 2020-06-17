@@ -6,6 +6,7 @@ import { submitOrder } from '../../actions'
 import { OrderFormContainer, PaymentSelector } from './styled'
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import DeliveryAddress from '../DeliveryAddress'
+import ErrorMessage from '../Etc/ErrorMessage'
 
 const lockIcon = require('../../assets/lock.svg')
 const creditCards = require('../../assets/Minimal Credit Card Icons.svg')
@@ -85,7 +86,7 @@ const CheckoutForm = () => {
                                     </PaymentSelector>
                                 </div>
                                 <div className="credit-card">
-                                    {errors.card && <span className="error-message">{errors.card}</span>}
+                                    {errors.card && <ErrorMessage>{errors.card}</ErrorMessage>}
                                     <CardElement  onChange={(e) => {
                                             setErrors(errors => ({
                                                     ...errors,

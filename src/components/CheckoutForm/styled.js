@@ -88,30 +88,6 @@ export const OrderFormContainer = styled.form`
                         padding: 20px;
                         border-radius:4px;
                         border: 2px solid ${props => props.errors && props.errors.card ? '#9e2146' : 'rgb(0,0,0,0.1)'};
-
-                        .error-message {
-                            position: absolute;
-                            background: #9e2146;
-                            color: white;
-                            padding: 10px;
-                            border-radius: 4px;
-                            top: 5px;
-                            left: -210px;
-                            transition:.3s;
-
-                            &:after {
-                                content:' ';
-                                position:absolute;
-                                right: -10px;
-                                top: 15px;
-                                width: 0; 
-                                height: 0; 
-                                border-top: 5px solid transparent;
-                                border-left: 5px solid #9e2146;
-                                border-right: 5px solid transparent;
-                                border-bottom: 5px solid transparent;
-                            }
-                        }
                     }
                 }
             }
