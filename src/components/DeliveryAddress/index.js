@@ -52,9 +52,10 @@ const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
                                 <Button basic size="mini" icon>
                                     <Icon name="edit" />Edit
                                 </Button> 
+                                {devlieryFormData.length > 1 && 
                                 <Button basic size="mini" icon>
                                     <Icon name="remove" />Remove
-                                </Button>
+                                </Button>}
                             </div>
                         </AddressBox>
                     ))}
