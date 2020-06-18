@@ -32,7 +32,7 @@ const CheckoutForm = () => {
     async function onSubmit(e) {
         e.preventDefault()
         if (selectedAddress === null) {
-            setErrors(errors => ({ ...errors, address: 'Please select any address' }))
+            setErrors(errors => ({ ...errors, address: 'Please select any address.' }))
         } else {
             setErrors(errors => ({ ...errors, address: null }))
         }
