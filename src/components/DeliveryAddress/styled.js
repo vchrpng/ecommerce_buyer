@@ -75,7 +75,7 @@ export const DeliveryAddressContainer = styled.section`
 
                 .add-address-btn {
                     background-color:#ffffff;
-                    height:174px;
+                    height:146px;
                     display: flex;
                     justify-content: center;
                     align-items: center;

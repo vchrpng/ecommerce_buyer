@@ -28,6 +28,7 @@ const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
 
     function addNewDevlieryAddress(newAddress) {
         setDeliveryFormData(prev => [...prev,newAddress])
+        toggleDeliveryForm(false)
     }
 
 
@@ -43,22 +44,22 @@ const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
                         <AddressBox onClick={() => onSelectAddress(idx)} key={idx} selected={idx === selectedAddress ? 1 : 0}>
                             <div className="address-box-background">
                                 <h4 className="address-type">{address.type}</h4>
-                                <div className="address-detail">
-                                    <p>{address.name.charAt(0).toUpperCase() + address.name.slice(1)}</p>
-                                    <p>{address.line1}</p>
-                                    <p>{address.city}</p>
-                                    <p>{address.state}</p>
-                                    <p>{address.country}</p>
-                                    <p>Mobile: {address.phone}</p>
+                                <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+                                    <div className="address-detail">
+                                        <p>{address.name.charAt(0).toUpperCase() + address.name.slice(1)}</p>
+                                        <p>{address.line1}</p>
+                                        <p>{address.city}</p>
+                                        <p>{address.state}</p>
+                                        <p>{address.country}</p>
+                                        <p>Mobile: {address.phone}</p>
+                                    </div>
+                                        <span><Icon name="edit" />Edit</span>
+                                    {devlieryFormData.length > 1 && 
+                                    <span>
+                                        <Icon onClick={() => removeDeliveryAddress(idx)} name="remove" />
+                                        Remove
+                                    </span>}
                                 </div>
-                               
-                                <Button basic size="mini" icon>
-                                    <Icon name="edit" />Edit
-                                </Button> 
-                                {devlieryFormData.length > 1 && 
-                                <Button onClick={() => removeDeliveryAddress(idx)} basic size="mini" icon>
-                                    <Icon name="remove" />Remove
-                                </Button>}
                             </div>
                         </AddressBox>
                     ))}
@@ -66,7 +67,6 @@ const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
                             <div
                                 className="add-address-btn"
                                 onClick={() => toggleDeliveryForm(true)}>
-                                <img className="img" src={deliveryaddress} />
                                 <h5 className="add-address-msg">Add new address</h5>
                             </div>
                         </li>
