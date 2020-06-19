@@ -10,6 +10,10 @@ const deliveryaddress = require('../../assets/delivery-address.jpg')
     
 const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
 
+    React.useEffect(() => {
+        onSelectAddress(devlieryFormData.length)
+    }, [devlieryFormData])
+
     const [isDeliveryFormOpen, toggleDeliveryForm] = React.useState(false)
     const [devlieryFormData, setDeliveryFormData] = React.useState([])
 
@@ -24,7 +28,6 @@ const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
 
     function addNewDevlieryAddress(newAddress) {
         setDeliveryFormData(prev => [...prev,newAddress])
-        onSelectAddress(devlieryFormData.length)
     }
 
 
