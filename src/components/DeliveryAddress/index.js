@@ -44,21 +44,20 @@ const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
                         <AddressBox onClick={() => onSelectAddress(idx)} key={idx} selected={idx === selectedAddress ? 1 : 0}>
                             <div className="address-box-background">
                                 <h4 className="address-type">{address.type}</h4>
-                                <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+                                <div className="address-information">
                                     <div className="address-detail">
                                         <p>{address.name.charAt(0).toUpperCase() + address.name.slice(1)}</p>
-                                        <p>{address.line1}</p>
-                                        <p>{address.city}</p>
-                                        <p>{address.state}</p>
+                                        <p>{address.line1} {address.city} {address.state}</p>
                                         <p>{address.country}</p>
                                         <p>Mobile: {address.phone}</p>
                                     </div>
-                                        <span><Icon name="edit" />Edit</span>
-                                    {devlieryFormData.length > 1 && 
-                                    <span>
-                                        <Icon onClick={() => removeDeliveryAddress(idx)} name="remove" />
-                                        Remove
-                                    </span>}
+                                    <div className="address-actions">
+                                        <span><Icon name="edit" /></span>
+                                        {devlieryFormData.length > 1 && 
+                                        <span>
+                                            <Icon onClick={() => removeDeliveryAddress(idx)} name="remove" />
+                                        </span>}
+                                    </div>
                                 </div>
                             </div>
                         </AddressBox>
