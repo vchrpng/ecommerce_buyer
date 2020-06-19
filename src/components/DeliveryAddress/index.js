@@ -11,11 +11,11 @@ const deliveryaddress = require('../../assets/delivery-address.jpg')
 const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
 
     const [isDeliveryFormOpen, toggleDeliveryForm] = React.useState(false)
-    const [devlieryFormData,setDeliveryFormData] = React.useState([])
+    const [devlieryFormData, setDeliveryFormData] = React.useState([])
 
 
     function removeDeliveryAddress(index) {
-
+        setDeliveryFormData(prev => prev.filter((_,idx) => idx !== index))
     }
 
     function editDeliveryAddress(index) {
@@ -52,9 +52,10 @@ const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
                                 <Button basic size="mini" icon>
                                     <Icon name="edit" />Edit
                                 </Button> 
-                                <Button basic size="mini" icon>
+                                {devlieryFormData.length > 1 && 
+                                <Button onClick={() => removeDeliveryAddress(idx)} basic size="mini" icon>
                                     <Icon name="remove" />Remove
-                                </Button>
+                                </Button>}
                             </div>
                         </AddressBox>
                     ))}
