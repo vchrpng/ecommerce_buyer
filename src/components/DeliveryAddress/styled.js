@@ -5,7 +5,8 @@ export const AddressBox = styled.li`
     background-color:#ffffff;
     position:relative;
     min-width: 193px;
-    padding: 10px 20px;
+    padding: 10px;
+    padding-right: 0;
     margin-right:16px;
     font-size:10px;
     color: rgb(0,0,0,0.7);
@@ -22,6 +23,19 @@ export const AddressBox = styled.li`
         .address-type {
             margin-bottom:5px;
         }
+        .address-information {
+                display:flex;
+                justify-content:space-between;
+
+                .address-actions {
+                    display:flex;
+                    width: 20%;
+                }
+                .address-detail {
+                    width: 80%;
+                    padding-right:5px;
+                }
+            }
         &:before {
         border-radius: 4px;
         display: block;
@@ -75,7 +89,7 @@ export const DeliveryAddressContainer = styled.section`
 
                 .add-address-btn {
                     background-color:#ffffff;
-                    height:146px;
+                    height:126px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
