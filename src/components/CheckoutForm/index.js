@@ -14,10 +14,6 @@ const paypalIcon = require('../../assets/paypal.svg')
 
 const CheckoutForm = ({ submit }) => {
 
-    React.useEffect(() => {
-        onSelectAddress(deliveryFormData.length)
-    }, [deliveryFormData])
-
     const [selectedAddress, setSelectedAddress]  = React.useState(null)
     const [isCardComplete, setCardComplete]  = React.useState(null)
     const [deliveryFormData, setDeliveryFormData] = React.useState([])
@@ -32,13 +28,19 @@ const CheckoutForm = ({ submit }) => {
         setErrors(errors => ({ ...errors,  address: null }))
     }
 
+    React.useEffect(() => {
+        if (deliveryFormData.length) {
+            onSelectAddress(deliveryFormData.length - 1)
+        }
+    }, [deliveryFormData && deliveryFormData.length])
+
     const elements = useElements();
     const stripe = useStripe();
 
 
     async function onSubmit(e) {
         e.preventDefault()
-        if (!selectedAddress) {
+        if (!selectedAddress && !deliveryFormData.length) {
             setErrors(errors => ({ ...errors, address: 'Please select any address.' }))
         } else {
             setErrors(errors => ({ ...errors, address: null }))

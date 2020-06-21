@@ -34,7 +34,7 @@ const DeliveryAddress = ({
                     {error && <ErrorMessage>{error}</ErrorMessage>}
                     <ul className="delivery-address-list">
                         {deliveryFormData.length ? deliveryFormData.map((address,idx) => (
-                        <AddressBox onClick={() => onSelectAddress(idx)} key={idx} selected={idx === selectedAddress ? 1 : 0}>
+                        <AddressBox onClick={() => onSelectAddress(idx)} key={idx} selected={idx === selectedAddress}>
                             <div className="address-box-background">
                                 <h4 className="address-type">{address.type}</h4>
                                 <div className="address-information">
