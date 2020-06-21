@@ -1,21 +1,23 @@
 import React from 'react'
-import { Button, Icon } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 import Modal from '../Modal'
 import ShippingAddressForm from '../ShippingAddressForm'
 import { DeliveryAddressContainer, AddressBox } from './styled'
 import ErrorMessage from '../Etc/ErrorMessage'
 
-const deliveryaddress = require('../../assets/delivery-address.jpg')
-
-    
-const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
+const DeliveryAddress = ({ 
+    onSelectAddress, 
+    selectedAddress, 
+    error, 
+    devlieryFormData,
+    setDeliveryFormData
+ }) => {
 
     React.useEffect(() => {
         onSelectAddress(devlieryFormData.length)
     }, [devlieryFormData])
 
     const [isDeliveryFormOpen, toggleDeliveryForm] = React.useState(false)
-    const [devlieryFormData, setDeliveryFormData] = React.useState([])
 
 
     function removeDeliveryAddress(index) {
@@ -31,9 +33,6 @@ const DeliveryAddress = ({ onSelectAddress, selectedAddress, error }) => {
         toggleDeliveryForm(false)
     }
 
-
-
-    
 
     return (
             <DeliveryAddressContainer error={error}>

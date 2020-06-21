@@ -15,6 +15,8 @@ const paypalIcon = require('../../assets/paypal.svg')
 const CheckoutForm = ({ submit }) => {
     const [selectedAddress, setSelectedAddress]  = React.useState(null)
     const [isCardComplete, setCardComplete]  = React.useState(null)
+    const [devlieryFormData, setDeliveryFormData] = React.useState([])
+
     const [errors, setErrors] = React.useState({ 
         address: null,
         card: null
@@ -72,6 +74,8 @@ const CheckoutForm = ({ submit }) => {
                                 error={errors.address} 
                                 selectedAddress={selectedAddress}
                                 onSelectAddress={onSelectAddress} 
+                                devlieryFormData={devlieryFormData}
+                                setDeliveryFormData={setDeliveryFormData}
                             />
                             <h4 className="payment-detail-title">Payment details</h4>
                             <section className="payment-method">
