@@ -13,9 +13,14 @@ const creditCards = require('../../assets/Minimal Credit Card Icons.svg')
 const paypalIcon = require('../../assets/paypal.svg')
 
 const CheckoutForm = ({ submit }) => {
+
+    React.useEffect(() => {
+        onSelectAddress(deliveryFormData.length)
+    }, [deliveryFormData])
+
     const [selectedAddress, setSelectedAddress]  = React.useState(null)
     const [isCardComplete, setCardComplete]  = React.useState(null)
-    const [devlieryFormData, setDeliveryFormData] = React.useState([])
+    const [deliveryFormData, setDeliveryFormData] = React.useState([])
 
     const [errors, setErrors] = React.useState({ 
         address: null,
@@ -33,7 +38,7 @@ const CheckoutForm = ({ submit }) => {
 
     async function onSubmit(e) {
         e.preventDefault()
-        if (selectedAddress === null) {
+        if (!selectedAddress) {
             setErrors(errors => ({ ...errors, address: 'Please select any address.' }))
         } else {
             setErrors(errors => ({ ...errors, address: null }))
@@ -74,7 +79,7 @@ const CheckoutForm = ({ submit }) => {
                                 error={errors.address} 
                                 selectedAddress={selectedAddress}
                                 onSelectAddress={onSelectAddress} 
-                                devlieryFormData={devlieryFormData}
+                                deliveryFormData={deliveryFormData}
                                 setDeliveryFormData={setDeliveryFormData}
                             />
                             <h4 className="payment-detail-title">Payment details</h4>
