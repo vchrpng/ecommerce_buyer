@@ -9,16 +9,10 @@ const DeliveryAddress = ({
     onSelectAddress, 
     selectedAddress, 
     error, 
-    devlieryFormData,
+    deliveryFormData,
     setDeliveryFormData
  }) => {
-
-    React.useEffect(() => {
-        onSelectAddress(devlieryFormData.length)
-    }, [devlieryFormData])
-
     const [isDeliveryFormOpen, toggleDeliveryForm] = React.useState(false)
-
 
     function removeDeliveryAddress(index) {
         setDeliveryFormData(prev => prev.filter((_,idx) => idx !== index))
@@ -39,7 +33,7 @@ const DeliveryAddress = ({
                 <div className="shipping-address-selector">
                     {error && <ErrorMessage>{error}</ErrorMessage>}
                     <ul className="delivery-address-list">
-                        {devlieryFormData.map((address,idx) => (
+                        {deliveryFormData.length ? deliveryFormData.map((address,idx) => (
                         <AddressBox onClick={() => onSelectAddress(idx)} key={idx} selected={idx === selectedAddress ? 1 : 0}>
                             <div className="address-box-background">
                                 <h4 className="address-type">{address.type}</h4>
@@ -52,7 +46,7 @@ const DeliveryAddress = ({
                                     </div>
                                     <div className="address-actions">
                                         <span><Icon name="edit" /></span>
-                                        {devlieryFormData.length > 1 && 
+                                        {deliveryFormData.length > 1 && 
                                         <span>
                                             <Icon onClick={() => removeDeliveryAddress(idx)} name="remove" />
                                         </span>}
@@ -60,7 +54,7 @@ const DeliveryAddress = ({
                                 </div>
                             </div>
                         </AddressBox>
-                    ))}
+                    )): null }
                         <li className="more-address">
                             <div
                                 className="add-address-btn"
