@@ -7,6 +7,7 @@ import { OrderFormContainer, PaymentSelector } from './styled'
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import DeliveryAddress from '../DeliveryAddress'
 import ErrorMessage from '../Etc/ErrorMessage'
+import SubmitMessage from '../SubmitMessage'
 
 const lockIcon = require('../../assets/lock.svg')
 const creditCards = require('../../assets/Minimal Credit Card Icons.svg')
@@ -17,6 +18,7 @@ const CheckoutForm = ({ submit }) => {
     const [selectedAddress, setSelectedAddress]  = React.useState(null)
     const [isCardComplete, setCardComplete]  = React.useState(null)
     const [deliveryFormData, setDeliveryFormData] = React.useState([])
+    const [isPaymentSuccess, setPaymentSuccess] = React.useState(false)
 
     const [errors, setErrors] = React.useState({ 
         address: null,
@@ -54,6 +56,7 @@ const CheckoutForm = ({ submit }) => {
             return
         } else {
             alert('wow')
+            setPaymentSuccess(true)
             // submit({
             //     amount: Number(total) > 0 ? Number(total) : 100,
             //     source: stripetoken.token.id,
@@ -136,6 +139,8 @@ const CheckoutForm = ({ submit }) => {
                             </div>
                         </section>
                     </div>
+                    {isPaymentSuccess && 
+                    <SubmitMessage >Yes</SubmitMessage>}
                 </OrderFormContainer>
     )
 }
