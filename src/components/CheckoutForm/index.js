@@ -12,9 +12,12 @@ const lockIcon = require('../../assets/lock.svg')
 const creditCards = require('../../assets/Minimal Credit Card Icons.svg')
 const paypalIcon = require('../../assets/paypal.svg')
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ submit }) => {
+
     const [selectedAddress, setSelectedAddress]  = React.useState(null)
     const [isCardComplete, setCardComplete]  = React.useState(null)
+    const [deliveryFormData, setDeliveryFormData] = React.useState([])
+
     const [errors, setErrors] = React.useState({ 
         address: null,
         card: null
@@ -25,13 +28,19 @@ const CheckoutForm = () => {
         setErrors(errors => ({ ...errors,  address: null }))
     }
 
+    React.useEffect(() => {
+        if (deliveryFormData.length) {
+            onSelectAddress(deliveryFormData.length - 1)
+        }
+    }, [deliveryFormData && deliveryFormData.length])
+
     const elements = useElements();
     const stripe = useStripe();
 
 
     async function onSubmit(e) {
         e.preventDefault()
-        if (selectedAddress === null) {
+        if (!selectedAddress && !deliveryFormData.length) {
             setErrors(errors => ({ ...errors, address: 'Please select any address.' }))
         } else {
             setErrors(errors => ({ ...errors, address: null }))
@@ -43,27 +52,24 @@ const CheckoutForm = () => {
 
         if (!isCardComplete || errors.card) {
             return
+        } else {
+            alert('wow')
+            // submit({
+            //     amount: Number(total) > 0 ? Number(total) : 100,
+            //     source: stripetoken.token.id,
+            //     receipt_email:'stripepayment@gmail.com',
+            //     shipping: {
+            //         name: values.name,
+            //         address: {
+            //             line1: '49/47',
+            //             city: values.city,
+            //             country: values.country,
+            //         },
+            //         phone: values.phone
+            //     }
+            // })
         }
 
-
-
-        
-  
-
-        //  submit({
-        //     amount:Number(total) > 0 ? Number(total) : 100,
-        //     source: stripetoken.token.id,
-        //     receipt_email:'stripepayment@gmail.com',
-        //     shipping: {
-        //         name: values.name,
-        //         address: {
-        //             line1: '49/47',
-        //             city: values.city,
-        //             country: values.country,
-        //         },
-        //         phone: values.phone
-        //     }
-        // })
     }
 
     return (
@@ -75,6 +81,8 @@ const CheckoutForm = () => {
                                 error={errors.address} 
                                 selectedAddress={selectedAddress}
                                 onSelectAddress={onSelectAddress} 
+                                deliveryFormData={deliveryFormData}
+                                setDeliveryFormData={setDeliveryFormData}
                             />
                             <h4 className="payment-detail-title">Payment details</h4>
                             <section className="payment-method">

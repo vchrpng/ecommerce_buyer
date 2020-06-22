@@ -19,7 +19,7 @@ export const PaymentSelector = styled.div`
     cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
     display:flex;
     flex-direction: column;
-    border-radius:4px;
+    border-radius: 4px;
     width: 100%;
     height: 85px;
     border:2px solid ${props => props.selected ? 'cornflowerblue' : 'lightgray'};
@@ -52,6 +52,7 @@ export const PaymentSelector = styled.div`
 export const OrderFormContainer = styled.form`
     background-color:#fafafa;
     max-width:620px;
+    border-radius: 20px 0px 0px 20px;
     width:100%;
     padding: 20px 40px;
     border-right:1px solid #f0f0f0;
