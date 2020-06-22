@@ -140,7 +140,7 @@ const CheckoutForm = ({ submit }) => {
                         </section>
                     </div>
                     {isPaymentSuccess && 
-                    <SubmitMessage >Yes</SubmitMessage>}
+                    <SubmitMessage onClose={setPaymentSuccess} />}
                 </OrderFormContainer>
     )
 }

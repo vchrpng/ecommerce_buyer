@@ -3,6 +3,8 @@ import ReactDom from "react-dom"
 import { SubmitMessageWrapper } from "./style"
 import { Icon } from 'semantic-ui-react'
 
+const openWalletVector = require('../../assets/open-wallet.jpg')
+
 const SubmitMessageRoot = document.getElementById("message-root")
 
 
@@ -43,7 +45,16 @@ const SubmitMessage = ({ isOpen, onClose, size, children, header }) => {
                     <Icon onClick={handleClick} name="close" />
                 </div>
                 <div className="box-content">
-                {children}
+                    <div>
+                        <img src={openWalletVector} style={{ width: '250px' }} />
+                    </div>
+                    <div>
+                        <h2>Payment Successful!</h2>
+                        <p>
+                        Thank you for purchasing <br/>
+                        Your payment was successful.
+                        </p>
+                    </div>
                 </div>
             </div>
             <div
