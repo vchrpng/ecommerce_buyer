@@ -54,6 +54,7 @@ const SubmitMessage = ({ isOpen, onClose, size }) => {
                         Thank you for purchasing <br/>
                         Your payment was successful.
                         </p>
+                        <a href="http://localhost:3000">Back to shopping</a>
                     </div>
                 </div>
             </div>
