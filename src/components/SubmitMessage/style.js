@@ -42,6 +42,19 @@ export const SubmitMessageWrapper = styled.div`
             padding: 30px 24px 35px 24px;
             width: 100%;
             height:fit-content;
+
+            .payment-success-img {
+                display:flex;
+                justify-content:center;
+                
+                img {
+                    width: 250px;
+                }
+            }
+
+            .payment-success-content {
+                text-align:center;
+            }
         }
 
         .box-body {

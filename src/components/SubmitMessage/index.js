@@ -8,7 +8,7 @@ const openWalletVector = require('../../assets/open-wallet.jpg')
 const SubmitMessageRoot = document.getElementById("message-root")
 
 
-const SubmitMessage = ({ isOpen, onClose, size, children, header }) => {
+const SubmitMessage = ({ isOpen, onClose, size }) => {
   
     const [open,handleToggle] = React.useState(false)
     const outsideRef = React.createRef()
@@ -45,10 +45,10 @@ const SubmitMessage = ({ isOpen, onClose, size, children, header }) => {
                     <Icon onClick={handleClick} name="close" />
                 </div>
                 <div className="box-content">
-                    <div>
-                        <img src={openWalletVector} style={{ width: '250px' }} />
+                    <div className="payment-success-img">
+                        <img src={openWalletVector} />
                     </div>
-                    <div>
+                    <div className="payment-success-content">
                         <h2>Payment Successful!</h2>
                         <p>
                         Thank you for purchasing <br/>
