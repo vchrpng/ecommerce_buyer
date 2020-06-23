@@ -8,12 +8,14 @@ import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import DeliveryAddress from '../DeliveryAddress'
 import ErrorMessage from '../Etc/ErrorMessage'
 import SubmitMessage from '../SubmitMessage'
+import { totalSelector } from '../../selectors'
+
 
 const lockIcon = require('../../assets/lock.svg')
 const creditCards = require('../../assets/Minimal Credit Card Icons.svg')
 const paypalIcon = require('../../assets/paypal.svg')
 
-const CheckoutForm = ({ submit }) => {
+const CheckoutForm = ({ submit, total }) => {
 
     const [selectedAddress, setSelectedAddress]  = React.useState(null)
     const [isCardComplete, setCardComplete]  = React.useState(null)
@@ -55,22 +57,22 @@ const CheckoutForm = ({ submit }) => {
         if (!isCardComplete || errors.card) {
             return
         } else {
-            alert('wow')
+            const values = deliveryFormData[selectedAddress]
             setPaymentSuccess(true)
-            // submit({
-            //     amount: Number(total) > 0 ? Number(total) : 100,
-            //     source: stripetoken.token.id,
-            //     receipt_email:'stripepayment@gmail.com',
-            //     shipping: {
-            //         name: values.name,
-            //         address: {
-            //             line1: '49/47',
-            //             city: values.city,
-            //             country: values.country,
-            //         },
-            //         phone: values.phone
-            //     }
-            // })
+            submit({
+                amount: Number(total) > 0 ? Number(total) : 100,
+                source: stripetoken.token.id,
+                receipt_email:'stripepayment@gmail.com',
+                shipping: {
+                    name: values.name,
+                    address: {
+                        line1: values.line1,
+                        city: values.city + " " + values.state,
+                        country: values.country,
+                    },
+                    phone: values.phone
+                }
+            })
         }
 
     }
@@ -147,7 +149,8 @@ const CheckoutForm = ({ submit }) => {
 
 
 const mapStateToProps = state => ({
-    order : state.products.checkout
+    order : state.products.checkout,
+    total : totalSelector(state),
 })
 
 

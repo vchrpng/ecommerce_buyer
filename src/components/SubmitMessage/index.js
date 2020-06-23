@@ -32,7 +32,6 @@ const SubmitMessage = ({ isOpen, onClose, size }) => {
 
     function handleClick(e) {
         e.preventDefault()
-        onClose(false)
     }
         return ReactDom.createPortal(
         <SubmitMessageWrapper
@@ -42,7 +41,7 @@ const SubmitMessage = ({ isOpen, onClose, size }) => {
         >
             <div className="box-dialog">
                 <div style={{ float: 'right', padding: '10px', cursor: 'pointer' }}>
-                    <Icon onClick={handleClick} name="close" />
+                    <Icon onClick={() => window.href} name="close" />
                 </div>
                 <div className="box-content">
                     <div className="payment-success-img">
