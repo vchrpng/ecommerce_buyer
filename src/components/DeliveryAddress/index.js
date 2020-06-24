@@ -5,6 +5,11 @@ import ShippingAddressForm from '../ShippingAddressForm'
 import { DeliveryAddressContainer, AddressBox } from './styled'
 import ErrorMessage from '../Etc/ErrorMessage'
 
+const DELIVERY_FORM_ACTIONS = {
+    ADD : 'ADD',
+    EDIT: 'EDIT'
+}
+
 const DeliveryAddress = ({ 
     onSelectAddress, 
     selectedAddress, 
@@ -12,19 +17,38 @@ const DeliveryAddress = ({
     deliveryFormData,
     setDeliveryFormData
  }) => {
-    const [isDeliveryFormOpen, toggleDeliveryForm] = React.useState(false)
+    const [formAction, setFormAction] = React.useState(null)
+    const [defaultValue, setDefaultValue] = React.useState(null)
 
     function removeDeliveryAddress(index) {
         setDeliveryFormData(prev => prev.filter((_,idx) => idx !== index))
     }
 
-    // function editDeliveryAddress(index) {
+    function onAddDeliveryAddress() {
+        setDefaultValue(null)
+        setFormAction(DELIVERY_FORM_ACTIONS.ADD)
+    }
 
-    // }
+    function editDeliveryAddress(index) {
+        setDefaultValue(deliveryFormData[index])
+        setFormAction(DELIVERY_FORM_ACTIONS.EDIT)
+    }
 
-    function addNewDevlieryAddress(newAddress) {
-        setDeliveryFormData(prev => [...prev,newAddress])
-        toggleDeliveryForm(false)
+    function onSubmit(newAddress,index) {
+        switch (formAction) {
+            case DELIVERY_FORM_ACTIONS.EDIT :
+                setDeliveryFormData(prev => [
+                    ...prev.concat(index),
+                    prev[index],
+                    prev.concat(index + 1)
+                ])
+                break
+            case DELIVERY_FORM_ACTIONS.ADD :
+                setDeliveryFormData(prev => [...prev,newAddress])
+                break
+        }
+        setFormAction(null)
+        setDefaultValue(null)
     }
 
 
@@ -45,7 +69,7 @@ const DeliveryAddress = ({
                                         <p>Mobile: {address.phone}</p>
                                     </div>
                                     <div className="address-actions">
-                                        <span><Icon name="edit" /></span>
+                                        <span><Icon onClick={() => editDeliveryAddress(idx)} name="edit" /></span>
                                         {deliveryFormData.length > 1 && 
                                         <span>
                                             <Icon onClick={() => removeDeliveryAddress(idx)} name="remove" />
@@ -58,20 +82,21 @@ const DeliveryAddress = ({
                         <li className="more-address">
                             <div
                                 className="add-address-btn"
-                                onClick={() => toggleDeliveryForm(true)}>
+                                onClick={() => onAddDeliveryAddress()}>
                                 <h5 className="add-address-msg">Add new address</h5>
                             </div>
                         </li>
                     </ul>
                 </div>
-                {isDeliveryFormOpen && 
+                {formAction + ''}
+                {formAction && 
                 <Modal
                     id="modal"
-                    isOpen={isDeliveryFormOpen}
-                    onClose={toggleDeliveryForm}
+                    isOpen={!!formAction}
+                    onClose={() => setFormAction(null)}
                     header="Delivery Address"
                 >
-                    <ShippingAddressForm onSubmit={addNewDevlieryAddress} />
+                    <ShippingAddressForm defaultValue={defaultValue} onSubmit={onSubmit} />
                 </Modal>}
             </DeliveryAddressContainer>
     )
