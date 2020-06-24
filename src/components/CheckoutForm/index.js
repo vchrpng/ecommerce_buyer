@@ -94,10 +94,10 @@ const CheckoutForm = ({ submit, total }) => {
                             <div className="invoice-detail">
                                 <div className="payment-choice">
                                     <PaymentSelector selected={1}>
-                                        <img style={{ width: '125px' }} src={creditCards} />
+                                        <img alt="credit-card" style={{ width: '125px' }} src={creditCards} />
                                     </PaymentSelector>
                                     <PaymentSelector disabled={1}>
-                                        <img style={{ width: '80px' }} src={paypalIcon} />
+                                        <img alt="paypal" style={{ width: '80px' }} src={paypalIcon} />
                                     </PaymentSelector>
                                 </div>
                                 <div className="credit-card">
@@ -135,7 +135,7 @@ const CheckoutForm = ({ submit, total }) => {
                             <CheckoutNavigate />
                             <div className="pay-button">
                                 <ProceedPayment type="submit">
-                                    <img className="secure-icon" src={lockIcon} />
+                                    <img alt="secure-icon" className="secure-icon" src={lockIcon} />
                                     <h3>{`Pay now`}</h3>
                                 </ProceedPayment>
                             </div>

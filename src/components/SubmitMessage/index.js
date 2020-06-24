@@ -45,7 +45,7 @@ const SubmitMessage = ({ isOpen, onClose, size }) => {
                 </div>
                 <div className="box-content">
                     <div className="payment-success-img">
-                        <img src={openWalletVector} />
+                        <img alt="open-wallet-vector" src={openWalletVector} />
                     </div>
                     <div className="payment-success-content">
                         <h2>Payment Successful!</h2>

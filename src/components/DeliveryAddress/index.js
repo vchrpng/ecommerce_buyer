@@ -18,9 +18,9 @@ const DeliveryAddress = ({
         setDeliveryFormData(prev => prev.filter((_,idx) => idx !== index))
     }
 
-    function editDeliveryAddress(index) {
+    // function editDeliveryAddress(index) {
 
-    }
+    // }
 
     function addNewDevlieryAddress(newAddress) {
         setDeliveryFormData(prev => [...prev,newAddress])
