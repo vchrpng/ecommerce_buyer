@@ -28,20 +28,20 @@ import schema from './validate'
  
  `
 
-const ShippingAddressForm = ({ onSubmit }) => {
+const ShippingAddressForm = ({ onSubmit, defaultValue }) => {
 
     return (
         <Formik
             validationSchema={schema}
             onSubmit={(values) => onSubmit(values)}
-            initialValues={{
-                name:'joe',
-                phone:'092039120',
-                type: 'Work',
-                province: 'bkk',
-                line1: '543 Amherst Street',
-                city: 'Nashua',
-                state: 'New Hampshire',
+            initialValues={defaultValue || {
+                name:'',
+                phone:'',
+                type: '',
+                province: '',
+                line1: '',
+                city: '',
+                state: 'New York',
                 country: 'United States',
             }}
         >
