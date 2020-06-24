@@ -30,10 +30,15 @@ const SubmitMessage = ({ isOpen, onClose, size }) => {
         }
     }
 
+    const [loaded, setLoaded] = React.useState(false);
+    function onLoad() {
+        setLoaded(true);
+    }
+
     function handleClick(e) {
         e.preventDefault()
     }
-        return ReactDom.createPortal(
+        return  ReactDom.createPortal(
         <SubmitMessageWrapper
             verticalHeight={window.pageYOffset}
             SubmitMessageSize={size}
@@ -45,8 +50,9 @@ const SubmitMessage = ({ isOpen, onClose, size }) => {
                 </div>
                 <div className="box-content">
                     <div className="payment-success-img">
-                        <img alt="open-wallet-vector" src={openWalletVector} />
+                        <img onLoad={onLoad} alt="open-wallet-vector" src={openWalletVector} />
                     </div>
+                    {!loaded ? <h1>LOADING</h1> : 
                     <div className="payment-success-content">
                         <h2>Payment Successful!</h2>
                         <p>
@@ -54,7 +60,7 @@ const SubmitMessage = ({ isOpen, onClose, size }) => {
                         Your payment was successful.
                         </p>
                         <a href="http://localhost:3000">Back to shopping</a>
-                    </div>
+                    </div>}
                 </div>
             </div>
             <div
