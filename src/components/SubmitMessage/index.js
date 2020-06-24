@@ -47,21 +47,20 @@ const SubmitMessage = ({ isOpen, onClose, size }) => {
         >
             <div className="box-dialog">
                 <div style={{ float: 'right', padding: '10px', cursor: 'pointer' }}>
-                    <Icon onClick={() => window.href} name="close" />
+                    <Icon onClick={() => window.location.href = ('http://localhost:3000')} name="close" />
                 </div>
                 <div className="box-content">
                     <div className="payment-success-img">
                         <img onLoad={onLoad} alt="open-wallet-vector" src={openWalletVector} />
                     </div>
                     <div className="payment-success-content">
-                        {!loaded ? <Loader
-                                        type="Oval"
-                                        color="#000000"
-                                        height={20}
-                                        width={20}
-                                        timeout={3000} //3 secs
-
-                                    /> : 
+                        {!loaded ? 
+                            <Loader
+                                type="Oval"
+                                color="#000000"
+                                height={50}
+                                width={50}
+                            /> : 
                         <React.Fragment>
                         <h2>Payment Successful!</h2>
                         <p>
