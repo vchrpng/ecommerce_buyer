@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import schema from './validate'
  import { InputText } from '../Etc/Checkout'
- import CountryList from './country-list'
+ import { Select, CountryList } from './country-list'
  import { ProceedPayment } from '../Etc/Reusable'
  import { Form, Formik, ErrorMessage } from 'formik'
 
@@ -61,17 +61,17 @@ const ShippingAddressForm = ({ onSubmit }) => {
                             type={'text'}
                         />
                         <div className="input-group">
-                                <ErrorMessage name="city"/>
-                                <InputText name={'city'}
-                                    placeholder={'City'}
-                                    type={'text'} 
-                                />
-                                <ErrorMessage name="province"/>
-                                <InputText
-                                    name={'province'}
-                                    placeholder={'Province'}
-                                    type={'text'}
-                                />
+                            <ErrorMessage name="city"/>
+                            <InputText name={'city'}
+                                placeholder={'City'}
+                                type={'text'} 
+                            />
+                            <ErrorMessage name="province"/>
+                            <InputText
+                                name={'province'}
+                                placeholder={'Province'}
+                                type={'text'}
+                            />
                         </div>
                         <ErrorMessage name="line1"/>
                         <InputText  
@@ -85,7 +85,9 @@ const ShippingAddressForm = ({ onSubmit }) => {
                                type={'text'}
                            /> */}
                         <div className="country-list-selector">
-                            <CountryList/>
+                            <Select as="select" name="country" >
+                                <CountryList/>
+                            </Select>
                         </div>
                     </section>
                     <section>
