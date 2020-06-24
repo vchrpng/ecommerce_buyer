@@ -52,15 +52,18 @@ const SubmitMessage = ({ isOpen, onClose, size }) => {
                     <div className="payment-success-img">
                         <img onLoad={onLoad} alt="open-wallet-vector" src={openWalletVector} />
                     </div>
-                    {!loaded ? <h1>LOADING</h1> : 
                     <div className="payment-success-content">
+                        {!loaded ? <h1>LOADING</h1> : 
+                        <React.Fragment>
                         <h2>Payment Successful!</h2>
                         <p>
                         Thank you for purchasing <br/>
                         Your payment was successful.
                         </p>
                         <a href="http://localhost:3000">Back to shopping</a>
-                    </div>}
+                        </React.Fragment>
+                        }
+                    </div>
                 </div>
             </div>
             <div
