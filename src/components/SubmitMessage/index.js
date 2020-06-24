@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDom from "react-dom"
 import { SubmitMessageWrapper } from "./style"
+import Loader from 'react-loader-spinner'
 import { Icon } from 'semantic-ui-react'
 
 const openWalletVector = require('../../assets/open-wallet.jpg')
@@ -53,7 +54,14 @@ const SubmitMessage = ({ isOpen, onClose, size }) => {
                         <img onLoad={onLoad} alt="open-wallet-vector" src={openWalletVector} />
                     </div>
                     <div className="payment-success-content">
-                        {!loaded ? <h1>LOADING</h1> : 
+                        {!loaded ? <Loader
+                                        type="Oval"
+                                        color="#000000"
+                                        height={20}
+                                        width={20}
+                                        timeout={3000} //3 secs
+
+                                    /> : 
                         <React.Fragment>
                         <h2>Payment Successful!</h2>
                         <p>
