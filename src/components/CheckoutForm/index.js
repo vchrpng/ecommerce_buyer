@@ -7,6 +7,7 @@ import { OrderFormContainer, PaymentSelector } from './styled'
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import DeliveryAddress from '../DeliveryAddress'
 import ErrorMessage from '../Etc/ErrorMessage'
+import Loader from 'react-loader-spinner'
 import SubmitMessage from '../SubmitMessage'
 import { totalSelector } from '../../selectors'
 
@@ -44,7 +45,6 @@ const CheckoutForm = ({ submit, total }) => {
 
 
     async function onSubmit(e) {
-        setLoading(true)
         e.preventDefault()
         if (!selectedAddress && !deliveryFormData.length) {
             setErrors(errors => ({ ...errors, address: 'Please select any address.' }))
@@ -59,8 +59,8 @@ const CheckoutForm = ({ submit, total }) => {
         if (!isCardComplete || errors.card) {
             return
         } else {
+            setLoading(true)
             const values = deliveryFormData[selectedAddress]
-            setPaymentSuccess(true)
             try {
                 await submit({
                     amount: Number(total) > 0 ? Number(total) : 100,
@@ -76,7 +76,8 @@ const CheckoutForm = ({ submit, total }) => {
                         phone: values.phone
                     }
                 })
-                setLoading(false) 
+                setLoading(false)
+                setPaymentSuccess(true)
             } catch(err) {
                 alert('error')
             }
@@ -142,8 +143,18 @@ const CheckoutForm = ({ submit, total }) => {
                             <CheckoutNavigate />
                             <div className="pay-button">
                                 <ProceedPayment disabled={loading} type="submit">
-                                    <img alt="secure-icon" className="secure-icon" src={lockIcon} />
-                                    <h3>{`Pay now`}</h3>
+                                    {loading ? <Loader
+                                        type="Oval"
+                                        color="#ffffff"
+                                        height={20}
+                                        width={20}
+                                        timeout={3000} //3 secs
+
+                                    /> : <React.Fragment>
+                                            <img alt="secure-icon" className="secure-icon" src={lockIcon} />
+                                            <h3>{`Pay now`}</h3>
+                                        </React.Fragment>}
+                                   
                                 </ProceedPayment>
                             </div>
                         </section>
