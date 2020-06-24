@@ -21,6 +21,7 @@ const CheckoutForm = ({ submit, total }) => {
     const [isCardComplete, setCardComplete]  = React.useState(null)
     const [deliveryFormData, setDeliveryFormData] = React.useState([])
     const [isPaymentSuccess, setPaymentSuccess] = React.useState(false)
+    const [loading, setLoading] = React.useState(false)
 
     const [errors, setErrors] = React.useState({ 
         address: null,
@@ -43,6 +44,7 @@ const CheckoutForm = ({ submit, total }) => {
 
 
     async function onSubmit(e) {
+        setLoading(true)
         e.preventDefault()
         if (!selectedAddress && !deliveryFormData.length) {
             setErrors(errors => ({ ...errors, address: 'Please select any address.' }))
@@ -59,26 +61,31 @@ const CheckoutForm = ({ submit, total }) => {
         } else {
             const values = deliveryFormData[selectedAddress]
             setPaymentSuccess(true)
-            submit({
-                amount: Number(total) > 0 ? Number(total) : 100,
-                source: stripetoken.token.id,
-                receipt_email:'stripepayment@gmail.com',
-                shipping: {
-                    name: values.name,
-                    address: {
-                        line1: values.line1,
-                        city: values.city + " " + values.state,
-                        country: values.country,
-                    },
-                    phone: values.phone
-                }
-            })
+            try {
+                await submit({
+                    amount: Number(total) > 0 ? Number(total) : 100,
+                    source: stripetoken.token.id,
+                    receipt_email:'stripepayment@gmail.com',
+                    shipping: {
+                        name: values.name,
+                        address: {
+                            line1: values.line1,
+                            city: values.city + " " + values.state,
+                            country: values.country,
+                        },
+                        phone: values.phone
+                    }
+                })
+                setLoading(false) 
+            } catch(err) {
+                alert('error')
+            }
         }
 
     }
 
     return (
-                <OrderFormContainer isCardComplete={isCardComplete} errors={errors} onSubmit={onSubmit}>
+                <OrderFormContainer loading={loading} isCardComplete={isCardComplete} errors={errors} onSubmit={onSubmit}>
                     <div className="checkout-form-layout">
                             <h3>Select Delivery Address</h3>
                             <h5>Select or add an address</h5>
@@ -134,14 +141,14 @@ const CheckoutForm = ({ submit, total }) => {
                         <section className="confirm-payment">
                             <CheckoutNavigate />
                             <div className="pay-button">
-                                <ProceedPayment type="submit">
+                                <ProceedPayment disabled={loading} type="submit">
                                     <img alt="secure-icon" className="secure-icon" src={lockIcon} />
                                     <h3>{`Pay now`}</h3>
                                 </ProceedPayment>
                             </div>
                         </section>
                     </div>
-                    {isPaymentSuccess && 
+                    {isPaymentSuccess &&
                     <SubmitMessage onClose={setPaymentSuccess} />}
                 </OrderFormContainer>
     )
