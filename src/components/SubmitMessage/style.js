@@ -48,7 +48,8 @@ export const SubmitMessageWrapper = styled.div`
                 justify-content:center;
                 
                 img {
-                    width: 250px;
+                    width: auto;
+                    height: 180px;
                 }
             }
 
