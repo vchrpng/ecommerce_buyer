@@ -1,5 +1,6 @@
 import React from "react"
 import ReactDom from "react-dom"
+import { Link } from 'react-router-dom'
 import { SubmitMessageWrapper } from "./style"
 import Loader from 'react-loader-spinner'
 import { Icon } from 'semantic-ui-react'
@@ -47,7 +48,9 @@ const SubmitMessage = ({ isOpen, onClose, size }) => {
         >
             <div className="box-dialog">
                 <div style={{ float: 'right', padding: '10px', cursor: 'pointer' }}>
-                    <Icon onClick={() => window.location.href = ('https://ecommerce-stripe-react.netlify.app/')} name="close" />
+                    <Link to="/">
+                        <Icon name="close" />
+                    </Link>
                 </div>
                 <div className="box-content">
                     <div className="payment-success-img">
@@ -67,7 +70,7 @@ const SubmitMessage = ({ isOpen, onClose, size }) => {
                         Thank you for purchasing <br/>
                         Your payment was successful.
                         </p>
-                        <a href="https://ecommerce-stripe-react.netlify.app/">Back to shopping</a>
+                        <Link to="/">Back to shopping</Link>
                         </React.Fragment>
                         }
                     </div>
