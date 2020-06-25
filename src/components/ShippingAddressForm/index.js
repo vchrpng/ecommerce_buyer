@@ -11,7 +11,9 @@ import schema from './validate'
     padding: 0 60px;
 
     .shipping-destination {
-
+        .error-msg {
+            position:absolute;
+        }
         .input-group {
             display:flex;
             > input {
@@ -50,40 +52,54 @@ const ShippingAddressForm = ({ onSubmit, defaultValue }) => {
                 <div className="checkout-box">
                     <section className="shipping-destination">
                         <h3>{defaultValue ? 'Edit' : 'New'} Delivery Address</h3>
-                        <span className="error-msg"><ErrorMessage name="type"/></span>
-                        <InputText name={'type'}
-                            placeholder={'Address type'}
-                            type={'text'}
-                        />
-                        <span className="error-msg"><ErrorMessage name="name"/></span>
-                        <InputText name={'name'}
-                            placeholder={'Full name'}
-                            type={'text'}
-                        />
-                        <span className="error-msg"><ErrorMessage name="phone"/></span>
-                        <InputText name={'phone'}
-                            placeholder={'Phone'}
-                            type={'text'}
-                        />
-                        <div className="input-group">
-                            <span className="error-msg"><ErrorMessage name="city"/></span>
-                            <InputText name={'city'}
-                                placeholder={'City'}
-                                type={'text'} 
-                            />
-                            <span className="error-msg"><ErrorMessage name="province"/></span>
-                            <InputText
-                                name={'province'}
-                                placeholder={'Province'}
+                        <div className="input">
+                            <span className="error-msg"><ErrorMessage name="type"/></span>
+                            <InputText name={'type'}
+                                placeholder={'Address type'}
                                 type={'text'}
                             />
                         </div>
-                        <span className="error-msg"><ErrorMessage name="line1"/></span>
-                        <InputText  
-                            name={'line1'}
-                            placeholder={'Address Line'}
-                            type={'text'}
-                        />
+                        <div className="input">
+                            <span className="error-msg"><ErrorMessage name="name"/></span>
+                            <InputText name={'name'}
+                                placeholder={'Full name'}
+                                type={'text'}
+                            />
+                        </div>
+                        <div className="input">
+                            <span className="error-msg"><ErrorMessage name="phone"/></span>
+                            <InputText name={'phone'}
+                                placeholder={'Phone'}
+                                type={'text'}
+                            />
+                        </div>
+                        
+                        <div className="input-group">
+                            <div className="input">
+                                <span className="error-msg"><ErrorMessage name="city"/></span>
+                                <InputText name={'city'}
+                                    placeholder={'City'}
+                                    type={'text'} 
+                                />
+                            </div>
+                            <div className="input">
+                                <span className="error-msg"><ErrorMessage name="province"/></span>
+                                <InputText
+                                    name={'province'}
+                                    placeholder={'Province'}
+                                    type={'text'}
+                                />
+                            </div>
+                        </div>
+                            
+                        <div className="input">
+                            <span className="error-msg"><ErrorMessage name="line1"/></span>
+                            <InputText  
+                                name={'line1'}
+                                placeholder={'Address Line'}
+                                type={'text'}
+                            />
+                        </div>
                            {/* <InputText 
                                name={'country'}
                                placeholder={'Country'}
