@@ -1,6 +1,10 @@
 import * as Yup from 'yup'
 
 const schema = Yup.object().shape({
+    type: Yup.string()
+        .min(2, 'Name is too short!')
+        .max(50, 'Name is too long!')
+        .required('Required'),
     name: Yup.string()
         .min(2, 'Name is too short!')
         .max(50, 'Name is too long!')
