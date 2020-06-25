@@ -49,7 +49,7 @@ class SignupForm extends Component {
     render() {
         const { data , errors , loading } = this.state
         return (
-            <Form loading={loading} onSubmit={this.onSubmit} >
+            <Form loading={loading ? 1 : 0} onSubmit={this.onSubmit} >
                 <Form.Field>
                     <Label>Email</Label>
                     <InputText

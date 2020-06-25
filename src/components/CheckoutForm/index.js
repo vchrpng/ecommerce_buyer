@@ -86,7 +86,7 @@ const CheckoutForm = ({ submit, total }) => {
     }
 
     return (
-                <OrderFormContainer loading={loading} isCardComplete={isCardComplete} errors={errors} onSubmit={onSubmit}>
+                <OrderFormContainer loading={loading ? 1 : 0} isCardComplete={isCardComplete} errors={errors} onSubmit={onSubmit}>
                     <div className="checkout-form-layout">
                             <h3>Select Delivery Address</h3>
                             <h5>Select or add an address</h5>
@@ -142,7 +142,7 @@ const CheckoutForm = ({ submit, total }) => {
                         <section className="confirm-payment">
                             <CheckoutNavigate />
                             <div className="pay-button">
-                                <ProceedPayment disabled={loading} type="submit">
+                                <ProceedPayment disabled={loading ? 1 : 0} type="submit">
                                     {loading ? <Loader
                                         type="Oval"
                                         color="#ffffff"
