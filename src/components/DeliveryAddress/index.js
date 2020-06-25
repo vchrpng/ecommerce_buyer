@@ -46,6 +46,8 @@ const DeliveryAddress = ({
             case DELIVERY_FORM_ACTIONS.ADD :
                 setDeliveryFormData(prev => [...prev,newAddress])
                 break
+            default :
+                break
         }
         setFormAction(null)
         setDefaultValue(null)
