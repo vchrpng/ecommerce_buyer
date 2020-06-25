@@ -38,10 +38,11 @@ const DeliveryAddress = ({
         switch (formAction) {
             case DELIVERY_FORM_ACTIONS.EDIT :
                 setDeliveryFormData(prev => [
-                    ...prev.concat(index),
-                    prev[index],
-                    prev.concat(index + 1)
+                    ...prev.slice(0, index),
+                    newAddress,
+                    ...prev.slice(index + 1),
                 ])
+
                 break
             case DELIVERY_FORM_ACTIONS.ADD :
                 setDeliveryFormData(prev => [...prev,newAddress])
@@ -90,7 +91,6 @@ const DeliveryAddress = ({
                         </li>
                     </ul>
                 </div>
-                {formAction + ''}
                 {formAction && 
                 <Modal
                     id="modal"
