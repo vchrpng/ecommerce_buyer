@@ -22,6 +22,10 @@ export const AddressBox = styled.li`
         
         .address-type {
             margin-bottom:5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 20px;
         }
         .address-information {
                 display:flex;
