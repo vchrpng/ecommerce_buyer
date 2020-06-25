@@ -47,7 +47,7 @@ const SubmitMessage = ({ isOpen, onClose, size }) => {
         >
             <div className="box-dialog">
                 <div style={{ float: 'right', padding: '10px', cursor: 'pointer' }}>
-                    <Icon onClick={() => window.location.href = ('http://localhost:3000')} name="close" />
+                    <Icon onClick={() => window.location.href = ('https://ecommerce-stripe-react.netlify.app/')} name="close" />
                 </div>
                 <div className="box-content">
                     <div className="payment-success-img">
@@ -67,7 +67,7 @@ const SubmitMessage = ({ isOpen, onClose, size }) => {
                         Thank you for purchasing <br/>
                         Your payment was successful.
                         </p>
-                        <a href="http://localhost:3000">Back to shopping</a>
+                        <a href="https://ecommerce-stripe-react.netlify.app/">Back to shopping</a>
                         </React.Fragment>
                         }
                     </div>
