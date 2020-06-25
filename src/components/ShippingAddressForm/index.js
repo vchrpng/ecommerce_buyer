@@ -50,30 +50,35 @@ const ShippingAddressForm = ({ onSubmit, defaultValue }) => {
                 <div className="checkout-box">
                     <section className="shipping-destination">
                         <h3>{defaultValue ? 'Edit' : 'New'} Delivery Address</h3>
-                        <ErrorMessage name="name"/>
+                        <span className="error-msg"><ErrorMessage name="type"/></span>
+                        <InputText name={'type'}
+                            placeholder={'Address type'}
+                            type={'text'}
+                        />
+                        <span className="error-msg"><ErrorMessage name="name"/></span>
                         <InputText name={'name'}
                             placeholder={'Full name'}
                             type={'text'}
                         />
-                        <ErrorMessage name="phone"/>
+                        <span className="error-msg"><ErrorMessage name="phone"/></span>
                         <InputText name={'phone'}
                             placeholder={'Phone'}
                             type={'text'}
                         />
                         <div className="input-group">
-                            <ErrorMessage name="city"/>
+                            <span className="error-msg"><ErrorMessage name="city"/></span>
                             <InputText name={'city'}
                                 placeholder={'City'}
                                 type={'text'} 
                             />
-                            <ErrorMessage name="province"/>
+                            <span className="error-msg"><ErrorMessage name="province"/></span>
                             <InputText
                                 name={'province'}
                                 placeholder={'Province'}
                                 type={'text'}
                             />
                         </div>
-                        <ErrorMessage name="line1"/>
+                        <span className="error-msg"><ErrorMessage name="line1"/></span>
                         <InputText  
                             name={'line1'}
                             placeholder={'Address Line'}
