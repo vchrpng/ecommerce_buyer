@@ -49,7 +49,7 @@ const ShippingAddressForm = ({ onSubmit, defaultValue }) => {
                 <ShippingAddressFormContainer>
                 <div className="checkout-box">
                     <section className="shipping-destination">
-                        <h3>New Delivery Address</h3>
+                        <h3>{defaultValue ? 'Edit' : 'New'} Delivery Address</h3>
                         <ErrorMessage name="name"/>
                         <InputText name={'name'}
                             placeholder={'Full name'}
