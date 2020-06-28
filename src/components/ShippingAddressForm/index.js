@@ -4,6 +4,7 @@ import schema from './validate'
  import { InputText } from '../Etc/Checkout'
  import { Select, CountryList } from './country-list'
  import { ProceedPayment } from '../Etc/Reusable'
+ import { ErrorMessageStyle } from '../Etc/ErrorMessage'
  import { Form, Formik, ErrorMessage } from 'formik'
 
 
@@ -11,9 +12,15 @@ import schema from './validate'
     padding: 0 60px;
 
     .shipping-destination {
-        .error-msg {
-            position:absolute;
+        .input {
+            position:relative;
+
+            .error-msg {
+                position:absolute;
+                color:red;
+            }
         }
+
         .input-group {
             display:flex;
             > input {
@@ -53,21 +60,21 @@ const ShippingAddressForm = ({ onSubmit, defaultValue }) => {
                     <section className="shipping-destination">
                         <h3>{defaultValue ? 'Edit' : 'New'} Delivery Address</h3>
                         <div className="input">
-                            <span className="error-msg"><ErrorMessage name="type"/></span>
+                            <ErrorMessage component={ErrorMessageStyle} name="type"/>
                             <InputText name={'type'}
                                 placeholder={'Address type'}
                                 type={'text'}
                             />
                         </div>
                         <div className="input">
-                            <span className="error-msg"><ErrorMessage name="name"/></span>
+                            <ErrorMessage component={ErrorMessageStyle} name="name"/>
                             <InputText name={'name'}
                                 placeholder={'Full name'}
                                 type={'text'}
                             />
                         </div>
                         <div className="input">
-                            <span className="error-msg"><ErrorMessage name="phone"/></span>
+                            <ErrorMessage component={ErrorMessageStyle} name="phone"/>
                             <InputText name={'phone'}
                                 placeholder={'Phone'}
                                 type={'text'}
@@ -76,14 +83,14 @@ const ShippingAddressForm = ({ onSubmit, defaultValue }) => {
                         
                         <div className="input-group">
                             <div className="input">
-                                <span className="error-msg"><ErrorMessage name="city"/></span>
+                                <ErrorMessage component={ErrorMessageStyle} name="city"/>
                                 <InputText name={'city'}
                                     placeholder={'City'}
                                     type={'text'} 
                                 />
                             </div>
                             <div className="input">
-                                <span className="error-msg"><ErrorMessage name="province"/></span>
+                                <ErrorMessage component={ErrorMessageStyle} name="province"/>
                                 <InputText
                                     name={'province'}
                                     placeholder={'Province'}
@@ -93,7 +100,7 @@ const ShippingAddressForm = ({ onSubmit, defaultValue }) => {
                         </div>
                             
                         <div className="input">
-                            <span className="error-msg"><ErrorMessage name="line1"/></span>
+                            <ErrorMessage component={ErrorMessageStyle} name="line1"/>
                             <InputText  
                                 name={'line1'}
                                 placeholder={'Address Line'}
