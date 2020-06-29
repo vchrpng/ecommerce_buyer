@@ -47,10 +47,9 @@ const ShippingAddressForm = ({ onSubmit, defaultValue }) => {
                 name:'',
                 phone:'',
                 type: '',
-                province: '',
                 line1: '',
                 city: '',
-                state: 'New York',
+                state: '',
                 country: 'United States',
             }}
         >
@@ -90,10 +89,10 @@ const ShippingAddressForm = ({ onSubmit, defaultValue }) => {
                                 />
                             </div>
                             <div className="input">
-                                <ErrorMessage component={ErrorMessageStyle} name="province"/>
+                                <ErrorMessage component={ErrorMessageStyle} name="state"/>
                                 <InputText
-                                    name={'province'}
-                                    placeholder={'Province'}
+                                    name={'state'}
+                                    placeholder={'State'}
                                     type={'text'}
                                 />
                             </div>
