@@ -106,13 +106,8 @@ const ShippingAddressForm = ({ onSubmit, defaultValue }) => {
                                 type={'text'}
                             />
                         </div>
-                           {/* <InputText 
-                               name={'country'}
-                               placeholder={'Country'}
-                               type={'text'}
-                           /> */}
                         <div className="country-list-selector">
-                            <Select as="select" name="country" >
+                            <Select component="select" name="country" >
                                 <CountryList/>
                             </Select>
                         </div>
