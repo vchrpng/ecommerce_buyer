@@ -14,10 +14,6 @@ export const AddressBox = styled.li`
     cursor: pointer;
     transition:.3s;
 
-    &:hover {
-        border: 2px solid cornflowerblue; 
-    }
-
 
     .address-box-background {
         p {
@@ -113,7 +109,7 @@ export const DeliveryAddressContainer = styled.section`
                     
 
                     .add-address-msg {
-                        color: rgb(0,0,0,0.3);
+                        color:  ${props => props.error ? '#9e2146' : 'rgb(0,0,0,0.3)'};
                         margin-top:5px;
                     }
 
