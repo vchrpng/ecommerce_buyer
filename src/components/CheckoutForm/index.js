@@ -108,6 +108,9 @@ const CheckoutForm = ({ submit, total }) => {
                                         <img alt="paypal" style={{ width: '80px' }} src={paypalIcon} />
                                     </PaymentSelector>
                                 </div>
+                                <div className="card-number-demo">
+                                    <span>Card number for demo : 4242 4242 4242 4242</span>
+                                </div>
                                 <div className="credit-card">
                                     {errors.card && <ErrorMessage>{errors.card}</ErrorMessage>}
                                     <CardElement  onChange={(e) => {
