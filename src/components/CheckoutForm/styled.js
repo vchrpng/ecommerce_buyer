@@ -83,6 +83,11 @@ export const OrderFormContainer = styled.form`
     
                     }
 
+                    .card-number-demo {
+                        color: lightgray;
+                        font-size: 12px
+                    }
+
                     .credit-card {
                         transition:.3s;
                         background-color:#ffffff;

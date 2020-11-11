@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Field } from 'formik'
 
 
-const Select = styled(Field)`
+export const Select = styled(Field)`
     width: 100%;
     height: 45px;
     padding: 0 11px;
@@ -13,9 +13,9 @@ const Select = styled(Field)`
 
 `
 
-const CountryList = () => {
+export const CountryList = () => {
     return (
-        <Select as="select" id="country" name="country">
+            <React.Fragment>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
@@ -260,9 +260,7 @@ const CountryList = () => {
                 <option value="Yemen">Yemen</option>
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
-            </Select>
+                </React.Fragment>
     )
 }
 
-
-export default CountryList

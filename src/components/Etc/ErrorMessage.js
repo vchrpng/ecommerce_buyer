@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ErrorMessageStyle = styled.span`
+export const ErrorMessageStyle = styled.span`
     position: absolute;
     background: #9e2146;
     color: white;

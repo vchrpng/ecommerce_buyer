@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import styled from 'styled-components'
 import GlobalStyled from '../globalStyled'
 import ShoppingBag from './ShoppingBag'

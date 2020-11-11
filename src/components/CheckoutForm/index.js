@@ -7,16 +7,22 @@ import { OrderFormContainer, PaymentSelector } from './styled'
 import { CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import DeliveryAddress from '../DeliveryAddress'
 import ErrorMessage from '../Etc/ErrorMessage'
+import Loader from 'react-loader-spinner'
+import SubmitMessage from '../SubmitMessage'
+import { totalSelector } from '../../selectors'
+
 
 const lockIcon = require('../../assets/lock.svg')
 const creditCards = require('../../assets/Minimal Credit Card Icons.svg')
 const paypalIcon = require('../../assets/paypal.svg')
 
-const CheckoutForm = ({ submit }) => {
+const CheckoutForm = ({ submit, total }) => {
 
     const [selectedAddress, setSelectedAddress]  = React.useState(null)
     const [isCardComplete, setCardComplete]  = React.useState(null)
     const [deliveryFormData, setDeliveryFormData] = React.useState([])
+    const [isPaymentSuccess, setPaymentSuccess] = React.useState(false)
+    const [loading, setLoading] = React.useState(false)
 
     const [errors, setErrors] = React.useState({ 
         address: null,
@@ -53,27 +59,34 @@ const CheckoutForm = ({ submit }) => {
         if (!isCardComplete || errors.card) {
             return
         } else {
-            alert('wow')
-            // submit({
-            //     amount: Number(total) > 0 ? Number(total) : 100,
-            //     source: stripetoken.token.id,
-            //     receipt_email:'stripepayment@gmail.com',
-            //     shipping: {
-            //         name: values.name,
-            //         address: {
-            //             line1: '49/47',
-            //             city: values.city,
-            //             country: values.country,
-            //         },
-            //         phone: values.phone
-            //     }
-            // })
+            setLoading(true)
+            const values = deliveryFormData[selectedAddress]
+            try {
+                await submit({
+                    amount: Number(total) > 0 ? Number(total) : 100,
+                    source: stripetoken.token.id,
+                    receipt_email:'stripepayment@gmail.com',
+                    shipping: {
+                        name: values.name,
+                        address: {
+                            line1: values.line1,
+                            city: values.city + " " + values.state,
+                            country: values.country,
+                        },
+                        phone: values.phone
+                    }
+                })
+                setLoading(false)
+                setPaymentSuccess(true)
+            } catch(err) {
+                alert('error')
+            }
         }
 
     }
 
     return (
-                <OrderFormContainer isCardComplete={isCardComplete} errors={errors} onSubmit={onSubmit}>
+                <OrderFormContainer loading={loading ? 1 : 0} isCardComplete={isCardComplete} errors={errors} onSubmit={onSubmit}>
                     <div className="checkout-form-layout">
                             <h3>Select Delivery Address</h3>
                             <h5>Select or add an address</h5>
@@ -89,11 +102,14 @@ const CheckoutForm = ({ submit }) => {
                             <div className="invoice-detail">
                                 <div className="payment-choice">
                                     <PaymentSelector selected={1}>
-                                        <img style={{ width: '125px' }} src={creditCards} />
+                                        <img alt="credit-card" style={{ width: '125px' }} src={creditCards} />
                                     </PaymentSelector>
                                     <PaymentSelector disabled={1}>
-                                        <img style={{ width: '80px' }} src={paypalIcon} />
+                                        <img alt="paypal" style={{ width: '80px' }} src={paypalIcon} />
                                     </PaymentSelector>
+                                </div>
+                                <div className="card-number-demo">
+                                    <span>Card number for demo : 4242 4242 4242 4242</span>
                                 </div>
                                 <div className="credit-card">
                                     {errors.card && <ErrorMessage>{errors.card}</ErrorMessage>}
@@ -129,20 +145,33 @@ const CheckoutForm = ({ submit }) => {
                         <section className="confirm-payment">
                             <CheckoutNavigate />
                             <div className="pay-button">
-                                <ProceedPayment type="submit">
-                                    <img className="secure-icon" src={lockIcon} />
-                                    <h3>{`Pay now`}</h3>
+                                <ProceedPayment disabled={loading ? 1 : 0} type="submit">
+                                    {loading ? <Loader
+                                        type="Oval"
+                                        color="#ffffff"
+                                        height={20}
+                                        width={20}
+                                        timeout={3000} //3 secs
+
+                                    /> : <React.Fragment>
+                                            <img alt="secure-icon" className="secure-icon" src={lockIcon} />
+                                            <h3>{`Pay now`}</h3>
+                                        </React.Fragment>}
+                                   
                                 </ProceedPayment>
                             </div>
                         </section>
                     </div>
+                    {isPaymentSuccess &&
+                    <SubmitMessage onClose={setPaymentSuccess} />}
                 </OrderFormContainer>
     )
 }
 
 
 const mapStateToProps = state => ({
-    order : state.products.checkout
+    order : state.products.checkout,
+    total : totalSelector(state),
 })
 
 

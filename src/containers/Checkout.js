@@ -15,7 +15,7 @@ const CheckOutPageContainer = styled.div`
     max-width: 800px;
     display: flex;
     justify-content: center;
-    margin-top: 130px;
+    margin-top: 8vh;
     border-radius:20px;
     box-shadow: 0px 0px 26px -8px rgba(0,0,0,0.75);
 

@@ -22,6 +22,10 @@ export const AddressBox = styled.li`
         
         .address-type {
             margin-bottom:5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 20px;
         }
         .address-information {
                 display:flex;
@@ -102,8 +106,18 @@ export const DeliveryAddressContainer = styled.section`
                     cursor:pointer;
                     position:relative;
 
+                    
+
                     .add-address-msg {
+                        color:  ${props => props.error ? '#9e2146' : 'rgb(0,0,0,0.3)'};
                         margin-top:5px;
+                    }
+
+                    &:hover {
+                        .add-address-msg {
+                            color: cornflowerblue;
+                        }
+                        border: 2px solid cornflowerblue; 
                     }
 
 

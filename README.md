@@ -1,9 +1,11 @@
 
 # React E-commerce Clone
-  This project was made since studying in college to improving my skills about MERN stack and some popular libraries.
+  This project was made since studying in college to improving my skills in the latest technologies stack and some popular libraries.
+  See the live demo [here](https://ecommerce-stripe-react.netlify.app/).
 
-# Sync Site
-  Another site that was using the same database as this site is here.
+# Backend Repository
+
+Checkout backend Node.js repository [here](https://github.com/vchrpng/ecommerce_backend)
 
 # Technologies
   - React
