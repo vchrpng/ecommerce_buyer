@@ -12,6 +12,14 @@ import BeatLoader from "react-spinners/BeatLoader";
 const CustomerShopContainer = styled.main`
     max-width: 1010px;
     margin: 0 auto;
+
+    .loader-wrapper {
+        width: 100%;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 `
 
 
@@ -31,7 +39,7 @@ const Shop = ({ products }) => {
                         product={product}/>
                         )}
                     </DisplayGrid> :
-                    <div style={{ width: '100%', height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}> 
+                    <div className="loader-wrapper"> 
                         <BeatLoader
                             size={20}
                             color={"#333333"}
